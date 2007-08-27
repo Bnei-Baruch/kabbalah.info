@@ -1,0 +1,32 @@
+<h1>Listing videos</h1>
+
+<table border="1">
+  <thead>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Category</th>
+    <th>Short Description</th>
+    <th>Description</th>
+    <th>Thumbnail</th>
+    <th colspan="3">Actions</th>
+  </thead>
+  
+<% for video in @videos %>
+  <tr>
+    <td><%= video.id%></td>
+    <td><%= video.title%></td>
+    <td><%= video.category.title%></td>
+    <td><%= video.short_description%></td>
+    <td><%= video.description%></td>
+    <td> <img src="<%= thumbnail_video_url(video)%>" /> </td>
+
+    <td><%= link_to 'Show', video_path(video) %></td>
+    <td><%= link_to 'Edit', edit_video_path(video) %></td>
+    <td><%= link_to 'Destroy', video_path(video), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New video', new_video_path %>

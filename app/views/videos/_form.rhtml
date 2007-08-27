@@ -1,0 +1,26 @@
+<div id="input_form">
+<%= error_messages_for :video %>
+
+<% form_for(:video, :url => path, :html => {:method => method, :multipart => true }) do |f| %>
+
+<label for="video_title">Title:</label><%= f.text_field :title, :class => "text" %>
+<label for="video_short_description">Short Description:</label><%= f.text_area :short_description, :rows => "3" %>
+<label for="video_description">Description:</label><%= f.text_area :description %>
+<label for="video_thumbnail">Thumbnail:</label><%= f.file_field :uploaded_thumbnail %>
+<% if @video.thumbnail%>
+<br />
+<br />
+<img src="<%= thumbnail_video_url(@video)%>" />
+<% end %>
+<label for="video_video_link">Video Link:</label><%= f.text_field :video_link, :class => "text" %>
+<label for="video_transcript">Transcript:</label><%= f.text_area :transcript, :class => "text" %>
+<label for="video_category_id">Category:</label><%= f.select :category_id, Video.category_list  %>
+
+<label for="video_is_featured">Is Featured:</label> <%= f.check_box :is_featured %>
+<label for="video_in_frontpage">In Frontpage:</label> <%= f.check_box :in_frontpage %>
+
+<div id="submit">
+    <%= submit_tag button_text %>
+</div>
+<% end %>
+</div>

@@ -1,0 +1,26 @@
+<h1>Listing categories</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+  </tr>
+  
+<% for category in @categories %>
+  <tr>
+    <td><%=h category.title %></td>
+    <td><%=h category.description %></td>
+    <td><%=h category.created_at %></td>
+    <td><%=h category.updated_at %></td>
+    <td><%= link_to 'Show', category_path(category) %></td>
+    <td><%= link_to 'Edit', edit_category_path(category) %></td>
+    <td><%= link_to 'Destroy', category_path(category), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New category', new_category_path %>

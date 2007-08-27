@@ -1,0 +1,10 @@
+<h1>New video</h1>
+
+<%= render :partial => 'form',
+  :locals => {
+    :path => videos_path,
+    :method => :post,
+    :button_text => 'Create'
+  } %>
+
+<%= link_to 'Back', videos_path %>
