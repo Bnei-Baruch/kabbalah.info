@@ -1,32 +1,11 @@
 <h1>Editing category</h1>
 
-<%= error_messages_for :category %>
-
-<% form_for(:category, :url => category_path(@category), :html => { :method => :put }) do |f| %>
-  <p>
-    <b>Title</b><br />
-    <%= f.text_field :title %>
-  </p>
-
-  <p>
-    <b>Description</b><br />
-    <%= f.text_field :description %>
-  </p>
-
-  <p>
-    <b>Created at</b><br />
-    <%= f.text_field :created_at %>
-  </p>
-
-  <p>
-    <b>Updated at</b><br />
-    <%= f.datetime_select :updated_at %>
-  </p>
-
-  <p>
-    <%= submit_tag "Update" %>
-  </p>
-<% end %>
+<%= render :partial => 'form',
+  :locals => {
+    :path => category_path(@category),
+    :method => :put,
+    :button_text => 'Update'
+  } %>
 
 <%= link_to 'Show', category_path(@category) %> |
 <%= link_to 'Back', categories_path %>

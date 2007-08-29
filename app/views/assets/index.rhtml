@@ -1,0 +1,42 @@
+<h1>Listing assets of Section <%= @section_title%></h1>
+
+<% form_for(:asset, :url => assets_path, :html => {:method => :get}) do |f| %>
+Section: <%= f.select(:section_id, Asset.sections) %>
+<%= submit_tag "Filter" %>
+<% end %>
+
+<table>
+  <tr>
+    <th>Parent</th>
+    <th>Position</th>
+    <th>Section</th>
+    <th>Resource</th>
+    <th>Resource type</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+  </tr>
+  
+<% for asset in @assets %>
+  <tr>
+    <td><%=h asset.parent_id %></td>
+    <td><%=h asset.position %></td>
+    <td><%=h asset.section_id %></td>
+    <td><%=h asset.resource_id %></td>
+    <td><%=h asset.resource_type %></td>
+    <td><%=h asset.created_at %></td>
+    <td><%=h asset.updated_at %></td>
+    <td><%= link_to 'Show', asset_path(asset) %></td>
+    <td><%= link_to 'Edit', edit_asset_path(asset) %></td>
+    <td><%= link_to 'Destroy', asset_path(asset), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<% form_for(:asset, :url => new_asset_path, :html => {:method => :get}) do |f| %>
+	<%= f.hidden_field :section_id, :value => @section_id%>
+	<%= f.hidden_field :parent_id, :value => @parent_id%>
+
+	Type: <%= f.select(:asset_type, Asset.asset_types) %>
+	<%= submit_tag "Create new Asset" %>
+<% end %>

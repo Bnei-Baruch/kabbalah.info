@@ -19,6 +19,10 @@
 <label for="video_is_featured">Is Featured:</label> <%= f.check_box :is_featured %>
 <label for="video_in_frontpage">In Frontpage:</label> <%= f.check_box :in_frontpage %>
 
+<% fields_for :asset, @asset do |asset| %>
+		<%= asset.hidden_field :section_id %>
+		<%= asset.hidden_field :parent_id %>
+<% end %>
 <div id="submit">
     <%= submit_tag button_text %>
 </div>

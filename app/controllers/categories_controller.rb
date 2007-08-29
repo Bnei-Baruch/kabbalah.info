@@ -24,6 +24,8 @@ class CategoriesController < ApplicationController
   # GET /categories/new
   def new
     @category = Category.new
+    @asset = Asset.new(:section_id => params[:section_id],
+    									 :parent_id => params[:parent_id])
   end
 
   # GET /categories/1;edit
@@ -35,9 +37,11 @@ class CategoriesController < ApplicationController
   # POST /categories.xml
   def create
     @category = Category.new(params[:category])
+    @asset = Asset.new(params[:asset])
+    @asset.resource = @category
 
     respond_to do |format|
-      if @category.save
+      if @asset.save!
         flash[:notice] = 'Category was successfully created.'
         format.html { redirect_to category_url(@category) }
         format.xml  { head :created, :location => category_url(@category) }

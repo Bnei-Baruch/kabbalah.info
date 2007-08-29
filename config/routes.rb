@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :assets
+
+  map.resources :sections
+
   map.resources :categories
 
   map.resources :videos, :member => { :thumbnail => :get }

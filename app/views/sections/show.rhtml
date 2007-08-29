@@ -1,0 +1,23 @@
+<p>
+  <b>Title:</b>
+  <%=h @section.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @section.description %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%=h @section.created_at %>
+</p>
+
+<p>
+  <b>Updated at:</b>
+  <%=h @section.updated_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_section_path(@section) %> |
+<%= link_to 'Back', sections_path %>

@@ -24,7 +24,9 @@ class VideosController < ApplicationController
   # GET /videos/new
   def new
     @video = Video.new
-  end
+    @asset = Asset.new(:section_id => params[:section_id],
+    									 :parent_id => params[:parent_id])
+ end
 
   # GET /videos/1;edit
   def edit
@@ -35,11 +37,13 @@ class VideosController < ApplicationController
   # POST /videos.xml
   def create
     @video = Video.new(params[:video])
+    @asset = Asset.new(params[:asset])
+    @asset.resource = @video
 
     respond_to do |format|
-      if @video.save
+      if @asset.save!
         flash[:notice] = 'Video was successfully created.'
-        format.html { redirect_to video_url(@video) }
+        format.html { redirect_to :back }
         format.xml  { head :created, :location => video_url(@video) }
       else
         format.html { render :action => "new" }

@@ -3,7 +3,7 @@ class AddVideoThumbnailColumns < ActiveRecord::Migration
     add_column :videos, :thumbnail_name, :string
     add_column :videos, :thumbnail_alt, :string
     add_column :videos, :thumbnail_content_type, :string
-		change_column :videos, :thumbnail, :binary, :limit => 1.megabyte
+#		change_column :videos, :thumbnail, :binary, :limit => 1.megabyte
 
   end
 
@@ -11,6 +11,6 @@ class AddVideoThumbnailColumns < ActiveRecord::Migration
   	remove_column :videos, :thumbnail_name
   	remove_column :videos, :thumbnail_alt
   	remove_column :videos, :thumbnail_content_type
-  	change_column :videos, :thumbnail, :binary
+#  	change_column :videos, :thumbnail, :binary
   end
 end

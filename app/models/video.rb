@@ -1,6 +1,7 @@
 class Video < ActiveRecord::Base
 	belongs_to :category
-
+	has_one :asset, :as => :resource
+	
 	validates_format_of :thumbnail_content_type,
 											:with => /^image/,
 											:message => "-- you can only upload images",
