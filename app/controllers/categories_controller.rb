@@ -1,4 +1,7 @@
-class CategoriesController < ApplicationController
+class CategoriesController < ResourcesController
+	
+	layout "resource"
+	
   # GET /categories
   # GET /categories.xml
   def index
@@ -24,8 +27,7 @@ class CategoriesController < ApplicationController
   # GET /categories/new
   def new
     @category = Category.new
-    @asset = Asset.new(:section_id => params[:section_id],
-    									 :parent_id => params[:parent_id])
+    create_new_asset()
   end
 
   # GET /categories/1;edit
@@ -37,13 +39,12 @@ class CategoriesController < ApplicationController
   # POST /categories.xml
   def create
     @category = Category.new(params[:category])
-    @asset = Asset.new(params[:asset])
-    @asset.resource = @category
+    create_new_asset(:args => params[:asset], :resource => @category)
 
     respond_to do |format|
       if @asset.save!
         flash[:notice] = 'Category was successfully created.'
-        format.html { redirect_to category_url(@category) }
+        format.html { redirect_to session[:referer] }
         format.xml  { head :created, :location => category_url(@category) }
       else
         format.html { render :action => "new" }
@@ -60,7 +61,7 @@ class CategoriesController < ApplicationController
     respond_to do |format|
       if @category.update_attributes(params[:category])
         flash[:notice] = 'Category was successfully updated.'
-        format.html { redirect_to category_url(@category) }
+        format.html { redirect_to session[:referer] }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -76,7 +77,7 @@ class CategoriesController < ApplicationController
     @category.destroy
 
     respond_to do |format|
-      format.html { redirect_to categories_url }
+      format.html { redirect_to :back }
       format.xml  { head :ok }
     end
   end

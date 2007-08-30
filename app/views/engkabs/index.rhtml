@@ -1,0 +1,18 @@
+<h1>Listing engkabs</h1>
+
+<table>
+  <tr>
+  </tr>
+  
+<% for engkab in @engkabs %>
+  <tr>
+    <td><%= link_to 'Show', engkab_path(engkab) %></td>
+    <td><%= link_to 'Edit', edit_engkab_path(engkab) %></td>
+    <td><%= link_to 'Destroy', engkab_path(engkab), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New engkab', new_engkab_path %>

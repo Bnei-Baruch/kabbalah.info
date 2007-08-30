@@ -1,15 +1,12 @@
 <div id="input_form">
 <%= error_messages_for :category %>
 
-<% form_for(:category, :url => path, :html => :method => method) do |f| %>
+<% form_for(:category, :url => path, :html => {:method => method}) do |f| %>
 
 <label for="category_title">Title:</label><%= f.text_field :title, :class => "text" %>
 <label for="category_description">Description:</label><%= f.text_area :description, :rows => "3" %>
 
-<% fields_for :asset, @asset do |asset| %>
-		<%= asset.hidden_field :section_id %>
-		<%= asset.hidden_field :parent_id %>
-<% end %>
+<%= render :partial => 'share/set_asset_fields' %>
 
 <div id="submit">
     <%= submit_tag button_text %>

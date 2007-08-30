@@ -26,7 +26,7 @@ Section: <%= select_tag :section_id, options_from_collection_for_select(Section.
     <td><%=h asset.section.title %></td>
     <td><%=h asset.resource_type %></td>
     <td><%= link_to 'Edit', edit_asset_path(asset) %></td>
-    <td><%= link_to 'Destroy', get_resource_path_by_asset(asset), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Destroy', asset_path(asset), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

@@ -1,0 +1,26 @@
+<div id="input_form">
+<%= error_messages_for :page %>
+
+<% form_for(:page, :url => path, :html => {:method => method}) do |f| %>
+
+<label for="page_title">Page Title:</label><%= f.text_field :title, :class => "text" %>
+
+<label for="page_permalink">Permalink:</label><%= f.text_field :permalink, :class => "text" %>
+
+<label for="page_description">Description:</label><%= f.text_area :description, :rows => "3" %>
+
+<label for="page_keywords">Keywords:</label><%= f.text_field :keywords, :class => "text" %>
+
+<label for="page_is_published">Is published:</label> <%= f.check_box :is_published %>
+
+<label for="page_is_hidden">Is hidden:</label> <%= f.check_box :is_hidden %>
+
+
+<%= render :partial => 'share/set_asset_fields' %>
+
+
+<div id="submit">
+    <%= submit_tag button_text %>
+</div>
+<% end %>
+</div>

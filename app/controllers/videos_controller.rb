@@ -1,7 +1,9 @@
-class VideosController < ApplicationController
+class VideosController < ResourcesController
+	
+	layout "resource" ### Add to all resources
+	
   # GET /videos
   # GET /videos.xml
-  session :off, :except => %w(new edit create update)
   def index
     @videos = Video.find(:all)
 
@@ -25,29 +27,24 @@ class VideosController < ApplicationController
   # GET /videos/new
   def new
     @video = Video.new
-    @asset = Asset.new(:section_id => params[:section_id],
-    									 :parent_id => params[:parent_id])
-    session[:referer] = request.env["HTTP_REFERER"]
+    create_new_asset() ### Add to all resources
  end
 
   # GET /videos/1;edit
   def edit
     @video = Video.find(params[:id])
-    session[:referer] = request.env["HTTP_REFERER"]
-
   end
 
   # POST /videos
   # POST /videos.xml
   def create
     @video = Video.new(params[:video])
-    @asset = Asset.new(params[:asset])
-    @asset.resource = @video
+    create_new_asset(:args => params[:asset], :resource => @video) ### Add to all resources
 
     respond_to do |format|
-      if @asset.save!
+      if @asset.save! ### Add to all resources
         flash[:notice] = 'Video was successfully created.'
-        format.html { redirect_to session[:referer] }
+        format.html { redirect_to session[:referer] } ### Add to all resources
         format.xml  { head :created, :location => video_url(@video) }
       else
         format.html { render :action => "new" }
@@ -63,7 +60,7 @@ class VideosController < ApplicationController
     respond_to do |format|
       if @video.update_attributes(params[:video])
         flash[:notice] = 'Video was successfully updated.'
-        format.html { redirect_to session[:referer] }
+        format.html { redirect_to session[:referer] } ### Add to all resources
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -83,8 +80,9 @@ class VideosController < ApplicationController
     @video.destroy
 
     respond_to do |format|
-      format.html { redirect_to :back }
+      format.html { redirect_to :back } ### Add to all resources
       format.xml  { head :ok }
     end
   end
+  
 end

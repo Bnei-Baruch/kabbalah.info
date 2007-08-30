@@ -97,18 +97,12 @@ class AssetsController < ApplicationController
   # DELETE /assets/1
   # DELETE /assets/1.xml
   def destroy
-#  	render :text => params.inspect
-#  	return
     @asset = Asset.find(params[:id])
-    type = @asset.resource_type.downcase
-    resource = @asset.resource.id
-		eval "redirect_to #{type}_path(#{resource}), :delete"
-#		uri = eval "#{type}_url(#{resource})"
-#  	render :text => uri.inspect
-#  	return
+    @asset.destroy
 
-#		result =  open(uri)
-
-#  	eval "redirect_to #{type}_path(#{resource}), :method => :delete"
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.xml  { head :ok }
+    end
   end
 end

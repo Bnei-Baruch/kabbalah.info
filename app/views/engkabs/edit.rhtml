@@ -1,0 +1,12 @@
+<h1>Editing engkab</h1>
+
+<%= error_messages_for :engkab %>
+
+<% form_for(:engkab, :url => engkab_path(@engkab), :html => { :method => :put }) do |f| %>
+  <p>
+    <%= submit_tag "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', engkab_path(@engkab) %> |
+<%= link_to 'Back', engkabs_path %>
