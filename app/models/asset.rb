@@ -3,7 +3,7 @@ class Asset < ActiveRecord::Base
 	belongs_to :resource, :polymorphic => true
 
 	acts_as_list  :scope => :parent_id
-	acts_as_tree  :order => "position"
+	acts_as_tree  :order => "position", :counter_cache => true
 	
 	attr_accessor	:asset_type
 	
@@ -20,5 +20,11 @@ class Asset < ActiveRecord::Base
 		first ?	
 		Section.find(:first).id : 
 		Section.find(:all).map {|l| [l.title, l.id]}.sort	
+	end
+
+protected
+	
+	def after_destroy
+		self.resource.destroy	
 	end
 end

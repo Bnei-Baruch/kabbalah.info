@@ -1,16 +1,11 @@
 class Video < ActiveRecord::Base
-	belongs_to :category
-	has_one :asset, :as => :resource
+	acts_as_asset
 	
 	validates_format_of :thumbnail_content_type,
 											:with => /^image/,
 											:message => "-- you can only upload images",
 											:if => Proc.new { |u| !u.check_thumbnail }
 
-
-	def self.category_list
-		Category.find(:all).map {|l| [l.title, l.id]}.sort	
-	end
 	
 	def check_thumbnail
 		@uploaded_thumbnail.blank?
@@ -27,4 +22,5 @@ class Video < ActiveRecord::Base
 	def base_part_of(file_name)
 		File.basename(file_name).gsub(/[^\w._-]/, '' )
 	end
+	
 end

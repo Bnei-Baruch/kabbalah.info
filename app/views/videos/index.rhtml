@@ -4,7 +4,6 @@
   <thead>
     <th>ID</th>
     <th>Title</th>
-    <th>Category</th>
     <th>Short Description</th>
     <th>Description</th>
     <th>Thumbnail</th>
@@ -15,7 +14,6 @@
   <tr>
     <td><%= video.id%></td>
     <td><%= video.title%></td>
-    <td><%= video.category.title%></td>
     <td><%= video.short_description%></td>
     <td><%= video.description%></td>
     <td> <img src="<%= thumbnail_video_url(video)%>" /> </td>

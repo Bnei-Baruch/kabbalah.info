@@ -1,33 +1,32 @@
 <h1>Listing assets of Section <%= @section_title%></h1>
-
 <% form_for(:asset, :url => assets_path, :html => {:method => :get}) do |f| %>
-Section: <%= f.select(:section_id, Asset.sections) %>
+Section: <%= select_tag :section_id, options_from_collection_for_select(Section.find(:all), :id, :title, @section_id.to_i) %>
 <%= submit_tag "Filter" %>
 <% end %>
+<br />
 
-<table>
-  <tr>
-    <th>Parent</th>
-    <th>Position</th>
+<b>Parent Asset:</b> <%= @parent.nil? ? "Root Node" : link_to(@parent.resource.title, assets_path(:parent_id => @grand_parent_id, :section_id => @section_id)) %>
+<br />
+<br />
+<table border="1">
+  <thead>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Children</th>
     <th>Section</th>
-    <th>Resource</th>
-    <th>Resource type</th>
-    <th>Created at</th>
-    <th>Updated at</th>
-  </tr>
+    <th>Asset type</th>
+    <th colspan="2">Actions</th>
+  </thead>
   
 <% for asset in @assets %>
   <tr>
-    <td><%=h asset.parent_id %></td>
-    <td><%=h asset.position %></td>
-    <td><%=h asset.section_id %></td>
-    <td><%=h asset.resource_id %></td>
+    <td><%=h asset.id %></td>
+    <td><%= link_to asset.resource.title, assets_path(:parent_id => asset.id, :section_id => @section_id) %></td>
+    <td><%=h asset.assets_count %></td>
+    <td><%=h asset.section.title %></td>
     <td><%=h asset.resource_type %></td>
-    <td><%=h asset.created_at %></td>
-    <td><%=h asset.updated_at %></td>
-    <td><%= link_to 'Show', asset_path(asset) %></td>
     <td><%= link_to 'Edit', edit_asset_path(asset) %></td>
-    <td><%= link_to 'Destroy', asset_path(asset), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Destroy', get_resource_path_by_asset(asset), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

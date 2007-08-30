@@ -14,8 +14,6 @@
 <% end %>
 <label for="video_video_link">Video Link:</label><%= f.text_field :video_link, :class => "text" %>
 <label for="video_transcript">Transcript:</label><%= f.text_area :transcript, :class => "text" %>
-<label for="video_category_id">Category:</label><%= f.select :category_id, Video.category_list  %>
-
 <label for="video_is_featured">Is Featured:</label> <%= f.check_box :is_featured %>
 <label for="video_in_frontpage">In Frontpage:</label> <%= f.check_box :in_frontpage %>
 

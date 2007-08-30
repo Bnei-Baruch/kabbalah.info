@@ -7,6 +7,5 @@
     :button_text => 'Update'
   } %>
 
-<%= link_to 'Show', video_path(@video) %> |
-<%= link_to 'Cancel', videos_path %>
+<%= link_to 'Cancel', session[:referer] %>
 

@@ -1,6 +1,7 @@
 class VideosController < ApplicationController
   # GET /videos
   # GET /videos.xml
+  session :off, :except => %w(new edit create update)
   def index
     @videos = Video.find(:all)
 
@@ -26,11 +27,14 @@ class VideosController < ApplicationController
     @video = Video.new
     @asset = Asset.new(:section_id => params[:section_id],
     									 :parent_id => params[:parent_id])
+    session[:referer] = request.env["HTTP_REFERER"]
  end
 
   # GET /videos/1;edit
   def edit
     @video = Video.find(params[:id])
+    session[:referer] = request.env["HTTP_REFERER"]
+
   end
 
   # POST /videos
@@ -43,7 +47,7 @@ class VideosController < ApplicationController
     respond_to do |format|
       if @asset.save!
         flash[:notice] = 'Video was successfully created.'
-        format.html { redirect_to :back }
+        format.html { redirect_to session[:referer] }
         format.xml  { head :created, :location => video_url(@video) }
       else
         format.html { render :action => "new" }
@@ -56,11 +60,10 @@ class VideosController < ApplicationController
   # PUT /videos/1.xml
   def update
     @video = Video.find(params[:id])
-
     respond_to do |format|
       if @video.update_attributes(params[:video])
         flash[:notice] = 'Video was successfully updated.'
-        format.html { redirect_to video_url(@video) }
+        format.html { redirect_to session[:referer] }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -80,7 +83,7 @@ class VideosController < ApplicationController
     @video.destroy
 
     respond_to do |format|
-      format.html { redirect_to videos_url }
+      format.html { redirect_to :back }
       format.xml  { head :ok }
     end
   end

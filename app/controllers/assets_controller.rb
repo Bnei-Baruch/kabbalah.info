@@ -1,19 +1,29 @@
+require 'open-uri'
+
 class AssetsController < ApplicationController
   # GET /assets
   # GET /assets.xml
   def index
-  	@section_id = @parent_id = nil
-  	if params[:asset] && params[:asset][:section_id]
-  		@section_id = params[:asset][:section_id]
+  	@section_id = nil
+  	@grand_parent_id = ''
+  	if params[:section_id]
+  		@section_id = params[:section_id]
   	end 
   	@section_id ||= Asset.sections(true)
   	@section_title = Section.get_title_by_id(@section_id) || "Unknown"
-  	if params[:asset] && params[:asset][:parent]
-  		@parent_id = params[:asset][:parent_id]
-  	end 
+  	if params[:parent_id]
+  		@parent_id = params[:parent_id]
+  		@parent = Asset.find(@parent_id)
+  		@grand_parent_id = @parent.parent.id if @parent.parent
+		else
+			@parent_id = 0
+  	end
+  	 
+#  	render :text => params.inspect #@parent_id.to_s
+#  	return
     @assets = Asset.find(:all,
-    	 :conditions => ["section_id = ? AND parent_id = ?", @section_id, @parent_id])
-
+    	 									 :conditions => ["section_id = ? AND parent_id = ?", 
+    	 									 								 @section_id, @parent_id])
     respond_to do |format|
       format.html # index.rhtml
       format.xml  { render :xml => @assets.to_xml }
@@ -39,22 +49,15 @@ class AssetsController < ApplicationController
 	eval "redirect_to new_#{type}_path(
 					:section_id => #{asset[:section_id]},
 					:parent_id => #{asset[:parent_id].blank? ? 'nil' : asset[:parent_id]})"
-
-	# case params[:asset][:asset_type]
-	# when 'article'
-	# 	redirect_to new_article_path
-	# when 'video'
-	# 	redirect_to new_video_path(:section_id => params[:asset][:section_id],
-	# 														 :parent_id => params[:asset][:parent_id])
-	# when 'category'
-	# 	redirect_to new_video_path(:section_id => params[:asset][:section_id],
-	# 														 :parent_id => params[:asset][:parent_id])
-	# end
   end
 
   # GET /assets/1;edit
   def edit
     @asset = Asset.find(params[:id])
+    type = @asset.resource_type.downcase
+    resource = @asset.resource.id
+  	eval "redirect_to edit_#{type}_path(#{resource})"
+
   end
 
   # POST /assets
@@ -94,12 +97,18 @@ class AssetsController < ApplicationController
   # DELETE /assets/1
   # DELETE /assets/1.xml
   def destroy
+#  	render :text => params.inspect
+#  	return
     @asset = Asset.find(params[:id])
-    @asset.destroy
+    type = @asset.resource_type.downcase
+    resource = @asset.resource.id
+		eval "redirect_to #{type}_path(#{resource}), :delete"
+#		uri = eval "#{type}_url(#{resource})"
+#  	render :text => uri.inspect
+#  	return
 
-    respond_to do |format|
-      format.html { redirect_to assets_url }
-      format.xml  { head :ok }
-    end
+#		result =  open(uri)
+
+#  	eval "redirect_to #{type}_path(#{resource}), :method => :delete"
   end
 end
