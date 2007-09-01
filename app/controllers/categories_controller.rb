@@ -42,7 +42,8 @@ class CategoriesController < ResourcesController
     create_new_asset(:args => params[:asset], :resource => @category)
 
     respond_to do |format|
-      if @asset.save!
+      if @category.valid?
+      	@asset.save!
         flash[:notice] = 'Category was successfully created.'
         format.html { redirect_to session[:referer] }
         format.xml  { head :created, :location => category_url(@category) }

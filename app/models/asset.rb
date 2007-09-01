@@ -18,11 +18,11 @@ class Asset < ActiveRecord::Base
 	end
 
 	def self.sections(first = false)
+
 		first ?	
 		Section.find(:first).id : 
 		Section.find(:all).map {|l| [l.title, l.id]}.sort	
 	end
-
 protected
 	
 	def after_destroy

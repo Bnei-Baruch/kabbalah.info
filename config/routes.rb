@@ -1,5 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :engkabs
+  map.resources :engkab, :controller => 'engkab',
+  											 :singular => 'engkab_page'
 
   map.resources :pages
 

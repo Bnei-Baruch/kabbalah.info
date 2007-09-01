@@ -42,7 +42,8 @@ class VideosController < ResourcesController
     create_new_asset(:args => params[:asset], :resource => @video) ### Add to all resources
 
     respond_to do |format|
-      if @asset.save! ### Add to all resources
+      if @video.valid?### Add to all resources
+      	@asset.save! ### Add to all resources
         flash[:notice] = 'Video was successfully created.'
         format.html { redirect_to session[:referer] } ### Add to all resources
         format.xml  { head :created, :location => video_url(@video) }

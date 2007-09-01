@@ -1,5 +1,3 @@
-require 'open-uri'
-
 class AssetsController < ApplicationController
   # GET /assets
   # GET /assets.xml
@@ -19,8 +17,6 @@ class AssetsController < ApplicationController
 			@parent_id = 0
   	end
   	 
-#  	render :text => params.inspect #@parent_id.to_s
-#  	return
     @assets = Asset.find(:all,
     	 									 :conditions => ["section_id = ? AND parent_id = ?", 
     	 									 								 @section_id, @parent_id])
@@ -55,9 +51,8 @@ class AssetsController < ApplicationController
   def edit
     @asset = Asset.find(params[:id])
     type = @asset.resource_type.downcase
-    resource = @asset.resource.id
-  	eval "redirect_to edit_#{type}_path(#{resource})"
-
+    resource = @asset.resource
+  		eval "redirect_to edit_#{type}_url(resource)"
   end
 
   # POST /assets

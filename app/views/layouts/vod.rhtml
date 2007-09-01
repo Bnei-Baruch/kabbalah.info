@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<meta http-equiv="Content-language" content="utf8" /> 
+  <title>Engkabs: <%= controller.action_name %></title>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/2.3.0/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css">
+</head>
+<body>
+<div id="doc2" class="yui-t2">
+   <div id="hd"><h1>YUI: CSS Grid Builder</h1></div>
+   <div id="bd">
+	<div id="yui-main">
+	<div class="yui-b"><div class="yui-gc">
+    <div class="yui-u first">
+			<p style="color: green"><%= flash[:notice] %></p>
+			<%= yield  %>	    
+		</div>
+    <div class="yui-u">
+	<!-- YOUR DATA GOES HERE -->
+	    </div>
+</div>
+</div>
+	</div>
+	<div class="yui-b"><!-- YOUR NAVIGATION GOES HERE --></div>
+	
+	</div>
+   <div id="ft">Footer is here.</div>
+</div>
+</body>
+</html>
