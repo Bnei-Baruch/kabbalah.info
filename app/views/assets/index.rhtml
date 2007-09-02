@@ -20,7 +20,7 @@ Section: <%= select_tag :section_id, options_from_collection_for_select(Section.
 <% for asset in @assets %>
   <tr>
     <td><%=h asset.id %></td>
-    <td><%= link_to asset.resource.title, assets_path(:parent_id => asset.id, :section_id => @section_id) %></td>
+    <td><%= link_to asset.resource.property.title, assets_path(:parent_id => asset.id, :section_id => @section_id) %></td>
     <td><%=h asset.assets_count %></td>
     <td><%=h asset.section.title %></td>
     <td><%=h asset.resource_type %></td>

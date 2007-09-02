@@ -27,50 +27,33 @@ class PagesController < ResourcesController
   # GET /pages/new
   def new
     @page = Page.new
-		create_new_asset()
-    save_refferer_to_session()
+    
+		create_new_objects() ### Add to all resources
+    save_refferer_to_session() ### Add to all resources
   end
 
   # GET /pages/1;edit
   def edit
     @page = Page.find_by_permalink(params[:id])
-    save_refferer_to_session()
+		edit_objects(@page) ### Add to all resources
+    save_refferer_to_session() ### Add to all resources
   end
 
   # POST /pages
   # POST /pages.xml
   def create
     @page = Page.new(params[:page])
-    create_new_asset(:args => params[:asset], :resource => @page) ### Add to all resources
- 
-    respond_to do |format|
-      if @page.valid?
-      	@asset.save!
-        flash[:notice] = 'Page was successfully created.'
-        format.html { redirect_to session[:referer] }
-        format.xml  { head :created, :location => page_url(@page) }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @page.errors.to_xml }
-      end
-    end
+    create_new_objects(:property => params[:property], 
+    									 :image_storage => params[:image_storage], 
+    									 :asset => params[:asset], 
+    									 :resource => @page) ### Add to all resources
   end
 
   # PUT /pages/1
   # PUT /pages/1.xml
   def update
     @page = Page.find_by_permalink(params[:id])
-
-    respond_to do |format|
-      if @page.update_attributes(params[:page])
-        flash[:notice] = 'Page was successfully updated.'
-        format.html { redirect_to session[:referer] }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @page.errors.to_xml }
-      end
-    end
+    update_objects(@page, params[:page]) ### Add to all resources
   end
 
   # DELETE /pages/1

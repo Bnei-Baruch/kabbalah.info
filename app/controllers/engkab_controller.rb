@@ -7,13 +7,18 @@ class EngkabController < ApplicationController
 			render :file => "public/404.html", :status => 404
 			return
 		end
-		@asset = @page.asset
-    @assets = @asset.children
+		@page_asset = @page.asset
+    @page_asset_children = @page_asset.children
+
+    if @page_asset.parent && @page_asset.parent.resource_type == "Category"
+    	@category_asset = @page_asset.parent
+    	@category_asset_children = @category_asset.children.select {|i| i.resource_type == "Page"}
+  	end
 
     respond_to do |format|
       format.html { render  :action => "page", :layout => "vod" }
       format.xml  { render :xml => @engkab.to_xml }
     end
   end
-
+  
 end

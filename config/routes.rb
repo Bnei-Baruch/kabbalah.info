@@ -3,14 +3,10 @@ ActionController::Routing::Routes.draw do |map|
   											 :singular => 'engkab_page'
 
   map.resources :pages
-
   map.resources :assets
-
   map.resources :sections
-
   map.resources :categories
-
-  map.resources :videos, :member => { :thumbnail => :get }
+  map.resources :videos
 
   # The priority is based upon order of creation: first created -> highest priority.
   

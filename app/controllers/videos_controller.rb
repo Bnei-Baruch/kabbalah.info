@@ -27,53 +27,34 @@ class VideosController < ResourcesController
   # GET /videos/new
   def new
     @video = Video.new
-    create_new_asset() ### Add to all resources
+    create_new_objects() ### Add to all resources
+    save_refferer_to_session() ### Add to all resources
  end
 
   # GET /videos/1;edit
   def edit
     @video = Video.find(params[:id])
+		edit_objects(@video) ### Add to all resources
+    save_refferer_to_session() ### Add to all resources
   end
 
   # POST /videos
   # POST /videos.xml
   def create
     @video = Video.new(params[:video])
-    create_new_asset(:args => params[:asset], :resource => @video) ### Add to all resources
-
-    respond_to do |format|
-      if @video.valid?### Add to all resources
-      	@asset.save! ### Add to all resources
-        flash[:notice] = 'Video was successfully created.'
-        format.html { redirect_to session[:referer] } ### Add to all resources
-        format.xml  { head :created, :location => video_url(@video) }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @video.errors.to_xml }
-      end
-    end
+    create_new_objects(:property => params[:property], 
+    									 :image_storage => params[:image_storage], 
+    									 :asset => params[:asset], 
+    									 :resource => @video) ### Add to all resources
   end
 
   # PUT /videos/1
   # PUT /videos/1.xml
   def update
     @video = Video.find(params[:id])
-    respond_to do |format|
-      if @video.update_attributes(params[:video])
-        flash[:notice] = 'Video was successfully updated.'
-        format.html { redirect_to session[:referer] } ### Add to all resources
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @video.errors.to_xml }
-      end
-    end
+    update_objects(@video, params[:video]) ### Add to all resources
   end
-	def thumbnail
-    @video = Video.find(params[:id])
-
-		send_data @video.thumbnail, :type => @video.thumbnail_content_type, :disposition => 'inline'
-	end
+  
   # DELETE /videos/1
   # DELETE /videos/1.xml
   def destroy

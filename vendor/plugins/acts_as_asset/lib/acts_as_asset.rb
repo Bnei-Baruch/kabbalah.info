@@ -8,6 +8,8 @@ module ActiveRecord::Acts::ActsAsset
   module ClassMethods
     def acts_as_asset
 			has_one :asset, :as => :resource, :dependent => :destroy
+			has_one :property, :as => :resource, :dependent => :destroy
+
 	  	before_update do |o|
 				o.asset.updated_at = Time.now
 				o.asset.save!

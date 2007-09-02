@@ -1,13 +1,11 @@
 <div id="input_form">
-<%= error_messages_for :page %>
+<%= error_messages_for :page, :property, :image_storage %>
 
-<% form_for(:page, :url => path, :html => {:method => method}) do |f| %>
+<% form_for(:page, :url => path, :html => {:method => method, :multipart => true}) do |f| %>
 
-<label for="page_title">Page Title:</label><%= f.text_field :title, :class => "text" %>
+<%= render :partial => 'share/set_property_fields' %>
 
 <label for="page_permalink">Permalink:</label><%= f.text_field :permalink, :class => "text" %>
-
-<label for="page_description">Description:</label><%= f.text_area :description, :rows => "3" %>
 
 <label for="page_keywords">Keywords:</label><%= f.text_field :keywords, :class => "text" %>
 

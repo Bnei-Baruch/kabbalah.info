@@ -1,8 +1,2 @@
-
-<ul>
-<% for asset in @assets %>
-	<li>
-		<%= render :partial => "#{asset.resource_type.downcase}_show", :locals => { :asset => asset } %>
-	</li>
-<% end %>
-</ul>
+<%= render :partial => "share/show_assets_in_loop", 
+					 :locals => { :container => @page_asset_children, :display => "show"  } %>

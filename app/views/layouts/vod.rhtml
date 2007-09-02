@@ -1,32 +1,38 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
- "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-	<meta http-equiv="Content-language" content="utf8" /> 
-  <title>Engkabs: <%= controller.action_name %></title>
-  <link rel="stylesheet" href="http://yui.yahooapis.com/2.3.0/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css">
+	<meta http-equiv="Content-language" content="en" /> 
+  <title><%= @page.property.title %></title>
+  <meta name="description" content="<%= @page.property.description %>" />
+	<meta name="keywords" content="<%= @page.keywords %>" />
+  <link rel="stylesheet" href="http://yui.yahooapis.com/2.3.0/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css" />
+  <%= stylesheet_link_tag 'vod' %>
 </head>
 <body>
 <div id="doc2" class="yui-t2">
-   <div id="hd"><h1>YUI: CSS Grid Builder</h1></div>
-   <div id="bd">
-	<div id="yui-main">
-	<div class="yui-b"><div class="yui-gc">
-    <div class="yui-u first">
-			<p style="color: green"><%= flash[:notice] %></p>
-			<%= yield  %>	    
+	<div id="hd"><h1>Top Menu Goes Here</h1></div>
+	<div id="bd">
+		<div id="yui-main">
+			<div class="yui-b">
+				<div class="yui-gc">
+					<div class="yui-u first">
+						<p style="color: green"><%= flash[:notice] %></p>
+						<%# Show the page with its assets (page.rhtml) %>
+						<%= yield  %>	    
+					</div>
+					<div class="yui-u">
+						<%# List of pages (###_preview.rhtml)%>
+						<%= @category_asset.resource.title %>
+						<%= render :partial => "share/show_assets_in_loop", 
+											 :locals => { :container => @category_asset_children, :display => "preview" } %>
+					</div>
+				</div>
+			</div>
 		</div>
-    <div class="yui-u">
-	<!-- YOUR DATA GOES HERE -->
-	    </div>
-</div>
-</div>
+		<div class="yui-b">YOUR NAVIGATION GOES HERE</div>
 	</div>
-	<div class="yui-b"><!-- YOUR NAVIGATION GOES HERE --></div>
-	
-	</div>
-   <div id="ft">Footer is here.</div>
+	<div id="ft">Footer is here.</div>
 </div>
 </body>
 </html>
