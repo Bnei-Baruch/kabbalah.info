@@ -4,7 +4,7 @@ Section: <%= select_tag :section_id, options_from_collection_for_select(Section.
 <%= submit_tag "Filter" %>
 <% end %>
 <br />
-<b>Parent Asset:</b> <%= @parent.nil? ? "Root Node" : link_to("#{@parent.resource.title} [#{@parent.resource_type}]", assets_path(:parent_id => @grand_parent_id, :section_id => @section_id)) %>
+<b>Parent Asset:</b> <%= @parent.nil? ? "Root Node" : link_to("#{@parent.resource.property.title} [#{@parent.resource_type}]", assets_path(:parent_id => @grand_parent_id, :section_id => @section_id)) %>
 <br />
 <br />
 <table border="1">

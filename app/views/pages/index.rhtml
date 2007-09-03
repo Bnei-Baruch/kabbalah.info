@@ -4,6 +4,7 @@
   <tr>
     <th>Title</th>
     <th>Permalink</th>
+    <th>Short Description</th>
     <th>Description</th>
     <th>Keywords</th>
     <th>Is published</th>
@@ -14,9 +15,10 @@
   
 <% for page in @pages %>
   <tr>
-    <td><%=h page.title %></td>
+    <td><%=h page.property.title %></td>
     <td><%=h page.permalink %></td>
-    <td><%=h page.description %></td>
+    <td><%=h page.property.short_description %></td>
+    <td><%=h page.property.description %></td>
     <td><%=h page.keywords %></td>
     <td><%=h page.is_published %></td>
     <td><%=h page.is_hidden %></td>

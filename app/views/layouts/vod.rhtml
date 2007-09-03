@@ -23,7 +23,7 @@
 					</div>
 					<div class="yui-u">
 						<%# List of pages (###_preview.rhtml)%>
-						<%= @category_asset.resource.title %>
+						<%= @category_asset.resource.property.title %>
 						<%= render :partial => "share/show_assets_in_loop", 
 											 :locals => { :container => @category_asset_children, :display => "preview" } %>
 					</div>

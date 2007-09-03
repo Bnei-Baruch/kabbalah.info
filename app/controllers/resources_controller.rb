@@ -73,6 +73,7 @@ protected
 	
 	def edit_objects(resource)
 		@property = resource.property
-    @image_storage = @property.image_storage || ImageStorage.new
+		@property = Property.new unless @property
+    @image_storage = (@property.image_storage if @property) || ImageStorage.new
 	end
 end

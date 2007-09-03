@@ -16,7 +16,24 @@ module ActiveRecord::Acts::ActsAsset
 			end
 		end
 	end
-  
+
+	# module InstanceMethods
+	#   	def title
+	# 		self.property.short_description || ""
+	# 	end
+	# 
+	#   	def short_description
+	# 		self.property.short_description || ""
+	# 	end
+	# 
+	#   	def description
+	# 		self.property.description || ""
+	# 	end
+	# 
+	#   	def image_file
+	# 		self.property.image_storage
+	# 	end
+	# end
 end
 
 ActiveRecord::Base.send(:include, ActiveRecord::Acts::ActsAsset)
