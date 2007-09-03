@@ -1,0 +1,15 @@
+<% if new_asset %>
+	<% if new_asset[:type].class.to_s == "String" %>
+		<%= link_to new_asset[:message], new_asset_path(:section_id => @section, 
+																										:parent_id  => new_asset[:parent_id],
+																										:asset_type => new_asset[:type]) %>
+	<% end %>
+<% end %>
+
+<% if edit_asset %>
+	<%= link_to 'Edit', edit_asset_path(edit_asset) %>
+<% end %>
+
+<% if delete_asset %>
+	<%= link_to 'Destroy', asset_path(delete_asset), :confirm => 'Are you sure?', :method => :delete %>
+<% end %>

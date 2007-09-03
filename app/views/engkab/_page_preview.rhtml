@@ -2,7 +2,7 @@
 #Displaying a preview of a single page in a list of pages
 %>
 <% property = asset.resource.property%>
-<div class="page_preview<% if asset.eql?(@page_asset) %> selected<% end %>">
+<div class="page_preview<% if asset.eql?(@page) %> selected<% end %>">
 	<h3><%= link_to property.title, section_url(asset) %></h3>
 	<% if property.image_storage %>
 	<%= image_tag( property.image_storage.public_filename(:preview), 

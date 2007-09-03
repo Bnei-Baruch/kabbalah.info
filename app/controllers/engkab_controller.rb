@@ -7,17 +7,21 @@ class EngkabController < ApplicationController
 			render :file => "public/404.html", :status => 404
 			return
 		end
-		@page_asset = @page.asset
-    @page_asset_children = @page_asset.children
+		@page = @page.asset
+		@section = @page.section
+    @page_children = @page.children
 
-    if @page_asset.parent && @page_asset.parent.resource_type == "Category"
-    	@category_asset = @page_asset.parent
-    	@category_asset_children = @category_asset.children.select {|i| i.resource_type == "Page"}
+    if @page.parent && @page.parent.resource_type == "Category"
+    	@category = @page.parent
+    	@category_children = @category.children.select {|i| i.resource_type == "Page"}
+    	# render :text => @category_children.inspect
+    	# return
+    	@categories = Asset.find(:all, :conditions => "parent_id = #{@category.parent_id}", :order => "position ASC")
   	end
 
     respond_to do |format|
       format.html { render  :action => "page", :layout => "vod" }
-      format.xml  { render :xml => @engkab.to_xml }
+      format.xml  { render :xml => @page.to_xml }
     end
   end
   

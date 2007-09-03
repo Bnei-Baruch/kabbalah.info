@@ -31,10 +31,10 @@ Section: <%= select_tag :section_id, options_from_collection_for_select(Section.
 </table>
 
 <br />
-<% form_for(:asset, :url => new_asset_path, :html => {:method => :get}) do |f| %>
-	<%= f.hidden_field :section_id, :value => @section_id%>
-	<%= f.hidden_field :parent_id, :value => @parent_id%>
+<% form_tag( new_asset_path, :method => :get) do -%>
+	<%= hidden_field_tag :section_id, @section_id%>
+	<%= hidden_field_tag :parent_id, @parent_id%>
 
-	Type: <%= f.select(:asset_type, Asset.asset_types) %>
+	Type: <%= select_tag :asset_type, options_for_select(Asset.asset_types) %>
 	<%= submit_tag "Create new Asset" %>
-<% end %>
+<% end -%>
