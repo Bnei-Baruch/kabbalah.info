@@ -1,5 +1,22 @@
 class PagesController < ResourcesController
-	
+uses_tiny_mce(:options => {:theme => 'advanced',
+                           :browsers => %w{msie gecko},
+                           :width => "450",
+                           :inline_styles => "true",
+                           :editor_deselector => "mceNoEditor",
+                           :content_css => "/public/stylesheets/general.css",
+                           :theme_advanced_toolbar_location => "top",
+                           :theme_advanced_toolbar_align => "left",
+                           :theme_advanced_resizing => true,
+                           :theme_advanced_resize_horizontal => true,
+                           :paste_auto_cleanup_on_paste => true,
+                           :extended_valid_elements => "a[name|href|target|title|onclick]",
+                           :theme_advanced_buttons1 => %w{formatselect bold italic underline separator justifyleft justifycenter justifyright indent outdent separator ltr rtl separator bullist numlist },
+                           :theme_advanced_buttons2 => %w{ code fullscreen separator undo redo separator search separator pastetext pasteword selectall separator anchor link unlink image separator removeformat },
+                           :theme_advanced_buttons3 => [],
+                           :plugins => %w{contextmenu paste fullscreen inlinepopups directionality searchreplace}},
+              :only => [:new, :edit, :show, :index])
+              	
 	layout "resource"
 	
   # GET /pages

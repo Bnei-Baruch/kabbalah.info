@@ -1,6 +1,6 @@
 <% fields_for :property, @property do |property| %>
 	<label for="property_title">Title:</label><%= property.text_field :title, :class => "text" %>
-	<label for="property_description">Short Description:</label><%= property.text_area :short_description, :rows => "3" %>
-	<label for="property_description">Description:</label><%= property.text_area :description, :rows => "5" %>
+	<label for="property_description">Short Description:</label><%= property.text_area :short_description, :class => "mceNoEditor", :rows => "3" %>
+	<label for="property_description">Description:</label><%= property.text_area :description %>
 <% end %>
 <%= render :partial => 'share/set_image_storage_fields' %>

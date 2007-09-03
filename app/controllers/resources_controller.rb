@@ -1,8 +1,6 @@
 class ResourcesController < ApplicationController
-
   session :off, :except => %w(new edit create update)
 	after_filter :save_refferer_to_session, :only => [ :new, :edit ]
-
 protected
 
 	def save_refferer_to_session

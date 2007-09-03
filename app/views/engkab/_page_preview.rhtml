@@ -3,7 +3,7 @@
 %>
 <% property = asset.resource.property%>
 <div class="page_preview<% if asset.eql?(@page_asset) %> selected<% end %>">
-	<h3><%= link_to property.title, engkab_page_path(asset.resource) %></h3>
+	<h3><%= link_to property.title, section_url(asset) %></h3>
 	<% if property.image_storage %>
 	<%= image_tag( property.image_storage.public_filename(:preview), 
 							   :alt => property.image_storage.alt, 

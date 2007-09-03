@@ -21,4 +21,8 @@ class EngkabController < ApplicationController
     end
   end
   
+  def method_missing(m)
+  	render :text => "ddd#{m.inspect}"
+  	return
+  end
 end

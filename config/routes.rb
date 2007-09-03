@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+
   map.resources :engkab, :controller => 'engkab',
   											 :singular => 'engkab_page'
 
@@ -15,8 +16,10 @@ ActionController::Routing::Routes.draw do |map|
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
-  # map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
-  # This route can be invoked with purchase_url(:id => product.id)
+  map.section0 ':controller/:section/:id', :action => 'show'
+  map.section1 ':controller/:section/:category0/:id', :action => 'show'
+  map.section2 ':controller/:section/:category0/:category1/:id', :action => 'show'
+  # This route can be invoked with test1_url(:id => asset, :section => asse)
 
   # You can have the root of your site routed by hooking up '' 
   # -- just remember to delete public/index.html.
@@ -28,5 +31,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # Install the default route as the lowest priority.
   map.connect ':controller/:action/:id.:format'
-  map.connect ':controller/:action/:id'
+  map.connect ':controller/:id'
+  map.connect ':controller/:section/:id', :action => 'show'
+  map.connect ':controller/:section/:category1/:id', :action => 'show'  
 end
