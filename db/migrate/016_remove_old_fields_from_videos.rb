@@ -9,7 +9,6 @@ class RemoveOldFieldsFromVideos < ActiveRecord::Migration
     remove_column :videos, :description
     remove_column :videos, :is_featured
     remove_column :videos, :in_frontpage
-    remove_column :videos, :source2download
   	
   end
 
