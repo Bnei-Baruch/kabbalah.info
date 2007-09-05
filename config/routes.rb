@@ -1,5 +1,19 @@
 ActionController::Routing::Routes.draw do |map|
 
+# Authentication system
+
+  map.resources :users
+  map.resource :session, :controller => 'sessions'
+
+  map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate'
+
+  map.signup '/signup', :controller => 'users', :action => 'new'
+  map.login  '/login', :controller => 'sessions', :action => 'new'
+  map.logout '/logout', :controller => 'sessions', :action => 'destroy'  
+
+
+
+
   map.resources :engkab, :controller => 'engkab',
   											 :singular => 'engkab_page'
 
@@ -34,4 +48,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/:id'
   map.connect ':controller/:section/:id', :action => 'show'
   map.connect ':controller/:section/:category1/:id', :action => 'show'  
+  
+  
+  
 end
