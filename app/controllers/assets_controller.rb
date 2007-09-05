@@ -17,7 +17,7 @@ class AssetsController < ApplicationController
 			@parent_id = 0
   	end
   	 
-    @assets = Asset.find(:all,
+		@assets = Asset.find(:all,
     	 									 :conditions => ["section_id = ? AND parent_id = ?", 
     	 									 								 @section_id, @parent_id], :order => "position ASC")
     respond_to do |format|
@@ -40,9 +40,9 @@ class AssetsController < ApplicationController
   # GET /assets/new
   def new
 	type = params[:asset_type]
-	eval "redirect_to new_#{type}_path(
-					:section_id => #{params[:section_id]},
-					:parent_id => #{params[:parent_id].blank? ? 'nil' : params[:parent_id]})"
+	redirect_to :type => "new_#{type}_path",
+					:section_id => asset[:section_id],
+					:parent_id => asset[:parent_id].blank? ? 'nil' : asset[:parent_id]
   end
 
   # GET /assets/1;edit
@@ -50,7 +50,7 @@ class AssetsController < ApplicationController
     @asset = Asset.find(params[:id])
     type = @asset.resource_type.downcase
     resource = @asset.resource
-  		eval "redirect_to edit_#{type}_url(resource)"
+		redirect_to :type => "edit_#{type}_url", :resource => resource
   end
 
   # POST /assets
