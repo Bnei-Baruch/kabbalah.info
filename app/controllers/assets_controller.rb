@@ -41,8 +41,8 @@ class AssetsController < ApplicationController
   def new
 	type = params[:asset_type]
 	redirect_to :type => "new_#{type}_path",
-					:section_id => asset[:section_id],
-					:parent_id => asset[:parent_id].blank? ? 'nil' : asset[:parent_id]
+					:section_id => params[:section_id],
+					:parent_id => params[:parent_id].blank? ? 'nil' : params[:parent_id]
   end
 
   # GET /assets/1;edit
