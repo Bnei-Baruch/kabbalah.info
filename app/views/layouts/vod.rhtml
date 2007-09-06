@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="http://yui.yahooapis.com/2.3.0/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css" />
   <%= stylesheet_link_tag 'vod' %>
   <%= stylesheet_link_tag 'admin' %><%### close only for administrators !!!%>
+  <%= javascript_include_tag 'windows_media_object' if @page.children %>
 </head>
 <body>
 <div id="doc2" class="yui-t2">

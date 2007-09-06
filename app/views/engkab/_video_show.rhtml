@@ -1,7 +1,31 @@
-<%= debug(asset)%>
-sdasda
-sda
-sd
-asd
-asd
+<h1><%= asset.resource.property.title %></h1>
+<% unless asset.resource.video_link.blank? %>
+<div id="player">
+<script type="text/javascript">
+//<![CDATA[
+     var fullScreenMessageErr = "Media Player must be playing...";
+     var fullScreenMessageNote = "To return to browser please press ESC";
+     CreateControl("player","<%= asset.resource.video_link %>","1");
+//]]>
+</script>
+</div>
+<% end %>
 
+<% unless asset.resource.property.description.blank? %>
+<div class="description">
+	<h2>Description</h2>
+	<%= asset.resource.property.description %>
+</div>
+<% end %>
+
+<% unless asset.resource.transcript.blank? %>
+<div class="transcript">
+	<h2>Transcript</h2>
+	<%= asset.resource.transcript %>
+</div>
+<% end %>
+
+<%### close only for administrators !!!%>
+<%= render :partial => "admin/admin_pannel", 
+					 :locals => { :edit_asset => asset,
+					 							:delete_asset => asset	} %>
