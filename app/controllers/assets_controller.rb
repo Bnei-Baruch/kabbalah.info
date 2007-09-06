@@ -20,6 +20,9 @@ class AssetsController < ApplicationController
 		@assets = Asset.find(:all,
     	 									 :conditions => ["section_id = ? AND parent_id = ?", 
     	 									 								 @section_id, @parent_id], :order => "position ASC")
+
+	 store_location
+
     respond_to do |format|
       format.html # index.rhtml
       format.xml  { render :xml => @assets.to_xml }

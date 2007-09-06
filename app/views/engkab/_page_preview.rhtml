@@ -5,13 +5,14 @@
 <div class="page_preview<% if asset.eql?(@page) %> selected<% end %>">
 	<h3><%= link_to property.title, section_url(asset) %></h3>
 	<% if property.image_storage %>
-	<%= image_tag( property.image_storage.public_filename(:preview), 
-							   :alt => property.image_storage.alt, 
+	<%= image_tag( property.image_storage.public_filename(:preview),
+							   :alt => property.image_storage.alt,
 							   :title => property.image_storage.alt )%>
 	<% end %>
 	<% unless property.short_description.blank? %><p><%= property.short_description%></p> <% end %>
 	<div class="actions">
-    <%= link_to 'Edit', edit_asset_path(asset) %>
-    <%= link_to 'Destroy', asset_path(asset), :confirm => 'Are you sure?', :method => :delete %>
+	<%= render :partial => "admin/admin_pannel",
+					 :locals => { :edit_asset => @page, :delete_asset => @page } %>
+
 	</div>
 </div>

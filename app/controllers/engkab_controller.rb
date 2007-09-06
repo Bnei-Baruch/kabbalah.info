@@ -11,7 +11,9 @@ class EngkabController < ApplicationController
 		@section = @page.section
     @page_children = @page.children
 
-    if @page.parent && @page.parent.resource_type == "Category"
+	store_location
+
+	if @page.parent && @page.parent.resource_type == "Category"
     	@category = @page.parent
     	@category_children = @category.children.select {|i| i.resource_type == "Page"}
     	# render :text => @category_children.inspect

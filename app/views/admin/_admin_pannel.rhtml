@@ -1,15 +1,22 @@
-<% if new_asset %>
-	<% if new_asset[:type].class.to_s == "String" %>
-		<%= link_to new_asset[:message], new_asset_path(:section_id => @section, 
-																										:parent_id  => new_asset[:parent_id],
-																										:asset_type => new_asset[:type]) %>
-	<% end %>
-<% end %>
+<div class="admin_top_panel">
+<% if logged_in? %>
+    User: <%= link_to current_user.login, login_path %>
+    <% if new_asset && has_right?(:create) %>
+    	<% if new_asset[:type].class.to_s == "String" %>
+    		<%= link_to new_asset[:message], new_asset_path(:section_id => @section,
+															:parent_id  => new_asset[:parent_id],
+   															:asset_type => new_asset[:type]) %>
+    	<% end %>
+    <% end %>
 
-<% if edit_asset %>
-	<%= link_to 'Edit', edit_asset_path(edit_asset) %>
-<% end %>
+    <% if edit_asset && has_right?(:edit) %>
+    	<%= link_to 'Edit', edit_asset_path(edit_asset) %>
+    <% end %>
 
-<% if delete_asset %>
-	<%= link_to 'Destroy', asset_path(delete_asset), :confirm => 'Are you sure?', :method => :delete %>
+    <% if delete_asset && has_right?(:delete) %>
+    	<%= link_to 'Destroy', asset_path(delete_asset), :confirm => 'Are you sure?', :method => :delete %>
+    <% end %>
+<% else %>
+    <%= link_to "Login", login_path %>
 <% end %>
+</div>
