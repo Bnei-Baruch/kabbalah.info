@@ -29,9 +29,9 @@ ActionController::Routing::Routes.draw do |map|
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
-  map.section0 ':controller/:section/:id', :action => 'show'
-  map.section1 ':controller/:section/:category0/:id', :action => 'show'
-  map.section2 ':controller/:section/:category0/:category1/:id', :action => 'show'
+  map.section0 ':section/:id', :action => 'show', :controller => 'engkab' 
+  map.section1 ':section/:category0/:id', :action => 'show', :controller => 'engkab' 
+  map.section2 ':section/:category0/:category1/:id', :action => 'show', :controller => 'engkab' 
   # This route can be invoked with test1_url(:id => asset, :section => asse)
 
   # You can have the root of your site routed by hooking up ''
