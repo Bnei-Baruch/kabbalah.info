@@ -23,17 +23,29 @@ class SectionsController < ApplicationController
 
   # GET /sections/new
   def new
+    if !has_right?(:create)
+      redirect_to :unauthorized
+      return
+    end
     @section = Section.new
   end
 
   # GET /sections/1;edit
   def edit
+    if !has_right?(:edit)
+      redirect_to :unauthorized
+      return
+    end
     @section = Section.find(params[:id])
   end
 
   # POST /sections
   # POST /sections.xml
   def create
+    if !has_right?(:create)
+      redirect_to :unauthorized
+      return
+    end
     @section = Section.new(params[:section])
 
     respond_to do |format|
@@ -51,6 +63,10 @@ class SectionsController < ApplicationController
   # PUT /sections/1
   # PUT /sections/1.xml
   def update
+    if !has_right?(:edit)
+      redirect_to :unauthorized
+      return
+    end
     @section = Section.find(params[:id])
 
     respond_to do |format|
@@ -68,6 +84,11 @@ class SectionsController < ApplicationController
   # DELETE /sections/1
   # DELETE /sections/1.xml
   def destroy
+    if !has_right?(:delete)
+      redirect_to :unauthorized
+      return
+    end
+
     @section = Section.find(params[:id])
     @section.destroy
 

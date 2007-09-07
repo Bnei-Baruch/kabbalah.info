@@ -1,8 +1,7 @@
 class PagesController < ResourcesController
-  
-              	
-	layout "resource"
-	
+
+  layout "resource"
+
   # GET /pages
   # GET /pages.xml
   def index
@@ -27,14 +26,22 @@ class PagesController < ResourcesController
 
   # GET /pages/new
   def new
+    if !has_right?(:create)
+      redirect_to :unauthorized
+      return
+    end
     @page = Page.new
-    
+
 		create_new_objects() ### Add to all resources
     save_refferer_to_session() ### Add to all resources
   end
 
   # GET /pages/1;edit
   def edit
+    if !has_right?(:edit)
+      redirect_to :unauthorized
+      return
+    end
     @page = Page.find_by_permalink(params[:id])
 		edit_objects(@page) ### Add to all resources
     save_refferer_to_session() ### Add to all resources
@@ -43,16 +50,24 @@ class PagesController < ResourcesController
   # POST /pages
   # POST /pages.xml
   def create
+    if !has_right?(:create)
+      redirect_to :unauthorized
+      return
+    end
     @page = Page.new(params[:page])
-    create_new_objects(:property => params[:property], 
-    									 :image_storage => params[:image_storage], 
-    									 :asset => params[:asset], 
+    create_new_objects(:property => params[:property],
+    									 :image_storage => params[:image_storage],
+    									 :asset => params[:asset],
     									 :resource => @page) ### Add to all resources
   end
 
   # PUT /pages/1
   # PUT /pages/1.xml
   def update
+    if !has_right?(:update)
+      redirect_to :unauthorized
+      return
+    end
     @page = Page.find_by_permalink(params[:id])
     update_objects(@page, params[:page]) ### Add to all resources
   end
@@ -60,6 +75,10 @@ class PagesController < ResourcesController
   # DELETE /pages/1
   # DELETE /pages/1.xml
   def destroy
+    if !has_right?(:delete)
+      redirect_to :unauthorized
+      return
+    end
     @page = Page.find_by_permalink(params[:id])
     @page.destroy
 
@@ -68,7 +87,7 @@ class PagesController < ResourcesController
       format.xml  { head :ok }
     end
   end
-  
+
   protected
 
 end

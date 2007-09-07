@@ -1,7 +1,7 @@
 class CategoriesController < ResourcesController
-	
-	layout "resource"
-	
+
+  layout "resource"
+
   # GET /categories
   # GET /categories.xml
   def index
@@ -26,6 +26,11 @@ class CategoriesController < ResourcesController
 
   # GET /categories/new
   def new
+    if !has_right?(:create)
+      redirect_to :unauthorized
+      return
+    end
+
     @category = Category.new
     create_new_objects() ### Add to all resources
     save_refferer_to_session() ### Add to all resources
@@ -33,6 +38,10 @@ class CategoriesController < ResourcesController
 
   # GET /categories/1;edit
   def edit
+    if !has_right?(:edit)
+      redirect_to :unauthorized
+      return
+    end
     @category = Category.find(params[:id])
 		edit_objects(@category) ### Add to all resources
     save_refferer_to_session() ### Add to all resources
@@ -41,16 +50,24 @@ class CategoriesController < ResourcesController
   # POST /categories
   # POST /categories.xml
   def create
+    if !has_right?(:create)
+      redirect_to :unauthorized
+      return
+    end
     @category = Category.new(params[:category])
-    create_new_objects(:property => params[:property], 
-    									 :image_storage => params[:image_storage], 
-    									 :asset => params[:asset], 
+    create_new_objects(:property => params[:property],
+    									 :image_storage => params[:image_storage],
+    									 :asset => params[:asset],
     									 :resource => @category) ### Add to all resources
   end
 
   # PUT /categories/1
   # PUT /categories/1.xml
   def update
+    if !has_right?(:edit)
+      redirect_to :unauthorized
+      return
+    end
     @category = Category.find(params[:id])
     update_objects(@category, params[:category]) ### Add to all resources
   end
@@ -58,6 +75,10 @@ class CategoriesController < ResourcesController
   # DELETE /categories/1
   # DELETE /categories/1.xml
   def destroy
+    if !has_right?(:delete)
+      redirect_to :unauthorized
+      return
+    end
     @category = Category.find(params[:id])
     @category.destroy
 

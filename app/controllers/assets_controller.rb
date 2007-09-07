@@ -6,7 +6,7 @@ class AssetsController < ApplicationController
   	@grand_parent_id = ''
   	if params[:section_id]
   		@section_id = params[:section_id]
-  	end 
+  	end
   	@section_id ||= Asset.sections(true)
   	@section_title = Section.get_title_by_id(@section_id) || "Unknown"
   	if params[:parent_id]
@@ -16,9 +16,9 @@ class AssetsController < ApplicationController
 		else
 			@parent_id = 0
   	end
-  	 
+
 		@assets = Asset.find(:all,
-    	 									 :conditions => ["section_id = ? AND parent_id = ?", 
+    	 									 :conditions => ["section_id = ? AND parent_id = ?",
     	 									 								 @section_id, @parent_id], :order => "position ASC")
 
 	 store_location
@@ -42,6 +42,10 @@ class AssetsController < ApplicationController
 
   # GET /assets/new
   def new
+    if !has_right?(:create)
+      redirect_to :unauthorized
+      return
+    end
 	type = params[:asset_type]
 	redirect_to :type => "new_#{type}_path",
 					:section_id => params[:section_id],
@@ -50,6 +54,10 @@ class AssetsController < ApplicationController
 
   # GET /assets/1;edit
   def edit
+    if !has_right?(:edit)
+      redirect_to :unauthorized
+      return
+    end
     @asset = Asset.find(params[:id])
     type = @asset.resource_type.downcase
     resource = @asset.resource
@@ -59,6 +67,10 @@ class AssetsController < ApplicationController
   # POST /assets
   # POST /assets.xml
   def create
+    if !has_right?(:create)
+      redirect_to :unauthorized
+      return
+    end
     @asset = Asset.new(params[:asset])
 
     respond_to do |format|
@@ -76,6 +88,10 @@ class AssetsController < ApplicationController
   # PUT /assets/1
   # PUT /assets/1.xml
   def update
+    if !has_right?(:edit)
+      redirect_to :unauthorized
+      return
+    end
     @asset = Asset.find(params[:id])
 
     respond_to do |format|
@@ -93,6 +109,10 @@ class AssetsController < ApplicationController
   # DELETE /assets/1
   # DELETE /assets/1.xml
   def destroy
+    if !has_right?(:delete)
+      redirect_to :unauthorized
+      return
+    end
     @asset = Asset.find(params[:id])
     @asset.destroy
 
