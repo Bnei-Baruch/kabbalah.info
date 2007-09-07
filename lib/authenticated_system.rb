@@ -121,7 +121,7 @@ module AuthenticatedSystem
         "admin" => [:create, :edit, :delete],
         "editor" => [:edit],
       }
-      (roles[current_user.login] || []).include?(action)
+      logged_in? && (roles[current_user.login] || []).include?(action)
     end
 
   private
