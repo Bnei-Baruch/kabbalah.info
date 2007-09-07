@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
     alias_method :orig_redirect_to, :redirect_to
 	def redirect_to(options = {}, *parameters_for_method_reference)
 		if (options.class == Symbol) && (options == :unauthorized)
-            orig_redirect_to home_url, :status => 401
+            orig_redirect_to login_home_url, :status => 401
 		elsif (options.class == Hash) && (options.include? :type)
           if options.include? :resource
             orig_redirect_to self.send(options[:type], options[:resource])

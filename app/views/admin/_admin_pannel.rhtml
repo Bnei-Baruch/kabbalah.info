@@ -1,5 +1,10 @@
 <div class="admin_top_panel">
 <% if logged_in? %>
+		<% 
+		new_asset ||= nil
+		edit_asset ||= nil
+		delete_asset ||= nil
+		%>
     User: <%= link_to current_user.login, login_path %>
     <% if new_asset && has_right?(:create) %>
     	<% if new_asset[:type].class.to_s == "String" %>

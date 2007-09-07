@@ -4,7 +4,7 @@ class EngkabController < ApplicationController
   def show
     @page = Page.find_by_permalink(params[:id])
  		if @page == nil
-			render :file => "public/404.html", :status => 404
+			status_404
 			return
 		end
 		@page = @page.asset
@@ -28,7 +28,9 @@ class EngkabController < ApplicationController
   end
   
   def method_missing(m)
-  	render :text => "ddd#{m.inspect}"
-  	return
+		m =~ /status_(\d+)/
+		status = $1 || 404
+		render :file => "public/#{status}.html", :status => status.to_i
   end
+  
 end

@@ -37,11 +37,13 @@ Section: <%= select_tag :section_id, options_from_collection_for_select(Section.
 <% end %>
 </table>
 
+<% if has_right?(:create) %>
 <br />
-<% form_tag( new_asset_path, :method => :get) do -%>
-	<%= hidden_field_tag :section_id, @section_id%>
-	<%= hidden_field_tag :parent_id, @parent_id%>
-
-	Type: <%= select_tag :asset_type, options_for_select(Asset.asset_types) %>
-	<%= submit_tag "Create new Asset" %>
+	<% form_tag( new_asset_path, :method => :get) do -%>
+		<%= hidden_field_tag :section_id, @section_id%>
+		<%= hidden_field_tag :parent_id, @parent_id%>
+	
+		Type: <%= select_tag :asset_type, options_for_select(Asset.asset_types) %>
+		<%= submit_tag "Create new Asset" %>
+	<% end -%>
 <% end -%>
