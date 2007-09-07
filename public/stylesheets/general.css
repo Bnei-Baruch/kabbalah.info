@@ -1,0 +1,33 @@
+body { background-color: #fff; color: #333; font: 62.5% Verdana, sans-serif; }
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+#input_form {
+	width: 450px;
+}
+label{
+	display: block;
+	clear: both;
+	font-size: 13px;
+	font-style: italic;
+	font-weight: bold;
+	margin: 25px 0 8px 0;
+}
+input.text, textarea {
+	width: 100%;
+}
+#image_storage{
+	border: 1px dashed blue;
+	margin: 5px 0;
+	padding: 5px;
+}
+#image_storage img{
+	float: left;
+	padding: 0 5px 5px 0;
+}
