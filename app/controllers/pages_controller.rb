@@ -64,7 +64,7 @@ class PagesController < ResourcesController
   # PUT /pages/1
   # PUT /pages/1.xml
   def update
-    if !has_right?(:update)
+    if !has_right?(:edit)
       redirect_to :unauthorized
       return
     end
