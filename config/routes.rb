@@ -17,8 +17,8 @@ ActionController::Routing::Routes.draw do |map|
   											 :singular => 'engkab_page'
 
   map.section0 ':controller/:section/:id', :action => 'show'
-  map.section1 ':controller/:section/:category0/:id', :action => 'show'
-  map.section2 ':controller/:section/:category0/:category1/:id', :action => 'show'
+  # map.section1 ':controller/:section/:category0/:id', :action => 'show'
+  # map.section2 ':controller/:section/:category0/:category1/:id', :action => 'show'
 
 
   map.resources :pages, :path_prefix => '/admin'
