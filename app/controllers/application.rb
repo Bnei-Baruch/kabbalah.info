@@ -4,6 +4,9 @@
 class ApplicationController < ActionController::Base
   include AuthenticatedSystem
 
+  # To set :host for Mailer
+  around_filter :retardase_inhibitor
+
   before_filter :login_required, :only => [ :new, :create, :edit, :update, :destroy ]
 
   # Pick a unique cookie name to distinguish our session data from others'
