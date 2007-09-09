@@ -1,5 +1,5 @@
+<% if logged_in?  %>
 <div class="admin_panel">
-<% if logged_in? %>
 		<% 
 		new_asset ||= nil
 		edit_asset ||= nil
@@ -29,5 +29,5 @@
     <% if delete_asset && has_right?(:delete) %>
     	<%= link_to 'Destroy', asset_path(delete_asset), :confirm => 'Are you sure?', :method => :delete %>
     <% end %>
-<% end %>
 </div>
+<% end %>

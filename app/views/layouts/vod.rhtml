@@ -1,60 +1,97 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
 <head>
-	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-	<meta http-equiv="Content-language" content="en" />
-  <title><%= @page.resource.property.title %></title>
-  <meta name="description" content="<%= @page.resource.property.description %>" />
+	<title><%= @page.resource.property.title %></title>
+	<meta name="description" content="<%= @page.resource.property.description %>" />
 	<meta name="keywords" content="<%= @page.resource.keywords %>" />
-  <link rel="stylesheet" href="http://yui.yahooapis.com/2.3.0/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css" />
-  <%= stylesheet_link_tag 'vod' %>
-  <%= stylesheet_link_tag 'admin' %><%### close only for administrators !!!%>
-  <%= javascript_include_tag 'windows_media_object' if @page.children %>
+	<%= stylesheet_link_tag 'reset-fonts-grids', 'base-min', :media => "screen", :title => "no title", :charset => "utf-8" %>
+	<%= stylesheet_link_tag 'admin' %>
+	<%= javascript_include_tag 'windows_media_object' if @page.children %> 
 </head>
 <body>
-
 <div id="doc2" class="yui-t2">
 	<div id="hd">
-<% if logged_in? %>
-<%= render :partial => "admin/user_options" %>
-		<%= render :partial => "admin/admin_pannel",
-							 :locals => { :new_asset => { :parent_id => @page.parent, :type => "page", :message => "New page" },
-							 							:edit_asset => @page,
-							 							:delete_asset => @page } %>
-<% end %>
-		<h1>Top Menu Goes Here</h1>
+		<% if logged_in? %>
+		<p style="color: green"><%= flash[:notice] %></p>
+			<%= render :partial => "admin/user_options" %>
+			<%= render :partial => "admin/admin_pannel",
+								 :locals => { :new_asset => { :parent_id => @page.parent, :type => "page", :message => "New page" },
+															:edit_asset => @page,
+															:delete_asset => @page } %>
+			<% end %>		
+		<img src="/files/vod/images/header_tmp.gif" width="950" height="92" alt="Header Tmp" />
 	</div>
+
 	<div id="bd">
-		<div id="yui-main">
+		<div id="yui-main"><!-- Right Side -->
 			<div class="yui-b">
-				<div class="yui-gc">
-					<div class="yui-u first">
-						<p style="color: green"><%= flash[:notice] %></p>
-						<%# Show the page with its assets (page.rhtml) %>
-						<%= yield  %>
+				<div id="top" class="yui-g"><!-- top part above VOD but beneath header -->
+					<div id="top-menu"><!-- top menu -->
+						<ul>
+							<li><a href="#">Home</a></li>
+							<li class="pipe">|</li>
+							<li><a href="#">Vision</a></li>
+							<li class="pipe">|</li>
+							<li><a href="#">Contact Us</a></li>
+							<li class="pipe">|</li>
+							<li><a href="#">About</a></li>
+							<li class="pipe">|</li>
+							<li><a href="#">Donation</a></li>
+							<li class="pipe">|</li>
+							<li><a href="#">Press Kit</a></li>
+						</ul>
 					</div>
-					<div class="yui-u">
-						<%# List of pages (###_preview.rhtml)%>
-						<% if @category %>
-						<%= @category.resource.property.title %>
-						<% end %>
-						<% if @category_children %>
-						<%= render :partial => "share/show_assets_in_loop",
-											 :locals => { :container => @category_children, :display => "preview" } %>
-						<% end %>
+				</div>
+				<div id="vod" class="yui-g"><!-- VOD part -->
+					<h2 class="vod-hd"><span id="emph">&nbsp;</span><%= @section.title%></h2>
+					<div id="vod-body">
+					<%= yield  %>
+						<div id="vod-right">
+							<% if @category %>
+							<h2><%= @category.resource.property.title %></h2>
+							<% end %>
+							<div id="right-list">
+								<%# List of pages (###_preview.rhtml)%>
+								<% if @category_children %>
+								<%= render :partial => "share/show_assets_in_loop",
+													 :locals => { :container => @category_children, :display => "preview" } %>
+								<% end %>
+							</div>
+						</div>
+						<br style="clear:both;" />
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="yui-b">
-			<% if @categories %>
-			<%# List of categories (###_list.rhtml)%>
-			<%= render :partial => "share/show_assets_in_loop",
-								 :locals => { :container => @categories, :display => "list" } %>
-			<% end %>
+		<div class="yui-b"><!-- Environment + Left Side -->
+			<div id="top-env">
+				<img src="/files/vod/images/env.gif" width="180" height="14" alt="Env" />
+			</div>
+			<div id="category"><!-- top menu -->
+				<h2>Categories</h2>
+				<% if @categories %>
+					<%# List of categories (###_list.rhtml)%>
+					<%= render :partial => "share/show_assets_in_loop",
+										 :locals => { :container => @categories, :display => "list" } %>
+		<%= render :partial => "admin/admin_pannel", 
+				 				:locals => { :new_asset => { :parent_id => @categories[0].parent, 
+				 																		 :type => "Category", 
+				 																		 :message => "New Category" } } %>
+				<% end %>
+			</div>
+			<div class="service">
+				<h2>Services</h2>
+				<div>
+					<h3>Kabbalah Today Subscription</h3>
+				</div>
+			</div>
 		</div>
 	</div>
+
 	<div id="ft">Footer is here.</div>
+
 </div>
 </body>
 </html>

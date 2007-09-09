@@ -1,7 +1,3 @@
-<ul>
 <% for asset in container %>
-	<li>
 		<%= render :partial => "#{asset.resource_type.downcase}_#{display}", :locals => { :asset => asset } %>
-	</li>
 <% end %>
-</ul>
