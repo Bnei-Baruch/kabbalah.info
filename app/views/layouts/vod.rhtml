@@ -15,7 +15,7 @@
 
 <div id="doc2" class="yui-t2">
 	<div id="hd">
-
+<%= @section.permalink%>
 		<%= render :partial => "admin/admin_pannel",
 							 :locals => { :new_asset => { :parent_id => @page.parent, :type => "page", :message => "New page" },
 							 							:edit_asset => @page,

@@ -3,12 +3,12 @@ class EngkabController < ApplicationController
   # GET /engkab/1.xml
   def show
     @page = Page.find_by_permalink(params[:id])
- 		if @page == nil
+    @section = Section.find_by_permalink(params[:section])
+ 		if @page == nil || @section == nil
 			status_404
 			return
 		end
 		@page = @page.asset
-		@section = @page.section
     @page_children = @page.children
 
 	store_location

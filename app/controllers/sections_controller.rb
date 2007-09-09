@@ -13,7 +13,7 @@ class SectionsController < ApplicationController
   # GET /sections/1
   # GET /sections/1.xml
   def show
-    @section = Section.find(params[:id])
+    @section = Section.find_by_permalink(params[:id])
 
     respond_to do |format|
       format.html # show.rhtml
@@ -36,7 +36,7 @@ class SectionsController < ApplicationController
       redirect_to :unauthorized
       return
     end
-    @section = Section.find(params[:id])
+    @section = Section.find_by_permalink(params[:id])
   end
 
   # POST /sections
@@ -67,7 +67,7 @@ class SectionsController < ApplicationController
       redirect_to :unauthorized
       return
     end
-    @section = Section.find(params[:id])
+    @section = Section.find_by_permalink(params[:id])
 
     respond_to do |format|
       if @section.update_attributes(params[:section])
@@ -89,7 +89,7 @@ class SectionsController < ApplicationController
       return
     end
 
-    @section = Section.find(params[:id])
+    @section = Section.find_by_permalink(params[:id])
     @section.destroy
 
     respond_to do |format|
