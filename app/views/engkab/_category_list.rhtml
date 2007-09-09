@@ -5,7 +5,7 @@
 
 	<h3 class="category_list<% if asset.eql?(@category_asset) %> selected<% end %>">
 		<% if category_first_page && category_first_page.resource_type ==  "Page" %>
-			<%= link_to asset.resource.property.title, section_url(category_first_page) %>
+			<%= link_to asset.resource.property.title, site_page_url(category_first_page) %>
  			<%### close only for administrators !!!%>
 			<br />
 			<%= render :partial => "admin/admin_pannel", 

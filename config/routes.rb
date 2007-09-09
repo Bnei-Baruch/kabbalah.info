@@ -16,7 +16,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :engkab, :controller => 'engkab',
   											 :singular => 'engkab_page'
 
-  map.section0 ':controller/:section/:id', :action => 'show'
+  map.site_page0 ':controller/:section/:id', :action => 'show'
   # map.section1 ':controller/:section/:category0/:id', :action => 'show'
   # map.section2 ':controller/:section/:category0/:category1/:id', :action => 'show'
 

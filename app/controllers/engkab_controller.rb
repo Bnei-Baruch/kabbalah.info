@@ -18,11 +18,11 @@ class EngkabController < ApplicationController
     	@category_children = @category.children.select {|i| i.resource_type == "Page"}
     	# render :text => @category_children.inspect
     	# return
-    	@categories = Asset.find(:all, :conditions => "parent_id = #{@category.parent_id}", :order => "position ASC")
+    	@categories = Asset.find(:all, :conditions => "parent_id = #{@category.parent_id} and section_id = #{@section.id} and resource_type = 'Category' ", :order => "position ASC")
   	end
 
     respond_to do |format|
-      format.html { render  :action => "page", :layout => "vod" }
+      format.html { render  :action => "page", :layout => @section.layout }
       format.xml  { render :xml => @page.to_xml }
     end
   end

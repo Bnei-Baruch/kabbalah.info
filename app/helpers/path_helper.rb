@@ -1,9 +1,9 @@
 module PathHelper
-	def section_url(asset)
+	def site_page_url(asset)
 		# categories = []
 		page = asset.resource
 		section = asset.section
-		section0_url(:section => section, :id => page )
+		site_page0_url(:section => section, :id => page )
 		# parent = asset.parent
 		# while parent && parent.resource_type == "Category"
 		# 	categories << parent.resource
