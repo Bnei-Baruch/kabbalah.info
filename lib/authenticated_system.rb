@@ -119,7 +119,7 @@ module AuthenticatedSystem
     def has_right?(action)
       roles = {
         "admin" => [:create, :edit, :delete],
-        "editor" => [:edit],
+        "editor" => [:create, :edit],
       }
       logged_in? && (roles[current_user.login] || []).include?(action)
     end

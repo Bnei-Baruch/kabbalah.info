@@ -6,7 +6,7 @@ class Page < ActiveRecord::Base
 
 # fixing a bug when posting an update without permalink
 	def after_validation_on_update
-		self.permalink = Page.find_by_id(self.id).permalink
+		self.permalink = Page.find_by_id(self.id).permalink if self.permalink.empty?
 	end
 	
 	def to_param

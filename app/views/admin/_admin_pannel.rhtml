@@ -25,7 +25,7 @@
     <% end %>
 
     <% if delete_asset && has_right?(:delete) %>
-    	<%= link_to 'Destroy', asset_path(delete_asset), :confirm => 'Are you sure?', :method => :delete %>
+    	<%= link_to 'Delete', asset_path(delete_asset), :confirm => 'Are you sure?', :method => :delete %>
     <% end %>
 </li>
 <% end %>
