@@ -73,8 +73,10 @@
 				<h2>Categories</h2>
 				<% if @categories %>
 					<%# List of categories (###_list.rhtml)%>
+					<ul>
 					<%= render :partial => "share/show_assets_in_loop",
 										 :locals => { :container => @categories, :display => "list" } %>
+					</ul>
 		<%= render :partial => "admin/admin_pannel", 
 				 				:locals => { :new_asset => { :parent_id => @categories[0].parent, 
 				 																		 :type => "category", 

@@ -7,9 +7,8 @@
 	unless category_first_page && category_first_page.resource_type ==  "Page"
 		new_category = { :parent_id => asset, :type => "page", :message => "New page" }
 	end
-	selected = asset.eql?(@category) ? " class= \"selected\"" : "sss"
+	selected = asset.eql?(@category) ? " class= \"selected\"" : ""
 %>
-<ul>
 	<% if logged_in? && new_category && has_right?(:create) %>
 	<li>
 		<%= asset.resource.property.title%>
@@ -26,4 +25,3 @@
 				 							:delete_asset => asset	} %>
 	</li>
 	<% end %>
-</ul>
