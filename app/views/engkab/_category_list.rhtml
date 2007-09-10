@@ -19,7 +19,8 @@
 				 							:edit_asset => asset,
 				 							:delete_asset => asset	} %>
 	</li>
-	<% elsif !new_category %>
+	<% elsif !new_category && category_first_page.children[0] || 
+					 logged_in? && has_right?(:create) && !category_first_page.children[0] %>
 	<li>
 		<a href="<%= site_page_url(category_first_page) %>"<%= selected%>><%= asset.resource.property.title %></a>
 		<%= render :partial => "admin/admin_pannel", 

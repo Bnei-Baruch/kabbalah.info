@@ -3,11 +3,14 @@
 %>
 <% 
 	property = asset.resource.property
+	has_children = false
 	if asset.children.size > 0
+		has_children = true
 		video_child = (asset.children[0].resource_type == "Video") ? asset.children[0] : nil
 		duration = video_child ? video_child.resource.duration : ""
 	end
 %>
+<% if has_children && !(logged_in? || has_right?(:create))  %>
 <div class="right-item">
 	<div class="right-img">
 		<% if property.image_storage %>
@@ -34,3 +37,4 @@
 	</div>
 	<br class="clear-r">
 </div>
+<% end %>
