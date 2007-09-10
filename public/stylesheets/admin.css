@@ -1,3 +1,19 @@
-#admin_top_panel{
-	float:right;
+#category .admin_panel{
+	position:relative;
+	top:-15px;
+	height:20px;
+}
+#category .admin_panel a{
+	border: 0 none;
+	display: inline;
+	font-size:80%;
+	text-decoration:underline;
+	color:red;
+	padding:0 5px 0 0;
+}
+#category p.new_category{
+	border-bottom:3px groove white;
+}
+#category ul li a, #category p.new_category{
+	height:35px;
 }

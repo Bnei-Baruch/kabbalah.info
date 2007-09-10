@@ -206,38 +206,15 @@ h2.vod-hd span#emph{
 	font-size:82%;
 }
 
-.module-services div {
-	margin:10px 10px 0 10px;
-	padding:4px 4px 0 4px;
+.clear, .clear_r, .clear_l{
+	clear:both;
+	height:1px;
+	line-height:1px;
+	font-size:1px;
 }
-.module-services div p {
-	font-size:88%;
+.clear_r{
+	clear:right;
 }
-.module-services form h3 {
-	margin:0;
-	padding:0 4px;
-	color:#0191AF;
-	font-size:93%;
+.clear_l{
+	clear:left;
 }
-
-.module-services form {
-	padding:4px;
-}
-.module-services form p {
-	font-size:88%;
-}
-
-.module-services input{
-width:110px;	
-}
-
-.module-services .button {
-	width:50px;
-	border:1px solid #888;
-}
-img.newsletter {
-	float:left;
-}
-
-
-
