@@ -10,7 +10,7 @@
 		duration = video_child ? video_child.resource.duration : ""
 	end
 %>
-<% if has_children && !(logged_in? || has_right?(:create))  %>
+<% if has_children || logged_in? && has_right?(:create)  %>
 <div class="right-item">
 	<div class="right-img">
 		<% if property.image_storage %>
