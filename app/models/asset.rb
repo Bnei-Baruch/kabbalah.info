@@ -10,6 +10,7 @@ class Asset < ActiveRecord::Base
 	def self.asset_types
 		[
 		 ["Page", "page"],
+		 ["Article", "article"],
 		 ["Video", "video"],
 		 ["Category", "category"]
 		].sort

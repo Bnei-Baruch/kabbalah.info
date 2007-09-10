@@ -1,90 +1,87 @@
-class VideosController < ResourcesController
-
+class ArticlesController < ResourcesController
   layout "resource" ### Add to all resources
-
-  # GET /videos
-  # GET /videos.xml
+  # GET /articles
+  # GET /articles.xml
   def index
-    @videos = Video.find(:all)
+    @articles = Article.find(:all)
 
     respond_to do |format|
       format.html # index.rhtml
-      format.xml  { render :xml => @videos.to_xml }
+      format.xml  { render :xml => @articles.to_xml }
     end
   end
 
-  # GET /videos/1
-  # GET /videos/1.xml
+  # GET /articles/1
+  # GET /articles/1.xml
   def show
-    @video = Video.find(params[:id])
+    @article = Article.find(params[:id])
 
     respond_to do |format|
       format.html # show.rhtml
-      format.xml  { render :xml => @video.to_xml }
+      format.xml  { render :xml => @article.to_xml }
     end
   end
 
-  # GET /videos/new
+  # GET /articles/new
   def new
     if !has_right?(:create)
       redirect_to :unauthorized
       return
     end
-    @video = Video.new
+    @article = Article.new
     create_new_objects() ### Add to all resources
     save_refferer_to_session() ### Add to all resources
- end
+  end
 
-  # GET /videos/1;edit
+  # GET /articles/1;edit
   def edit
     if !has_right?(:edit)
       redirect_to :unauthorized
       return
     end
-    @video = Video.find(params[:id])
-		edit_objects(@video) ### Add to all resources
+    @article = Article.find(params[:id])
+		edit_objects(@article) ### Add to all resources
     save_refferer_to_session() ### Add to all resources
   end
 
-  # POST /videos
-  # POST /videos.xml
+  # POST /articles
+  # POST /articles.xml
   def create
     if !has_right?(:create)
       redirect_to :unauthorized
       return
     end
-    @video = Video.new(params[:video])
+    @article = Article.new(params[:article])
     create_new_objects(:property => params[:property],
     									 :image_storage => params[:image_storage],
     									 :asset => params[:asset],
-    									 :resource => @video) ### Add to all resources
+    									 :resource => @article) ### Add to all resources
   end
 
-  # PUT /videos/1
-  # PUT /videos/1.xml
+  # PUT /articles/1
+  # PUT /articles/1.xml
   def update
     if !has_right?(:edit)
       redirect_to :unauthorized
       return
     end
-    @video = Video.find(params[:id])
-    update_objects(@video, params[:video]) ### Add to all resources
+    @article = Article.find(params[:id])
+    update_objects(@article, params[:article]) ### Add to all resources
   end
 
-  # DELETE /videos/1
-  # DELETE /videos/1.xml
+  # DELETE /articles/1
+  # DELETE /articles/1.xml
   def destroy
     if !has_right?(:delete)
       redirect_to :unauthorized
       return
     end
-    @video = Video.find(params[:id])
-    @video.destroy
+    @article = Article.find(params[:id])
+    @article.destroy
 
     respond_to do |format|
-      format.html { redirect_to :back } ### Add to all resources
+      format.html { redirect_to articles_url }
       format.xml  { head :ok }
     end
   end
-
 end
