@@ -19,8 +19,9 @@
 	<% else %>
 		<img src="/files/vod/images/movie.jpg" width="100" height="60" alt="Movie" />
 	<% end %>
-
-		<div class="right-time">Time: <span><%= duration%></span></div>
+		<% unless duration.blank? %>
+			<div class="right-time">Time: <span><%= duration%></span></div>
+		<% end %>
 	</div>
 	<div class="right-description">
 		<h3><%= property.title %></h3>
