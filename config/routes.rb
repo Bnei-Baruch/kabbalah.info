@@ -6,6 +6,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # Authentication system
   map.resources :users, :path_prefix => '/admin'
+  map.resources :styles, :path_prefix => '/section/:section_id'
   map.resource :session, :controller => 'sessions', :path_prefix => '/admin'
   map.activate '/admin/activate/:activation_code', :controller => 'users', :action => 'activate'
   map.signup '/admin/signup', :controller => 'users', :action => 'new'

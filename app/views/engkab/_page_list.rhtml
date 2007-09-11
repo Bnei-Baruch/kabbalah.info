@@ -2,7 +2,7 @@
 #Displaying a a single page in a list of pages
 %>
 <% 
-	blank_page = asset.children[0] || nil
+	blank_page = asset.children[0] ? false : true
 	selected = asset.eql?(@page) ? " class= \"selected\"" : ""
 %>
 	<% if !blank_page || blank_page && logged_in? && has_right?(:create) %>

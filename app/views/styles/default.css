@@ -1,0 +1,2 @@
+<%= render :file => 'styles/_reset-fonts-grids.css'%>
+<%= render :file => 'styles/_base-min.css'%>

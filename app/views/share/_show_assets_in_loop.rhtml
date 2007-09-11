@@ -1,6 +1,3 @@
 <% for asset in container %>
 		<%= render :partial => "#{asset.resource_type.downcase}_#{display}", :locals => { :asset => asset } %>
-		<%= render :partial => "admin/admin_pannel", 
-							 :locals => { :edit_asset => asset,
-							 							:delete_asset => asset	} %>
 <% end %>
