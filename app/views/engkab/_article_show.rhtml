@@ -1,0 +1,13 @@
+<h2><%= asset.resource.property.title %></h2>
+<% if asset.resource.property.image_storage %>
+	<%= image_tag( property.image_storage.public_filename(:preview),
+								 :alt => property.image_storage.alt,
+								 :title => property.image_storage.alt,
+								 :size => "100x60" )%>
+<% end %>
+<% unless asset.resource.property.short_description.blank? %>
+	<%= asset.resource.property.short_description %>
+<% end %>
+<% unless asset.resource.body.blank? %>
+	<%= asset.resource.body %>
+<% end %>
