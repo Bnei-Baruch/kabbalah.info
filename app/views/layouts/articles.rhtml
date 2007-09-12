@@ -47,10 +47,11 @@
 						</ul>
 					</div>
 				</div>
-				<div class="yui-u yui-gc"><%# Content part %>
+				<div class="yui-u yui-ge"><%# Content part %>
 					<div class="yui-u first">
 					<div id="unit66"><%# Middle 66% part %>
 						<h2 id="hd-middle"><%= @section.title%></h2>
+						<div class="hd-border">&nbsp;</div>
 						<div id="hd-content">
 							<h1 id="title"><%= @page.resource.property.title %></h1>
 							<%= yield  %>
@@ -81,6 +82,7 @@
 			</div>
 			<div id="category"><%# first menu %>
 				<h2>Categories</h2>
+				<div class="hd-border">&nbsp;</div>
 				<% if @pages %>
 					<%# List of pages (###_list.rhtml)%>
 					<ul>
@@ -93,9 +95,10 @@
 							 																		 :message => "New Page" } } %>
 				<% end %>
 			</div>
-			<div class="service">
+			<div class="services">
 				<h2>Services</h2>
-				<div>
+				<div class="s-border">&nbsp;</div>
+				<div class="service">
 					<h3>Kabbalah Today Subscription</h3>
 				</div>
 			</div>

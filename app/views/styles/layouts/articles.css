@@ -10,6 +10,9 @@
 	middle_hd_fg = "#D7DBDE";
 	related_bg = "#f7f7f8"
 	bottom_line = "#73787b"
+	services_hd_bg = "#b5d2e2"
+	services_hd_fg = "#0698bc"
+	services_bottom_line = "#8ebdd5"
 -%>
 <%#	Top menu %>
 #top-menu {
@@ -54,7 +57,7 @@
 	margin:0;
 	padding:8px;
 	border:1px solid <%=general_border%>;
-	border-top:4px solid <%=category_active%> ;
+	border-top:0 none;
 }
 #category ul li {
 	list-style:none;
@@ -82,25 +85,32 @@
 	background-color:<%=category_active%>;
 }
 <%# Services %>
-.service div{
+.service{
 	padding:10px;
 	border:1px solid #c2c3c6;
 	border-top:0 none;
 }
-.service h2 {
-	background-color:#DDD url('/files/<%= @layout %>/images/service-hd.gif') repeat-x top left;
-	height:25px;
-	line-height:25px;
-	padding:0 0 0 8px;
-	margin:0;
+.services h2 {
+	background-color:<%=services_hd_bg%>;
+	color:<%=services_hd_fg%>;
+	border-bottom:1px solid <%=services_bottom_line%>;
+	height:20px;
+	line-height:20px;
+	padding:0 8px;
+	margin:0 0 2px;
 	text-transform:capitalize;
-	color:#0097bd;
-	font-size:107%;
+	font-size:<%=h2_font_size%>;
 }
-.service h3 {
+.services h3 {
 	margin:0;
 	color:#0191AF;
 	font-size:82%;
+}
+.s-border{
+	background-color:<%=services_bottom_line%>;
+	height:4px;
+	line-height:4px;
+	font-size:4px;
 }
 <%# Clearings %>
 .clear, .clear_r, .clear_l{
@@ -119,18 +129,24 @@
 h2#hd-middle {
 	background-color:<%=middle_hd_bg%>;
 	color:<%=middle_hd_fg%>;
-	border-bottom:2px solid white;
+	border-bottom:1px solid <%=bottom_line%>;
 	height:20px;
 	line-height:20px;
-	margin:0;
 	padding:0 8px;
+	margin:0 0 2px;
 	text-transform:capitalize;
 	font-size:<%=h2_font_size%>;
 }
+.hd-border{
+	background-color:<%=category_active%>;
+	height:4px;
+	line-height:4px;
+	font-size:4px;
+}
 div#hd-content{
-	border:1px solid <%=general_border%>;
 	padding:20px;
-	border-top:4px solid <%=category_active%> ;
+	border:1px solid <%=general_border%>;
+	border-top:0 none;
 }
 h1#title{
 	margin:-10px 0 15px;

@@ -8,7 +8,8 @@
 	font-size:197%;
 	position:relative;
 	top:25px;
-	left:70px;
+	left:0;
+	padding:0 0 0 70px;
 	font-weight:normal;
 }
 .article h3{
@@ -19,4 +20,5 @@
 	font-size:131%;
 	color:#8E8F91;
 	font-weight:normal;
+	border:0 none;
 }
