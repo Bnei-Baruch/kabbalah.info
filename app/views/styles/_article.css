@@ -2,7 +2,7 @@
 	position:relative;
 	top:-25px;
 }
-.article-asset h2{
+.article h2{
 	margin:0;
 	color:#51515B;
 	font-size:197%;
@@ -11,22 +11,12 @@
 	left:70px;
 	font-weight:normal;
 }
-.article-asset h3{
+.article h3{
 	position:relative;
-	top:-40px;
+	top:-43px;
 	margin:0 0 -25px;
 	padding:0 0 0 70px;
 	font-size:131%;
 	color:#8E8F91;
 	font-weight:normal;
-}
-.related{
-	background: #DDD url('/files/<%= @layout %>/images/related-hd.gif') repeat-x top left;
-	height:23px;
-	line-height:23px;
-	padding:0 0 0 8px;
-	margin:0;
-	text-transform:capitalize;
-	color:#0097bd;
-	font-size:107%;
 }

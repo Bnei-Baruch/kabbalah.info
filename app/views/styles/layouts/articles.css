@@ -1,11 +1,17 @@
 <% # Colors
-	category_hd_bg = "#77797c"
+	category_hd_bg = "#909295"
 	category_hd_fg = "#cecfd1"
 	category_bg = "#eff8f8"
 	category_fg = "#77797c"
 	category_active = "#afdedf"
+	general_border = "#a5a7a9"	
+	h2_font_size = "100%"
+	middle_hd_bg = "#4E4E4E"
+	middle_hd_fg = "#D7DBDE";
+	related_bg = "#f7f7f8"
+	bottom_line = "#73787b"
 -%>
-/*	Top menu */
+<%#	Top menu %>
 #top-menu {
 	float:right;
 }
@@ -32,21 +38,23 @@
 	background-color:<%=category_bg%>;
 	margin-bottom:15px;
 }
+<%# Category %>
 #category h2 {
-	background:<%=category_hd_bg%> url('/files/<%= @layout %>/images/category-hd.gif') repeat-x top left;
+	background-color:<%=category_hd_bg%>;
 	color:<%=category_hd_fg%>;
-	height:29px;
-	line-height:22px;
+	border-bottom:1px solid <%=bottom_line%>;
+	height:20px;
+	line-height:20px;
 	padding:0 8px;
-	margin:0;
+	margin:0 0 2px;
 	text-transform:capitalize;
-	font-size:107%;
+	font-size:<%=h2_font_size%>;
 }
 #category ul {
 	margin:0;
 	padding:8px;
-	border:1px solid #a5a7a9;
-	border-top:0 none;
+	border:1px solid <%=general_border%>;
+	border-top:4px solid <%=category_active%> ;
 }
 #category ul li {
 	list-style:none;
@@ -65,7 +73,7 @@
 	text-decoration:none;
 	font-size:93%;
 }
-#category ul li a:link, .category ul li a:visited {
+#category ul li a:link, #category ul li a:visited {
 }
 #category ul li a.last{
 	border:0 none;
@@ -73,14 +81,14 @@
 #category ul li a.selected, #category ul li a:hover {
 	background-color:<%=category_active%>;
 }
-
+<%# Services %>
 .service div{
 	padding:10px;
 	border:1px solid #c2c3c6;
 	border-top:0 none;
 }
 .service h2 {
-	background: #DDD url('/files/<%= @layout %>/images/service-hd.gif') repeat-x top left;
+	background-color:#DDD url('/files/<%= @layout %>/images/service-hd.gif') repeat-x top left;
 	height:25px;
 	line-height:25px;
 	padding:0 0 0 8px;
@@ -94,6 +102,7 @@
 	color:#0191AF;
 	font-size:82%;
 }
+<%# Clearings %>
 .clear, .clear_r, .clear_l{
 	clear:both;
 	height:1px;
@@ -106,20 +115,22 @@
 .clear_l{
 	clear:left;
 }
-h2#hd {
-	background: #DDD url('/files/<%=@layout%>/images/hd.gif') repeat-x top left;
-	height:29px;
-	line-height:22px;
+<%# Middle part %>
+h2#hd-middle {
+	background-color:<%=middle_hd_bg%>;
+	color:<%=middle_hd_fg%>;
+	border-bottom:2px solid white;
+	height:20px;
+	line-height:20px;
 	margin:0;
 	padding:0 8px;
 	text-transform:capitalize;
-	color:#D7DBDE;
-	font-size:107%;
+	font-size:<%=h2_font_size%>;
 }
 div#hd-content{
-	border:1px solid #a5a7a9;
-	border-top:0 none;
+	border:1px solid <%=general_border%>;
 	padding:20px;
+	border-top:4px solid <%=category_active%> ;
 }
 h1#title{
 	margin:-10px 0 15px;
@@ -133,4 +144,55 @@ h1#title{
 }
 #assets h2{
 	margin:0;
+}
+#assets div.hr{
+	border-top:2px solid #77797c;
+	margin:20px 0 30px;
+	height:2px;
+	line-height:2px;
+	font-size:2px;
+}
+<%# Related boxes (right column) %>
+.r-box{
+	margin:0 0 10px;
+	background-color:<%=related_bg%>;
+}
+.r-box h2{
+	background-color:<%=category_active%>;
+	color:<%=middle_hd_bg%>;
+	height:20px;
+	line-height:20px;
+	margin:0;
+	padding:0 8px;
+	text-transform:capitalize;
+	font-size:<%=h2_font_size%>;
+}
+.r-box-inner{
+	border:1px solid <%=general_border%>;
+	padding:15px 20px;
+	border-top:0 none;
+}
+.r-box-inner ul{
+	margin:0;
+}
+.r-box-inner ul li{
+	list-style:none;
+	line-height:22px;
+	height:25px;
+	display:block;
+	margin:0;
+}
+.r-box-inner ul li a{
+	color:<%=category_fg%>;
+	display:block;
+	width:auto;
+	padding:0 0 0 2px;
+	margin:0;
+	text-decoration:none;
+	font-size:100%;
+}
+.r-box-inner ul li a:link, .r-box-inner ul li a:visited {
+}
+.r-box-inner ul li a.selected, .r-box-inner ul li a:hover {
+	background-color:<%=category_active%>;
 }

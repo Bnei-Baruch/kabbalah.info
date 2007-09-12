@@ -1,3 +1,7 @@
-<% for asset in container %>
+<%
+	container.each_with_index do |asset, index|
+		if (index != 0) && (display == "show") %>
+			<div class="hr">&nbsp;</div>
+		<% end	%>
 		<%= render :partial => "#{asset.resource_type.downcase}_#{display}", :locals => { :asset => asset } %>
 <% end %>
