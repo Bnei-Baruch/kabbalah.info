@@ -12,4 +12,18 @@ class Section < ActiveRecord::Base
 		permalink
 	end
 
+	def permitted_objects
+		case layout
+		when "vod"
+			{
+				:layout => "vod",
+				:assets => [ "video" ]
+			}
+		when "articles"
+			{
+				:layout => "articles",
+				:assets => [ "video", "article" ]
+			}
+		end
+	end
 end

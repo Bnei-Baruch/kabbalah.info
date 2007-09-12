@@ -1,0 +1,136 @@
+<% # Colors
+	category_hd_bg = "#77797c"
+	category_hd_fg = "#cecfd1"
+	category_bg = "#eff8f8"
+	category_fg = "#77797c"
+	category_active = "#afdedf"
+-%>
+/*	Top menu */
+#top-menu {
+	float:right;
+}
+#top-menu ul {
+	padding:5px;
+	margin:0;
+}
+#top-menu ul li {
+	display:inline;
+}
+#top-menu li a, #top-menu li.pipe {
+	padding:0 5px;
+	text-decoration:none;
+	font-size:93%;
+	color:#888;
+}
+#top-menu li.pipe {
+	padding:0;
+}
+#top-env{
+	margin:10px 0 0;
+}
+#category {
+	background-color:<%=category_bg%>;
+	margin-bottom:15px;
+}
+#category h2 {
+	background:<%=category_hd_bg%> url('/files/<%= @layout %>/images/category-hd.gif') repeat-x top left;
+	color:<%=category_hd_fg%>;
+	height:29px;
+	line-height:22px;
+	padding:0 8px;
+	margin:0;
+	text-transform:capitalize;
+	font-size:107%;
+}
+#category ul {
+	margin:0;
+	padding:8px;
+	border:1px solid #a5a7a9;
+	border-top:0 none;
+}
+#category ul li {
+	list-style:none;
+	line-height:22px;
+	height:25px;
+	display:block;
+	margin:0;
+}
+#category ul li a{
+	color:<%=category_fg%>;
+	border-bottom:3px groove white;
+	display:block;
+	width:auto;
+	padding:0 0 0 2px;
+	margin:0;
+	text-decoration:none;
+	font-size:93%;
+}
+#category ul li a:link, .category ul li a:visited {
+}
+#category ul li a.last{
+	border:0 none;
+}
+#category ul li a.selected, #category ul li a:hover {
+	background-color:<%=category_active%>;
+}
+
+.service div{
+	padding:10px;
+	border:1px solid #c2c3c6;
+	border-top:0 none;
+}
+.service h2 {
+	background: #DDD url('/files/<%= @layout %>/images/service-hd.gif') repeat-x top left;
+	height:25px;
+	line-height:25px;
+	padding:0 0 0 8px;
+	margin:0;
+	text-transform:capitalize;
+	color:#0097bd;
+	font-size:107%;
+}
+.service h3 {
+	margin:0;
+	color:#0191AF;
+	font-size:82%;
+}
+.clear, .clear_r, .clear_l{
+	clear:both;
+	height:1px;
+	line-height:1px;
+	font-size:1px;
+}
+.clear_r{
+	clear:right;
+}
+.clear_l{
+	clear:left;
+}
+h2#hd {
+	background: #DDD url('/files/<%=@layout%>/images/hd.gif') repeat-x top left;
+	height:29px;
+	line-height:22px;
+	margin:0;
+	padding:0 8px;
+	text-transform:capitalize;
+	color:#D7DBDE;
+	font-size:107%;
+}
+div#hd-content{
+	border:1px solid #a5a7a9;
+	border-top:0 none;
+	padding:20px;
+}
+h1#title{
+	margin:-10px 0 15px;
+	font-family:"Helvetica Light",Helvetica,Arial,Trebuchet,sans-serif;
+	font-size:300%;
+	font-weight:normal;
+	color:#A6A7AB;
+}
+#assets{
+	margin:0;
+}
+#assets h2{
+	margin:0;
+}

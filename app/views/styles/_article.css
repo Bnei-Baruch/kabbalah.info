@@ -1,0 +1,32 @@
+.article img.article-img{
+	position:relative;
+	top:-25px;
+}
+.article-asset h2{
+	margin:0;
+	color:#51515B;
+	font-size:197%;
+	position:relative;
+	top:25px;
+	left:70px;
+	font-weight:normal;
+}
+.article-asset h3{
+	position:relative;
+	top:-40px;
+	margin:0 0 -25px;
+	padding:0 0 0 70px;
+	font-size:131%;
+	color:#8E8F91;
+	font-weight:normal;
+}
+.related{
+	background: #DDD url('/files/<%= @layout %>/images/related-hd.gif') repeat-x top left;
+	height:23px;
+	line-height:23px;
+	padding:0 0 0 8px;
+	margin:0;
+	text-transform:capitalize;
+	color:#0097bd;
+	font-size:107%;
+}

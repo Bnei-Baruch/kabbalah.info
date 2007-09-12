@@ -37,26 +37,13 @@ h1{font-size:138.5%;}h2{font-size:123.1%;}h3{font-size:108%;}h1,h2,h3{margin:1em
 }
 
 h2.vod-hd {
-	background: #DDD url('/files/vod/images/vod-hd.gif') repeat-x top left;
+	background: #DDD url('/files/<%=@layout%>/images/vod-hd.gif') repeat-x top left;
 	height:25px;
 	line-height:22px;
 	margin:0;
 	text-transform:uppercase;
 	color:#D7DBDE;
 	font-size:107%;
-}
-h2.vod-hd span#emph{
-	background-color:#cce7ad;
-	float:left;
-	width:30px;
-	height:9px;
-	line-height:9px;
-	margin:6px 8px;
-}
-
-#vod-body {
-	padding:15px 10px 15px 20px;
-	height:100%;
 }
 
 #vod-left {

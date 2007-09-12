@@ -5,7 +5,7 @@
 	<%= render :partial => "admin/admin_pannel",
 						 :locals => { :new_asset => { :parent_id => @page.id, :type => %w{ article video }, :message => "New Video" } } %>
 <% end %>
-<div id="vod-left">
+<div id="assets">
 <%= render :partial => "share/show_assets_in_loop",
 					 :locals => { :container => @page_children, :display => "show"  } %>
 </div>
