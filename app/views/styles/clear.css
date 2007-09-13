@@ -1,0 +1,13 @@
+<%# Clearings %>
+.clear, .clear_r, .clear_l{
+	clear:both;
+	height:1px;
+	line-height:1px;
+	font-size:1px;
+}
+.clear_r{
+	clear:right;
+}
+.clear_l{
+	clear:left;
+}

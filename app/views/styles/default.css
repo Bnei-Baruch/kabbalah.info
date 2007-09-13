@@ -1,9 +1,12 @@
 <%= render :file => 'styles/reset-fonts-grids.css' %>
 <%= render :file => 'styles/base-min.css' %>
-
-<%= render :file => 'styles/admin.css' if logged_in? %>
+<%= render :file => 'styles/top_menu.css' %>
+<%= render :file => 'styles/clear.css' %>
+<%= render :file => 'styles/category.css' %>
 
 <%= render :file => "styles/layouts/#{@layout}.css" %>
 <% for asset in @assets %>
 	<%= render :file => "styles/_#{asset}.css" %>
 <% end %>
+
+<%= render :file => 'styles/admin.css' if logged_in? %>

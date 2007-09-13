@@ -1,130 +1,14 @@
-<% # Colors
-	category_hd_bg = "#909295"
-	category_hd_fg = "#cecfd1"
-	category_bg = "#eff8f8"
-	category_fg = "#77797c"
-	category_active = "#afdedf"
-	general_border = "#a5a7a9"	
-	h2_font_size = "100%"
+<%
+	# Colors
 	middle_hd_bg = "#4E4E4E"
-	middle_hd_fg = "#D7DBDE";
-	related_bg = "#f7f7f8"
+	middle_hd_fg = "#D7DBDE"
 	bottom_line = "#73787b"
-	services_hd_bg = "#b5d2e2"
-	services_hd_fg = "#0698bc"
-	services_bottom_line = "#8ebdd5"
--%>
-<%#	Top menu %>
-#top-menu {
-	float:right;
-}
-#top-menu ul {
-	padding:5px;
-	margin:0;
-}
-#top-menu ul li {
-	display:inline;
-}
-#top-menu li a, #top-menu li.pipe {
-	padding:0 5px;
-	text-decoration:none;
-	font-size:93%;
-	color:#888;
-}
-#top-menu li.pipe {
-	padding:0;
-}
-#top-env{
-	margin:10px 0 0;
-}
-#category {
-	background-color:<%=category_bg%>;
-	margin-bottom:15px;
-}
-<%# Category %>
-#category h2 {
-	background-color:<%=category_hd_bg%>;
-	color:<%=category_hd_fg%>;
-	border-bottom:1px solid <%=bottom_line%>;
-	height:20px;
-	line-height:20px;
-	padding:0 8px;
-	margin:0 0 2px;
-	text-transform:capitalize;
-	font-size:<%=h2_font_size%>;
-}
-#category ul {
-	margin:0;
-	padding:8px;
-	border:1px solid <%=general_border%>;
-	border-top:0 none;
-}
-#category ul li {
-	list-style:none;
-	line-height:22px;
-	height:25px;
-	display:block;
-	margin:0;
-}
-#category ul li a{
-	color:<%=category_fg%>;
-	border-bottom:3px groove white;
-	display:block;
-	width:auto;
-	padding:0 0 0 2px;
-	margin:0;
-	text-decoration:none;
-	font-size:93%;
-}
-#category ul li a:link, #category ul li a:visited {
-}
-#category ul li a.last{
-	border:0 none;
-}
-#category ul li a.selected, #category ul li a:hover {
-	background-color:<%=category_active%>;
-}
-<%# Services %>
-.service{
-	padding:10px;
-	border:1px solid #c2c3c6;
-	border-top:0 none;
-}
-.services h2 {
-	background-color:<%=services_hd_bg%>;
-	color:<%=services_hd_fg%>;
-	border-bottom:1px solid <%=services_bottom_line%>;
-	height:20px;
-	line-height:20px;
-	padding:0 8px;
-	margin:0 0 2px;
-	text-transform:capitalize;
-	font-size:<%=h2_font_size%>;
-}
-.services h3 {
-	margin:0;
-	color:#0191AF;
-	font-size:82%;
-}
-.s-border{
-	background-color:<%=services_bottom_line%>;
-	height:4px;
-	line-height:4px;
-	font-size:4px;
-}
-<%# Clearings %>
-.clear, .clear_r, .clear_l{
-	clear:both;
-	height:1px;
-	line-height:1px;
-	font-size:1px;
-}
-.clear_r{
-	clear:right;
-}
-.clear_l{
-	clear:left;
-}
+	h2_font_size = "100%"
+	category_active = "#afdedf"
+	general_border = "#a5a7a9"
+	related_bg = "#f7f7f8"
+	category_fg = "#77797c"
+%>
 <%# Middle part %>
 h2#hd-middle {
 	background-color:<%=middle_hd_bg%>;

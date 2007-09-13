@@ -1,11 +1,11 @@
 <% if @page.children.size == 0 && @section.layout == "vod"  %>
 	<%= render :partial => "admin/admin_pannel",
 						 :locals => { :new_asset => { :parent_id => @page.id, :type => %w{ video }, :message => "New Video" } } %>
-	<% else %>
+<% else %>
 	<%= render :partial => "admin/admin_pannel",
 						 :locals => { :new_asset => { :parent_id => @page.id, :type => %w{ article video }, :message => "New Video" } } %>
 <% end %>
 <div id="assets">
-<%= render :partial => "share/show_assets_in_loop",
-					 :locals => { :container => @page_children, :display => "show"  } %>
+	<%= render :partial => "share/show_assets_in_loop",
+						 :locals => { :container => @page_children, :display => "show"  } %>
 </div>

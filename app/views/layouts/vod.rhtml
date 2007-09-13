@@ -6,7 +6,7 @@
 	<title><%= @page.resource.property.title %></title>
 	<meta name="description" content="<%= @page.resource.property.short_description %>" />
 	<meta name="keywords" content="<%= @page.resource.keywords %>" />
-	<%= stylesheet_link_tag formatted_style_url(@section,'default', :css), :media => "screen", :title => "no title", :charset => "utf-8" %>
+	<%= stylesheet_link_tag formatted_style_url(@section, 'default', :css), :media => "screen", :title => "no title", :charset => "utf-8" %>
 	<%= stylesheet_link_tag 'admin' if logged_in?%>
 	<%= javascript_include_tag 'windows_media_object' if @page.children %> 
 </head>
@@ -45,9 +45,9 @@
 					</div>
 				</div>
 				<div id="vod" class="yui-g"><!-- VOD part -->
-					<h2 class="vod-hd"><span id="emph">&nbsp;</span><%= @section.title%></h2>
+					<h2 id="hd-middle"><%= @section.title%></h2>
 					<div id="vod-body">
-						<%= yield  %>
+						<%= yield %>
 						<div id="vod-right">
 							<% if @category %>
 								<h2><%= @category.resource.property.title %></h2>

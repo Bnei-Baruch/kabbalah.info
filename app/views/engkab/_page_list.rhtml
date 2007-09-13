@@ -5,11 +5,11 @@
 	blank_page = asset.children[0] ? false : true
 	selected = asset.eql?(@page) ? " class= \"selected\"" : ""
 %>
-	<% if !blank_page || blank_page && logged_in? && has_right?(:create) %>
+<% if !blank_page || (blank_page && logged_in? && has_right?(:create)) %>
 	<li>
 		<a href="<%= site_page_url(asset) %>"<%= selected%>><%= asset.resource.property.title %></a>
 		<%= render :partial => "admin/admin_pannel", 
-				 :locals => { :edit_asset => asset,
-				 							:delete_asset => asset	} %>
+			 :locals => { :edit_asset => asset,
+			 							:delete_asset => asset	} %>
 	</li>
-	<% end %>
+<% end %>
