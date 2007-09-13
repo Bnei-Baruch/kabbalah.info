@@ -85,7 +85,10 @@
 				<%= render :partial => "admin/admin_pannel", 
 						 			 :locals => { :new_asset => { :parent_id => @page.parent, 
 						 																		 :type => "page", 
-						 																		 :message => "New Page" } } %>
+						 																		 :message => "New Page"
+						 																	},
+						 										:nobreak => true
+						 									} %>
 				<div class="hd-border">&nbsp;</div>
 				<div class="hd-content">
 					<% if @pages %>

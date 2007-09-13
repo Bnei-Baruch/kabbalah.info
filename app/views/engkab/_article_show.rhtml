@@ -3,7 +3,7 @@
 	has_image = property.image_storage
  %>
 <div class="article asset<%if has_image %> has_image<%end%>">
-	<h2><%= property.title %></h2>
+	<a name="<%= property.title_for_anchor %>"></a><h2><%= property.title %></h2>
 	<% if has_image %>
 		<%= image_tag( property.image_storage.public_filename(:preview),
 									 :alt => property.image_storage.alt,

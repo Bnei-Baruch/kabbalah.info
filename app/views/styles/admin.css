@@ -1,5 +1,15 @@
-div.asset, .right-item{
-	border:1px dashed silver;
+div.asset, .right-item, .hd-content ul li{
+	border:1px dashed silver !important;
+}
+.hd-content ul li{
+	margin:0 0 5px !important;
+}
+.hd-content ul li a{
+	border: 0 none !important;
+}
+.hd-content ul li p{
+	margin:0;
+	padding:0 0 0 2px;
 }
 div.asset, div#hd-content, #category li, #category, #vod-body, .right-item{
 	position:relative;
@@ -35,6 +45,8 @@ div.asset, div#hd-content, #category li, #category, #vod-body, .right-item{
 }
 li .admin_panel{
 	float:right;
+	margin:0;
+	position:static;
 }
 li .admin_panel a{
 	float:left;

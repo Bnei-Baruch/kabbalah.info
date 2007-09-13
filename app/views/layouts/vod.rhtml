@@ -60,7 +60,7 @@
 								<% end %>
 							</div>
 						</div>
-						<br class="clear" />
+						<div class="clear">&nbsp;</div>
 					</div>
 				</div>
 			</div>
@@ -76,7 +76,8 @@
 					 				 								 { :parent_id => @categories[0].parent, 
 						 												 :type => "category", 
 						 												 :message => "New Category"
-						 											 }
+						 											 },
+						 										:nobreak => true
 						 									} %>
 				<div class="hd-border">&nbsp;</div>
 				<div class="hd-content">
@@ -84,7 +85,8 @@
 						<%# List of categories (###_list.rhtml)%>
 						<ul>
 							<%= render :partial => "share/show_assets_in_loop",
-												 :locals => { :container => @categories, :display => "list" } %>
+												 :locals => { :container => @categories,
+												 							:display => "list" } %>
 						</ul>
 					<% end %>
 				</div>

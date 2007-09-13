@@ -4,4 +4,7 @@ class Property < ActiveRecord::Base
 		
 		validates_presence_of :title
 
+	def title_for_anchor
+		title.gsub(/ /, '-').gsub(/"|'/,'')
+	end
 end
