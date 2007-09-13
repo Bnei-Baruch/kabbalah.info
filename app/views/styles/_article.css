@@ -1,5 +1,8 @@
 .article img.article-img{
 	position:relative;
+	width:60px;
+	height:60px;
+	display:block;
 	top:-25px;
 }
 .article h2{

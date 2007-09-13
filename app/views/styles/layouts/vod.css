@@ -1,8 +1,11 @@
 /* VOD */
 #vod {
 	height:100%;
+}
+#vod-body{
 	border:1px solid #c2c3c6;
 	border-top: 0 none;
+	padding:15px 30px;
 }
 h2.vod-hd {
 	background: #DDD url('/files/<%=@layout%>/images/vod-hd.gif') repeat-x top left;
@@ -13,40 +16,43 @@ h2.vod-hd {
 	color:#D7DBDE;
 	font-size:107%;
 }
-#vod-left {
+#assets{
 	float:left;
 	width:400px;
 	margin:0 20px 0 0;
 	height:100%;
 }
-#vod-left h1 {
+#assets h1 {
 	margin:0;
 	height:25px;
 	color:#888;
 	font-size:107%;
 }
-#vod-left #media {
+#assets #media {
 	width:400px;
 	height:305px;
 }
-#vod-left #media-description {
+#assets #media-description {
 	background-color:#F5F5F5;
 	border:1px solid #eee;
 	padding:5px 10px;
 	margin:10px 0 0;
 }
-#media-description h4{
-	color: #1999BC;
-	font-size:85%;
+media-description{
 	margin:10px;
 }
-#media-description p{
+.media-description h4{
+	color: #1999BC;
+	font-size:85%;
+	margin:20px 0;
+}
+.media-description p{
 	padding:0 0 10px;
 	margin:0;
 }
 #vod-right{
 	width:290px;
-	margin:0 auto 0 420px;
+	margin:0 auto 0 410px;
 }
 #vod-right h2{
 	background: transparent url('/files/vod/images/vod-right-hd.gif') repeat-x top left;

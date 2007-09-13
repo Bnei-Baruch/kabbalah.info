@@ -46,6 +46,7 @@
 				</div>
 				<div id="vod" class="yui-g"><!-- VOD part -->
 					<h2 id="hd-middle"><%= @section.title%></h2>
+					<div class="hd-border">&nbsp;</div>
 					<div id="vod-body">
 						<%= yield %>
 						<div id="vod-right">
@@ -71,6 +72,7 @@
 			</div>
 			<div id="category"><!-- top menu -->
 				<h2>Categories</h2>
+				<div class="hd-border">&nbsp;</div>
 				<% if @categories %>
 					<%# List of categories (###_list.rhtml)%>
 					<ul>
@@ -83,9 +85,10 @@
 				 																		 :message => "New Category" } } %>
 				<% end %>
 			</div>
-			<div class="service">
+			<div class="services">
 				<h2>Services</h2>
-				<div>
+				<div class="s-border">&nbsp;</div>
+				<div class="service">
 					<h3>Kabbalah Today Subscription</h3>
 				</div>
 			</div>
