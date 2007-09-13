@@ -31,10 +31,11 @@
 		<!--<h3><%#= link_to property.title, site_page_url(asset) %></h3>-->
 		<% unless property.short_description.blank? %><p><%= property.short_description%></p> <% end %>
 	</div>
-	<div class="actions">
-		<%= render :partial => "admin/admin_pannel",
-					 :locals => { :edit_asset => asset, :delete_asset => @page } %>
-	</div>
+	<%= render :partial => "admin/admin_pannel",
+					 :locals => { :edit_asset => asset,
+					 							:delete_asset => @page,
+					 							:nobreak => true
+					 						} %>
 	<br class="clear-r" />
 </div>
 <% end %>

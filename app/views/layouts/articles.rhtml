@@ -82,16 +82,16 @@
 			</div>
 			<div id="category"><%# first menu %>
 				<h2>Categories</h2>
-					<%= render :partial => "admin/admin_pannel", 
-							 				:locals => { :new_asset => { :parent_id => @page.parent, 
-							 																		 :type => "page", 
-							 																		 :message => "New Page" } } %>
+				<%= render :partial => "admin/admin_pannel", 
+						 			 :locals => { :new_asset => { :parent_id => @page.parent, 
+						 																		 :type => "page", 
+						 																		 :message => "New Page" } } %>
 				<div class="hd-border">&nbsp;</div>
 				<div class="hd-content">
 					<% if @pages %>
 						<%# List of pages (###_list.rhtml)%>
 						<ul>
-						<%= render :partial => "share/show_assets_in_loop",
+							<%= render :partial => "share/show_assets_in_loop",
 											 :locals => { :container => @pages, :display => "list" } %>
 						</ul>
 					<% end %>

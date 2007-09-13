@@ -7,7 +7,6 @@
 	<meta name="description" content="<%= @page.resource.property.short_description %>" />
 	<meta name="keywords" content="<%= @page.resource.keywords %>" />
 	<%= stylesheet_link_tag formatted_style_url(@section, 'default', :css), :media => "screen", :title => "no title", :charset => "utf-8" %>
-	<%= stylesheet_link_tag 'admin' if logged_in?%>
 	<%= javascript_include_tag 'windows_media_object' if @page.children %> 
 </head>
 <body>
@@ -72,18 +71,23 @@
 			</div>
 			<div id="category"><!-- top menu -->
 				<h2>Categories</h2>
+				<%= render :partial => "admin/admin_pannel", 
+					 				 :locals => { :new_asset =>
+					 				 								 { :parent_id => @categories[0].parent, 
+						 												 :type => "category", 
+						 												 :message => "New Category"
+						 											 }
+						 									} %>
 				<div class="hd-border">&nbsp;</div>
-				<% if @categories %>
-					<%# List of categories (###_list.rhtml)%>
-					<ul>
-					<%= render :partial => "share/show_assets_in_loop",
-										 :locals => { :container => @categories, :display => "list" } %>
-					</ul>
-		<%= render :partial => "admin/admin_pannel", 
-				 				:locals => { :new_asset => { :parent_id => @categories[0].parent, 
-				 																		 :type => "category", 
-				 																		 :message => "New Category" } } %>
-				<% end %>
+				<div class="hd-content">
+					<% if @categories %>
+						<%# List of categories (###_list.rhtml)%>
+						<ul>
+							<%= render :partial => "share/show_assets_in_loop",
+												 :locals => { :container => @categories, :display => "list" } %>
+						</ul>
+					<% end %>
+				</div>
 			</div>
 			<div class="services">
 				<h2>Services</h2>

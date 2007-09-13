@@ -1,33 +1,36 @@
 <% if logged_in?  %>
-<div class="admin_panel">
-	<% 
-		new_asset ||= nil
-		edit_asset ||= nil
-		delete_asset ||= nil
-	%>
-    <% if new_asset && has_right?(:create) %>
-    	<% if new_asset[:type].is_a?(String) %>
-    		<%= link_to new_asset[:message], new_asset_path(:section_id => @section.id,
-															:parent_id  => new_asset[:parent_id],
-   															:asset_type => new_asset[:type]),
-   														:class => :new %>
-    	<% elsif new_asset[:type].is_a?(Array)%>
-			<% form_tag( new_asset_path, :method => :get) do -%>
-				<%= hidden_field_tag :section_id, @section.id %>
-				<%= hidden_field_tag :parent_id, new_asset[:parent_id] %>
-				Type: <%= select_tag :asset_type, options_for_select(new_asset[:type]) %>
-				<%= submit_tag "Create new Asset", :class => :new %>
-			<% end -%>
-    	<% end %>
-    <% end %>
-
-    <% if edit_asset && has_right?(:edit) %>
-    	<%= link_to 'Edit', edit_asset_path(edit_asset), :class => :edit %>
-    <% end %>
-
-    <% if delete_asset && has_right?(:delete) %>
-    	<%= link_to 'Delete', asset_path(delete_asset), :confirm => 'Are you sure?', :method => :delete, :class => :delete %>
-    <% end %>
-</div>
-<br class="clear" />
+		<% 
+			new_asset ||= nil
+			edit_asset ||= nil
+			delete_asset ||= nil
+			nobreak ||= false
+		%>
+	<div class="admin_panel">
+	    <% if new_asset && has_right?(:create) %>
+	    	<% if new_asset[:type].is_a?(String) %>
+	    		<%= link_to new_asset[:message], new_asset_path(:section_id => @section.id,
+																:parent_id  => new_asset[:parent_id],
+	   															:asset_type => new_asset[:type]),
+	   														:class => :new %>
+	    	<% elsif new_asset[:type].is_a?(Array)%>
+				<% form_tag( new_asset_path, :method => :get) do -%>
+					<%= hidden_field_tag :section_id, @section.id %>
+					<%= hidden_field_tag :parent_id, new_asset[:parent_id] %>
+					Type: <%= select_tag :asset_type, options_for_select(new_asset[:type]) %>
+					<%= submit_tag "Create new Asset", :class => :new %>
+				<% end -%>
+	    	<% end %>
+	    <% end %>
+	
+	    <% if edit_asset && has_right?(:edit) %>
+	    	<%= link_to 'Edit', edit_asset_path(edit_asset), :class => :edit %>
+	    <% end %>
+	
+	    <% if delete_asset && has_right?(:delete) %>
+	    	<%= link_to 'Delete', asset_path(delete_asset), :confirm => 'Are you sure?', :method => :delete, :class => :delete %>
+	    <% end %>
+	</div>
+	<% if not nobreak  %>
+		<br class="clear" />
+	<% end %>
 <% end %>
