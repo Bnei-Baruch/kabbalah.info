@@ -1,4 +1,4 @@
-.article img.article-img{
+.article .article-img{
 	position:relative;
 	width:60px;
 	height:60px;
@@ -9,13 +9,25 @@
 	margin:0;
 	color:#51515B;
 	font-size:197%;
+	font-weight:normal;
+}
+.article h3{
+	margin:0 0 20px;
+	font-size:131%;
+	color:#8E8F91;
+	font-weight:normal;
+}
+.has_image h2{
+	margin:0;
+	color:#51515B;
+	font-size:197%;
 	position:relative;
-	top:25px;
+	top:20px;
 	left:0;
 	padding:0 0 0 70px;
 	font-weight:normal;
 }
-.article h3{
+.has_image h3{
 	position:relative;
 	top:-43px;
 	margin:0 0 -25px;

@@ -1,6 +1,5 @@
 class StylesController < ApplicationController
 	layout nil
-	session :off
 	
 	def show
 		@cssfile = params[:id] + ".css"

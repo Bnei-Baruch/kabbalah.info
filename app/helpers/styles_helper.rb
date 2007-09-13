@@ -1,2 +1,2 @@
-module StyleHelper
+module StylesHelper
 end

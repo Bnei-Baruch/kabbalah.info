@@ -42,18 +42,21 @@
 	text-transform:capitalize;
 	font-size:<%=h2_font_size%>;
 }
-#category ul{
+#category .hd-content{
 	margin:0;
 	padding:8px;
 	border:1px solid <%=general_border%>;
 	border-top:0 none;
 }
+#category ul{
+	margin:0;
+}
 #category ul li{
 	list-style:none;
-	line-height:22px;
-	height:25px;
 	display:block;
 	margin:0;
+	padding:0;
+	border:1px solid <%=category_bg%>;
 }
 #category ul li a{
 	color:<%=category_fg%>;
@@ -63,12 +66,15 @@
 	padding:0 0 0 2px;
 	margin:0;
 	text-decoration:none;
-	font-size:93%;
+	font-size:123.1%%;
 }
 #category ul li a:link, #category ul li a:visited{
 }
 #category ul li a.last{
 	border:0 none;
+}
+#category ul li a.selected{
+	font-weight:bold;
 }
 #category ul li a.selected, #category ul li a:hover{
 	background-color:<%=category_active%>;

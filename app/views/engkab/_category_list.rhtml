@@ -9,7 +9,7 @@
 	end
 	selected = asset.eql?(@category) ? " class= \"selected\"" : ""
 %>
-	<% if logged_in? && new_category && has_right?(:create) %>
+<% if logged_in? && new_category && has_right?(:create) %>
 	<li>
 		<p class="new_category">
 			<%= asset.resource.property.title %>
@@ -19,7 +19,7 @@
 				 							:edit_asset => asset,
 				 							:delete_asset => asset	} %>
 	</li>
-	<% elsif !new_category && category_first_page.children[0] || 
+<% elsif !new_category && category_first_page.children[0] || 
 					 logged_in? && has_right?(:create) && !category_first_page.children[0] %>
 	<li>
 		<a href="<%= site_page_url(category_first_page) %>"<%= selected%>><%= asset.resource.property.title %></a>
@@ -27,4 +27,4 @@
 				 :locals => { :edit_asset => asset,
 				 							:delete_asset => asset	} %>
 	</li>
-	<% end %>
+<% end %>

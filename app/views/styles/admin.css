@@ -1,27 +1,65 @@
 div.asset{
+	border:1px dashed silver;
+}
+div.asset, div#hd-content, #category li, #category{
 	position:relative;
 }
-.asset .admin_panel{
+#category ul li{
+	margin:0;
+}
+.admin_panel{
+	border:1px solid transparent;
 	position:absolute;
-	top:3px;
-	right:3px;
+	top:0;
+	right:0;
+	display:block;
+	background-color:white;
+	color:black !important;
+	font-weight:bold !important;
 }
-#category .admin_panel{
-	position:relative;
-	top:-15px;
-	height:20px;
+.admin_panel a{
+	border:1px solid maroon !important;
+	color:black !important;
+	padding: 0 2px !important;
+	text-decoration:none;
+	margin:0 2px !important;
 }
-#category .admin_panel a{
-	border: 0 none;
-	display: inline;
-	font-size:80%;
-	text-decoration:underline;
-	color:red;
-	padding:0 5px 0 0;
+.admin_panel a:hover{
+	background-color:black !important;
+	color:white !important;
 }
-#category p.new_category{
-	border-bottom:3px groove white;
+.admin_panel form{
+	border:1px solid maroon !important;
+	padding: 0 2px !important;
 }
-#category ul li a, #category p.new_category{
-	height:35px;
+li .admin_panel{
+	float:right;
+}
+li .admin_panel a{
+	float:left;
+}
+.admin_panel .delete{
+	color:#F20000 !important;
+	background-color:#FFDFDF !important;
+	border:1px solid #F20000 !important;
+}
+.admin_panel .delete a, .admin_panel .delete a:visited{
+	color:#F20000 !important;
+}
+.admin_panel .new{
+	color:#00CC00 !important;
+	background-color:#CEFFCE !important;
+	border:1px solid #00CC00 !important;
+	cursor:pointer;
+}
+.admin_panel .new a, .admin_panel .new a:visited{
+	color:#00CC00 !important;
+}
+.admin_panel .edit{
+	color:#0033CC !important;
+	background-color:#B9CBFF !important;
+	border:1px solid #0033CC !important;
+}
+.admin_panel .edit a, .admin_panel .edit a:visited{
+	color:#0033CC !important;
 }
