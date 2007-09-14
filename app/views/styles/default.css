@@ -8,5 +8,3 @@
 <% for asset in @permitted_assets %>
 	<%= render :file => "styles/_#{asset}.css" %>
 <% end %>
-
-<%= render :file => 'styles/admin.css' if logged_in? %>

@@ -6,6 +6,7 @@
 	<title><%= @page.resource.property.title %></title>
 	<meta name="description" content="<%= @page.resource.property.short_description %>" />
 	<meta name="keywords" content="<%= @page.resource.keywords %>" />
+	<%= stylesheet_link_tag 'admin', :media => "screen", :title => "no title", :charset => "utf-8" if logged_in? %>
 	<%= stylesheet_link_tag formatted_style_url(@section, 'default', :css), :media => "screen", :title => "no title", :charset => "utf-8" %>
 	<%= javascript_include_tag 'windows_media_object' if @page.children %> 
 </head>

@@ -49,7 +49,7 @@ h2.vod-hd {
 	padding:5px 10px 10px;
 	border:1px solid #E4E4E5;
 	background:#F9F9FA url('/files/<%=@layout%>/images/player_grad.gif') repeat-x top left;
-	width:380px;
+	width:378px;
 }
 .media-description h4{
 	color: #525352;

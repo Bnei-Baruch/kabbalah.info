@@ -40,7 +40,10 @@
 					 :locals => { :new_asset => { :parent_id => @page.id, 
 					 															:placeholder_id => main_placeholder.id, 
 					 															:type => main_placeholder.permitted_assets(@section), 
-					 															:message => "New Asset" } } %>
+					 															:message => "New Asset"
+					 														},
+					 							:nobreak => true
+					 						} %>
 <div id="assets">
 	<%= render :partial => "share/show_assets_in_loop",
 						 :locals => { :container => main_assets, :display => "show"  } %>
