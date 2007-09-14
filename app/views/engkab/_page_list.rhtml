@@ -10,6 +10,6 @@
 		<a href="<%= site_page_url(asset) %>"<%= selected%>><%= asset.resource.property.title %></a>
 		<%= render :partial => "admin/admin_pannel", 
 			 :locals => { :edit_asset => asset,
-			 							:delete_asset => asset	} %>
+			 							:delete_asset => asset} %>
 	</li>
 <% end %>

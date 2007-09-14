@@ -59,8 +59,9 @@
 	border:1px solid <%=category_bg%>;
 }
 #category ul li a{
+	height:25px;
+	line-height:25px;
 	color:<%=category_fg%>;
-	border-bottom:3px groove white;
 	display:block;
 	width:auto;
 	padding:0 0 0 2px;
@@ -79,6 +80,14 @@
 #category ul li a.selected, #category ul li a:hover{
 	background-color:<%=category_active%>;
 }
+#category .divider{
+	background-color:white;
+	border-top:1px solid #E0E1E2;
+	height:2px;
+	line-height:2px;
+	font-size:1px;
+}
+
 <%# Services %>
 .service{
 	padding:10px;

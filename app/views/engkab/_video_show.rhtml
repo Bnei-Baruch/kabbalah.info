@@ -7,14 +7,16 @@
 	<div class="asset">
 		<h1><%= property.title %></h1>
 		<% unless resource.video_link.blank? %>
-			<div class="player" id="<%=id%>">
-				<script type="text/javascript">
-				//<![CDATA[
-				     var fullScreenMessageErr = "Media Player must be playing...";
-				     var fullScreenMessageNote = "To return to browser please press ESC";
-				     CreateControl("<%=id%>","<%= asset.resource.video_link %>", 1, 320, 240);
-				//]]>
-				</script>
+			<div class="div_around_player">
+				<div class="player" id="<%=id%>">
+					<script type="text/javascript">
+					//<![CDATA[
+					     var fullScreenMessageErr = "Media Player must be playing...";
+					     var fullScreenMessageNote = "To return to browser please press ESC";
+					     CreateControl("<%=id%>","<%= asset.resource.video_link %>", 1, 320, 240);
+					//]]>
+					</script>
+				</div>
 			</div>
 		<% end %>
 		<div class="media-description">

@@ -1,30 +1,37 @@
 <%
 #Displaying a a single category in a list of categories
 %>
-<% 
-	category_first_page = asset.children[0] || nil
-	new_category = nil
-	unless category_first_page && category_first_page.resource_type ==  "Page"
-		new_category = { :parent_id => asset, :type => "page", :message => "New page" }
-	end
+<%
+	title = asset.resource.property.title
+	category_has_page = asset.children.any? { |p| p.resource_type == "Page" }
+	category_visible_children = asset.children.select { # Pages
+														|p| p.resource_type == "Page" && p.children.size != 0
+													}
+	category_has_visible_children = category_visible_children.size > 0
 	selected = asset.eql?(@category) ? " class= \"selected\"" : ""
 %>
-<% if logged_in? && new_category && has_right?(:create) %>
+<% if !logged_in? %>
+	<% if category_has_visible_children %>
+		<li>
+			<a href="<%= site_page_url(category_visible_children[0]) %>"<%= selected%>><%= title %></a>
+			<div class="divider">&nbsp;</div>
+		</li>
+	<% end %>
+<% else #logged_in? %>
 	<li>
-		<p class="new_category">
-			<%= asset.resource.property.title %>
-		</p>
+		<% if category_has_page %>
+			<% if category_has_visible_children %>
+				<a href="<%= site_page_url(category_visible_children[0]) %>"<%= selected%>><%= title %></a>
+			<% else # All children are empty, display first one%>
+				<a href="<%= site_page_url(asset.children[0]) %>"<%= selected%>><%= title %></a>
+			<% end # category_has_visible_children %>
+		<% else # category_has_page %>
+			<p class="new_category"><%= title %></p>
+		<% end # category_has_page %>
 		<%= render :partial => "admin/admin_pannel", 
-				 :locals => { :new_asset => new_category,
+				 :locals => { :new_asset => { :parent_id => asset, :type => "page", :message => "New page" },
 				 							:edit_asset => asset,
 				 							:delete_asset => asset	} %>
+		<div class="divider">&nbsp;</div>
 	</li>
-<% elsif !new_category && category_first_page.children[0] || 
-					 logged_in? && has_right?(:create) && !category_first_page.children[0] %>
-	<li>
-		<a href="<%= site_page_url(category_first_page) %>"<%= selected%>><%= asset.resource.property.title %></a>
-		<%= render :partial => "admin/admin_pannel", 
-				 :locals => { :edit_asset => asset,
-				 							:delete_asset => asset	} %>
-	</li>
-<% end %>
+<% end #logged_in? %>
