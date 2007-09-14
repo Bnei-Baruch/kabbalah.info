@@ -5,7 +5,7 @@
 <%= render :file => 'styles/category.css' %>
 
 <%= render :file => "styles/layouts/#{@layout}.css" %>
-<% for asset in @assets %>
+<% for asset in @permitted_assets %>
 	<%= render :file => "styles/_#{asset}.css" %>
 <% end %>
 

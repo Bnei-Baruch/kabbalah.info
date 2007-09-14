@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @placeholder.name %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%=h @placeholder.created_at %>
+</p>
+
+<p>
+  <b>Updated at:</b>
+  <%=h @placeholder.updated_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_placeholder_path(@placeholder) %> |
+<%= link_to 'Back', placeholders_path %>

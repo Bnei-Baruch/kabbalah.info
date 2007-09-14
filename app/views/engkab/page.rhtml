@@ -1,11 +1,45 @@
-<% if @page.children.size == 0 && @section.layout == "vod"  %>
+<%
+	main_placeholder = Placeholder.main_placeholder
+	main_assets = @page.children_by_placeholder(main_placeholder)
+%>
+
+<%#This part will be created for sidebar in articles %>
+<% content_for(:sidebar) do %>
+	<%
+		right_box_placeholder = Placeholder.right_box_placeholder
+		right_box_assets = @page.children_by_placeholder(right_box_placeholder)
+	%>
+	<%# create table of contents%>
+	<% if main_assets %>
+		<div class="r-box">
+			<h2>Contents on this page</h2>
+			<div class="r-box-inner">
+				<ul>
+					<% for asset in main_assets %>
+					<li><a href="<%= site_page_url(@page) %>#<%= asset.resource.property.title_for_anchor%>"><%= asset.resource.property.title %></a></li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+	<% end %>
+	<%# loop over all assets that are boxes and show them as box%>
+	<% if right_box_assets %>
+		<%= render :partial => "share/show_assets_in_loop",
+						 :locals => { :container => right_box_assets, :display => "box"  } %>
+	<% end %>
 	<%= render :partial => "admin/admin_pannel",
-						 :locals => { :new_asset => { :parent_id => @page.id, :type => %w{ video }, :message => "New Video" } } %>
-<% else %>
-	<%= render :partial => "admin/admin_pannel",
-						 :locals => { :new_asset => { :parent_id => @page.id, :type => %w{ article video }, :message => "New Video" } } %>
+						 :locals => { :new_asset => { :parent_id => @page.id, 
+						 															:placeholder_id => right_box_placeholder.id, 
+						 															:type => right_box_placeholder.permitted_assets(@section), 
+						 															:message => "New Box" } } %>
 <% end %>
+
+<%= render :partial => "admin/admin_pannel",
+					 :locals => { :new_asset => { :parent_id => @page.id, 
+					 															:placeholder_id => main_placeholder.id, 
+					 															:type => main_placeholder.permitted_assets(@section), 
+					 															:message => "New Asset" } } %>
 <div id="assets">
 	<%= render :partial => "share/show_assets_in_loop",
-						 :locals => { :container => @page_children, :display => "show"  } %>
+						 :locals => { :container => main_assets, :display => "show"  } %>
 </div>

@@ -49,6 +49,7 @@ class AssetsController < ApplicationController
 	type = params[:asset_type]
 	redirect_to :type => "new_#{type}_path",
 					:section_id => params[:section_id],
+					:placeholder_id => params[:placeholder_id].blank? ? 'nil' : params[:placeholder_id],
 					:parent_id => params[:parent_id].blank? ? 'nil' : params[:parent_id]
   end
 

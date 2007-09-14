@@ -1,5 +1,6 @@
 class Asset < ActiveRecord::Base
 	belongs_to :section
+	belongs_to :placeholder
 	belongs_to :resource, :polymorphic => true
 
 	acts_as_list  :scope => :parent_id
@@ -22,6 +23,11 @@ class Asset < ActiveRecord::Base
 		Section.find(:first).id : 
 		Section.find(:all).map {|l| [l.title, l.id]}.sort	
 	end
+	
+	def children_by_placeholder(placeholder)
+		Asset.find(:all, :conditions => "parent_id = #{id} AND placeholder_id = #{placeholder.id}")
+	end
+	
 protected
 	
 	def after_destroy

@@ -1,8 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :articles
-
-
-
 
   # Authentication system
   map.resources :users, :path_prefix => '/admin'
@@ -14,8 +10,6 @@ ActionController::Routing::Routes.draw do |map|
   map.logout '/admin/logout', :controller => 'sessions', :action => 'destroy'
   map.login_home '/admin/login', :controller => 'sessions', :action => 'new'
 
-
-
   map.resources :engkab, :controller => 'engkab',
   											 :singular => 'engkab_page'
 
@@ -23,11 +17,12 @@ ActionController::Routing::Routes.draw do |map|
   # map.section1 ':controller/:section/:category0/:id', :action => 'show'
   # map.section2 ':controller/:section/:category0/:category1/:id', :action => 'show'
 
-
-  map.resources :pages, :path_prefix => '/admin'
   map.resources :assets, :path_prefix => '/admin'
   map.resources :sections, :path_prefix => '/admin'
+  map.resources :pages, :path_prefix => '/admin'
+  map.resources :placeholders, :path_prefix => '/admin'
   map.resources :categories, :path_prefix => '/admin'
+  map.resources :articles, :path_prefix => '/admin'
   map.resources :videos, :path_prefix => '/admin'
 
   # The priority is based upon order of creation: first created -> highest priority.

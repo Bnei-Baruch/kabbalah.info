@@ -1,0 +1,16 @@
+<%
+	# this partial creates article box
+ %>
+
+<div class="r-box">
+	<h2><%= asset.resource.property.title %></h2>
+	<div class="r-box-inner">
+	<% unless asset.resource.body.blank? %>
+		<%= asset.resource.body %>
+	<% end %>
+	</div>
+
+	<%= render :partial => "admin/admin_pannel", 
+						 :locals => { :edit_asset => asset,
+						 							:delete_asset => asset	} %>
+</div>

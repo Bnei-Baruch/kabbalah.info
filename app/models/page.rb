@@ -8,7 +8,7 @@ class Page < ActiveRecord::Base
 	def after_validation_on_update
 		self.permalink = Page.find_by_id(self.id).permalink if self.permalink.empty?
 	end
-	
+
 	def to_param
 		permalink
 	end

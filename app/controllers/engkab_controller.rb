@@ -11,9 +11,8 @@ class EngkabController < ApplicationController
 		@page = @page.asset
     @page_children = @page.children
 
-		permitted = @section.permitted_objects
-		@layout = permitted[:layout]
-		@assets = permitted[:assets]
+		@layout = @section.layout
+		@permitted_assets = @section.permitted_assets
 
 		store_location
 		

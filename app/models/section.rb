@@ -12,18 +12,7 @@ class Section < ActiveRecord::Base
 		permalink
 	end
 
-	def permitted_objects
-		case layout
-		when "vod"
-			{
-				:layout => "vod",
-				:assets => [ "video" ]
-			}
-		when "articles"
-			{
-				:layout => "articles",
-				:assets => [ "video", "article" ]
-			}
-		end
+	def permitted_assets
+		read_attribute("permitted_assets" ).split(' ')
 	end
 end
