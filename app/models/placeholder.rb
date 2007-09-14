@@ -5,8 +5,12 @@ class Placeholder < ActiveRecord::Base
 	validates_uniqueness_of :name
 	
 	# makes an array of permitted assets only in section and placeholder
-	def permitted_assets(section)
-		read_attribute("permitted_assets" ).split(' ') & section.permitted_assets 
+	def permitted_assets(section = nil)
+		if section
+			read_attribute("permitted_assets" ).split(' ') & section.permitted_assets 
+		else
+			read_attribute("permitted_assets" )
+		end
 	end
 	def premited_assets_for_select(section)
 		permitted_assets(section).map{|x| [x.camelize, x].sort}
