@@ -14,7 +14,7 @@
     <td><%=h section.title %></td>
     <td><%=h section.description %></td>
     <td><%=h section.layout %></td>
-    <td><%=h section.permitted_assets %></td>
+    <td><%=h section.permitted_assets.to_s %></td>
     <td><%= link_to 'Show', section_path(section) %></td>
     <td><%= link_to 'Edit', edit_section_path(section) %></td>
     <td><%= link_to 'Destroy', section_path(section), :confirm => 'Are you sure?', :method => :delete %></td>
