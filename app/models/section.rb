@@ -13,6 +13,6 @@ class Section < ActiveRecord::Base
 	end
 
 	def permitted_assets
-		read_attribute("permitted_assets" ).split(' ')
+		read_attribute("permitted_assets" ) ? read_attribute("permitted_assets" ).split(' ') : ""
 	end
 end
