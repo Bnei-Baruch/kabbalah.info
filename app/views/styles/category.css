@@ -6,8 +6,8 @@
 		category_bg = "#f1f7e7"
 		category_fg = "#77797c"
 		category_active = "#bfdb89"
-		general_border = "#73787b"
-		h2_font_size = "100%"
+		general_border = "#C2C3C6"
+		h2_font_size = "85%"
 		bottom_line = "#bfdb89"
 		services_hd_bg = "#b5d2e2"
 		services_hd_fg = "#0698bc"
@@ -18,8 +18,8 @@
 		category_bg = "#eff8f8"
 		category_fg = "#77797c"
 		category_active = "#afdedf"
-		general_border = "#a5a7a9"
-		h2_font_size = "100%"
+		general_border = "#C2C3C6"
+		h2_font_size = "85%"
 		bottom_line = "#73787b"
 		services_hd_bg = "#b5d2e2"
 		services_hd_fg = "#0698bc"
@@ -34,17 +34,16 @@
 #category h2{
 	background-color:<%=category_hd_bg%>;
 	color:<%=category_hd_fg%>;
-	border-bottom:1px solid <%=bottom_line%>;
 	height:20px;
 	line-height:20px;
 	padding:0 8px;
-	margin:0 0 2px;
-	text-transform:capitalize;
+	margin:0 0 1px;
+	text-transform:uppercase;
 	font-size:<%=h2_font_size%>;
 }
 #category .hd-content{
 	margin:0;
-	padding:8px;
+	padding:2px 10px 10px;
 	border:1px solid <%=general_border%>;
 	border-top:0 none;
 }
@@ -62,10 +61,10 @@
 	color:<%=category_fg%>;
 	display:block;
 	width:auto;
-	padding:4px 3px;
+	padding:6px 3px;
 	margin:0;
 	text-decoration:none;
-	font-size:123.1%%;
+	font-size:93%%;
 }
 #category ul li a:link, #category ul li a:visited{
 }
@@ -99,8 +98,8 @@
 	height:20px;
 	line-height:20px;
 	padding:0 8px;
-	margin:0 0 2px;
-	text-transform:capitalize;
+	margin:0 0 1px;
+	text-transform:uppercase;
 	font-size:<%=h2_font_size%>;
 }
 .services h3{

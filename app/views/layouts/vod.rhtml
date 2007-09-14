@@ -47,7 +47,6 @@
 					<h2 id="hd-middle"><%= @section.title%></h2>
 					<div class="hd-border">&nbsp;</div>
 					<div id="vod-body">
-						<%= yield %>
 						<div id="vod-right">
 							<% if @category %>
 								<h2><%= @category.resource.property.title %></h2>
@@ -60,6 +59,7 @@
 								<% end %>
 							</div>
 						</div>
+						<%= yield %>
 						<div class="clear">&nbsp;</div>
 					</div>
 				</div>

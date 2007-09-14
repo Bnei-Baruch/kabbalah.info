@@ -5,7 +5,7 @@
 #vod-body{
 	border:1px solid #c2c3c6;
 	border-top: 0 none;
-	padding:15px 30px;
+	padding:15px 20px;
 }
 h2.vod-hd {
 	background: #DDD url('/files/<%=@layout%>/images/vod-hd.gif') repeat-x top left;
@@ -17,9 +17,8 @@ h2.vod-hd {
 	font-size:107%;
 }
 #assets{
-	float:left;
 	width:400px;
-	margin:0;
+	margin:0 20px 0 0;
 	height:100%;
 }
 #assets h1 {
@@ -39,10 +38,10 @@ h2.vod-hd {
 	margin:5px auto;
 }
 .div_around_player{
-	margin:0pt 10px 10px;
+	margin:0;
 	padding:10px 0;
-	width:380px;
-	height:260px;
+	margin:0 0 10px 0;
+	width:400px;
 	background:#cecfd1 url('/files/<%=@layout%>/images/player_grad.gif') repeat-x top left;
 }
 .media-description{
@@ -50,20 +49,23 @@ h2.vod-hd {
 	padding:5px 10px 10px;
 	border:1px solid #E4E4E5;
 	background:#F9F9FA url('/files/<%=@layout%>/images/player_grad.gif') repeat-x top left;
-	width:358px;
+	width:380px;
 }
 .media-description h4{
-	color: #1999BC;
-	font-size:85%;
+	color: #525352;
+	font-size:100%;
 	margin:10px 0;
 }
 .media-description p{
 	padding:0 0 10px;
 	margin:0;
+	font-size:85%;
+	line-height:131%;
 }
 #vod-right{
-	width:290px;
-	margin:0 0 0 400px;
+	float:right;
+	width:295px;
+	margin:0;
 }
 #vod-right h2{
 	background: transparent url('/files/vod/images/vod-right-hd.gif') repeat-x top left;
@@ -115,7 +117,7 @@ h2.vod-hd {
 	middle_hd_bg = "#485458"
 	middle_hd_fg = "#cecfd1"
 	bottom_line = "#73787b"
-	h2_font_size = "100%"
+	h2_font_size = "85%"
 	category_active = "#bfdb89"
 	general_border = "#a5a7a9"
 	related_bg = "#f7f7f8"
@@ -129,8 +131,8 @@ h2#hd-middle {
 	height:20px;
 	line-height:20px;
 	padding:0 8px;
-	margin:0 0 2px;
-	text-transform:capitalize;
+	margin:0 0 1px;
+	text-transform:uppercase;
 	font-size:<%=h2_font_size%>;
 }
 .hd-border{
