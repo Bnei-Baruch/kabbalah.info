@@ -11,7 +11,7 @@ div.asset, .right-item, .hd-content ul li{
 	margin:0;
 	padding:0 0 0 2px;
 }
-div.asset, div#hd-content, #category li, #category, #vod-body, .right-item{
+div.asset, div#hd-content, #category li, #category, #vod-body, .right-item, .r-box{
 	position:relative;
 }
 #category .hd-content .admin_panel{

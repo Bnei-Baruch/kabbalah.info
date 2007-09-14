@@ -77,9 +77,8 @@ h1#title{
 }
 .r-box-inner ul li{
 	list-style:none;
-	line-height:22px;
-	height:25px;
 	display:block;
+	padding:4px 3px;
 	margin:0;
 }
 .r-box-inner ul li a{

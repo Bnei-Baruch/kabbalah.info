@@ -59,12 +59,10 @@
 	border:1px solid <%=category_bg%>;
 }
 #category ul li a{
-	height:25px;
-	line-height:25px;
 	color:<%=category_fg%>;
 	display:block;
 	width:auto;
-	padding:0 0 0 2px;
+	padding:4px 3px;
 	margin:0;
 	text-decoration:none;
 	font-size:123.1%%;

@@ -8,6 +8,7 @@
 <% if !blank_page || (blank_page && logged_in? && has_right?(:create)) %>
 	<li>
 		<a href="<%= site_page_url(asset) %>"<%= selected%>><%= asset.resource.property.title %></a>
+		<div class="divider">&nbsp;</div>
 		<%= render :partial => "admin/admin_pannel", 
 			 :locals => { :edit_asset => asset,
 			 							:delete_asset => asset} %>
