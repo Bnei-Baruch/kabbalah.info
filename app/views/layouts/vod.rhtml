@@ -44,24 +44,26 @@
 						</ul>
 					</div>
 				</div>
-				<div id="vod" class="yui-g"><!-- VOD part -->
+				<div class="yui-g"><!--  -->
 					<h2 id="hd-middle"><%= @section.title%></h2>
 					<div class="hd-border">&nbsp;</div>
-					<div id="vod-body">
-						<div id="vod-right">
-							<% if @category %>
-								<h2><%= @category.resource.property.title %></h2>
+				</div>
+				<div id="vod" class="yui-u yui-gc"><!-- VOD part -->
+					<div class="yui-u first">
+					<div id="vod-body"><%# Middle 66% part %>
+							<%= yield %>
+					</div></div>
+					<div id="vod-right" class="yui-u"><%# 33% right part %>
+						<% if @category %>
+							<h2><%= @category.resource.property.title %></h2>
+						<% end %>
+						<div id="right-list">
+							<%# List of pages (###_preview.rhtml)%>
+							<% if @category_children %>
+								<%= render :partial => "share/show_assets_in_loop",
+												 :locals => { :container => @category_children, :display => "preview" } %>
 							<% end %>
-							<div id="right-list">
-								<%# List of pages (###_preview.rhtml)%>
-								<% if @category_children %>
-									<%= render :partial => "share/show_assets_in_loop",
-													 :locals => { :container => @category_children, :display => "preview" } %>
-								<% end %>
-							</div>
 						</div>
-						<%= yield %>
-						<div class="clear">&nbsp;</div>
 					</div>
 				</div>
 			</div>

@@ -9,6 +9,9 @@
 	related_bg = "#f7f7f8"
 	category_fg = "#77797c"
 %>
+body{
+	font-family:verdana,arial,helvetica,clean,sans-serif;
+}
 <%# Middle part %>
 h2#hd-middle {
 	background-color:<%=middle_hd_bg%>;
@@ -17,7 +20,7 @@ h2#hd-middle {
 	height:20px;
 	line-height:20px;
 	padding:0 8px;
-	margin:0 0 2px;
+	margin:0 0 1px;
 	text-transform:capitalize;
 	font-size:<%=h2_font_size%>;
 }

@@ -1,10 +1,13 @@
 /* VOD */
+body{
+	font-family:verdana,arial,helvetica,clean,sans-serif;
+}
 #vod {
 	height:100%;
-}
-#vod-body{
 	border:1px solid #c2c3c6;
 	border-top: 0 none;
+}
+#vod-body{
 	padding:15px 20px;
 }
 h2.vod-hd {
@@ -17,8 +20,6 @@ h2.vod-hd {
 	font-size:107%;
 }
 #assets{
-	width:400px;
-	margin:0 20px 0 0;
 	height:100%;
 }
 #assets h1 {
@@ -32,24 +33,19 @@ h2.vod-hd {
 	height:305px;
 }
 .player{
-	border:5px solid #cecfd1;
-	width:320px;
-	height:240px;
-	margin:5px auto;
-}
-.div_around_player{
-	margin:0;
-	padding:10px 0;
-	margin:0 0 10px 0;
-	width:400px;
-	background:#cecfd1 url('/files/<%=@layout%>/images/player_grad.gif') repeat-x top left;
+	width:380px;
+	height:320px;
+	margin:5px auto 10px;
+	border:1px solid silver;
+	padding:0 34px;
+	background:#F9F9FA url('/files/<%=@layout%>/images/player_grad.gif') repeat-x top left;
 }
 .media-description{
 	margin:0 auto;
 	padding:5px 10px 10px;
 	border:1px solid #E4E4E5;
 	background:#F9F9FA url('/files/<%=@layout%>/images/player_grad.gif') repeat-x top left;
-	width:378px;
+	width:430px;
 }
 .media-description h4{
 	color: #525352;
@@ -63,9 +59,7 @@ h2.vod-hd {
 	line-height:131%;
 }
 #vod-right{
-	float:right;
-	width:295px;
-	margin:0;
+	margin:15px 15px 0 0;
 }
 #vod-right h2{
 	background: transparent url('/files/vod/images/vod-right-hd.gif') repeat-x top left;
@@ -79,7 +73,7 @@ h2.vod-hd {
 #right-list{
 	border:1px solid #dcdfdf;
 	background-color:#f8fbfa;
-	padding:15px 20px;
+	padding:15px;
 }
 .right-item{
 	margin:0 0 12px 0;
@@ -87,18 +81,20 @@ h2.vod-hd {
 .right-item h3 {
 	margin:0 0 10px;
 	color:#1999BC;
-	font-size:85%;
+	font-size:77%;
 }
 .right-item p {
 	margin:0;
-	font-size:88%;
+	font-size:77%;
 }
 .right-description{
-	margin:0 0 0 110px;
+	margin:0 0 0 105px;
+	font-family:Verdana;
 }
 .right-img {
 	float:left;
-	width:100px;
+	width:70px;
+	height:70px;
 	margin:0;
 	padding:0;
 }

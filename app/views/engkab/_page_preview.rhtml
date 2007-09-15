@@ -12,6 +12,7 @@
 %>
 <% if has_children || logged_in? && has_right?(:create)  %>
 <div class="right-item">
+	<h3><%= property.title %></h3>
 	<div class="right-img">
 		<% if property.image_storage %>
 			<%= link_to image_tag( property.image_storage.public_filename(:preview),
@@ -27,7 +28,6 @@
 		<% end %>
 	</div>
 	<div class="right-description">
-		<h3><%= property.title %></h3>
 		<!--<h3><%#= link_to property.title, site_page_url(asset) %></h3>-->
 		<% unless property.short_description.blank? %><p><%= property.short_description%></p> <% end %>
 	</div>
@@ -36,6 +36,6 @@
 					 							:delete_asset => @page,
 					 							:nobreak => true
 					 						} %>
-	<div class="clear-r">&nbsp;</div>
+	<div class="clear">&nbsp;</div>
 </div>
 <% end %>
