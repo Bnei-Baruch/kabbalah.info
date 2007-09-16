@@ -1,0 +1,10 @@
+<h1>New picture</h1>
+
+<%= render :partial => 'form',
+  :locals => {
+    :path => pictures_path,
+    :method => :post,
+    :button_text => 'Create'
+  } %>
+
+<%= link_to 'Cancel', session[:referer] %>

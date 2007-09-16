@@ -27,11 +27,11 @@
 	end
 %>
 <%# Category %>
-#category{
+.category{
 	background-color:<%=category_bg%>;
 	margin-bottom:15px;
 }
-#category h2{
+.category h2{
 	background-color:<%=category_hd_bg%>;
 	color:<%=category_hd_fg%>;
 	height:20px;
@@ -41,23 +41,23 @@
 	text-transform:uppercase;
 	font-size:<%=h2_font_size%>;
 }
-#category .hd-content{
+.category .hd-content{
 	margin:0;
 	padding:2px 10px 10px;
 	border:1px solid <%=general_border%>;
 	border-top:0 none;
 }
-#category ul{
+.category ul{
 	margin:0;
 }
-#category ul li{
+.category ul li{
 	list-style:none;
 	display:block;
 	margin:0;
 	padding:0;
 	border:1px solid <%=category_bg%>;
 }
-#category ul li a{
+.category ul li a{
 	color:<%=category_fg%>;
 	display:block;
 	width:auto;
@@ -66,18 +66,18 @@
 	text-decoration:none;
 	font-size:93%%;
 }
-#category ul li a:link, #category ul li a:visited{
+.category ul li a:link, .category ul li a:visited{
 }
-#category ul li a.last{
+.category ul li a.last{
 	border:0 none;
 }
-#category ul li a.selected{
+.category ul li a.selected{
 	font-weight:bold;
 }
-#category ul li a.selected, #category ul li a:hover{
+.category ul li a.selected, .category ul li a:hover{
 	background-color:<%=category_active%>;
 }
-#category .divider{
+.category .divider{
 	background-color:white;
 	border-top:1px solid #E0E1E2;
 	height:2px;

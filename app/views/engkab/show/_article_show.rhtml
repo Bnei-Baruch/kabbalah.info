@@ -1,13 +1,13 @@
 <%
 	property = asset.resource.property
-	has_image = property.image_storage
+	image = property.image_storage
  %>
-<div class="article asset<%if has_image %> has_image<%end%>">
+<div class="article asset">
 	<a name="<%= property.title_for_anchor %>"></a><h2><%= property.title %></h2>
-	<% if has_image %>
-		<%= image_tag( property.image_storage.public_filename(:preview),
-									 :alt => property.image_storage.alt,
-									 :title => property.image_storage.alt,
+	<% if image %>
+		<%= image_tag( image.public_filename(:preview),
+									 :alt => image.alt,
+									 :title => image.alt,
 									 :class => "article-img" )%>
 	<% end %>
 	<% unless property.short_description.blank? %>

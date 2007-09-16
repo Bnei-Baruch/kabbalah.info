@@ -60,7 +60,7 @@ class AssetsController < ApplicationController
       return
     end
     @asset = Asset.find(params[:id])
-    type = @asset.resource_type.downcase
+    type = @asset.resource_type.tableize.singularize
     resource = @asset.resource
 		redirect_to :type => "edit_#{type}_url", :resource => resource
   end

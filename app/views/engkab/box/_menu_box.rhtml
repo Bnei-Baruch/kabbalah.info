@@ -1,0 +1,20 @@
+<div class="category"><%# first menu %>
+	<h2><%= name %></h2>
+	<%= render :partial => "admin/admin_pannel", 
+			 			 :locals => { :new_asset => { :parent_id => parent_id, 
+			 																		 :type => type, 
+			 																		 :message => message
+			 																	},
+			 										:nobreak => true
+			 									} %>
+	<div class="hd-border">&nbsp;</div>
+	<div class="hd-content">
+		<% if list %>
+			<%# List of pages (###_list.rhtml)%>
+			<ul>
+				<%= render :partial => "show_assets_in_loop",
+								 :locals => { :container => list, :display => "list" } %>
+			</ul>
+		<% end %>
+	</div>
+</div>

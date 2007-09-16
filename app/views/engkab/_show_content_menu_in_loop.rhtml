@@ -1,0 +1,9 @@
+<% for menu in @content_menues%>
+	<%= render :partial => "engkab/box/menu_box",
+			 			 :locals => { :parent_id => menu[:parent_id] , 
+			 										:type => menu[:type], 
+			 										:name => menu[:name],
+			 										:message => menu[:message],
+			 										:list => menu[:list]
+		 										}%>
+<% end %>

@@ -54,16 +54,7 @@
 							<%= yield %>
 					</div></div>
 					<div id="vod-right" class="yui-u"><%# 33% right part %>
-						<% if @category %>
-							<h2><%= @category.resource.property.title %></h2>
-						<% end %>
-						<div id="right-list">
-							<%# List of pages (###_preview.rhtml)%>
-							<% if @category_children %>
-								<%= render :partial => "share/show_assets_in_loop",
-												 :locals => { :container => @category_children, :display => "preview" } %>
-							<% end %>
-						</div>
+						<%= yield :sidebar %>
 					</div>
 				</div>
 			</div>
@@ -72,28 +63,7 @@
 			<div id="top-env">
 				<img src="/files/vod/images/env.gif" width="180" height="14" alt="Env" />
 			</div>
-			<div id="category"><!-- top menu -->
-				<h2>Categories</h2>
-				<%= render :partial => "admin/admin_pannel", 
-					 				 :locals => { :new_asset =>
-					 				 								 { :parent_id => @categories[0].parent, 
-						 												 :type => "category", 
-						 												 :message => "New Category"
-						 											 },
-						 										:nobreak => true
-						 									} %>
-				<div class="hd-border">&nbsp;</div>
-				<div class="hd-content">
-					<% if @categories %>
-						<%# List of categories (###_list.rhtml)%>
-						<ul>
-							<%= render :partial => "share/show_assets_in_loop",
-												 :locals => { :container => @categories,
-												 							:display => "list" } %>
-						</ul>
-					<% end %>
-				</div>
-			</div>
+			<%= yield :content_menu %>
 			<div class="services">
 				<h2>Services</h2>
 				<div class="s-border">&nbsp;</div>

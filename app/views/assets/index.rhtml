@@ -46,7 +46,7 @@ Section: <%= select_tag :section_id, options_from_collection_for_select(Section.
 		<%= hidden_field_tag :parent_id, @parent_id%>
 	
 		Type: <%= select_tag :asset_type, options_for_select(Asset.asset_types) %>
-		Placeholder: <%= select_tag :placeholder_id, options_for_select(Placeholder.placeholders) %>
+		Placeholder: <%= select_tag :placeholder_id, options_for_select(Placeholder.placeholders, :include_blank => :true) %>
 		<%= submit_tag "Create new Asset" %>
 	<% end -%>
 <% end -%>

@@ -19,7 +19,7 @@
 				<%= hidden_field_tag :section_id, @section.id %>
 				<%= hidden_field_tag :parent_id, new_asset[:parent_id] %>
 				Type: <%= select_tag :asset_type, options_for_select(new_asset[:type]) %>
-				<%= submit_tag "Create new Asset", :class => :new %>
+				<%= submit_tag new_asset[:message], :class => :new %>
 			<% end -%>
 	  	<% end %>
 	  <% end %>

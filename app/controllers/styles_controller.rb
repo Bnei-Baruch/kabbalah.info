@@ -5,6 +5,7 @@ class StylesController < ApplicationController
 		@cssfile = params[:id] + ".css"
 		@section = Section.find_by_permalink(params[:section_id])
 		@layout = @section.layout
+		@palette = @section.palette
 		@permitted_assets = @section.permitted_assets
     respond_to do |format|
     	if @section && File.exists?("#{RAILS_ROOT}/app/views/styles/#{@cssfile}")
