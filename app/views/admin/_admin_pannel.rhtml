@@ -18,6 +18,7 @@
 			<% form_tag( new_asset_path, :method => :get) do -%>
 				<%= hidden_field_tag :section_id, @section.id %>
 				<%= hidden_field_tag :parent_id, new_asset[:parent_id] %>
+				<%= hidden_field_tag :placeholder_id, new_asset[:placeholder_id] %>
 				Type: <%= select_tag :asset_type, options_for_select(new_asset[:type]) %>
 				<%= submit_tag new_asset[:message], :class => :new %>
 			<% end -%>

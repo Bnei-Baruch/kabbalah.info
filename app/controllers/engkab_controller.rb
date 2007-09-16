@@ -73,14 +73,17 @@ protected
 		case type
 		when :categories_with_pages	# like worldwide
 			result = []
-			@section.assets.select {|s| s.resource_type == 'Category' && s.parent_id == @page.parent.parent_id}.sort{|a, b| a.position <=> b.position}.each do |cat|
-				result << {
-					:list => @section.assets.select {|s| s.resource_type == 'Page' && s.parent_id == @cat.parent_id}.sort{|a, b| a.position <=> b.position},
-					:parent_id => @cat.id,
-					:name => @cat.resource.property.title,
-					:type => 'Page',
-					:message => 'New page'
-				}
+			@section.assets.select {|s| s.resource_type == 'Category' && s.parent_id == 0}.sort{|a, b| a.position <=> b.position}.each do |cat|
+				raise cat.inspect
+				return
+					result << {
+						:list => @section.assets.select {|s| s.resource_type == 'Page' && s.parent_id == @cat.parent_id}.sort{|a, b| a.position <=> b.position},
+						:parent_id => @cat.id,
+						:name => @cat.resource.property.title,
+						:type => 'Page',
+						:message => 'New page'
+					}
+#				end
 			end
 			result
 		when :categories						# like in Video clips

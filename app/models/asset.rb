@@ -28,7 +28,7 @@ class Asset < ActiveRecord::Base
 	end
 	
 	def children_by_placeholder(placeholder)
-		Asset.find(:all, :conditions => "parent_id = #{id} AND placeholder_id = #{placeholder.id}")
+		Asset.find(:all, :conditions => "parent_id = #{id} AND placeholder_id = #{placeholder.id}", :order => "position ASC")
 	end
 	
 protected
