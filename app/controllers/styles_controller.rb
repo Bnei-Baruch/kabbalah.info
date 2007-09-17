@@ -44,7 +44,7 @@ class StylesController < ApplicationController
 			:general_border => "#a5a7a9",
 			:related_bg => "#f7f7f8",
 			:category_fg => "#77797c",
-			:category_bg => "#eff8f8",
+			:category_bg => "#FFEFE9",
 			:category_hd_bg => "#909295",
 			:category_hd_fg => "#cecfd1",
 			:services_hd_bg => "#b5d2e2",

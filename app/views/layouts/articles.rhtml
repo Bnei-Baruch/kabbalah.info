@@ -1,7 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-
 <head>
 	<title><%= @page.resource.property.title %></title>
 	<meta name="description" content="<%= @page.resource.property.short_description %>" />
@@ -29,7 +28,7 @@
 	</div>
 
 	<div id="bd"><%# Body%>
-		<div id="yui-main">
+		<div id="yui-main"><%# Right Side %>
 			<div class="yui-b">
 				<div class="yui-g"><%# First line with horizontal menu %>
 					<div id="top-menu">
@@ -51,9 +50,9 @@
 				<div class="yui-u yui-ge"><%# Content part %>
 					<div class="yui-u first">
 					<div id="unit75"><%# Middle 75% part %>
-						<h2 id="hd-middle"><%= @section.title%></h2>
+						<h2 class="hd-middle"><%= @section.title%></h2>
 						<div class="hd-border">&nbsp;</div>
-						<div id="hd-content">
+						<div class="hd-content">
 							<h1 id="title"><%= @page.resource.property.title %></h1>
 							<%= yield %>
 						</div>

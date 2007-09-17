@@ -2,7 +2,7 @@ body{
 	font-family:verdana,arial,helvetica,clean,sans-serif;
 }
 <%# Middle part %>
-h2#hd-middle {
+h2.hd-middle {
 	background-color:<%=@palette[:middle_hd_bg]%>;
 	color:<%=@palette[:middle_hd_fg]%>;
 	border-bottom:1px solid <%=@palette[:bottom_line]%>;
@@ -19,10 +19,19 @@ h2#hd-middle {
 	line-height:4px;
 	font-size:4px;
 }
-div#hd-content{
+div.hd-content{
 	padding:20px;
 	border:1px solid <%=@palette[:general_border]%>;
 	border-top:0 none;
+}
+div#hd-no-bottom{
+	border-bottom: 0 none;
+}
+div.video_descr{
+	border:1px solid #CDD1D4;
+	background-color:#f7f7f7;
+	padding:20px 10px;
+	height:214px;
 }
 h1#title{
 	margin:-10px 0 15px;
@@ -48,6 +57,9 @@ h1#title{
 .r-box{
 	margin:0 0 10px;
 	background-color:<%=@palette[:related_bg]%>;
+}
+.r-no-bg{
+	background-color:transparent !important;
 }
 .r-box h2{
 	background: transparent url('/files/<%=@palette_name%>/hd-gradient.gif') repeat-x top left;

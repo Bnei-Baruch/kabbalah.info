@@ -122,22 +122,23 @@ protected
 		@main_assets = @page.children_by_placeholder(@main_placeholder)
 	end
 
-  def calculate_categories
+	def calculate_categories
 		if @page.parent && @page.parent.resource_type == "Category"
     	@category = @page.parent
     	@category_children = @category.children.select {|i| i.resource_type == "Page"}
     	@categories = Asset.find(:all, :conditions => "parent_id = #{@category.parent_id} and section_id = #{@section.id} and resource_type = 'Category' ", :order => "position ASC")
-  	else
-  		@category = @category_children = @categories = nil
-  	end
-  end
+  		else
+  			@category = @category_children = @categories = nil
+  		end
+	end
 
 	def respond
 		action = @is_homepage ? "page/#{@section.hrid}_homepage" : "page/" + @section.hrid
-    respond_to do |format|
-      format.html { render  :action => action, :layout => @section.layout + '_homepage' }
-      format.xml  { render :xml => @page.to_xml }
-    end
+		layout = @is_homepage ? @section.layout  + '_homepage' : @section.layout
+	    respond_to do |format|
+	      format.html { render  :action => action, :layout => layout }
+	      format.xml  { render :xml => @page.to_xml }
+	    end
 	end
   
 end

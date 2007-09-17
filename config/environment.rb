@@ -1,3 +1,5 @@
+SCRIPT_LINES__ = {} if ENV['RAILS_ENV'] == 'development'
+
 # Be sure to restart your web server when you modify this file.
 
 # Uncomment below to force Rails into production mode when
@@ -62,3 +64,9 @@ end
 # Mime::Type.register "application/x-mobile", :mobile
 Mime::Type.register "text/css", :css
 # Include your application configuration below
+
+if ENV['RAILS_ENV'] == 'development'
+  require "ruby-debug"
+  SCRIPT_LINES__ = {}
+  Debugger.start
+end

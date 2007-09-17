@@ -4,50 +4,51 @@
 	<%= render :partial => "show_content_menu_in_loop" %><%# partial for Menu in Content menu%>
 <% end # content_menu %>
 
-
+<%	if @top_video
+		video = @top_video.resource
+	end
+%>
 <% content_for(:top_video) do %>
-	<% if @top_video %>
-		<% 
-		video = @top_video.resource 
-		%>
-		<% unless video.video_link.blank? %>
-			<div class="player" id="<%= "x#{video.id}" %>">
-				<script type="text/javascript">
-				//<![CDATA[
-				     var fullScreenMessageErr = "Media Player must be playing...";
-				     var fullScreenMessageNote = "To return to browser please press ESC";
-				     CreateControl("<%= "x#{video.id}" %>","<%= video.video_link %>", 1, 380, 320);
-				//]]>
-				</script>
-			</div>
-		<% end %>
-		<% unless video.property.description.blank? %>
-			<p><%= video.property.description %></p>
-		<% end %>
+	<% if @top_video and not video.video_link.blank? %>
+		<div class="player" id="<%= "x#{video.id}" %>">
+			<script type="text/javascript">
+			//<![CDATA[
+			     var fullScreenMessageErr = "Media Player must be playing...";
+			     var fullScreenMessageNote = "To return to browser please press ESC";
+			     CreateControl("<%= "x#{video.id}" %>","<%= video.video_link %>", 1, 340, 256);
+			//]]>
+			</script>
+		</div>
+	<% end %>
+<% end # top_video %>
+
+<% content_for(:top_video_descr) do %>
+	<% if @top_video and not video.property.description.blank? %>
+		<p><%= video.property.description %></p>
 	<% end %>
 <% end # top_video %>
 
 <% content_for(:events) do %>
-<%= render :partial => "admin/admin_pannel",
-					 :locals => { :new_asset => { :parent_id => @events_category.id, 
-					 															:type => 'page', 
-					 															:message => "New Event"
-					 														}
-					 						} %>
-
-
+	<%= render :partial => "admin/admin_pannel",
+			   :locals => { :new_asset => { :parent_id => @events_category.id, 
+											:type => 'page', 
+											:message => "New Event"
+										  }
+						  } %>
+	
+	
 	<%= render :partial => "show_assets_in_loop",
-						 :locals => { :container => @events_pages, :display => 'preview', :secondary_display => '_events'  } %>
+			   :locals => { :container => @events_pages, :display => 'preview', :secondary_display => '_events'  } %>
 <% end # events %>
 
 <% content_for(:media) do %>
-<%= render :partial => "admin/admin_pannel",
-					 :locals => { :new_asset => { :parent_id => @media_category.id, 
-					 															:type => 'page', 
-					 															:message => "New Media"
-					 														}
-					 						} %>
+	<%= render :partial => "admin/admin_pannel",
+			   :locals => { :new_asset => { :parent_id => @media_category.id, 
+						 					:type => 'page', 
+						 					:message => "New Media"
+						 				   }
+						  } %>
 	<%= render :partial => "show_assets_in_loop",
-						 :locals => { :container => @media_pages, :display => 'preview', :secondary_display => '_media'  } %>
-
+			   :locals => { :container => @media_pages, :display => 'preview', :secondary_display => '_media'  } %>
+	
 <% end # media %>
