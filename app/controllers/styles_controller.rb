@@ -2,7 +2,8 @@ class StylesController < ApplicationController
 	layout nil
 
 	PALETTE =
-	{ :blue => {
+	{
+		:blue => {
 			:middle_hd_bg => "#4E4E4E",
 			:middle_hd_fg => "#D7DBDE",
 			:bottom_line => "#73787b",
@@ -28,6 +29,22 @@ class StylesController < ApplicationController
 			:related_bg => "#f7f7f8",
 			:category_fg => "#77797c",
 			:category_bg => "#f1f7e7",
+			:category_hd_bg => "#909295",
+			:category_hd_fg => "#cecfd1",
+			:services_hd_bg => "#b5d2e2",
+			:services_hd_fg => "#0698bc",
+			:services_bottom_line => "#8ebdd5",
+		},
+		:orange => {
+			:middle_hd_bg => "#4E4E4E",
+			:middle_hd_fg => "#D7DBDE",
+			:bottom_line => "#73787b",
+			:h2_font_size => "100%",
+			:category_active => "#FAB597",
+			:general_border => "#a5a7a9",
+			:related_bg => "#f7f7f8",
+			:category_fg => "#77797c",
+			:category_bg => "#eff8f8",
 			:category_hd_bg => "#909295",
 			:category_hd_fg => "#cecfd1",
 			:services_hd_bg => "#b5d2e2",
