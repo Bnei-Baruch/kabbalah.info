@@ -15,4 +15,8 @@ class Section < ActiveRecord::Base
 	def permitted_assets
 		read_attribute("permitted_assets" ) ? read_attribute("permitted_assets" ).split(' ') : ""
 	end
+	
+	def homepage_url
+		self.assets.select{|x| x.resource_type == 'Homepage'}
+	end
 end

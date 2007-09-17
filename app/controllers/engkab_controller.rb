@@ -36,8 +36,6 @@ class EngkabController < ApplicationController
 	end
   
   def method_missing(m)
-		render :text => "#{m}"
-		return
 		m =~ /status_(\d+)/
 		status = $1 || 404
 		render :file => "public/#{status}.html", :status => status.to_i
@@ -54,6 +52,8 @@ protected
 
   def worldwide
 		@content_menues = calculate_content_menu(:categories_with_pages)
+		calculate_main_assets
+		calculate_sidebar
 		respond
   end
 
@@ -74,16 +74,15 @@ protected
 		when :categories_with_pages	# like worldwide
 			result = []
 			@section.assets.select {|s| s.resource_type == 'Category' && s.parent_id == 0}.sort{|a, b| a.position <=> b.position}.each do |cat|
-				raise cat.inspect
-				return
+				if cat.children
 					result << {
-						:list => @section.assets.select {|s| s.resource_type == 'Page' && s.parent_id == @cat.parent_id}.sort{|a, b| a.position <=> b.position},
-						:parent_id => @cat.id,
-						:name => @cat.resource.property.title,
+						:list => cat.children.select {|p| p.resource_type == 'Page'},
+						:parent_id => cat.id,
+						:name => cat.resource.property.title,
 						:type => 'Page',
 						:message => 'New page'
 					}
-#				end
+				end
 			end
 			result
 		when :categories						# like in Video clips
@@ -125,10 +124,6 @@ protected
   	end
   end
 
-	def calculate_pages
-  	@pages = Asset.find(:all, :conditions => "parent_id = #{@page.parent_id} and section_id = #{@section.id} and resource_type = 'Page' ", :order => "position ASC")
-	end
-	
 	def respond
 		action = @is_homepage ? "page/#{@section.hrid}_homepage" : "page/" + @section.hrid
     respond_to do |format|
