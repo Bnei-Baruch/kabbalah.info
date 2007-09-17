@@ -52,6 +52,14 @@ protected
 
   def worldwide
 		@content_menues = calculate_content_menu(:categories_with_pages)
+		if @is_homepage
+			categories = Asset.find(:all, :conditions => "parent_id = 0 and section_id = #{@section.id} and resource_type = 'Category' ", :order => "position ASC")
+			@media_category = categories.select{|x| x.resource.property.title.downcase.include? 'media'}.first
+			@events_category = categories.select{|x| x.resource.property.title.downcase.include? 'events'}.first
+			@media_pages = Asset.get_pages_by_parent(@media_category)
+			@events_pages = Asset.get_pages_by_parent(@events_category)
+			@top_video = @page.children[0] && @page.children[0].resource_type.eql?('Video') ? @page.children[0] : nil
+		end
 		calculate_main_assets
 		calculate_sidebar
 		respond
@@ -127,7 +135,7 @@ protected
 	def respond
 		action = @is_homepage ? "page/#{@section.hrid}_homepage" : "page/" + @section.hrid
     respond_to do |format|
-      format.html { render  :action => action, :layout => @section.layout }
+      format.html { render  :action => action, :layout => @section.layout + '_homepage' }
       format.xml  { render :xml => @page.to_xml }
     end
 	end

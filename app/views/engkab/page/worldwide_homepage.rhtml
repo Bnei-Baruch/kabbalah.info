@@ -1,24 +1,53 @@
 <%#This part will be created for sidebar in articles %>
 
-<% content_for(:sidebar) do %>
-	<%= render :partial => "engkab/box/toc_box" %><% # partial for TOC in sidebar%>
-	<%= render :partial => "engkab/box/right_box" %><%# partial for related materials and other stuff for the sidebar%> 
-<% end # sidebar %>
-
 <% content_for(:content_menu) do %>
 	<%= render :partial => "show_content_menu_in_loop" %><%# partial for Menu in Content menu%>
 <% end # content_menu %>
 
-<%#This part will be created for main part of the page. It shows all the assets in the page %>
+
+<% content_for(:top_video) do %>
+	<% if @top_video %>
+		<% 
+		video = @top_video.resource 
+		%>
+		<% unless video.video_link.blank? %>
+			<div class="player" id="<%= "x#{video.id}" %>">
+				<script type="text/javascript">
+				//<![CDATA[
+				     var fullScreenMessageErr = "Media Player must be playing...";
+				     var fullScreenMessageNote = "To return to browser please press ESC";
+				     CreateControl("<%= "x#{video.id}" %>","<%= video.video_link %>", 1, 380, 320);
+				//]]>
+				</script>
+			</div>
+		<% end %>
+		<% unless video.property.description.blank? %>
+			<p><%= video.property.description %></p>
+		<% end %>
+	<% end %>
+<% end # top_video %>
+
+<% content_for(:events) do %>
 <%= render :partial => "admin/admin_pannel",
-					 :locals => { :new_asset => { :parent_id => @page.id, 
-					 															:placeholder_id => @main_placeholder.id, 
-					 															:type => @main_placeholder.permitted_assets(@section), 
-					 															:message => "New Asset"
-					 														},
-					 							:nobreak => true
+					 :locals => { :new_asset => { :parent_id => @events_category.id, 
+					 															:type => 'page', 
+					 															:message => "New Event"
+					 														}
 					 						} %>
-<div id="assets">
+
+
 	<%= render :partial => "show_assets_in_loop",
-						 :locals => { :container => @main_assets, :display => "show"  } %>
-</div>
+						 :locals => { :container => @events_pages, :display => 'preview', :secondary_display => '_events'  } %>
+<% end # events %>
+
+<% content_for(:media) do %>
+<%= render :partial => "admin/admin_pannel",
+					 :locals => { :new_asset => { :parent_id => @media_category.id, 
+					 															:type => 'page', 
+					 															:message => "New Media"
+					 														}
+					 						} %>
+	<%= render :partial => "show_assets_in_loop",
+						 :locals => { :container => @media_pages, :display => 'preview', :secondary_display => '_media'  } %>
+
+<% end # media %>

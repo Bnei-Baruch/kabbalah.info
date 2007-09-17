@@ -30,7 +30,11 @@ class Asset < ActiveRecord::Base
 	def children_by_placeholder(placeholder)
 		Asset.find(:all, :conditions => "parent_id = #{id} AND placeholder_id = #{placeholder.id}", :order => "position ASC")
 	end
-	
+	def self.get_pages_by_parent(my_parent)
+		if my_parent.is_a?(Asset)
+			my_parent.children.select{|x| x.resource_type == 'Page'}
+		end
+	end
 protected
 	
 	def after_destroy

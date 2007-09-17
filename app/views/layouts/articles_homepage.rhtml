@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title><%= @page.resource.property.title %></title>
+	<meta name="description" content="<%= @page.resource.property.short_description %>" />
+	<%= stylesheet_link_tag 'admin', :media => "screen", :title => "no title", :charset => "utf-8" if logged_in? %>
+	<%= stylesheet_link_tag formatted_style_url(@section, 'default', :css), :media => "screen", :title => "no title", :charset => "utf-8" %>
+	<%= javascript_include_tag 'windows_media_object' if @page.children %> 
+</head>
+<body>
+<div id="doc2" class="yui-t2"><%# 950px Menu 180px on left %>
+	<div id="hd"><%# Header%>
+		<% if logged_in? %>
+		<p style="color: green"><%= flash[:notice] %></p>
+			<%= render :partial => "admin/user_options" %>
+			<%= render :partial => "admin/admin_pannel",
+								 :locals => { :new_asset => { 
+																:parent_id => @page.parent,
+																:type => "page",
+																:message => "New page"
+															},
+															:edit_asset => @page,
+															:delete_asset => @page } %>
+			<% end %>		
+		<img src="/files/vod/images/header_tmp.gif" width="950" height="92" alt="Header Tmp" />
+	</div>
+
+	<div id="bd"><%# Body%>
+		<div id="yui-main">
+			<div class="yui-b">
+				<div class="yui-g"><%# First line with horizontal menu %>
+					<div id="top-menu">
+						<ul>
+							<li><a href="#">Home</a></li>
+							<li class="pipe">|</li>
+							<li><a href="#">Vision</a></li>
+							<li class="pipe">|</li>
+							<li><a href="#">Contact Us</a></li>
+							<li class="pipe">|</li>
+							<li><a href="#">About</a></li>
+							<li class="pipe">|</li>
+							<li><a href="#">Donation</a></li>
+							<li class="pipe">|</li>
+							<li><a href="#">Press Kit</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="yui-u yui-ge"><%# Content part %>
+					<div class="yui-u first">
+					<div id="unit75"><%# Middle 75% part %>
+						<h2 id="hd-middle"><%= @section.title%></h2>
+						<div class="hd-border">&nbsp;</div>
+						<div id="hd-content">
+							<h1 id="title"><%= @page.resource.property.title %></h1>
+							<%= yield :top_video %>
+							<%= yield :events %>
+							<%= yield :media %>
+						</div>
+						<div class="clear">&nbsp;</div>
+					</div></div>
+					<div class="yui-u">
+					<div id="unit25"><%# 25% right part %>
+						<%= yield :sidebar %>
+					</div></div>
+				</div>
+			</div>
+		</div>
+		<div class="yui-b"><%# Navigation %>
+			<div id="top-env">
+				<img src="/files/vod/images/env.gif" width="180" height="13" alt="Env" />
+			</div>
+			<%= yield :content_menu %>
+			<div class="services">
+				<h2>Services</h2>
+				<div class="s-border">&nbsp;</div>
+				<div class="service">
+					<h3>Kabbalah Today Subscription</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="ft"><%# Footer %>
+		Footer is here.
+	</div>
+
+</div>
+</body>
+</html>

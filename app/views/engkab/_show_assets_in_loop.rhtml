@@ -1,9 +1,12 @@
-<%
-	length = container.length - 1
-	container.each_with_index do |asset, index|
-		if (index != 0) && (display == "show") %>
-			<div class="hr">&nbsp;</div>
-		<% end	%>
-		<%= render :partial => "engkab/#{display}/#{asset.resource_type.downcase}_#{display}",
-			:locals => { :asset => asset } %>
+<%if container%>
+	<%
+		secondary_display ||= ''
+		length = container.length - 1
+		container.each_with_index do |asset, index|
+			if (index != 0) && (display == "show") %>
+				<div class="hr">&nbsp;</div>
+			<% end	%>
+			<%= render :partial => "engkab/#{display}/#{asset.resource_type.downcase}_#{display}#{secondary_display}",
+				:locals => { :asset => asset } %>
+	<% end %>
 <% end %>

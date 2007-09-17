@@ -8,7 +8,7 @@
 		<%# List of pages (###_preview.rhtml)%>
 		<% if @category_children %>
 			<%= render :partial => "show_assets_in_loop",
-							 :locals => { :container => @category_children, :display => "preview" } %>
+							 :locals => { :container => @category_children, :display => 'preview', :secondary_display => '_vod' } %>
 		<% end %>
 	</div>
 <% end # sidebar %>

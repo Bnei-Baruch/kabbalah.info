@@ -1,0 +1,29 @@
+<%
+#Displaying a preview of a single media page in a list of pages
+%>
+<% 
+	property = asset.resource.property
+	has_children = false
+	if asset.children.size > 0
+		has_children = true
+	end
+%>
+<% if has_children || logged_in? && has_right?(:create)  %>
+<div class="right-item">
+	<h3><%= property.title %></h3>
+	<div class="right-img">
+		<% if property.image_storage %>
+			<%= link_to image_tag( property.image_storage.public_filename(:preview),
+															:alt => property.image_storage.alt,
+															:title => property.image_storage.alt),
+								   site_page_url(asset) %>
+		<% end %>
+	</div>
+	<%= render :partial => "admin/admin_pannel",
+					 :locals => { :edit_asset => asset,
+					 							:delete_asset => @page,
+					 							:nobreak => true
+					 						} %>
+	<div class="clear">&nbsp;</div>
+</div>
+<% end %>
