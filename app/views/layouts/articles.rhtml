@@ -25,7 +25,7 @@
 															:edit_asset => @page,
 															:delete_asset => @page } %>
 			<% end %>		
-		<img src="/files/vod/images/header_tmp.gif" width="950" height="92" alt="Header Tmp" />
+		<img src="/files/vod/header_tmp.gif" width="950" height="92" alt="Header Tmp" />
 	</div>
 
 	<div id="bd"><%# Body%>
@@ -55,7 +55,7 @@
 						<div class="hd-border">&nbsp;</div>
 						<div id="hd-content">
 							<h1 id="title"><%= @page.resource.property.title %></h1>
-							<%= yield  %>
+							<%= yield %>
 						</div>
 						<div class="clear">&nbsp;</div>
 					</div></div>
@@ -68,7 +68,7 @@
 		</div>
 		<div class="yui-b"><%# Navigation %>
 			<div id="top-env">
-				<img src="/files/vod/images/env.gif" width="180" height="13" alt="Env" />
+				<img src="/files/vod/env.gif" width="180" height="13" alt="Env" />
 			</div>
 			<%= yield :content_menu %>
 			<div class="services">

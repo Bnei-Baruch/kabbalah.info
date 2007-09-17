@@ -11,7 +11,7 @@ body{
 	padding:15px 20px;
 }
 h2.vod-hd {
-	background: #DDD url('/files/<%=@layout%>/images/vod-hd.gif') repeat-x top left;
+	background: #DDD url('/files/<%=@palette_name%>/hd-gradient.gif') repeat-x top left;
 	height:25px;
 	line-height:22px;
 	margin:0;
@@ -37,14 +37,14 @@ h2.vod-hd {
 	height:320px;
 	margin:5px auto 10px;
 	border:1px solid silver;
-	padding:0 34px;
-	background:#F9F9FA url('/files/<%=@layout%>/images/player_grad.gif') repeat-x top left;
+	padding:10px 34px;
+	background:#F9F9FA url('/files/<%=@layout%>/player_grad.gif') repeat-x top left;
 }
 .media-description{
 	margin:0 auto;
 	padding:5px 10px 10px;
 	border:1px solid #E4E4E5;
-	background:#F9F9FA url('/files/<%=@layout%>/images/player_grad.gif') repeat-x top left;
+	background:#F9F9FA url('/files/<%=@layout%>/player_grad.gif') repeat-x top left;
 	width:430px;
 }
 .media-description h4{
@@ -62,7 +62,7 @@ h2.vod-hd {
 	margin:15px 15px 0 0;
 }
 #vod-right h2{
-	background: transparent url('/files/vod/images/vod-right-hd.gif') repeat-x top left;
+	background: transparent url('/files/<%=@palette_name%>/hd-gradient.gif') repeat-x top left;
 	margin:0;
 	padding:0 0 0 8px;
 	line-height:25px;
@@ -107,32 +107,20 @@ h2.vod-hd {
 	color:black;
 	font-weight:bold;
 }
-
-<%
-	# Colors
-	middle_hd_bg = "#485458"
-	middle_hd_fg = "#cecfd1"
-	bottom_line = "#73787b"
-	h2_font_size = "85%"
-	category_active = "#bfdb89"
-	general_border = "#a5a7a9"
-	related_bg = "#f7f7f8"
-	category_fg = "#77797c"
-%>
 <%# Middle part %>
 h2#hd-middle {
-	background-color:<%=middle_hd_bg%>;
-	color:<%=middle_hd_fg%>;
-	border-bottom:1px solid <%=bottom_line%>;
+	background-color:<%=@palette[:middle_hd_bg]%>;
+	color:<%=@palette[:middle_hd_fg]%>;
+	border-bottom:1px solid <%=@palette[:bottom_line]%>;
 	height:20px;
 	line-height:20px;
 	padding:0 8px;
 	margin:0 0 1px;
 	text-transform:uppercase;
-	font-size:<%=h2_font_size%>;
+	font-size:<%=@palette[:h2_font_size]%>;
 }
 .hd-border{
-	background-color:<%=category_active%>;
+	background-color:<%=@palette[:category_active]%>;
 	height:4px;
 	line-height:4px;
 	font-size:4px;

@@ -5,6 +5,7 @@
 <%= render :file => 'styles/category.css' %>
 
 <%= render :file => "styles/layouts/#{@layout}.css" %>
+
 <% for asset in @permitted_assets %>
 	<% if File.exists?("#{RAILS_ROOT}/app/views/styles/_#{asset}.css")%>	
 		<%= render :file => "styles/_#{asset}.css" %>

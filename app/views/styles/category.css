@@ -1,50 +1,22 @@
-<%
-	# Colors
-	if (@layout == "vod")
-		category_hd_bg = "#909295"
-		category_hd_fg = "#cecfd1"
-		category_bg = "#f1f7e7"
-		category_fg = "#77797c"
-		category_active = "#bfdb89"
-		general_border = "#C2C3C6"
-		h2_font_size = "85%"
-		bottom_line = "#bfdb89"
-		services_hd_bg = "#b5d2e2"
-		services_hd_fg = "#0698bc"
-		services_bottom_line = "#8ebdd5"
-	else
-		category_hd_bg = "#909295"
-		category_hd_fg = "#cecfd1"
-		category_bg = "#eff8f8"
-		category_fg = "#77797c"
-		category_active = "#afdedf"
-		general_border = "#C2C3C6"
-		h2_font_size = "85%"
-		bottom_line = "#73787b"
-		services_hd_bg = "#b5d2e2"
-		services_hd_fg = "#0698bc"
-		services_bottom_line = "#8ebdd5"
-	end
-%>
-<%# Category %>
+<%# Category ]%>
 .category{
-	background-color:<%=category_bg%>;
+	background-color:<%=@palette[:category_bg]%>;
 	margin-bottom:15px;
 }
 .category h2{
-	background-color:<%=category_hd_bg%>;
-	color:<%=category_hd_fg%>;
+	background-color:<%=@palette[:category_hd_bg]%>;
+	color:<%=@palette[:category_hd_fg]%>;
 	height:20px;
 	line-height:20px;
 	padding:0 8px;
 	margin:0 0 1px;
 	text-transform:uppercase;
-	font-size:<%=h2_font_size%>;
+	font-size:<%=@palette[:h2_font_size]%>;
 }
 .category .hd-content{
 	margin:0;
 	padding:2px 10px 10px;
-	border:1px solid <%=general_border%>;
+	border:1px solid <%=@palette[:general_border]%>;
 	border-top:0 none;
 }
 .category ul{
@@ -55,10 +27,10 @@
 	display:block;
 	margin:0;
 	padding:0;
-	border:1px solid <%=category_bg%>;
+	border:1px solid <%=@palette[:category_bg]%>;
 }
 .category ul li a{
-	color:<%=category_fg%>;
+	color:<%=@palette[:category_fg]%>;
 	display:block;
 	width:auto;
 	padding:6px 3px;
@@ -75,7 +47,7 @@
 	font-weight:bold;
 }
 .category ul li a.selected, .category ul li a:hover{
-	background-color:<%=category_active%>;
+	background-color:<%=@palette[:category_active]%>;
 }
 .category .divider{
 	background-color:white;
@@ -85,22 +57,22 @@
 	font-size:1px;
 }
 
-<%# Services %>
+<%# Services ]%>
 .service{
 	padding:10px;
 	border:1px solid #c2c3c6;
 	border-top:0 none;
 }
 .services h2{
-	background-color:<%=services_hd_bg%>;
-	color:<%=services_hd_fg%>;
-	border-bottom:1px solid <%=services_bottom_line%>;
+	background-color:<%=@palette[:services_hd_bg]%>;
+	color:<%=@palette[:services_hd_fg]%>;
+	border-bottom:1px solid <%=@palette[:services_bottom_line]%>;
 	height:20px;
 	line-height:20px;
 	padding:0 8px;
 	margin:0 0 1px;
 	text-transform:uppercase;
-	font-size:<%=h2_font_size%>;
+	font-size:<%=@palette[:h2_font_size]%>;
 }
 .services h3{
 	margin:0;
@@ -108,7 +80,7 @@
 	font-size:82%;
 }
 .s-border{
-	background-color:<%=services_bottom_line%>;
+	background-color:<%=@palette[:services_bottom_line]%>;
 	height:4px;
 	line-height:4px;
 	font-size:4px;

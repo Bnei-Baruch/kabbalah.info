@@ -1,12 +1,13 @@
 .article .article-img{
-	position:relative;
+	float:left;
 	width:60px;
 	height:60px;
 	display:block;
-	top:-25px;
+	margin:0 15px 0 0;
 }
 .article h2{
 	margin:0;
+	padding:10px 0 0;
 	color:#51515B;
 	font-size:197%;
 	font-weight:normal;

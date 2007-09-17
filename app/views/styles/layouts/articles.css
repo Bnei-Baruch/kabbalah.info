@@ -1,38 +1,27 @@
-<%
-	# Colors
-	middle_hd_bg = "#4E4E4E"
-	middle_hd_fg = "#D7DBDE"
-	bottom_line = "#73787b"
-	h2_font_size = "100%"
-	category_active = "#afdedf"
-	general_border = "#a5a7a9"
-	related_bg = "#f7f7f8"
-	category_fg = "#77797c"
-%>
 body{
 	font-family:verdana,arial,helvetica,clean,sans-serif;
 }
 <%# Middle part %>
 h2#hd-middle {
-	background-color:<%=middle_hd_bg%>;
-	color:<%=middle_hd_fg%>;
-	border-bottom:1px solid <%=bottom_line%>;
+	background-color:<%=@palette[:middle_hd_bg]%>;
+	color:<%=@palette[:middle_hd_fg]%>;
+	border-bottom:1px solid <%=@palette[:bottom_line]%>;
 	height:20px;
 	line-height:20px;
 	padding:0 8px;
 	margin:0 0 1px;
 	text-transform:capitalize;
-	font-size:<%=h2_font_size%>;
+	font-size:<%=@palette[:h2_font_size]%>;
 }
 .hd-border{
-	background-color:<%=category_active%>;
+	background-color:<%=@palette[:category_active]%>;
 	height:4px;
 	line-height:4px;
 	font-size:4px;
 }
 div#hd-content{
 	padding:20px;
-	border:1px solid <%=general_border%>;
+	border:1px solid <%=@palette[:general_border]%>;
 	border-top:0 none;
 }
 h1#title{
@@ -58,20 +47,20 @@ h1#title{
 <%# Related boxes (right column) %>
 .r-box{
 	margin:0 0 10px;
-	background-color:<%=related_bg%>;
+	background-color:<%=@palette[:related_bg]%>;
 }
 .r-box h2{
-	background-color:<%=category_active%>;
-	color:<%=middle_hd_bg%>;
+	background: transparent url('/files/<%=@palette_name%>/hd-gradient.gif') repeat-x top left;
+	color:<%=@palette[:middle_hd_bg]%>;
 	height:20px;
 	line-height:20px;
 	margin:0;
 	padding:0 8px;
 	text-transform:capitalize;
-	font-size:<%=h2_font_size%>;
+	font-size:<%=@palette[:h2_font_size]%>;
 }
 .r-box-inner{
-	border:1px solid <%=general_border%>;
+	border:1px solid <%=@palette[:general_border]%>;
 	padding:15px 20px;
 	border-top:0 none;
 }
@@ -85,7 +74,7 @@ h1#title{
 	margin:0;
 }
 .r-box-inner ul li a{
-	color:<%=category_fg%>;
+	color:<%=@palette[:category_fg]%>;
 	display:block;
 	width:auto;
 	padding:0 0 0 2px;
@@ -96,5 +85,5 @@ h1#title{
 .r-box-inner ul li a:link, .r-box-inner ul li a:visited {
 }
 .r-box-inner ul li a.selected, .r-box-inner ul li a:hover {
-	background-color:<%=category_active%>;
+	background-color:<%=@palette[:category_active]%>;
 }
