@@ -19,7 +19,6 @@ module PathFunctions
 			else
 				first_page = section.assets.select{|page| page.is_page? && page.parent_id == 0 && page.published_page?}.sort{|a, b| a.position <=> b.position}.first
 			end 
-debugger
 			site_page0_url(:section => section, :id => first_page.resource)
 		end
 	end

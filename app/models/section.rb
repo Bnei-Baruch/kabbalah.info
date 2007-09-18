@@ -25,7 +25,6 @@ class Section < ActiveRecord::Base
 		!self.layout.blank?
 	end
 	def active_environment?
-debugger
 		if has_homepage?
 			true
 		else
