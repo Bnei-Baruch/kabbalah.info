@@ -49,7 +49,6 @@
 				</div>
 				<div class="yui-u yui-ge"><%# Content part %>
 					<div class="yui-u first">
-					<div id="unit75"><%# Middle 75% part %>
 						<h2 class="hd-middle"><%= @section.title%></h2>
 						<div class="hd-border">&nbsp;</div>
 						<div class="hd-content">
@@ -57,11 +56,10 @@
 							<%= yield %>
 						</div>
 						<div class="clear">&nbsp;</div>
-					</div></div>
+					</div>
 					<div class="yui-u">
-					<div id="unit25"><%# 25% right part %>
 						<%= yield :sidebar %>
-					</div></div>
+					</div>
 				</div>
 			</div>
 		</div>

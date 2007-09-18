@@ -10,7 +10,6 @@
 %>
 <% if has_children || logged_in? && has_right?(:create)  %>
 <div class="right-item">
-	<h3><%= property.title %></h3>
 	<div class="right-img">
 		<% if property.image_storage %>
 			<%= link_to image_tag( property.image_storage.public_filename(:preview),
@@ -19,6 +18,7 @@
 								   site_page_url(asset) %>
 		<% end %>
 	</div>
+	<h3><%= link_to property.title, site_page_url(asset) %></h3>
 	<%= render :partial => "admin/admin_pannel",
 					 :locals => { :edit_asset => asset,
 					 							:delete_asset => @page,

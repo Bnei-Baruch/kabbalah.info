@@ -1,4 +1,7 @@
-div.asset, .right-item, .hd-content ul li{
+div.asset, div.hd-content, #category li, #category, #vod-body, .right-item, .r-box, #hd-no-bottom{
+	position:relative;
+}
+div.asset, .right-item, .hd-content ul li, #hd-no-bottom{
 	border:1px dashed silver !important;
 }
 .hd-content ul li{
@@ -10,9 +13,6 @@ div.asset, .right-item, .hd-content ul li{
 .hd-content ul li p{
 	margin:0;
 	padding:0 0 0 2px;
-}
-div.asset, div#hd-content, #category li, #category, #vod-body, .right-item, .r-box{
-	position:relative;
 }
 #category .hd-content .admin_panel{
 	top:15px;
