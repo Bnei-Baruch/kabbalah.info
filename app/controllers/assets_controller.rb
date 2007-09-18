@@ -47,7 +47,7 @@ class AssetsController < ApplicationController
       return
     end
 	type = params[:asset_type]
-	redirect_to :type => "new_#{type}_path",
+	redirect_to :type => "new_#{type}_path".downcase,
 					:section_id => params[:section_id],
 					:placeholder_id => params[:placeholder_id].blank? ? 'nil' : params[:placeholder_id],
 					:parent_id => params[:parent_id].blank? ? 'nil' : params[:parent_id]
@@ -62,7 +62,7 @@ class AssetsController < ApplicationController
     @asset = Asset.find(params[:id])
     type = @asset.resource_type.tableize.singularize
     resource = @asset.resource
-		redirect_to :type => "edit_#{type}_url", :resource => resource
+		redirect_to :type => "edit_#{type}_url".downcase, :resource => resource
   end
 
   # POST /assets
