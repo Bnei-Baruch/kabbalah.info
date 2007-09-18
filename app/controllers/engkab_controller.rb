@@ -18,6 +18,11 @@ class EngkabController < ApplicationController
 			@is_homepage = false
 		else
   		@page = Asset.find_by_section_id_and_resource_type(@section.id, 'Homepage')
+  		unless @page
+	  		url = section_homepage_url(@section)
+  			redirect_301(url)
+		    return
+			end
   		@is_homepage = true
 		end
 
@@ -136,6 +141,10 @@ protected
 	      format.html { render  :action => action, :layout => layout }
 	      format.xml  { render :xml => @page.to_xml }
 	    end
+	end
+	def redirect_301(url)
+    headers["Status"] = "301 Moved Permanently"
+    redirect_to url
 	end
   
 end
