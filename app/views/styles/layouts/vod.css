@@ -101,6 +101,7 @@ h2.vod-hd {
 .right-time {
 	font-size:88%;
 	color:#888;
+	width:200px;
 }
 .right-time span {
 	font-size:93%;
