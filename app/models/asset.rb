@@ -35,6 +35,20 @@ class Asset < ActiveRecord::Base
 			my_parent.children.select{|x| x.resource_type == 'Page'}
 		end
 	end
+	def is_page?
+		self.resource_type == 'Page'
+	end
+#checking if the page is published according to the presence of permitted assets on the page
+	def published_page?
+		self.resource_type == 'Page' &&	self.children && 
+		 		self.children.any? do |asset| 
+		 			asset.placeholder.eql?(Placeholder.main_placeholder) && Placeholder.main_placeholder.permitted_assets(self.section).any?{|permitted_asset| permitted_asset == asset.resource_type.downcase}
+	 			end
+	end
+#checking that the category has published pages	
+	def category_has_published_page?
+		self.resource_type == 'Category' && self.children && self.children.any? {|page| page.published_page?}
+	end
 protected
 	
 	def after_destroy

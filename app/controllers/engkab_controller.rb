@@ -5,7 +5,6 @@ class EngkabController < ApplicationController
   		# render :text => params.inspect
   		# return
     @section = Section.find_by_permalink(params[:section])
-
  		if @section == nil
 			status_404
 			return
@@ -29,7 +28,6 @@ class EngkabController < ApplicationController
 
 		@layout = @section.layout
 		@permitted_assets = @section.permitted_assets
-
 		store_location
 
 		eval "#{@section.hrid}"
@@ -71,7 +69,6 @@ protected
 		calculate_sidebar
 		respond
   end
-
 	def calculate_sidebar
 		@right_box_placeholder = Placeholder.right_box_placeholder
 		@right_box_assets = @page.children_by_placeholder(@right_box_placeholder)

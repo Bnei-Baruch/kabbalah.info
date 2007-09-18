@@ -1,0 +1,11 @@
+<%
+#Displaying a single section in a list of sections
+%>
+<% 
+	section = section_list #section_list is the default name of the variable - the same as the partial name
+	selected = section.eql?(@section) ? " class= \"selected\"" : ""
+%>
+	<li>
+		<a href="<%= section_homepage_url(section) %>"<%= selected%>><%= section.title %></a>
+		<div class="divider">&nbsp;</div>
+	</li>
