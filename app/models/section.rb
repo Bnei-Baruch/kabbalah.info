@@ -25,11 +25,16 @@ class Section < ActiveRecord::Base
 		!self.layout.blank?
 	end
 	def active_environment?
-		list = Asset.find(:all, :conditions => "section_id = #{self.id} and resource_type = 'Page'")
-		if list
-			list.any?{|page| page.published_page?}
-		else
-			false
+		if !has_homepage?
+			list = Asset.find(:all, :conditions => "section_id = #{self.id} and resource_type = 'Page'")
+			if list
+				list.any?{|page| page.published_page?}
+			else
+				false
+			end
 		end
+	end
+	def has_homepage?
+		Asset.find(:all, :conditions => "section_id = #{self.id} and resource_type = 'Page'") ? true : false
 	end
 end
