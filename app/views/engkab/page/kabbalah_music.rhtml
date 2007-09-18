@@ -1,0 +1,25 @@
+<%#This part will be created for sidebar in articles %>
+
+<% content_for(:sidebar) do %>
+	<%= render :partial => "engkab/box/toc_box" %><% # partial for TOC in sidebar%>
+	<%= render :partial => "engkab/box/right_box" %><%# partial for related materials and other stuff for the sidebar%> 
+<% end # sidebar %>
+
+<% content_for(:content_menu) do %>
+	<%= render :partial => "show_content_menu_in_loop" %><%# partial for Menu in Content menu%>
+	<%= render :partial => "engkab/box/sections_box" %><%# partial for Menu in Content menu%>
+<% end # content_menu %>
+
+<%#This part will be created for main part of the page. It shows all the assets in the page %>
+<%= render :partial => "admin/admin_pannel",
+					 :locals => { :new_asset => { :parent_id => @page.id, 
+					 															:placeholder_id => @main_placeholder.id, 
+					 															:type => @main_placeholder.permitted_assets(@section), 
+					 															:message => "New Asset"
+					 														},
+					 							:nobreak => true
+					 						} %>
+<div id="assets">
+	<%= render :partial => "show_assets_in_loop",
+						 :locals => { :container => @main_assets, :display => "show"  } %>
+</div>

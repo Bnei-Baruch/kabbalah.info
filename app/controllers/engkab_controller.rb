@@ -74,6 +74,24 @@ protected
 		calculate_sidebar
 		respond
   end
+  def the_zohar
+		@content_menues = calculate_content_menu(:pages)
+		calculate_main_assets
+		calculate_sidebar
+		respond
+  end
+  def kabbalah_music
+		@content_menues = calculate_content_menu(:pages)
+		calculate_main_assets
+		calculate_sidebar
+		respond
+  end
+  def learning_center
+		@content_menues = calculate_content_menu(:pages)
+		calculate_main_assets
+		calculate_sidebar
+		respond
+  end
 	def calculate_sidebar
 		@right_box_placeholder = Placeholder.right_box_placeholder
 		@right_box_assets = @page.children_by_placeholder(@right_box_placeholder)
