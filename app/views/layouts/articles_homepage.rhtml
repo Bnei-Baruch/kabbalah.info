@@ -15,15 +15,7 @@
 		<% if logged_in? %>
 		<p style="color: green"><%= flash[:notice] %></p>
 			<%= render :partial => "admin/user_options" %>
-			<%= render :partial => "admin/admin_pannel",
-								 :locals => { :new_asset => { 
-																:parent_id => @page.parent,
-																:type => "page",
-																:message => "New page"
-															},
-															:edit_asset => @page,
-															:delete_asset => @page } %>
-			<% end %>		
+		<% end %>		
 		<img src="/files/vod/header_tmp.gif" width="950" height="92" alt="Header Tmp" />
 	</div>
 
