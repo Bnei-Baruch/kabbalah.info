@@ -18,10 +18,18 @@ class Section < ActiveRecord::Base
 	end
 	
 	def self.environments
-		Section.find(:all, :order => 'position ASC').select{|section| section.is_environment?}
+		Section.find(:all, :order => 'position ASC').select{|section| section.is_environment? && section.active_environment?}
 	end
 	
 	def is_environment?
 		!self.layout.blank?
+	end
+	def active_environment?
+		list = Asset.find(:all, :conditions => "section_id = #{self.id} and resource_type = 'Page'")
+		if list
+			list.any?{|page| page.published_page?}
+		else
+			false
+		end
 	end
 end
