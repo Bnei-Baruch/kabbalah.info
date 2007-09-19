@@ -8,6 +8,10 @@
 	<%= stylesheet_link_tag 'admin', :media => "screen", :title => "no title", :charset => "utf-8" if logged_in? %>
 	<%= stylesheet_link_tag formatted_style_url(@section, 'default', :css), :media => "screen", :title => "no title", :charset => "utf-8" %>
 	<%= javascript_include_tag 'windows_media_object' if @page.children %> 
+	<% if @page.children.any? {|c| c.resource_type == "PictureGallery"} -%>
+	 	<%= javascript_include_tag 'prototype','scriptaculous.js?load=effects','lightbox' %>
+		<%= stylesheet_link_tag 'lightbox', :media => "screen", :title => "no title", :charset => "utf-8" %>
+	<% end -%>
 </head>
 <body>
 <div id="doc2" class="yui-t2"><%# 950px Menu 180px on left %>

@@ -1,0 +1,21 @@
+.picture_gallery h2{
+	font-size:197%;
+	font-weight:normal;
+	margin:0;
+}
+.picture_gallery h3{
+	color:#8E8F91;
+	font-size:131%;
+	font-weight:normal;
+	margin:0 0 10px;
+}
+.picture_gallery img{
+	border:1px solid #8E8F91;
+	margin:0 2px 0 0;
+}
+.picture_gallery a{
+	margin:0;
+	padding:0;
+	line-height:1px;
+	font-size:1px;
+}
