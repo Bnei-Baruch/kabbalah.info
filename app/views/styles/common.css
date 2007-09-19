@@ -1,4 +1,4 @@
-<%# Clearings %>
+<%# Common styles %>
 .clear, .clear_r, .clear_l{
 	clear:both;
 	height:1px;
@@ -12,6 +12,8 @@
 	clear:left;
 }
 cite{
-	font:bold italic 110% Times;
-	
+	font:bold normal 110% Times;
+}
+body {
+   text-align:left;
 }
