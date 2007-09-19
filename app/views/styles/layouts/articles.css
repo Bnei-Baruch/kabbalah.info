@@ -14,7 +14,7 @@ h2.hd-middle {
 	font-size:<%=@palette[:h2_font_size]%>;
 }
 .hd-border{
-	background-color:<%=@palette[:category_active]%>;
+	background-color:<%=@palette[:wide_line]%>;
 	height:4px;
 	line-height:4px;
 	font-size:4px;
@@ -73,7 +73,7 @@ h1#title{
 	background-color:transparent !important;
 }
 .r-box h2{
-	background: transparent url('/files/<%=@palette_name%>/hd-gradient.gif') repeat-x top left;
+	background: <%=@palette[:category_active]%> url('/files/<%=@palette_name%>/hd-gradient.gif') repeat-x top left;
 	color:<%=@palette[:middle_hd_bg]%>;
 	height:20px;
 	line-height:20px;
