@@ -76,3 +76,6 @@ li .admin_panel a{
 .admin_panel .edit a, .admin_panel .edit a:visited{
 	color:#0033CC !important;
 }
+.admin_panel p{
+	display:inline;
+}
