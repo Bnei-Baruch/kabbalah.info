@@ -1,4 +1,4 @@
-div.asset, div.hd-content, .category li, .category, #vod-body, .right-item, .r-box, #hd-no-bottom, #lightbox{
+div.asset, div.hd-content, .category li, .category, #vod-body, .right-item, .r-box, #hd-no-bottom, #lightbox, .picture_preview{
 	position:relative;
 }
 div.asset, .right-item, .hd-content ul li, #hd-no-bottom{
@@ -78,4 +78,7 @@ li .admin_panel a{
 }
 .admin_panel p{
 	display:inline;
+}
+.picture_gallery .admin_panel a{
+	font-size:100%;
 }

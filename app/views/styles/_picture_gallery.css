@@ -1,3 +1,6 @@
+.picture_preview{
+	float:left;
+}
 .picture_gallery h2{
 	font-size:197%;
 	font-weight:normal;

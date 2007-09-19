@@ -12,7 +12,7 @@
 	<% pictures.each do |picture| %>
 		<% image = picture.resource.property.image_storage %>
 		<% if image %>
-			<div style="float:left">
+			<div class="picture_preview">
 				<%= link_to image_tag( image.public_filename(:preview),
 															:alt => image.alt,
 															:title => picture.resource.property.title,
