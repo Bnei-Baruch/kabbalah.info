@@ -19,6 +19,10 @@ class ApplicationController < ActionController::Base
 	                       :browsers => %w{msie gecko},
 	                       :width => "450",
 	                       :inline_styles => "true",
+	                       :verify_html => "true",
+	                       :cleanup => "true",
+	                       :inline_styles => "true",
+	                       :invalid_elements => "u",
 	                       :editor_deselector => "mceNoEditor",
 	                       :content_css => "/public/stylesheets/general.css",
 	                       :theme_advanced_toolbar_location => "top",
@@ -27,10 +31,10 @@ class ApplicationController < ActionController::Base
 	                       :theme_advanced_resize_horizontal => true,
 	                       :paste_auto_cleanup_on_paste => true,
 	                       :extended_valid_elements => "a[name|href|target|title|onclick]",
-	                       :theme_advanced_buttons1 => %w{ bold italic underline separator justifyleft justifycenter justifyright indent outdent separator ltr rtl separator bullist numlist },
+	                       :theme_advanced_buttons1 => %w{ bold italic ins cite separator justifyleft justifycenter justifyright indent outdent separator ltr rtl separator bullist numlist },
 	                       :theme_advanced_buttons2 => %w{ code fullscreen separator undo redo separator search separator pastetext pasteword selectall separator anchor link unlink image separator removeformat },
 	                       :theme_advanced_buttons3 => [],
-	                       :plugins => %w{contextmenu paste fullscreen inlinepopups directionality searchreplace}},
+	                       :plugins => %w{contextmenu paste fullscreen inlinepopups directionality searchreplace xhtmlxtras}},
 	          :only => [:new, :edit, :show, :index])
 
     alias_method :orig_redirect_to, :redirect_to
