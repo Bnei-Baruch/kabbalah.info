@@ -23,8 +23,9 @@ TopNav.prototype = {
 			var obj = $(this.lastChild);
 			myTopNav.is_active ? obj.hide() : obj.show();
 			myTopNav.is_active = !myTopNav.is_active;
+			return false;
 		}
-	},
+	}
 }
 
 function initTopNav() { myTopNav = new TopNav(); }
