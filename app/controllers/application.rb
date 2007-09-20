@@ -43,6 +43,7 @@ class ApplicationController < ActionController::Base
 	                       :theme_advanced_buttons1 => %w{ bold italic separator justifyleft justifycenter justifyright indent outdent separator ltr rtl separator bullist numlist },
 	                       :theme_advanced_buttons2 => %w{ code fullscreen separator undo redo separator search separator pastetext pasteword selectall separator anchor link unlink image media separator removeformat },
 	                       :theme_advanced_buttons3 => [],
+								  :media_use_script => "true",
 	                       :plugins => %w{contextmenu paste fullscreen inlinepopups directionality searchreplace media}},
 	          :only => [:new, :edit, :show, :index])
 
