@@ -45,7 +45,9 @@ class EngkabController < ApplicationController
   end
   
 protected
-  
+  def homepage
+		respond
+  end
   def video_clips
   	calculate_categories()
 		@content_menues = calculate_content_menu(:categories)

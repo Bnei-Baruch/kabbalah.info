@@ -33,7 +33,7 @@ Section: <%= select_tag :section_id, options_from_collection_for_select(Section.
     <td><%=h asset.resource_type %></td>
     <td>
 	<%= render :partial => "admin/admin_pannel",
- 			   :locals => { :edit_asset => asset, :delete_asset => asset } %>
+ 			   :locals => { :edit_asset => asset, :delete_asset => asset, :nobreak => true } %>
     </td>
   </tr>
 <% end %>

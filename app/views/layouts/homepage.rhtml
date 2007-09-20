@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title><%= @page.resource.property.title %></title>
+	<meta name="description" content="<%= @page.resource.property.short_description %>" />
+	<%= stylesheet_link_tag 'admin', :media => "screen", :title => "no title", :charset => "utf-8" if logged_in? %>
+	<%= stylesheet_link_tag formatted_style_url(@section, 'default', :css), :media => "screen", :title => "no title", :charset => "utf-8" %>
+	<%= javascript_include_tag 'windows_media_object' if @page.children %> 
+</head>
+<body>
+<div id="doc2" class="yui-t2"><%# 950px Menu 180px on left %>
+	<div id="hd"><%# Header%>
+		<% if logged_in? %>
+		<p style="color: green"><%= flash[:notice] %></p>
+			<%= render :partial => "admin/user_options" %>
+		<% end %>		
+		<img src="/files/vod/header_tmp.gif" width="950" height="92" alt="Header Tmp" />
+	</div>
+
+	<div id="bd"><%# Body%>
+		<div id="yui-main">
+			<div class="yui-b">
+				<div class="yui-g"><%# First line with horizontal menu %>
+					<div id="top-menu">
+						<ul>
+							<li><a href="#">Home</a></li>
+							<li class="pipe">|</li>
+							<li><a href="#">Vision</a></li>
+							<li class="pipe">|</li>
+							<li><a href="#">Contact Us</a></li>
+							<li class="pipe">|</li>
+							<li><a href="#">About</a></li>
+							<li class="pipe">|</li>
+							<li><a href="#">Donation</a></li>
+							<li class="pipe">|</li>
+							<li><a href="#">Press Kit</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="yui-g"><%# Content (top) part %>
+					<h2 class="hd-middle"><%= @section.title%></h2>
+					<div class="hd-border">&nbsp;</div>
+				</div>
+				<div id="hd-no-bottom" class="hd-content yui-g"><%# Content (top) part %>
+					<div class="yui-u first"><%# 50% left part %>
+						<%= yield :top_video %>
+					</div>
+					<div class="yui-u"><%# 50% right part %>
+						<div class="video_descr">
+							<%= yield :top_video_descr %>
+						</div>
+					</div>
+				</div>
+				<div class="hd-hr-padding yui-g"><%# Content (top) part %>
+					<div class="hd-hr">&nbsp;</div>
+				</div>
+				<div class="hd-content yui-gc"><%# Content (bottom) part %>
+					<div class="events r-box r-no-bg yui-u first"><%# Left 66% part %>
+						<h2>Events</h2>
+						<%= yield :events %>
+					</div>
+					<div class="media r-box r-no-bg yui-u"><%# 33% right part %>
+						<h2>Media</h2>
+						<%= yield :media%>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="yui-b"><%# Navigation %>
+			<div id="top-env">
+				<img src="/files/vod/env.gif" width="180" height="13" alt="Env" />
+			</div>
+			<%= yield :content_menu %>
+			<div class="services">
+				<h2>Services</h2>
+				<div class="s-border">&nbsp;</div>
+				<div class="service">
+					<h3>Kabbalah Today Subscription</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="ft"><%# Footer %>
+		Footer is here.
+	</div>
+
+</div>
+</body>
+</html>

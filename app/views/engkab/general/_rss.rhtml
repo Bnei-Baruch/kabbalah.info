@@ -1,0 +1,9 @@
+<%
+#Displaying a single section in a list of sections
+%>
+<% 
+	items = RssFeeder.find(:first).items
+%>
+<% items.each do |item| %>
+	<%=link_to item[:title], item[:url]%><br />
+<% end %>
