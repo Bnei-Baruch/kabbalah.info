@@ -62,7 +62,7 @@
 	font-size:1px;
 }
 .env{
-		background-color:#F5F5F5;
+	background-color:#F5F5F5;
 }
 .env h2{
 	background-color:#CECFD2;
@@ -79,6 +79,28 @@
 }
 .env .hd-border{
 	display:none;
+}
+#top-env{
+	position:relative;
+	font-size:77%;
+	background: #CED0D2 url(/files/vod/env.gif) 0 0 no-repeat;
+	height:19px;
+	line-height:19px;
+	padding:0 0 0 10px;
+	margin:26px 0 4px;
+	color:#4e4e4e;
+}
+#top-env .env{
+	position:absolute;
+	top:5px;
+	left:170px;
+	padding:5px;
+	width:100%;
+	border:1px solid #CFD0D2;
+}
+#top-env .env ul li a{
+	font-size:100%;
+	color:<%=@palette[:category_fg]%>;
 }
 <%# Services -%>
 .service{

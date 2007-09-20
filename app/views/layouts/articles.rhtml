@@ -11,8 +11,8 @@
 	<% if @page.children.any? {|c| c.resource_type == "PictureGallery"} -%>
 	 	<%= javascript_include_tag 'scriptaculous.js?load=effects','lightbox' %>
 		<%= stylesheet_link_tag 'lightbox', :media => "screen", :title => "no title", :charset => "utf-8" %>
-	<%= javascript_include_tag 'windows_media_object' if @page.children %> 
 	<% end -%>
+	<%= javascript_include_tag 'windows_media_object' if @page.children %> 
 </head>
 <body>
 <div id="doc2" class="yui-t2"><%# 950px Menu 180px on left %>
@@ -70,7 +70,7 @@
 		</div>
 		<div class="yui-b"><%# Navigation %>
 			<div id="top-env">
-				<img src="/files/vod/env.gif" width="180" height="13" alt="Env" />
+				Choose Environment
 			</div>
 			<%= yield :content_menu %>
 			<div class="services">

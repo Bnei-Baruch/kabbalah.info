@@ -1,7 +1,7 @@
 var TopNav = Class.create();
 
 TopNav.prototype = {
-	is_active: 0,
+	is_active: false,
 		
 	// initialize()
 	// Constructor runs on completion of the DOM loading.
@@ -12,14 +12,17 @@ TopNav.prototype = {
 		var envDiv = $$('.env div.hd-content');
 		if (envDiv.size == 0) { return; }
 		
-		var newEnvDiv = document.createElement("div");
+		var newEnvDiv = $(document.createElement("div"));
 		newEnvDiv.addClassName('env');
 		//newEnvDiv.style.display = 'none';
 		newEnvDiv.innerHTML = envDiv[0].innerHTML;
+		newEnvDiv.hide();
+
 		$('top-env').appendChild(newEnvDiv);
-		newEnvDiv.onclick = function() {
-			this.is_active ? this.show() : this.hide();
-			this.is_active = !this.is_active;
+		$('top-env').onclick = function() {
+			var obj = $(this.lastChild);
+			myTopNav.is_active ? obj.hide() : obj.show();
+			myTopNav.is_active = !myTopNav.is_active;
 		}
 	},
 }
