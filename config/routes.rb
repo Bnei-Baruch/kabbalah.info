@@ -2,6 +2,7 @@ ActionController::Routing::Routes.draw do |map|
 
 
 
+
   # Authentication system
   map.resources :users, :path_prefix => '/admin'
   map.resources :styles, :path_prefix => '/engkab/section/:section_id'
@@ -20,6 +21,8 @@ ActionController::Routing::Routes.draw do |map|
   											 :singular => 'engkab_page'
 
 
+  map.resources :rss_feeders, :path_prefix => '/admin'
+  map.resources :video_galleries, :path_prefix => '/admin'
   map.resources :assets, :path_prefix => '/admin'
   map.resources :sections, :path_prefix => '/admin'
   map.resources :homepages, :path_prefix => '/admin'

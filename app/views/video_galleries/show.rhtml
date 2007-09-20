@@ -1,0 +1,13 @@
+<p>
+  <b>Created at:</b>
+  <%=h @video_gallery.created_at %>
+</p>
+
+<p>
+  <b>Updated at:</b>
+  <%=h @video_gallery.updated_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_video_gallery_path(@video_gallery) %> |
+<%= link_to 'Back', video_galleries_path %>

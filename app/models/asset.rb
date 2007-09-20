@@ -13,10 +13,12 @@ class Asset < ActiveRecord::Base
 		 ["Page", "page"],
 		 ["Home Page", "homepage"],
 		 ["Article", "article"],
+		 ["Video Gallery", "video_gallery"],
 		 ["Video", "video"],
 		 ["Picture Gallery", "picture_gallery"],
 		 ["Picture", "picture"],
-		 ["Category", "category"]
+		 ["Category", "category"],
+		 ["RSS Feeder", "rss_feeder"]
 		].sort
 	end
 
