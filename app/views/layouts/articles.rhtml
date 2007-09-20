@@ -7,10 +7,11 @@
 	<meta name="keywords" content="<%= @page.resource.keywords %>" />
 	<%= stylesheet_link_tag 'admin', :media => "screen", :title => "no title", :charset => "utf-8" if logged_in? %>
 	<%= stylesheet_link_tag formatted_style_url(@section, 'default', :css), :media => "screen", :title => "no title", :charset => "utf-8" %>
-	<%= javascript_include_tag 'windows_media_object' if @page.children %> 
+ 	<%= javascript_include_tag 'prototype' %>
 	<% if @page.children.any? {|c| c.resource_type == "PictureGallery"} -%>
-	 	<%= javascript_include_tag 'prototype','scriptaculous.js?load=effects','lightbox' %>
+	 	<%= javascript_include_tag 'scriptaculous.js?load=effects','lightbox' %>
 		<%= stylesheet_link_tag 'lightbox', :media => "screen", :title => "no title", :charset => "utf-8" %>
+	<%= javascript_include_tag 'windows_media_object' if @page.children %> 
 	<% end -%>
 </head>
 <body>
@@ -81,6 +82,7 @@
 			</div>
 		</div>
 	</div>
+	<%= javascript_include_tag 'top_env' %> 
 
 	<div id="ft"><%# Footer %>
 		Footer is here.
