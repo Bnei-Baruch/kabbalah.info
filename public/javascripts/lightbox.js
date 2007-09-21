@@ -62,8 +62,8 @@
 //
 //	Configuration
 //
-var fileLoadingImage = "/images/loading.gif";		
-var fileBottomNavCloseImage = "/images/closelabel.gif";
+var fileLoadingImage = "/files/images/loading.gif";		
+var fileBottomNavCloseImage = "/files/images/closelabel.gif";
 
 var overlayOpacity = 0.8;	// controls transparency of shadow overlay
 
