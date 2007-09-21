@@ -42,6 +42,7 @@
 }
 .video_gallery #right-list{
 	float:right;
+	width:115px;
 }
 .video_gallery .right-item{
 	clear:right;
@@ -49,6 +50,7 @@
 }
 .video_gallery .right-item h3{
 	margin:0 0 4px;
+	line-height:80%;
 }
 .video_gallery .right-item h3 a{
 	text-decoration:none;
