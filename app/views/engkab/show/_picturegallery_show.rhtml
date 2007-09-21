@@ -10,18 +10,21 @@
 		<h3><%= property.short_description %></h3>
 	<% end %>
 	<% pictures.each do |picture| %>
-		<% image = picture.resource.property.image_storage %>
+		<%
+			prop = picture.resource.property
+			image = prop.image_storage
+		 %>
 		<% if image %>
 			<div class="picture_preview">
 				<%= link_to image_tag( image.public_filename(:preview),
 															:alt => image.alt,
-															:title => picture.resource.property.title,
+															:title => prop.title,
 															:size => "82x82" ),
 								  image.public_filename,
 									:rel => "lightbox[picturegallery]#{asset.id}",
 									:title => 
-									"<strong>#{picture.resource.property.title}</strong><br/>#{picture.resource.property.short_description}"
- %>
+									"<strong>#{prop.title}</strong><br/>#{prop.short_description}"
+				%>
 				<%= render :partial => "admin/admin_pannel",
 									 :locals => { :edit_asset => picture,
 																:delete_asset => picture } %>

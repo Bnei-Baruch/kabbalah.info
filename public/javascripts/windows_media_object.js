@@ -1,5 +1,6 @@
 function CreateControl(DivID, url, autoStart, width, height, uimode){
   var d = document.getElementById(DivID);
+  if (d == null) return;
   if (typeof width == "undefined") {
     width = "380";
   }

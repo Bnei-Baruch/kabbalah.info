@@ -1,8 +1,8 @@
-var TopNav = Class.create();
-
-TopNav.prototype = {
+var TopNav = {
 	is_active: false,
-		
+	dropdown: null,
+	topenva: null,
+	
 	// initialize()
 	// Constructor runs on completion of the DOM loading.
 	// The function copies html of .env to the bottom of the page which is used to display the 
@@ -10,24 +10,40 @@ TopNav.prototype = {
 	//
 	initialize: function() {	
 		var envDiv = $$('.env div.hd-content');
+
 		if (envDiv.size == 0) { return; }
 		
 		var newEnvDiv = $(document.createElement("div"));
 		newEnvDiv.addClassName('env');
-		//newEnvDiv.style.display = 'none';
-		newEnvDiv.innerHTML = envDiv[0].innerHTML;
+		newEnvDiv.addClassName('drop-down');
 		newEnvDiv.hide();
+		newEnvDiv.innerHTML = envDiv[0].innerHTML;
 
 		$('top-env').appendChild(newEnvDiv);
-		$('top-env').onclick = function() {
-			var obj = $(this.lastChild);
-			myTopNav.is_active ? obj.hide() : obj.show();
-			myTopNav.is_active = !myTopNav.is_active;
-			return false;
+
+		this.dropdown = $$('.drop-down')[0];
+		this.topenva = $$('#top-env a')[0];
+		this.topenva.onclick = function() {return false}
+	},
+	onmouse: function(event){
+		var dropdown = this.dropdown;
+		var target = Event.element(event);
+		var ansc = target.ancestors();
+		var desc = target.descendants();
+		if (event.type == "mouseover") {
+			if (ansc.indexOf(dropdown) != -1 ||
+					desc.indexOf(dropdown) != -1 ||
+					target == this.topenva ||
+					target == dropdown) {
+				dropdown.show();
+			}
+		} else {
+			dropdown.hide();
 		}
+		return false;
 	}
 }
 
-function initTopNav() { myTopNav = new TopNav(); }
-initTopNav();
-
+TopNav.initialize();
+Event.observe('top-env', "mouseover", TopNav.onmouse.bindAsEventListener(TopNav));
+Event.observe('top-env', "mouseout", TopNav.onmouse.bindAsEventListener(TopNav));

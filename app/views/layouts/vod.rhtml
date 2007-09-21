@@ -7,7 +7,9 @@
 	<meta name="keywords" content="<%= @page.resource.keywords %>" />
 	<%= stylesheet_link_tag 'admin', :media => "screen", :title => "no title", :charset => "utf-8" if logged_in? %>
 	<%= stylesheet_link_tag formatted_style_url(@section, 'default', :css), :media => "screen", :title => "no title", :charset => "utf-8" %>
+ 	<%= javascript_include_tag 'prototype' %>
 	<%= javascript_include_tag 'windows_media_object' if @page.children %> 
+	<%= javascript_include_tag 'embed' %> 
 </head>
 <body>
 <div id="doc2" class="yui-t2"><%# 950px Menu 180px on left %>
@@ -64,7 +66,7 @@
 		</div>
 		<div class="yui-b"><!-- Environment + Left Side -->
 			<div id="top-env">
-				<img src="/files/vod/env.gif" width="180" height="14" alt="Env" />
+				<a href="#env">Choose Environment</a>
 			</div>
 			<%= yield :content_menu %>
 			<div class="services">
@@ -76,6 +78,7 @@
 			</div>
 		</div>
 	</div>
+	<%= javascript_include_tag 'top_env' %> 
 
 	<div id="ft">Footer is here.</div>
 
