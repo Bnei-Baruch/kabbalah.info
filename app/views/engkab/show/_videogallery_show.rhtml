@@ -7,7 +7,6 @@
 	has_children = videos.size > 0
  %>
 <div class="video_gallery asset">
-	<div id="n<%=target_id%>" class="notice"></div>
 	<% unless property.title.blank? %>
 		<h2><%= property.title %></h2>
 	<% end %>
@@ -30,19 +29,28 @@
 			click = ajax_beg + url + ajax_end
 		%>
 		<div class="right-item">
-			<h3><a onclick="<%=click%>" href="<%=url%>"><%=title%></a></h3>
+			<h3>
+				<%= link_to_function title,
+							"CreateControl(\"x#{resource.id}\",\"#{video.resource.video_link}\",1,380,320)"
+				%>
+			</h3>
 			<div class="right-img">
 				<% if image %>
-					<%= link_to image_tag( image.public_filename(:preview),
+					<%= link_to_function image_tag( image.public_filename(:preview),
 																:alt => image.alt,
 																:title => title,
 																:size => "100x60" ),
-									  url,
-										:title => "<strong>#{prop.title}</strong><br/>#{prop.short_description}",
-										:onclick => click
+									  "CreateControl(\"x#{resource.id}\",\"#{video.resource.video_link}\", 1, 380, 320)",
+										:title => "<strong>#{prop.title}</strong><br/>#{prop.short_description}"
 					%>
 				<% else #image%>
-					<a onclick="<%=click%>" href="<%=url%>" title="<%=title%>"><img src="/files/vod/movie.jpg" width="100" height="60" alt="Movie" /></a>
+					<%= link_to_function image_tag("/files/vod/movie.jpg",
+																:alt => title,
+																:title => title,
+																:size => "100x60" ),
+									  "CreateControl(\"x#{resource.id}\",\"#{video.resource.video_link}\", 1, 380, 320)",
+										:title => "<strong>#{prop.title}</strong><br/>#{prop.short_description}"
+					%>
 				<% end #image%>
 					<%= render :partial => "admin/admin_pannel",
 										:locals => { :edit_asset => video,
@@ -56,13 +64,20 @@
 	<% if has_children %>
 		</div>
 	<% end %>
-	<%= render :partial => "engkab/show/single_video",
-							:locals => {
-								:target_id => target_id,
-								:video => first_video,
-								:id => "x#{resource.id}"
-
-							}%>
+	<div class="player" id="x<%=resource.id%>">
+		<% if first_video && !first_video.resource.video_link.blank? -%>
+			<script type="text/javascript">
+			//<![CDATA[
+		    CreateControl("x<%=resource.id%>","<%= first_video.resource.video_link %>", 0, 380, 320);
+			//]]>
+			</script>
+		<% end -%>	
+	</div>
+	<div class="media-description">
+		<% unless asset.resource.property.description.blank? -%>
+			<%= asset.resource.property.description %>
+		<% end -%>
+	</div>
 	<div class="clear">&nbsp;</div>
 	<%= render :partial => "admin/admin_pannel",
 						 :locals => { :new_asset => { 
