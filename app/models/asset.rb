@@ -42,7 +42,7 @@ class Asset < ActiveRecord::Base
 	end
 #checking if the page is published according to the presence of permitted assets on the page
 	def published_page?
-		self.resource_type == 'Page' &&	self.children && 
+		self.resource_type == 'Page' && self.resource.is_published &&	self.children && 
 		 		self.children.any? do |asset| 
 		 			asset.placeholder.eql?(Placeholder.main_placeholder) && Placeholder.main_placeholder.permitted_assets(self.section).any?{|permitted_asset| permitted_asset == asset.resource_type.downcase}
 	 			end
@@ -55,5 +55,8 @@ protected
 	
 	def after_destroy
 		self.resource.destroy	
+	end
+	def has_picture_gallery?
+		is_page? && self.children.any? {|c| c.resource_type == "PictureGallery"}
 	end
 end

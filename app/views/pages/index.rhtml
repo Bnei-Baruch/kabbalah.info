@@ -1,27 +1,29 @@
 <h1>Listing pages</h1>
 
-<table>
-  <tr>
+<table border="1">
+  <thead>
+    <th>ID</th>
     <th>Title</th>
     <th>Permalink</th>
     <th>Short Description</th>
     <th>Description</th>
     <th>Keywords</th>
     <th>Is published</th>
-    <th>Is hidden</th>
+    <th>On Homepage</th>
     <th>Created at</th>
     <th>Updated at</th>
-  </tr>
+  </thead>
   
 <% for page in @pages %>
   <tr>
+    <td><%=h page.id %></td>
     <td><%=h page.property.title %></td>
     <td><%=h page.permalink %></td>
     <td><%=h page.property.short_description %></td>
     <td><%=h page.property.description %></td>
     <td><%=h page.keywords %></td>
     <td><%=h page.is_published %></td>
-    <td><%=h page.is_hidden %></td>
+    <td><%=h page.on_homepage %></td>
     <td><%=h page.created_at %></td>
     <td><%=h page.updated_at %></td>
     <td><%= link_to 'Show', page_path(page) %></td>

@@ -21,10 +21,12 @@
 															:title => prop.title,
 															:size => "82x82" ),
 								  image.public_filename,
-									:rel => "lightbox[picturegallery]#{asset.id}",
-									:title => 
-									"<strong>#{prop.title}</strong><br/>#{prop.short_description}"
-				%>
+									:onclick => "return hs.expand(this, {captionId: 'x#{picture.id}'})",
+									:title => 'Click to enlarge',
+									:class => "highslide" %>
+				<div class='highslide-caption' id='x<%=picture.id%>'>
+					<strong><%=prop.title%></strong><br/><%=prop.short_description%>
+				</div>
 				<%= render :partial => "admin/admin_pannel",
 									 :locals => { :edit_asset => picture,
 																:delete_asset => picture } %>
