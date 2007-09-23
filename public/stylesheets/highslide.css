@@ -1,5 +1,5 @@
 .highslide {
-	cursor: url(files/images/highslide/zoomin.cur), pointer;
+	cursor: url(/files/images/highslide/zoomin.cur), pointer;
     outline: none;
 }
 .highslide img {
@@ -34,7 +34,7 @@
     background-color: black;
     /*
     padding-left: 22px;
-    background-image: url(files/images/highslide/loader.gif);
+    background-image: url(/files/images/highslide/loader.gif);
     background-repeat: no-repeat;
     background-position: 3px 1px;
     */
