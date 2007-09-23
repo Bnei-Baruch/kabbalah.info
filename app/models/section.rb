@@ -1,5 +1,6 @@
 class Section < ActiveRecord::Base
 	has_many :assets
+	has_many :section_previews
 	acts_as_list
 
 	validates_presence_of :permalink
@@ -12,7 +13,13 @@ class Section < ActiveRecord::Base
 	def to_param
 		permalink
 	end
-
+	
+	def self.homepage
+		Section.find_by_hrid('homepage')
+	end
+	def self.worldwide
+		Section.find_by_hrid('worldwide')
+	end
 	def permitted_assets
 		read_attribute("permitted_assets" ) ? read_attribute("permitted_assets" ).split(' ') : ""
 	end
@@ -20,7 +27,9 @@ class Section < ActiveRecord::Base
 	def self.environments
 		Section.find(:all, :order => 'position ASC').select{|section| section.is_environment? && section.active_environment?}
 	end
-	
+	def self.environments_with_no_homepage
+		Section.environments.reject{|section| section.eql?(Section.homepage)}
+	end
 	def is_environment?
 		!self.layout.blank?
 	end
@@ -35,8 +44,12 @@ class Section < ActiveRecord::Base
 	def has_homepage?
 		Asset.find(:all, :conditions => "section_id = #{self.id} and resource_type = 'Homepage'") != []
 	end
-	def homepage_preview(length = 3, container = nil)
+	def homepage_preview(length)
 		return nil unless self.active_environment?
+		#initialize default length
+		length = 3 unless length
+		#if worldwide section show only event (prevents showing media pages!!!)
+		self.eql?(Section.worldwide) ? container = Asset.events_category(self) : container = nil
 		if container
 			pages = Asset.find_all_by_section_id_and_parent_id_and_resource_type(self.id, container.id, 'Page', :order => 'created_at DESC')
 		else

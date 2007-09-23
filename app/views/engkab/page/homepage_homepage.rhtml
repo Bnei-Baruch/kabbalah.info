@@ -7,18 +7,8 @@
 
 <% content_for(:homepage_left) do %>
 	<% section = Section.find(1) %>
-	<div id="vod">
-		<h2><%=section.title%></h2>
-		<%= render :partial => "show_assets_in_loop",
-				   :locals => { :container => section.homepage_preview(6), :display => 'preview', :secondary_display => '_vod'  } %>
-	</div>
-
-	<div id="worldwide">
-		<% worldwide_section = Section.find(3) %>
-		<h2><%=worldwide_section.title%></h2>
-		<%= render :partial => "show_assets_in_loop",
-				   :locals => { :container => worldwide_section.homepage_preview(3, Asset.events_category(worldwide_section)), :display => 'preview', :secondary_display => '_events'  } %>
-	</div>
+	<%= render :partial => "show_assets_in_loop",
+						 :locals => { :container => @left_assets, :display => "show"  } %>
 
 <% end # homepage_left%>
 
@@ -30,11 +20,7 @@
 		</div>
 	</div>
 
-	<div id="worldwide">
-		<% worldwide_section = Section.find(3) %>
-		<h2><%=worldwide_section.title%></h2>
-		<%= render :partial => "show_assets_in_loop",
-				   :locals => { :container => worldwide_section.homepage_preview(3, Asset.events_category(worldwide_section)), :display => 'preview', :secondary_display => '_events'  } %>
-	</div>
+	<%= render :partial => "show_assets_in_loop",
+						 :locals => { :container => @right_assets, :display => "show"  } %>
 
 <% end # homepage_right%>

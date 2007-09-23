@@ -1,0 +1,9 @@
+<% 
+	section = asset.section 
+	length = asset.number_of_items
+%>
+<div id="<%=section.layout%>">
+	<h2><%=section.title%></h2>
+	<%= render :partial => "show_assets_in_loop",
+			   :locals => { :container => section.homepage_preview(length), :display => 'preview', :secondary_display => "_#{section.layout}"  } %>
+</div>

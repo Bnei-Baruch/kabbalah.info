@@ -46,6 +46,7 @@ class EngkabController < ApplicationController
   
 protected
   def homepage
+		calculate_homepage
 		respond
   end
   def video_clips
@@ -142,7 +143,13 @@ protected
 		@main_placeholder = Placeholder.main_placeholder
 		@main_assets = @page.children_by_placeholder(@main_placeholder)
 	end
+	def calculate_homepage
+		@left_placeholder = Placeholder.homepage_left
+		@left_assets = @page.children_by_placeholder(@left_placeholder)
 
+		@right_placeholder = Placeholder.homepage_right
+		@right_assets = @page.children_by_placeholder(@right_placeholder)
+	end
 	def calculate_categories
 		if @page.parent && @page.parent.resource_type == "Category"
     	@category = @page.parent

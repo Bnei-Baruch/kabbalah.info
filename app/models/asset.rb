@@ -18,7 +18,8 @@ class Asset < ActiveRecord::Base
 		 ["Picture Gallery", "picture_gallery"],
 		 ["Picture", "picture"],
 		 ["Category", "category"],
-		 ["RSS Feeder", "rss_feeder"]
+		 ["RSS Feeder", "rss_feeder"],
+		 ["Section Preview", "section_preview"]
 		].sort
 	end
 
@@ -40,12 +41,16 @@ class Asset < ActiveRecord::Base
 	def is_page?
 		self.resource_type == 'Page'
 	end
+	def page_has_active_assets?
+ 		self.resource_type == 'Page' &&
+ 		self.children.any? do |asset| 
+			asset.placeholder.eql?(Placeholder.main_placeholder) && Placeholder.main_placeholder.permitted_assets(self.section).any?{|permitted_asset| permitted_asset == asset.resource_type.downcase}
+		end
+
+	end
 #checking if the page is published according to the presence of permitted assets on the page
 	def published_page?
-		self.resource_type == 'Page' && self.resource.is_published &&	self.children && 
-		 		self.children.any? do |asset| 
-		 			asset.placeholder.eql?(Placeholder.main_placeholder) && Placeholder.main_placeholder.permitted_assets(self.section).any?{|permitted_asset| permitted_asset == asset.resource_type.downcase}
-	 			end
+		self.resource_type == 'Page' && self.resource.is_published &&	self.children && self.page_has_active_assets?
 	end
 #checking that the category has published pages	
 	def category_has_published_page?

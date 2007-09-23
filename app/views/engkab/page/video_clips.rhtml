@@ -19,7 +19,7 @@
 <% end # content_menu %>
 
 <%#This part will be created for main part of the page. It shows all the assets in the page %>
-<% unless @page.published_page? %>
+<% unless @page.page_has_active_assets? %>
 <%= render :partial => "admin/admin_pannel",
 					 :locals => { :new_asset => { :parent_id => @page.id, 
 					 															:placeholder_id => @main_placeholder.id, 
