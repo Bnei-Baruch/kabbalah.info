@@ -20,13 +20,13 @@
 	margin:0;
 	padding:6px;
 	border:1px solid #E4E4E5;
-	background:#F9F9FA url('/files/<%=@layout%>/player_grad.gif') repeat-x top left;
+	background:#F9F9FA url('/files/layouts/<%=@layout%>/player_grad.gif') repeat-x top left;
 }
 .video_gallery .media-description{
 	margin:10px 0 0;
 	padding:5px 10px 10px;
 	border:1px solid #E4E4E5;
-	background:#F9F9FA url('/files/<%=@layout%>/player_grad.gif') repeat-x top left;
+	background:#F9F9FA url('/files/layouts/<%=@layout%>/player_grad.gif') repeat-x top left;
 	width:372px;
 }
 .video_gallery .media-description h4{
