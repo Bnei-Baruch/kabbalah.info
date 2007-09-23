@@ -13,12 +13,6 @@
 <% end # homepage_left%>
 
 <% content_for(:homepage_right) do %>
-	<div id="blog">
-		<h2>Latests Blog Posts</h2>
-		<div class="right-item">
-			<%= render :partial => "engkab/general/rss" %>
-		</div>
-	</div>
 
 	<%= render :partial => "show_assets_in_loop",
 						 :locals => { :container => @right_assets, :display => "show"  } %>
