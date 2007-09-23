@@ -51,6 +51,14 @@ class Asset < ActiveRecord::Base
 	def category_has_published_page?
 		self.resource_type == 'Category' && self.children && self.children.any? {|page| page.published_page?}
 	end
+	def self.events_category(section)
+		categories = Asset.find_by_section_id_and_resource_type(section.id, 'Category').to_a
+		categories.select{|x| x.resource.property.title.downcase.include? 'events'}.first
+	end
+	def self.media_category(section)
+		categories = Asset.find_by_section_id_and_resource_type(section.id, 'Category').to_a
+		categories.select{|x| x.resource.property.title.downcase.include? 'media'}.first
+	end
 protected
 	
 	def after_destroy

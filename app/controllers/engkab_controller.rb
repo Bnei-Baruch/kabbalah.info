@@ -58,9 +58,8 @@ protected
   def worldwide
 		@content_menues = calculate_content_menu(:categories_with_pages)
 		if @is_homepage
-			categories = Asset.find(:all, :conditions => "parent_id = 0 and section_id = #{@section.id} and resource_type = 'Category' ", :order => "position ASC")
-			@media_category = categories.select{|x| x.resource.property.title.downcase.include? 'media'}.first
-			@events_category = categories.select{|x| x.resource.property.title.downcase.include? 'events'}.first
+			@media_category = Asset.events_category
+			@events_category = Asset.media_category
 			@media_pages = Asset.get_pages_by_parent(@media_category)
 			@events_pages = Asset.get_pages_by_parent(@events_category)
 			@top_video = @page.children[0] && @page.children[0].resource_type.eql?('Video') ? @page.children[0] : nil

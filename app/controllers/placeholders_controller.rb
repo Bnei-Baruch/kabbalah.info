@@ -2,7 +2,7 @@ class PlaceholdersController < ApplicationController
   # GET /placeholders
   # GET /placeholders.xml
   def index
-    @placeholders = Placeholder.find(:all)
+    @placeholders = Placeholder.find(:all, :order => 'id ASC')
 
     respond_to do |format|
       format.html # index.rhtml

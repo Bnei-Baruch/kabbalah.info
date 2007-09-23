@@ -35,24 +35,21 @@ class Section < ActiveRecord::Base
 	def has_homepage?
 		Asset.find(:all, :conditions => "section_id = #{self.id} and resource_type = 'Homepage'") != []
 	end
-	def homepage_preview(number = 3)
-		latest_pages = Asset.find_all_by_section_id_and_resource_type_and_on_homepage(self.id, 'Page', false, :order => 'created_at DESC', :limit => number)
-		manual_selected_pages = Asset.find_all_by_section_id_and_resource_type_and_on_homepage(self.id, 'Page', true, :order => 'created_at DESC', :limit => number)
-		
-		#Calculate result
-		result = []
-		left_number = number
-		if manual_selected_pages
-			result = manual_selected_pages
-			left_number -= manual_selected_pages.size
+	def homepage_preview(length = 3, container = nil)
+		return nil unless self.active_environment?
+		if container
+			pages = Asset.find_all_by_section_id_and_parent_id_and_resource_type(self.id, container.id, 'Page', :order => 'created_at DESC')
+		else
+			pages = Asset.find_all_by_section_id_and_resource_type(self.id, 'Page', :order => 'created_at DESC')
 		end
-		if latest_pages
-			if left_number > 0 
-				left_number.times do |i|
-					result << latest_pages[i]
-				end
-			end
-		end			
-		return result
+		pages = pages.select{|page| page.published_page? }
+		#collection of the pages that were selected to put on homepage limited by 'length'
+		manual_selected_pages = pages.select{|page| page.resource.on_homepage }[0, length]
+		#collection of recent created pages limited by 'number'
+		latest_pages = pages.reject{|page| page.resource.on_homepage }[0, length]
+		
+		result = ((manual_selected_pages + latest_pages).compact.uniq)[0, length]
+		result && result.size > 0 ? result : nil
+
 	end
 end

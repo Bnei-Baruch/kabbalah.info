@@ -11,11 +11,11 @@
 
 <label for="page_is_published">Is published:</label> <%= f.check_box :is_published %>
 
-<label for="page_is_hidden">Is hidden:</label> <%= f.check_box :is_hidden %>
-
+<label for="page_on_homepage">On Homepage:</label> <%= f.check_box :on_homepage %>
 
 <%= render :partial => 'share/set_asset_fields' %>
 
+<br /><br />
 
 <div id="submit">
     <%= submit_tag button_text %>

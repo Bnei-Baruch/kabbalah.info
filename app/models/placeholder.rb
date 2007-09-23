@@ -29,4 +29,12 @@ class Placeholder < ActiveRecord::Base
 		find(2)
 	end
 	
+	def self.homepage_left
+		find(3)
+	end
+	
+	def self.homepage_right
+		find(4)
+	end
+	
 end

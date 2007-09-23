@@ -2,6 +2,7 @@
 
 <table border="1">
   <thead>
+    <th>ID</th>
     <th>Title</th>
     <th>Description</th>
     <th>HRID</th>
@@ -13,6 +14,7 @@
   
 <% for section in @sections %>
   <tr>
+    <td><%=h section.id %></td>
     <td><%=h section.title %></td>
     <td><%=h section.description %></td>
     <td><%=h section.hrid %></td>
