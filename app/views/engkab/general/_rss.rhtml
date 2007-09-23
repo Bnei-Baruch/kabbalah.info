@@ -5,5 +5,5 @@
 	items = RssFeeder.find(:first).items
 %>
 <% items.each do |item| %>
-	<%=link_to item[:title], item[:url]%><br />
+	<p><%=link_to item[:title], item[:url]%></p>
 <% end %>

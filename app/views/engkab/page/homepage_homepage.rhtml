@@ -6,26 +6,35 @@
 <% end # flash%>
 
 <% content_for(:homepage_left) do %>
-	<%= render :partial => "admin/admin_pannel",
-					 :locals => { :new_asset => { :parent_id => @page.id, 
-					 															:placeholder_id => @main_placeholder.id, 
-					 															:type => @main_placeholder.permitted_assets(@section), 
-					 															:message => "New Asset"
-					 														},
-					 							:nobreak => true
-					 						} %>
+	<% section = Section.find(1) %>
+	<div id="vod">
+		<h2><%=section.title%></h2>
+		<%= render :partial => "show_assets_in_loop",
+				   :locals => { :container => section.homepage_preview(6), :display => 'preview', :secondary_display => '_vod'  } %>
+	</div>
 
-	
-	<%= render :partial => "show_assets_in_loop",
-			   :locals => { :container => Section.find(1).homepage_preview(6), :display => 'preview', :secondary_display => '_vod'  } %>
-
+	<div id="worldwide">
+		<% worldwide_section = Section.find(3) %>
+		<h2><%=worldwide_section.title%></h2>
+		<%= render :partial => "show_assets_in_loop",
+				   :locals => { :container => worldwide_section.homepage_preview(3, Asset.events_category(worldwide_section)), :display => 'preview', :secondary_display => '_events'  } %>
+	</div>
 
 <% end # homepage_left%>
 
 <% content_for(:homepage_right) do %>
-	<%= render :partial => "engkab/general/rss" %>
-<% worldwide_section = Section.find(3) %>
-	<%= render :partial => "show_assets_in_loop",
-			   :locals => { :container => worldwide_section.homepage_preview(3, Asset.events_category(worldwide_section)), :display => 'preview', :secondary_display => '_events'  } %>
+	<div id="blog">
+		<h2>Latests Blog Posts</h2>
+		<div class="right-item">
+			<%= render :partial => "engkab/general/rss" %>
+		</div>
+	</div>
+
+	<div id="worldwide">
+		<% worldwide_section = Section.find(3) %>
+		<h2><%=worldwide_section.title%></h2>
+		<%= render :partial => "show_assets_in_loop",
+				   :locals => { :container => worldwide_section.homepage_preview(3, Asset.events_category(worldwide_section)), :display => 'preview', :secondary_display => '_events'  } %>
+	</div>
 
 <% end # homepage_right%>

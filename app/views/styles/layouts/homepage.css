@@ -30,53 +30,8 @@ div.hd-content{
 div.hd-content a, div.hd-content a:visited{
 	color:#0698bc;
 }
-div#hd-no-bottom{
-	border-bottom: 0 none;
-}
-div.hd-hr-padding{
-	border-left:1px solid <%=@palette[:general_border]%>;
-	border-right:1px solid <%=@palette[:general_border]%>;
-	padding:0 20px;
-}
-div.hd-hr{
-	border-top:2px solid #77797c;
-	height:2px;
-	line-height:2px;
-	font-size:2px;
-}
-div.video_descr{
-	border:1px solid #CDD1D4;
-	background-color:#f7f7f7;
-	padding:20px 10px;
-	height:214px;
-}
-h1#title{
-	margin:-10px 0 15px;
-	font-family:"Helvetica Light",Helvetica,Arial,Trebuchet,sans-serif;
-	font-size:300%;
-	font-weight:normal;
-	color:#A6A7AB;
-}
-#assets{
-	margin:0;
-}
-#assets h2{
-	margin:0;
-}
-#assets div.hr{
-	border-top:2px solid #77797c;
-	margin:20px 0 30px;
-	height:2px;
-	line-height:2px;
-	font-size:2px;
-}
-<%# Related boxes (right column) %>
-.r-box{
-	margin:0 0 10px;
-	background-color:<%=@palette[:related_bg]%>;
-}
-.r-no-bg{
-	background-color:transparent !important;
+#vod, #worldwide, #blog{
+	padding: 0 0 20px;
 }
 .r-box h2{
 	background: <%=@palette[:category_active]%> url('/files/layouts/<%=@palette_name%>/hd-gradient.gif') repeat-x top left;
@@ -88,33 +43,73 @@ h1#title{
 	text-transform:capitalize;
 	font-size:<%=@palette[:h2_font_size]%>;
 }
-.r-box-inner{
-	border:1px solid <%=@palette[:general_border]%>;
-	padding:15px 20px;
-	border-top:0 none;
+#vod{
+	padding:0 0 20px;
 }
-.r-box-inner ul{
-	margin:0;
+.right-item{
+	padding:10px 0;
 }
-.r-box-inner ul li{
-	list-style:none;
-	display:block;
-	padding:4px 3px;
-	margin:0;
+.right-item h3{
+	margin:0 0 2px 120px;
+	color:#1999BC;
+	font-size:77%;
 }
-.r-box-inner ul li a{
-	color:<%=@palette[:category_fg]%>;
-	display:block;
-	width:auto;
-	padding:0 0 0 2px;
-	margin:0;
+.right-item h3 a{
 	text-decoration:none;
-	font-size:100%;
 }
-.r-box-inner ul li a:link, .r-box-inner ul li a:visited {
+#worldwide h3{
+	margin:0;
 }
-.r-box-inner ul li a.selected, .r-box-inner ul li a:hover {
-	background-color:<%=@palette[:category_active]%>;
+.right-item p{
+	margin:0;
+	font-size:77%;
+}
+#blog .right-item p{
+	margin:0 0 5px;
+	font-size:89%;
+}
+#worldwide .right-description{
+	margin:0;
+}
+.right-description{
+	margin:0 0 0 120px;
+}
+#vod .right-description{
+	margin:0 0 0 120px;
+}
+.right-img{
+	float:left;
+	margin:0 5px 0 0;
+	height:100%;
+}
+.right-i{
+	float:left;
+	background-color:#cecfd1;
+	padding:5px 6px;
+}
+#vod .right-i{
+	margin:-12px 5px 0 0;
+	width:100px;
+	height:70px;
+}
+#vod .right-i img{
+	width:100px;
+	height:70px;
+}
+#worldwide .right-i img, #worldwide .right-img{
+	width:60px;
+	height:70px;
+}
+.right-time {
+	float:right;
+	font-size:88%;
+	color:#888;
+	margin:3px 0 0;
+}
+.right-time span {
+	font-size:93%;
+	color:black;
+	font-weight:bold;
 }
 <%# For worldwide homepage %>
 .media h2, .events h2{
@@ -155,3 +150,4 @@ h1#title{
 .events .right-img{
 	float:left;
 }
+<%# For homepage %>
