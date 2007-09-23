@@ -1,13 +1,16 @@
 body{
 	font-family:verdana,arial,helvetica,clean,sans-serif;
 }
+.flash{
+	margin:0 0 15px;
+}
 <%# Middle part %>
 h2.hd-middle {
 	background-color:<%=@palette[:middle_hd_bg]%>;
 	color:<%=@palette[:middle_hd_fg]%>;
 	border-bottom:1px solid <%=@palette[:bottom_line]%>;
-	height:20px;
-	line-height:20px;
+	height:26px;
+	line-height:26px;
 	padding:0 8px;
 	margin:0 0 1px;
 	text-transform:uppercase;
@@ -20,9 +23,12 @@ h2.hd-middle {
 	font-size:4px;
 }
 div.hd-content{
-	padding:20px;
+	padding:20px 15px;
 	border:1px solid <%=@palette[:general_border]%>;
 	border-top:0 none;
+}
+div.hd-content a, div.hd-content a:visited{
+	color:#0698bc;
 }
 div#hd-no-bottom{
 	border-bottom: 0 none;

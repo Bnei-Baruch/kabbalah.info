@@ -36,7 +36,7 @@
 	padding:6px 3px;
 	margin:0;
 	text-decoration:none;
-	font-size:93%%;
+	font-size:93%;
 }
 .category ul li a.last{
 	border:0 none;
@@ -91,7 +91,7 @@
 	padding:6px 3px;
 	margin:0;
 	text-decoration:none;
-	font-size:93%%;
+	font-size:93%;
 }
 .env ul li a.last{
 	border:0 none;
@@ -132,7 +132,7 @@
 	height:19px;
 	line-height:19px;
 	padding:0 0 0 10px;
-	margin:26px 0 4px;
+	margin:0 0 4px;
 }
 #top-env a, #top-env a:visited{
 	font-size:77%;

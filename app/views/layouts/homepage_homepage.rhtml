@@ -8,6 +8,7 @@
 	<%= stylesheet_link_tag 'admin', :media => "screen", :title => "no title", :charset => "utf-8" if logged_in? %>
 	<%= stylesheet_link_tag formatted_style_url(@section, 'default', :css), :media => "screen", :title => "no title", :charset => "utf-8" %>
 	<%= javascript_include_tag 'windows_media_object' if @page.children %> 
+ 	<%= javascript_include_tag 'prototype' %>
 </head>
 <body>
 <div id="doc2" class="yui-t2"><%# 950px Menu 180px on left %>
@@ -17,39 +18,34 @@
 			<%= render :partial => "admin/user_options" %>
 		<% end %>		
 		<img src="/files/layouts/vod/header_tmp.gif" width="950" height="92" alt="Header Tmp" />
+		<div style="float:right"><%# First line with horizontal menu %>
+			<div id="top-menu">
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li class="pipe">|</li>
+					<li><a href="#">Vision</a></li>
+					<li class="pipe">|</li>
+					<li><a href="#">Contact Us</a></li>
+					<li class="pipe">|</li>
+					<li><a href="#">About</a></li>
+					<li class="pipe">|</li>
+					<li><a href="#">Donation</a></li>
+					<li class="pipe">|</li>
+					<li><a href="#">Press Kit</a></li>
+				</ul>
+			</div>
+		</div>
 	</div>
 
 	<div id="bd"><%# Body%>
 		<div id="yui-main">
 			<div class="yui-b">
-				<div class="yui-g"><%# First line with horizontal menu %>
-					<div id="top-menu">
-						<ul>
-							<li><a href="#">Home</a></li>
-							<li class="pipe">|</li>
-							<li><a href="#">Vision</a></li>
-							<li class="pipe">|</li>
-							<li><a href="#">Contact Us</a></li>
-							<li class="pipe">|</li>
-							<li><a href="#">About</a></li>
-							<li class="pipe">|</li>
-							<li><a href="#">Donation</a></li>
-							<li class="pipe">|</li>
-							<li><a href="#">Press Kit</a></li>
-						</ul>
-					</div>
+				<div class="yui-g flash"><%# Flash %>
+					<img src="/files/layouts/flash.jpg" width="757" height="184" />
 				</div>
 				<div class="yui-g"><%# Content (top) part %>
-					<h2 class="hd-middle"><%= @section.title%></h2>
+					<h2 class="hd-middle">Latest Best</h2>
 					<div class="hd-border">&nbsp;</div>
-				</div>
-				<div id="hd-no-bottom" class="hd-content yui-g"><%# Content (top) part %>
-						<div id="main_flahs">
-							<%= yield :flash %>
-						</div>
-				</div>
-				<div class="hd-hr-padding yui-g"><%# Content (top) part %>
-					<div class="hd-hr">&nbsp;</div>
 				</div>
 				<div class="hd-content yui-g"><%# Content (bottom) part %>
 					<div class="events r-box r-no-bg yui-u first"><%# Left 66% part %>
@@ -65,7 +61,7 @@
 		</div>
 		<div class="yui-b"><%# Navigation %>
 			<div id="top-env">
-				<img src="/files/layouts/vod/env.gif" width="180" height="13" alt="Env" />
+				<a href="#env">Choose Environment</a>
 			</div>
 			<%= yield :content_menu %>
 			<div class="services">
@@ -77,7 +73,8 @@
 			</div>
 		</div>
 	</div>
-
+	<%= javascript_include_tag 'top_env' %> 
+	
 	<div id="ft"><%# Footer %>
 		Footer is here.
 	</div>
