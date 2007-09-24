@@ -210,6 +210,7 @@
 	width:48px;
 	height:18px;
 	margin:0 0 0 4px;
+	cursor:pointer;
 }
 .service form p{
 	display:inline;

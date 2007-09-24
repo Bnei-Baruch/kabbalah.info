@@ -13,7 +13,8 @@
 						<h2 class="hd-middle"><%= @section.title%></h2>
 						<div class="hd-border">&nbsp;</div>
 						<div class="hd-content">
-							<h1 id="title"><%= @page.resource.property.title %></h1>
+							<h1 class="title"><%= @page.resource.property.title %></h1>
+							<% unless @page.resource.property.short_description.empty? %><h3 class="title"><%=@page.resource.property.short_description%></h3><% end %>
 							<%= yield %>
 						</div>
 						<div class="clear">&nbsp;</div>

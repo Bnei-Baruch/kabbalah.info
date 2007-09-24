@@ -44,12 +44,18 @@ div.video_descr{
 	padding:20px 10px;
 	height:214px;
 }
-h1#title{
+h1.title{
 	margin:-10px 0 15px;
 	font-family:"Helvetica Light",Helvetica,Arial,Trebuchet,sans-serif;
 	font-size:300%;
 	font-weight:normal;
 	color:#A6A7AB;
+}
+h3.title{
+	margin:0 0 20px;
+	font-size:131%;
+	color:#8E8F91;
+	font-weight:normal;
 }
 #assets{
 	margin:0;

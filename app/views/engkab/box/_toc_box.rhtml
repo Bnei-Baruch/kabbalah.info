@@ -1,13 +1,15 @@
-<%# create table of contents%>
-<% if has_title?(@main_assets) %>
+<%# create table of contents -%>
+<% if has_title?(@main_assets) -%>
 	<div class="r-box">
 		<h2>Contents</h2>
 		<div class="r-box-inner">
 			<ul>
-				<% for asset in @main_assets %>
-				<li><a href="<%= site_page_url(@page) %>#<%= asset.resource.property.title_for_anchor%>"><%= asset.resource.property.title %></a></li>
-				<% end %>
+				<% for asset in @main_assets -%>
+					<%unless asset.resource.property.title.empty? -%>
+						<li><a href="<%= site_page_url(@page) %>#<%= asset.resource.property.title_for_anchor%>"><%= asset.resource.property.title %></a></li>
+					<% end -%>
+				<% end -%>
 			</ul>
 		</div>
 	</div>
-<% end %>
+<% end -%>
