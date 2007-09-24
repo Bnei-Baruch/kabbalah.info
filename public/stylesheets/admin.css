@@ -1,17 +1,12 @@
-div.asset, div.hd-content, .category li, .category, #vod-body, .right-item, .r-box, #hd-no-bottom, #lightbox, .picture_preview, .r-box #vod, .r-box #articles, #homepage_left, #homepage_right, #blog{
+div.asset, div.hd-content, .category li, .category, #vod-body, .right-item, .r-box, #hd-no-bottom, #lightbox, .picture_preview, .r-box .vod, .r-box .articles, #homepage_left, #homepage_right, .blog{
 	position:relative;
 }
-div.asset, .right-item, .hd-content ul li, #hd-no-bottom, #homepage_left, #homepage_right, #blog{
+div.asset, .right-item, .hd-content ul li, #hd-no-bottom, #homepage_left, #homepage_right, .blog, .vod, .articles{
 	border:1px dashed silver !important;
-}
-#homepage_left:before{
-	content: "Left column";
-}
-#homepage_right:before{
-	content: "Right column";
+	margin:5px 0;
 }
 #homepage_left, #homepage_right{
-	padding-top: 10px;
+	padding-top: 25px;
 }
 .hd-content ul li{
 	margin:0 0 5px !important;

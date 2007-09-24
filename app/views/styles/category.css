@@ -168,14 +168,44 @@
 	text-transform:uppercase;
 	font-size:<%=@palette[:h2_font_size]%>;
 }
-.services h3{
-	margin:0;
-	color:#0191AF;
-	font-size:82%;
-}
 .s-border{
 	background-color:<%=@palette[:services_bottom_line]%>;
 	height:4px;
 	line-height:4px;
 	font-size:4px;
+}
+.service{
+	margin:0 0 30px;
+	font-size:77%;
+}
+.service h3{
+	margin:0;
+	color:#0191AF;
+}
+.service h3.blog{
+	margin: 30px 0 0;
+}
+.service h4{
+	margin:0;
+	color:black;
+	font-weight:bold;
+}
+.service p{
+	margin:0;
+}
+.service form{
+	margin: 8px 0 0;
+}
+.service form input{
+	background-color:#edf5f9;
+	border:1px solid #77797c;
+	color:#77797c;
+}
+.service form input#email{
+	height:14px;
+	width:100px;	
+}
+.service form input.subscribe{
+	width:50px;
+	height:17px;
 }

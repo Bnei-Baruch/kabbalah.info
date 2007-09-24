@@ -1,6 +1,9 @@
 body{
 	font-family:verdana,arial,helvetica,clean,sans-serif;
 }
+.graylinks div.hd-content a, .graylinks div.hd-content a:visited{
+	color:<%=@palette[:category_fg]%> !important;
+}
 .flash{
 	margin:0 0 15px;
 }
@@ -30,12 +33,12 @@ div.hd-content{
 div.hd-content a, div.hd-content a:visited{
 	color:#0698bc;
 }
-#vod, #article, #blog{
+.vod, .articles, .blog{
 	padding: 0 0 20px;
 }
 .r-box h2{
 	background: <%=@palette[:category_active]%> url('/files/layouts/<%=@palette_name%>/hd-gradient.gif') repeat-x top left;
-	color:<%=@palette[:middle_hd_bg]%>;
+	color:<%=@palette[:middle_hd_fg]%>;
 	height:20px;
 	line-height:20px;
 	margin:0;
@@ -43,7 +46,7 @@ div.hd-content a, div.hd-content a:visited{
 	text-transform:capitalize;
 	font-size:<%=@palette[:h2_font_size]%>;
 }
-#vod{
+.vod{
 	padding:0 0 20px;
 }
 .right-item{
@@ -57,24 +60,24 @@ div.hd-content a, div.hd-content a:visited{
 .right-item h3 a{
 	text-decoration:none;
 }
-#article h3{
+.articles h3{
 	margin:0 0 0 80px;
 }
 .right-item p{
 	margin:0;
 	font-size:77%;
 }
-#blog .right-item p{
+.blog .right-item p{
 	margin:0 0 5px;
 	font-size:89%;
 }
-#article .right-description{
+.articles .right-description{
 	margin:0 0 0 80px;
 }
-#vod .right-description{
+.vod .right-description{
 	margin:0 0 0 118px;
 }
-#vod .right-img{
+.vod .right-img{
 	float:left;
 	margin:-1em 0 0;
 	width:112px;
@@ -83,19 +86,19 @@ div.hd-content a, div.hd-content a:visited{
 	background-color:#cecfd1;
 	padding:5px 6px 4px;
 }
-#vod .right-i{
+.vod .right-i{
 	width:100px;
 	height:60px;
 }
-#vod .right-i img{
+.vod .right-i img{
 	width:100px;
 	height:60px;
 }
-#article .right-i{
+.articles .right-i{
 	float:left;
 	width:60px;
 }
-#article .right-i img{
+.articles .right-i img{
 	width:60px;
 	height:60px;
 }

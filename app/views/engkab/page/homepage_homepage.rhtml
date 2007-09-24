@@ -1,5 +1,7 @@
 <% content_for(:content_menu) do %>
-	<%= render :partial => "engkab/box/sections_box" %><%# partial for Menu in Content menu%>
+	<%# partial for Menu in Content menu%>
+	<%= render :partial => "engkab/box/sections_box", :locals => { :on_homepage => true } %>
+	<%= render :partial => "engkab/box/services_box" %>
 <% end # content_menu %>
 
 <% content_for(:flash) do %>

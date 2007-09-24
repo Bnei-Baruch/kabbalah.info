@@ -1,14 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-
-<head>
-	<title><%= @page.resource.property.title %></title>
-	<meta name="description" content="<%= @page.resource.property.short_description %>" />
-	<%= stylesheet_link_tag 'admin', :media => "screen", :title => "no title", :charset => "utf-8" if logged_in? %>
-	<%= stylesheet_link_tag formatted_style_url(@section, 'default', :css), :media => "screen", :title => "no title", :charset => "utf-8" %>
-	<%= javascript_include_tag 'windows_media_object' if @page.children %> 
-</head>
+<%= render :partial => "engkab/global/html_header" %>
 <body>
 <div id="doc2" class="yui-t2"><%# 950px Menu 180px on left %>
 	<div id="hd"><%# Header%>
@@ -49,7 +39,7 @@
 		</div>
 		<div class="yui-b"><%# Navigation %>
 			<div id="top-env">
-				<img src="/files/layouts/vod/env.gif" width="180" height="13" alt="Env" />
+				<a href="#env">Choose Environment</a>
 			</div>
 			<%= yield :content_menu %>
 			<div class="services">
@@ -61,6 +51,7 @@
 			</div>
 		</div>
 	</div>
+	<%= javascript_include_tag 'top_env' %> 
 
 	<div id="ft"><%# Footer %>
 		Footer is here.
