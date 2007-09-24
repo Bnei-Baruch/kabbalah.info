@@ -6,6 +6,14 @@
 <% end # flash%>
 
 <% content_for(:homepage_left) do %>
+	<%= render :partial => "admin/admin_pannel",
+						 :locals => { :new_asset => { :parent_id => @page.id, 
+						 															:placeholder_id => @left_placeholder.id, 
+						 															:type => @left_placeholder.permitted_assets(@section), 
+						 															:message => "New Asset"
+						 														},
+						 							:nobreak => true
+						 						} %>
 	<% section = Section.find(1) %>
 	<%= render :partial => "show_assets_in_loop",
 						 :locals => { :container => @left_assets, :display => "show"  } %>
@@ -13,6 +21,14 @@
 <% end # homepage_left%>
 
 <% content_for(:homepage_right) do %>
+	<%= render :partial => "admin/admin_pannel",
+						 :locals => { :new_asset => { :parent_id => @page.id, 
+						 															:placeholder_id => @right_placeholder.id, 
+						 															:type => @right_placeholder.permitted_assets(@section), 
+						 															:message => "New Asset"
+						 														},
+						 							:nobreak => true
+						 						} %>
 
 	<%= render :partial => "show_assets_in_loop",
 						 :locals => { :container => @right_assets, :display => "show"  } %>
