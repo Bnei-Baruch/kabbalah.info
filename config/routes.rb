@@ -13,7 +13,7 @@ ActionController::Routing::Routes.draw do |map|
   map.logout '/admin/logout', :controller => 'sessions', :action => 'destroy'
   map.login_home '/admin/login', :controller => 'sessions', :action => 'new'
 
-  map.site_page0 ':controller/:section/:id', :action => 'show', :section => nil, :id => nil, :main_homepage => true
+  map.site_page0 ':controller/:section/:id', :action => 'show', :section => nil, :id => nil, :main_homepage => false
   # map.section1 ':controller/:section/:category0/:id', :action => 'show'
   # map.section2 ':controller/:section/:category0/:category1/:id', :action => 'show'
 
