@@ -202,12 +202,14 @@
 	color:#77797c;
 }
 .service form input#email{
-	height:14px;
-	width:100px;	
+	height:12px;
+	width:100px;
+	padding:3px 0 0;
 }
 .service form input.subscribe{
-	width:50px;
-	height:17px;
+	width:48px;
+	height:18px;
+	margin:0 0 0 4px;
 }
 .service form p{
 	display:inline;
