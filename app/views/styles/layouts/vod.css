@@ -8,7 +8,7 @@ body{
 	border-top: 0 none;
 }
 #vod-body{
-	padding:15px 20px;
+	padding:15px 10px;
 }
 h2.vod-hd {
 	background: #DDD url('/files/layouts/<%=@palette_name%>/hd-gradient.gif') repeat-x top left;
@@ -23,7 +23,7 @@ h2.vod-hd {
 	height:100%;
 }
 #assets h1 {
-	margin:0;
+	margin:0 0 0 14px;
 	height:25px;
 	color:#888;
 	font-size:107%;
@@ -73,37 +73,42 @@ h2.vod-hd {
 #right-list{
 	border:1px solid #dcdfdf;
 	background-color:#f8fbfa;
-	padding:15px;
+	padding:15px 5px 15px;
 }
 .right-item{
 	margin:0 0 12px 0;
 }
 .right-item h3 {
 	margin:0 0 10px;
-	color:#1999BC;
 	font-size:77%;
+}
+.right-item h3 a, .right-item h3 a:visited{
+	color:#1999BC;
+	text-decoration:none;
 }
 .right-item p {
 	margin:0;
 	font-size:77%;
 }
 .right-description{
-	margin:0 0 0 105px;
-	font-family:Verdana;
+	margin:0 0 0 118px;
 }
 .right-img {
 	float:left;
-	width:100px;
+	width:112px;
 	height:60px;
-	margin:0 5px 0 0;
-	padding:5px 6px;
+	margin:0;
+}
+.right-i{
+	float:left;
 	background-color:#cecfd1;
+	padding:5px 6px 4px;
 }
 .right-time {
 	font-size:88%;
 	color:#888;
-	width:200px;
-}
+	margin:3px 0 0;
+}}
 .right-time span {
 	font-size:93%;
 	color:black;

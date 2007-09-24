@@ -30,7 +30,7 @@ div.hd-content{
 div.hd-content a, div.hd-content a:visited{
 	color:#0698bc;
 }
-#vod, #worldwide, #blog{
+#vod, #article, #blog{
 	padding: 0 0 20px;
 }
 .r-box h2{
@@ -47,7 +47,7 @@ div.hd-content a, div.hd-content a:visited{
 	padding:0 0 20px;
 }
 .right-item{
-	padding:10px 0;
+	padding:10px 0 0;
 }
 .right-item h3{
 	margin:0 0 2px 120px;
@@ -57,8 +57,8 @@ div.hd-content a, div.hd-content a:visited{
 .right-item h3 a{
 	text-decoration:none;
 }
-#worldwide h3{
-	margin:0;
+#article h3{
+	margin:0 0 0 80px;
 }
 .right-item p{
 	margin:0;
@@ -68,37 +68,36 @@ div.hd-content a, div.hd-content a:visited{
 	margin:0 0 5px;
 	font-size:89%;
 }
-#worldwide .right-description{
-	margin:0;
-}
-.right-description{
-	margin:0 0 0 120px;
+#article .right-description{
+	margin:0 0 0 80px;
 }
 #vod .right-description{
-	margin:0 0 0 120px;
+	margin:0 0 0 118px;
 }
-.right-img{
+#vod .right-img{
 	float:left;
-	margin:0 5px 0 0;
-	height:100%;
+	margin:-1em 0 0;
+	width:112px;
 }
 .right-i{
-	float:left;
 	background-color:#cecfd1;
-	padding:5px 6px;
+	padding:5px 6px 4px;
 }
 #vod .right-i{
-	margin:-12px 5px 0 0;
 	width:100px;
-	height:70px;
+	height:60px;
 }
 #vod .right-i img{
 	width:100px;
-	height:70px;
+	height:60px;
 }
-#worldwide .right-i img, #worldwide .right-img{
+#article .right-i{
+	float:left;
 	width:60px;
-	height:70px;
+}
+#article .right-i img{
+	width:60px;
+	height:60px;
 }
 .right-time {
 	float:right;
@@ -111,43 +110,3 @@ div.hd-content a, div.hd-content a:visited{
 	color:black;
 	font-weight:bold;
 }
-<%# For worldwide homepage %>
-.media h2, .events h2{
-	margin:0 0 10px;
-}
-.media h3{
-	color:#1999BC;
-	font-size:77%;
-	margin:5px 0 20px;
-}
-.media h3 a, .media h3 a:visited{
-	color:#1999BC;
-}
-.events h3{
-	color:#ff4423;
-	margin:0 0 10px 85px;
-	font-size:108%;
-	font-weight:bold;
-}
-.events h3 a, .events h3 a:visited{
-	text-decoration:none;
-	color:#ff4423;
-}
-.events h3 a:hover{
-	text-decoration:underline;
-}
-.events .right-item{
-	margin:0 0 20px;
-}
-.events .right-description{
-	margin:0 0 0 85px;
-	font-size:93%;
-	line-height:116%;
-}
-.events .right-description p{
-	margin:0;
-}
-.events .right-img{
-	float:left;
-}
-<%# For homepage %>

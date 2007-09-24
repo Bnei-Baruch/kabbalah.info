@@ -21,41 +21,12 @@
 <body>
 <div id="doc2" class="yui-t2"><%# 950px Menu 180px on left %>
 	<div id="hd"><%# Header%>
-		<% if logged_in? %>
-		<p style="color: green"><%= flash[:notice] %></p>
-			<%= render :partial => "admin/user_options" %>
-			<%= render :partial => "admin/admin_pannel",
-								 :locals => { :new_asset => { 
-																:parent_id => @page.parent,
-																:type => "page",
-																:message => "New page"
-															},
-															:edit_asset => @page,
-															:delete_asset => @page } %>
-			<% end %>		
-		<img src="/files/layouts/vod/header_tmp.gif" width="950" height="92" alt="Header Tmp" />
+		<%= render :partial => "engkab/global/header" %>
 	</div>
 
 	<div id="bd"><%# Body%>
 		<div id="yui-main"><%# Right Side %>
 			<div class="yui-b">
-				<div class="yui-g"><%# First line with horizontal menu %>
-					<div id="top-menu">
-						<ul>
-							<li><a href="#">Home</a></li>
-							<li class="pipe">|</li>
-							<li><a href="#">Vision</a></li>
-							<li class="pipe">|</li>
-							<li><a href="#">Contact Us</a></li>
-							<li class="pipe">|</li>
-							<li><a href="#">About</a></li>
-							<li class="pipe">|</li>
-							<li><a href="#">Donation</a></li>
-							<li class="pipe">|</li>
-							<li><a href="#">Press Kit</a></li>
-						</ul>
-					</div>
-				</div>
 				<div class="yui-u yui-ge"><%# Content part %>
 					<div class="yui-u first">
 						<h2 class="hd-middle"><%= @section.title%></h2>

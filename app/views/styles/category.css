@@ -149,6 +149,7 @@
 	padding:5px;
 	width:168px;
 	border:1px solid #CFD0D2;
+	z-index:20;
 }
 <%# Services -%>
 .service{

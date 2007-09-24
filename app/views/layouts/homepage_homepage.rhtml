@@ -13,28 +13,7 @@
 <body>
 <div id="doc2" class="yui-t2"><%# 950px Menu 180px on left %>
 	<div id="hd"><%# Header%>
-		<% if logged_in? %>
-		<p style="color: green"><%= flash[:notice] %></p>
-			<%= render :partial => "admin/user_options" %>
-		<% end %>		
-		<img src="/files/layouts/vod/header_tmp.gif" width="950" height="92" alt="Header Tmp" />
-		<div style="float:right"><%# First line with horizontal menu %>
-			<div id="top-menu">
-				<ul>
-					<li><a href="#">Home</a></li>
-					<li class="pipe">|</li>
-					<li><a href="#">Vision</a></li>
-					<li class="pipe">|</li>
-					<li><a href="#">Contact Us</a></li>
-					<li class="pipe">|</li>
-					<li><a href="#">About</a></li>
-					<li class="pipe">|</li>
-					<li><a href="#">Donation</a></li>
-					<li class="pipe">|</li>
-					<li><a href="#">Press Kit</a></li>
-				</ul>
-			</div>
-		</div>
+		<%= render :partial => "engkab/global/header" %>
 	</div>
 
 	<div id="bd"><%# Body%>
@@ -48,10 +27,10 @@
 					<div class="hd-border">&nbsp;</div>
 				</div>
 				<div class="hd-content yui-g"><%# Content (bottom) part %>
-					<div class="r-box yui-u first"><%# Left 66% part %>
+					<div id="homepage_left" class="r-box yui-u first"><%# Left 66% part %>
 						<%= yield :homepage_left %>
 					</div>
-					<div class="r-box yui-u"><%# 33% right part %>
+					<div id="homepage_right" class="r-box yui-u"><%# 33% right part %>
 						<%= yield :homepage_right%>
 					</div>
 				</div>
