@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
 
 	#homepage route
-  map.mainpage ':id', :controller => 'engkab', :action => 'show',:id => nil, :main_homepage => true
+  map.mainpage '', :controller => 'engkab', :action => 'show', :main_homepage => true
 
   # Authentication system
   map.resources :users, :path_prefix => '/admin'
