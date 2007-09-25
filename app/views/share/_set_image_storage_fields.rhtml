@@ -1,10 +1,11 @@
 <h2>Image Input:</h2>
 <div id="image_storage">
-<% if @image_storage.filename %>
-	<%= image_tag(@image_storage.public_filename(:preview), :alt => @image_storage.alt, :title => @image_storage.alt )%>
-<% end %>
-<% fields_for :image_storage, @image_storage do |image_storage| %>
-	<label for="image_storage_title">Image:</label><%= image_storage.file_field :uploaded_data%>
-	<label for="image_storage_title">Alt:</label><%= image_storage.text_field :alt, :class => "text" %>
-<% end %>
+	<% if @image_storage.filename %>
+		<%= image_tag(@image_storage.public_filename(:preview), :alt => @image_storage.alt, :title => @image_storage.alt )%>
+		<label for="remove_image">Remove Image:</label><%= check_box_tag :remove_image %>
+	<% end %>
+	<% fields_for :image_storage, @image_storage do |image_storage| %>
+		<label for="image_storage_title">Image:</label><%= image_storage.file_field :uploaded_data%>
+		<label for="image_storage_alt">Alt:</label><%= image_storage.text_field :alt, :class => "text" %>
+	<% end %>
 </div>

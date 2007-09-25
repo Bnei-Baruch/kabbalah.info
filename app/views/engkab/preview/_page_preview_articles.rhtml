@@ -9,7 +9,7 @@
 	<div class="right-img">
 		<div class="right-i">
 			<%
-				if property.image_storage && File.exists?(property.image_storage.public_filename(:preview))
+				if property.image_storage && File.exists?(RAILS_ROOT + "/public" + property.image_storage.public_filename(:preview))
 					src = property.image_storage.public_filename(:preview)
 					alt = property.image_storage.alt
 				else
