@@ -3,7 +3,7 @@ module ApplicationHelper
 
 # This helper is used in the TOC - if no asset in the page has title the toc shouldn't be shown.
 	def has_title?(collection)
-		collection.any?{|asset| !asset.resource.property.title.empty? }
+		collection ? collection.any?{|asset| !asset.resource.property.title.empty? } : false
 	end
 #This helper is used in the section preview new and edit. returns a list of sections ready for select tag
 	def get_sections

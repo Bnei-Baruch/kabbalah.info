@@ -15,7 +15,7 @@
 	    hs.graphicsDir = '/files/images/highslide/';
 		</script>
 	<% end -%>
-	<% if not @section.eql?(Section.homepage) -%>
+	<% unless @main_homepage -%>
 		<%= javascript_include_tag 'embed' %> 
  		<%= javascript_include_tag 'prototype' -%>
  	<% end -%>

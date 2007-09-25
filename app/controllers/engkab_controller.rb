@@ -2,16 +2,17 @@ class EngkabController < ApplicationController
   # GET /engkab/1
   # GET /engkab/1.xml
   def show
+		
+		@main_homepage = params[:main_homepage]
 
 		#in case of main homepage
-		if params[:main_homepage]
+		if @main_homepage
 			@section  = Section.homepage
 			@page = Asset.find_by_section_id_and_resource_type(@section.id, 'Homepage')
 			@is_homepage = true
 			homepage
 			return
 		end
-
 
     @section = Section.find_by_permalink(params[:section])
  		if @section == nil
@@ -56,6 +57,10 @@ class EngkabController < ApplicationController
 protected
   def homepage
 		calculate_homepage
+		unless @main_homepage
+			calculate_main_assets
+			calculate_sidebar
+		end
 		respond
   end
   def video_clips

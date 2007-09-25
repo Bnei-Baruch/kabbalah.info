@@ -5,8 +5,11 @@
 <% end %>
 <div class="r-box">
 	<%= render :partial => "admin/admin_pannel",
-						 :locals => { :new_asset => { :parent_id => @page.id, 
-						 															:placeholder_id => @right_box_placeholder.id, 
-						 															:type => @right_box_placeholder.permitted_assets(@section), 
-						 															:message => "New Box" } } %>
+						 :locals => { :new_asset =>
+						 								{ :parent_id => @page.id, 
+						 									:placeholder_id => @right_box_placeholder.id, 
+						 									:type => @right_box_placeholder.permitted_assets(@section), 
+						 									:message => "New Box"
+						 								}
+						 						} %>
 </div>

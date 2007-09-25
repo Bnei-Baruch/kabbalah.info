@@ -20,4 +20,9 @@ class RssFeeder < ActiveRecord::Base
 		open(source) do |s| content = s.read end
 		RSS::Parser.parse(content, false)
 	end
+	
+	def RssFeeder.load_and_store_rss_object
+		open(source) do |s| content = s.read end
+		RSS::Parser.parse(content, false)
+	end
 end

@@ -1,22 +1,28 @@
 <% if logged_in? %>
 	<p style="color: green"><%= flash[:notice] %></p>
 		<%= render :partial => "admin/user_options" %>
+		<%= render :partial => "admin/admin_pannel",
+							 :locals => { :new_asset => { 
+															:parent_id => @page.parent,
+															:type => "page",
+															:message => "New page"
+														},
+														:edit_asset => @page,
+														:delete_asset => @page } %>
 <% end %>		
 <div id="header">
 	<h1>Kabbalah.info - Bnei Baruch Kabbalah Education &amp; Research Institute</h1>
 	<div id="top-menu">
 		<ul>
-			<li><a href="#">Home</a></li>
+			<li><a href="/">Homepage</a></li>
 			<li class="pipe">&nbsp;</li>
-			<li><a href="#">Vision</a></li>
+			<li><a href="contact-us">Contact Us</a></li>
 			<li class="pipe">&nbsp;</li>
-			<li><a href="#">Contact Us</a></li>
+			<li><a href="/engkab/homepage/bnei-baruch">About</a></li>
 			<li class="pipe">&nbsp;</li>
-			<li><a href="#">About</a></li>
+			<li><a href="https://www.kabbalah.info/donations/English/">Donation</a></li>
 			<li class="pipe">&nbsp;</li>
-			<li><a href="#">Donation</a></li>
-			<li class="pipe">&nbsp;</li>
-			<li><a href="#">Press Kit</a></li>
+			<li><a href="/">Press Kit</a></li>
 		</ul>
 	</div>
 	<div id="choose-lang">
