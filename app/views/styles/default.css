@@ -1,6 +1,5 @@
 <%= render :file => 'styles/reset-fonts-grids.css' %>
 <%= render :file => 'styles/base-min.css' %>
-<%= render :file => 'styles/top_menu.css' %>
 <%= render :file => 'styles/common.css' %>
 <%= render :file => 'styles/category.css' %>
 <%= render :file => 'styles/header.css' %>

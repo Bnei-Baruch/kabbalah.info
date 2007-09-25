@@ -2,21 +2,70 @@
 	<p style="color: green"><%= flash[:notice] %></p>
 		<%= render :partial => "admin/user_options" %>
 <% end %>		
-<img src="/files/layouts/vod/header_tmp.gif" width="950" height="92" alt="Header Tmp" />
-<div style="float:right"><%# First line with horizontal menu %>
+<div id="header">
+	<h1>Kabbalah.info - Bnei Baruch Kabbalah Education &amp; Research Institute</h1>
 	<div id="top-menu">
 		<ul>
 			<li><a href="#">Home</a></li>
-			<li class="pipe">|</li>
+			<li class="pipe">&nbsp;</li>
 			<li><a href="#">Vision</a></li>
-			<li class="pipe">|</li>
+			<li class="pipe">&nbsp;</li>
 			<li><a href="#">Contact Us</a></li>
-			<li class="pipe">|</li>
+			<li class="pipe">&nbsp;</li>
 			<li><a href="#">About</a></li>
-			<li class="pipe">|</li>
+			<li class="pipe">&nbsp;</li>
 			<li><a href="#">Donation</a></li>
-			<li class="pipe">|</li>
+			<li class="pipe">&nbsp;</li>
 			<li><a href="#">Press Kit</a></li>
 		</ul>
 	</div>
+	<div id="choose-lang">
+		<a href="http://www.kab.co.il/">קבלה — עברית</a>
+		<a href="http://www.kabbalah.info/rus/">Каббала — Русский</a>
+		<a href="http://www.kabbalah.info/spanishkab/">Cabalá — Español</a>
+		<form id="jump" name="jump" action="">
+			<select name="lang" onchange="value=document.jump.lang.options[document.jump.lang.selectedIndex].value; if (value != 0) top.location=value;">
+				<option>Visit our international sites</option>
+				<option value="http://www.kabbalah.info">Kabbalah — English</option>
+				<option value="http://www.kabbalah.info/rus">Каббала — Русский</option>
+				<option value="http://www.kab.co.il">קבלה — עברית</option>
+				<option value="http://www.kabbalah.info/spanishkab/">Cabalá — Español</option>
+				<option value="http://www.kabbalah.info/frenchkab/">Cabale — Français</option>
+				<option value="http://www.kabbalah.info/germankab/index.php">Kabbalah — Deutsch</option>
+				<option value="http://www.kabbalah.info/italykab/index_italy.htm">Kabbalah — Italiano</option>
+				<option value="http://www.kabbalah.info/farsikab/index.htm"> — فارسی</option>
+				<option value="http://www.kabbalah.info/arabickab/index_arabic.htm">کبالا — عربي</option>
+				<option value="http://www.kabbalah.info/bulg/index.htm">Кабала — Български</option>
+				<option value="http://www.kabbalah.info/hung/index.htm">Kabbala — Magyar</option>
+				<option value="http://www.kabbalah.info/dutchkab/index.html">Kabbala — Hollands</option>
+				<option value="http://www.kabbalah.info/polakab/index_pola.htm">Kabały — Polski</option>
+				<option value="http://www.kabbalah.info/finkab/index_fi.htm">Kabbala — Suomi</option>
+				<option value="http://www.kabbalah.info/latvikab/index_lat.htm">Kabala — Latvisks</option>
+				<option value="http://www.kabbalah.info/estonkab/index_eston.html">Kabbala — Eestlane</option>
+				<option value="http://www.kabbalah.info/brazilkab/index_braz.htm">Kabbalah — Português</option>
+				<option value="http://www.kabbalah.info/ukrkab/index_ukr.htm">Каббала — Український</option>
+				<option value="http://www.kabbalah.info/turkishkab/">Kabala — Türkçe</option>
+				<option value="http://www.kabbalah.info/yidishkab/index_yidish.htm">קבלה - יידיש</option>
+				<option value="http://www.kabbalah.info/japanese/indexj.htm">語本日 — ラバカ</option>
+				<option value="http://www.kabbalah.info/greekab/index.htm">Καβαλα — Greek</option>
+				<option value="http://www.kabbalah.info/geokab/index_geo.htm"> — Georgian</option>
+				<option value="http://www.kabbalah.info/litakab/index_lita.htm">Kabala — Lithuanian</option>
+				<option value="http://www.kabbalah.info/amharickab/index_amharic.htm"> — Amharic</option>
+				<option value="http://www.kabbalah.info/swedish/index.htm">Kabbalah — Swedish</option>
+				<option value="http://www.kabbalah.info/romkab/index.htm">Cabala — Romanian</option>
+			</select>
+		</form>
+	</div>
+	<div id="search">
+		<!-- Google CSE Search Box Begins  -->
+		<form action="http://new.kabbalah.info/files/html/google-results.html" id="searchbox_018092606581918201401:kc0kodzdbpc">
+		  <input type="hidden" name="cx" value="018092606581918201401:kc0kodzdbpc" />
+		  <input type="hidden" name="cof" value="FORID:11" />
+		  <input type="text" name="q" size="25" />
+		  <input type="submit" name="sa" value="Search" />
+		</form>
+		<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=searchbox_018092606581918201401%3Akc0kodzdbpc"></script>
+		<!-- Google CSE Search Box Ends -->
+	</div>
+	<div id="logo"><img src="/files/layouts/logo.jpg" alt="Kabbalah" title="Kabbalah" /></div>
 </div>
