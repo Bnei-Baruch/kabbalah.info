@@ -1,28 +1,42 @@
 require 'rss/1.0'
 require 'rss/2.0'
 require 'open-uri'
+require 'yaml'
 
 class RssFeeder < ActiveRecord::Base
 	acts_as_asset
+	before_save :update_rss
 
 	def items
-		rss_items = self.rss_object.items
+		rss_items = YAML.load(self.data)
 		result = []
-		number_of_items.times do |i|
-			result << {:title =>rss_items[i].title, :url => rss_items[i].guid.content}
+		rss_items.each do |rss_item|
+			result << {:title =>rss_item.title, :url => rss_item.guid.content}
 		end
 		return result
 	end
 
-	def rss_object
-		source = self.url
-		content = "" # raw content of rss feed will be loaded here
-		open(source) do |s| content = s.read end
-		RSS::Parser.parse(content, false)
+	def update_rss
+		@@was_here ||= false
+		return if @@was_here
+		@@was_here = true
+
+		content = ''
+		open(self.url) { |f|
+			content = f.read
+		}
+		data = YAML.dump(RSS::Parser.parse(content, false).items[0...self.number_of_items])
+		self.update_attributes(:data => data)
 	end
 	
-	def RssFeeder.load_and_store_rss_object
-		open(source) do |s| content = s.read end
-		RSS::Parser.parse(content, false)
+	# ruby script\runner -e <environment> RssFeeder.load_and_store_rss_objects
+	def self.load_and_store_rss_objects
+		feeders = RssFeeder.find_all
+		return if feeders == nil
+		feeders.each { |feeder|
+			begin
+				feeder.update_rss
+			end
+		}
 	end
 end
