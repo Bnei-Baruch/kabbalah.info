@@ -29,7 +29,7 @@ class RssFeeder < ActiveRecord::Base
 		self.update_attributes(:data => data)
 	end
 	
-	# ruby script\runner -e <environment> RssFeeder.load_and_store_rss_objects
+	# 0 1,4,7,10,13,16,19,22 * * * (cd /sites/prod/en_main; ruby script/runner -e production RssFeeder.load_and_store_rss_objects)
 	def self.load_and_store_rss_objects
 		feeders = RssFeeder.find_all
 		return if feeders == nil
