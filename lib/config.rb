@@ -156,13 +156,21 @@ module	Config
 	ASSET = 
 	{
 		:web_page => {
-			:title => ['Title', '']
+			:title => ['Title', ''],
 			:short_description => ['SubTitle', 'used for META Description and subtitle of the page. Also used for short description of the page'],
 			:description => nil,
 			:image => ['Thumbnail', 'Preview image for the page'],
 			:permalink => ['Permalink', 'the sufix of the the URL for this page'],
 			:keywords => ['Keywords', 'used for META keywords'],
-			:is_published => ['', '']
+			:is_published => ['Published page', ''],
+			:on_homepage => ['Show on homepage', '']
+		},
+		:web_page => {
+			:title => ['Title', ''],
+			:short_description => ['SubTitle', 'used for META Description and subtitle of the page. Also used for short description of the page'],
+			:description => nil,
+			:image => ['Thumbnail', 'Preview image for the page'],
+			:body => ['', ''],
 		}
 	}
 
