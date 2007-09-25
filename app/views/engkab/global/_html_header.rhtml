@@ -1,5 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<title><%= @page.resource.property.title %></title>
@@ -9,7 +8,6 @@
 	<% end -%>
 	<%= stylesheet_link_tag 'admin', :media => "screen", :title => "no title", :charset => "utf-8" if logged_in? %>
 	<%= stylesheet_link_tag formatted_style_url(@section, 'default', :css), :media => "screen", :title => "no title", :charset => "utf-8" %>
- 	<%= javascript_include_tag 'prototype' %>
 	<% if (not @is_homepage) and @page.has_picture_gallery? -%>
 	 	<%= javascript_include_tag 'highslide' %>
 		<%= stylesheet_link_tag 'highslide', :media => "screen", :title => "no title", :charset => "utf-8" %>
@@ -17,7 +15,8 @@
 	    hs.graphicsDir = '/files/images/highslide/';
 		</script>
 	<% end -%>
-	<%= javascript_include_tag 'windows_media_object' if @page.children %> 
-	<%= javascript_include_tag 'embed' %> 
- 	<%= javascript_include_tag 'prototype' %>
+	<% if not @section.eql?(Section.homepage) -%>
+		<%= javascript_include_tag 'embed' %> 
+ 		<%= javascript_include_tag 'prototype' -%>
+ 	<% end -%>
 </head>
