@@ -30,7 +30,11 @@
 		</div>
 		<%= render :partial => "admin/admin_pannel", 
 							 :locals => { :edit_asset => asset,
-							 							:delete_asset => asset	} %>
+							 							:delete_asset => asset,
+														:classes => YAML.dump({
+															:video => :video_vod
+														})
+													} %>
 	</div>
 <% else %>
 	<div class="video asset">
@@ -56,7 +60,12 @@
 		</div>
 		<%= render :partial => "admin/admin_pannel", 
 						 :locals => { :edit_asset => asset,
-						 							:delete_asset => asset	} %>
+						 							:delete_asset => asset,
+													:classes => YAML.dump({
+															:video => :video_asset
+														})
+													} %>
+
 		<div class="clear">&nbsp;</div>
 	</div>
 <% end %>

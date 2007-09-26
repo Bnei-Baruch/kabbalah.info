@@ -47,10 +47,13 @@ class AssetsController < ApplicationController
       return
     end
 	type = params[:asset_type]
+	my_class = params[:classes] ? YAML.load(params[:classes])[type.to_sym] : ''
+
 	redirect_to :type => "new_#{type}_path".downcase,
 					:section_id => params[:section_id],
 					:placeholder_id => params[:placeholder_id].blank? ? 'nil' : params[:placeholder_id],
-					:parent_id => params[:parent_id].blank? ? 'nil' : params[:parent_id]
+					:parent_id => params[:parent_id].blank? ? 'nil' : params[:parent_id],
+					:my_class => my_class
   end
 
   # GET /assets/1;edit
@@ -61,8 +64,12 @@ class AssetsController < ApplicationController
     end
     @asset = Asset.find(params[:id])
     type = @asset.resource_type.tableize.singularize
+		my_class = params[:classes] ? YAML.load(params[:classes])[type.to_sym] : ''
     resource = @asset.resource
-		redirect_to :type => "edit_#{type}_url".downcase, :resource => resource
+
+		redirect_to :type => "edit_#{type}_path".downcase,
+								:id => resource,
+								:my_class => my_class
   end
 
   # POST /assets

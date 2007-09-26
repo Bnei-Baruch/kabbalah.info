@@ -5,10 +5,17 @@
 							 :locals => { :new_asset => { 
 															:parent_id => @page.parent,
 															:type => "page",
-															:message => "New page"
+															:message => "New page",
+															:classes => YAML.dump({
+																:page => :web_page
+															})
 														},
 														:edit_asset => @page,
-														:delete_asset => @page } %>
+														:delete_asset => @page,
+														:classes => YAML.dump({
+															:page => :web_page
+														})
+													} %>
 <% end %>		
 <div id="header">
 	<h1>Kabbalah.info - Bnei Baruch Kabbalah Education &amp; Research Institute</h1>

@@ -1,39 +1,43 @@
-<% if logged_in?  %>
+<% if logged_in?  -%>
 	<% 
 		new_asset ||= nil
 		edit_asset ||= nil
 		delete_asset ||= nil
 		nobreak ||= false
-	%>
+	-%>
 
 	<div class="admin_panel">
-	  <% if new_asset && has_right?(:create) %>
-	  	<% if new_asset[:type].is_a?(String) || (new_asset[:type].is_a?(Array) && new_asset[:type].size == 1) %>
+	  <% if new_asset && has_right?(:create) -%>
+	  	<% if new_asset[:type].is_a?(String) || (new_asset[:type].is_a?(Array) && new_asset[:type].size == 1) -%>
+	  		<%# Single asset -%>
 	  		<%= link_to new_asset[:message], new_asset_path(:section_id => @section.id,
 															:parent_id  => new_asset[:parent_id],
 															:placeholder_id  => new_asset[:placeholder_id],
-	 															:asset_type => new_asset[:type]),
-	 														:class => :new %>
-	  	<% elsif new_asset[:type].is_a?(Array) && new_asset[:type].size > 1%>
-			<% form_tag( new_asset_path, :method => :get) do -%>
-				<p><%= hidden_field_tag :section_id, @section.id %></p>
-				<p><%= hidden_field_tag :parent_id, new_asset[:parent_id] %></p>
-				<p><%= hidden_field_tag :placeholder_id, new_asset[:placeholder_id] %></p>
-				<p><label>Type: </label><%= select_tag :asset_type, options_for_select(new_asset[:type]) %></p>
-				<p><%= submit_tag new_asset[:message], :class => :new %></p>
-			<% end -%>
-	  	<% end %>
-	  <% end %>
+															:asset_type => new_asset[:type],
+															:classes => new_asset[:classes]),
+															:class => :new %>
+	  	<% elsif new_asset[:type].is_a?(Array) && new_asset[:type].size > 1 -%>
+	  		<%# Multiple assets -%>
+				<% form_tag( new_asset_path, :method => :get) do -%>
+					<p><%= hidden_field_tag :section_id, @section.id %></p>
+					<p><%= hidden_field_tag :parent_id, new_asset[:parent_id] %></p>
+					<p><%= hidden_field_tag :placeholder_id, new_asset[:placeholder_id] %></p>
+					<p><%= hidden_field_tag :classes, new_asset[:classes] %></p>
+					<p><label>Type: </label><%= select_tag :asset_type, options_for_select(new_asset[:type]) %></p>
+					<p><%= submit_tag new_asset[:message], :class => :new %></p>
+				<% end -%>
+	  	<% end -%>
+	  <% end -%>
 	
-	  <% if edit_asset && has_right?(:edit) %>
-	  	<%= link_to 'Edit', edit_asset_path(edit_asset), :class => :edit %>
-	  <% end %>
+	  <% if edit_asset && has_right?(:edit) -%>
+			<%= link_to 'Edit', edit_asset_path(:id => edit_asset, :classes => classes), :class => :edit %>
+	  <% end -%>
 	
-	  <% if delete_asset && has_right?(:delete) %>
+	  <% if delete_asset && has_right?(:delete) -%>
 	  	<%= link_to 'Delete', asset_path(delete_asset), :confirm => 'Are you sure?', :method => :delete, :class => :delete %>
-	  <% end %>
+	  <% end -%>
 	</div>
-	<% if not nobreak  %>
+	<% if not nobreak  -%>
 		<div class="clear">&nbsp;</div>
-	<% end %>
-<% end %>
+	<% end -%>
+<% end -%>

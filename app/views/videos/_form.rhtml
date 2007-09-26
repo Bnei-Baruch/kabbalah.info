@@ -1,21 +1,31 @@
 <div id="input_form">
-<%= error_messages_for :video, :property, :image_storage %>
-
-<% form_for(:video, :url => path, :html => {:method => method, :multipart => true }) do |f| %>
-
-<%= render :partial => 'share/set_property_fields' %>
-
-<label for="video_video_link">Video Link:</label><%= f.text_field :video_link, :class => "text" %>
-<label for="video_duration">Duration:</label><%= f.text_field :duration %>
-<label for="video_size">Size:</label><%= f.text_field :size %>
-<label for="video_transcript">Transcript:</label><%= f.text_area :transcript, :class => "text" %>
-
-
-<%= render :partial => 'share/set_asset_fields' %>
-
-
-<div id="submit">
-    <%= submit_tag button_text %>
-</div>
-<% end %>
+	<%= error_messages_for :video, :property, :image_storage %>
+	
+	<% form_for(:video, :url => path, :html => {:method => method, :multipart => true }) do |f| %>
+	
+		<%= render :partial => 'share/set_property_fields' %>
+		
+		<%= display_field(:video_link, "video_video_link") {
+					f.text_field :video_link, :class => "text"
+				}
+		%>
+		<%= display_field(:duration, "video_duration") {
+					f.text_field :duration
+				}
+		%>
+		<%= display_field(:size, "video_size") {
+					f.text_field :size
+				}
+		%>
+		<%= display_field(:transcript, "video_transcript") {
+					f.text_area :transcript, :class => "text"
+				}
+		%>
+		
+		<%= render :partial => 'share/set_asset_fields' %>
+		
+		<div id="submit">
+		    <%= submit_tag button_text %>
+		</div>
+	<% end %>
 </div>

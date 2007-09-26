@@ -1,5 +1,5 @@
 module	Config
-	
+
 	PALETTE =
 	{
 		:strawberry => {
@@ -152,26 +152,125 @@ module	Config
 			:services_bottom_line => "#8ebdd5",
 		},
 	}
-	
+
 	ASSET = 
 	{
-		:web_page => {
+		:default => {
 			:title => ['Title', ''],
-			:short_description => ['SubTitle', 'used for META Description and subtitle of the page. Also used for short description of the page'],
-			:description => nil,
-			:image => ['Thumbnail', 'Preview image for the page'],
-			:permalink => ['Permalink', 'the sufix of the the URL for this page'],
-			:keywords => ['Keywords', 'used for META keywords'],
+			:short_description => ['SubTitle', ''],
+			:description => ['Description', ''],
+			:image => ['Thumbnail', ''],
+			:body => ['Body', ''],
+			:permalink => ['Permalink', ''],
+			:keywords => ['Keywords', ''],
 			:is_published => ['Published page', ''],
-			:on_homepage => ['Show on homepage', '']
+			:on_homepage => ['Show on homepage', ''],
+			:url => ['URL', ''],
+			:number_of_items => ['Number of items', ''],
+			:video_link => ['URL', ''],
+			:transcript => ['Transcript', ''],
+			:duration => ['Duration', ''],
+			:size => ['Size', ''],
 		},
 		:web_page => {
 			:title => ['Title', ''],
-			:short_description => ['SubTitle', 'used for META Description and subtitle of the page. Also used for short description of the page'],
+			:short_description => ['SubTitle', 'Used for META "Description" and subtitle of the page. Also used for short description of the page'],
 			:description => nil,
 			:image => ['Thumbnail', 'Preview image for the page'],
-			:body => ['', ''],
-		}
+			:permalink => ['Permalink', 'The suffix of the the URL for this page'],
+			:keywords => ['Keywords', 'Used for META "keywords"'],
+			:is_published => ['Published page', 'Make this page available on website'],
+			:on_homepage => ['Show on homepage', ''],
+		},
+		:article => {
+			:title => ['Title', ''],
+			:short_description => ['SubTitle', 'Used for META "Description" and subtitle of the page. Also used for short description of the page'],
+			:description => nil,
+			:image => ['Thumbnail', 'Preview image for the page'],
+			:body => ['Content', 'The content of the article'],
+		},
+		:article_box => {
+			:title => ['Title', ''],
+			:short_description => nil,
+			:description => nil,
+			:image => nil,
+			:body => ['Content', 'The content of the article'],
+		},
+		:category => {
+			:title => ['Title', ''],
+			:short_description => nil,
+			:description => nil,
+			:image => nil,
+		},
+		:homepage => {
+			:title => ['Title', ''],
+			:short_description => ['SubTitle', 'Used for META "Description" of the page.'],
+			:description => nil,
+			:image => nil,
+		},
+		:picture_gallery => {
+			:title => ['Title', ''],
+			:short_description => ['SubTitle', 'Used as subtitle of the gallery.'],
+			:description => nil,
+			:image => nil,
+		},
+		:picture => {
+			:title => ['Title', ''],
+			:short_description => ['Description', 'Used as description of the picture.'],
+			:description => nil,
+			:image => ['Picture', 'Image itself'],
+		},
+		:rss_feeder => {
+			:title => ['Title', ''],
+			:short_description => nil,
+			:description => nil,
+			:image => nil,
+			:url => ['URL', 'URI of the feed to receive'],
+			:number_of_items => ['Number of items', 'Max number of items to display'],
+		},
+		:section_preview => {
+			:title => ['Title', ''],
+			:short_description => nil,
+			:description => nil,
+			:image => nil,
+			:section_id => ['Section', 'The section to show preview for'],
+		},
+		:video_gallery => {
+			:title => ['Title', ''],
+			:short_description => ['SubTitle', 'Used as subtitle of the gallery.'],
+			:description => nil,
+			:image => ['Thumbnail', 'Preview image for the video'],
+		},
+		:video_asset => {
+			:title => ['Title', ''],
+			:short_description => ['SubTitle', 'Used as subtitle of the video.'],
+			:description => ['Description', 'Used as description of the video.'],
+			:image => ['Thumbnail', 'Preview image for the video'],
+			:video_link => ['URL', 'Link to the video source'],
+			:transcript => nil,
+			:duration => ['Duration', 'hh:mm:ss'],
+			:size => ['Size', 'i.e. 10.2MB, 1.4KB etc.'],
+		},
+		:video_vod => {
+			:title => ['Title', ''],
+			:short_description => nil,
+			:description => ['Description', 'Used as description of the  VOD.'],
+			:image => nil,
+			:video_link => ['URL', 'Link to the video source'],
+			:transcript => ['Transcript', 'Transcript of a lesson'],
+			:duration => ['Duration', 'hh:mm:ss'],
+			:size => ['Size', 'i.e. 10.2MB, 1.4KB etc.'],
+		},
+		:video_in_gallery => {
+			:title => ['Title', ''],
+			:short_description => nil,
+			:description => nil,
+			:image => ['Thumbnail', 'Preview image for the video'],
+			:video_link => ['URL', 'Link to the video source'],
+			:transcript => nil,
+			:duration => ['Duration', 'hh:mm:ss'],
+			:size => ['Size', 'i.e. 10.2MB, 1.4KB etc.'],
+		},
 	}
 
 end

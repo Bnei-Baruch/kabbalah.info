@@ -1,18 +1,19 @@
 <div id="input_form">
-<%= error_messages_for :article, :property, :image_storage %>
+	<%= error_messages_for :article, :property, :image_storage %>
 
-<% form_for(:article, :url => path, :html => {:method => method, :multipart => true }) do |f| %>
+	<% form_for(:article, :url => path, :html => {:method => method, :multipart => true }) do |f| %>
 
-<%= render :partial => 'share/set_property_fields' %>
+	<%= render :partial => 'share/set_property_fields' %>
 
-<label for="article_body">Body:</label><%= f.text_area :body, :class => "text" %>
+	<%= display_field(:body, "article_body") {
+				f.text_area :body, :class => "text"
+			}
+	%>
 
+	<%= render :partial => 'share/set_asset_fields' %>
 
-<%= render :partial => 'share/set_asset_fields' %>
-
-
-<div id="submit">
-    <%= submit_tag button_text %>
-</div>
-<% end %>
+	<div id="submit">
+	  <%= submit_tag button_text %>
+	</div>
+	<% end %>
 </div>
