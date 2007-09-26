@@ -1,19 +1,14 @@
 class EngkabController < ApplicationController
   # GET /engkab/1
   # GET /engkab/1.xml
-  def show
-		
-		@main_homepage = params[:main_homepage]
-
-		#in case of main homepage
-		if @main_homepage
+  def main_homepage
 			@section  = Section.homepage
 			@page = Asset.find_by_section_id_and_resource_type(@section.id, 'Homepage')
 			@is_homepage = true
 			homepage
-			return
-		end
-
+  end
+  
+  def show
     @section = Section.find_by_permalink(params[:section])
  		if @section == nil
 			status_404
@@ -21,7 +16,7 @@ class EngkabController < ApplicationController
 		end
 
   	if params[:id]
-    	@page = Page.find_by_permalink(params[:id])
+    	@page = Page.find_by_permalink(params[:id], :include => :asset)
 			if @page
 				@page = @page.asset
 			end
