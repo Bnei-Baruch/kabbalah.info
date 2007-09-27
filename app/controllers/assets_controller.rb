@@ -46,10 +46,10 @@ class AssetsController < ApplicationController
       redirect_to :unauthorized
       return
     end
-	type = params[:asset_type]
+	type = params[:asset_type].downcase
 	my_class = params[:classes] ? YAML.load(params[:classes])[type.to_sym] : ''
 
-	redirect_to :type => "new_#{type}_path".downcase,
+	redirect_to :type => "new_#{type}_path",
 					:section_id => params[:section_id],
 					:placeholder_id => params[:placeholder_id].blank? ? 'nil' : params[:placeholder_id],
 					:parent_id => params[:parent_id].blank? ? 'nil' : params[:parent_id],

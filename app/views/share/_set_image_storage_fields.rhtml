@@ -9,8 +9,8 @@
 			%>
 		<% end -%>
 		<% fields_for :image_storage, @image_storage do |image_storage| -%>
-			<%= display_field(:upladed_data, "image_storage_upladed_data") {
-						image_storage.file_field :upladed_data
+			<%= display_field(:uploaded_data, "image_storage_uploaded_data") {
+						image_storage.file_field :uploaded_data
 					}
 			%>
 			<%= display_field(:alt, "image_storage_alt") {

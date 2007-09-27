@@ -118,7 +118,7 @@ protected
 						:list => cat.children.select {|p| p.resource_type == 'Page'},
 						:parent_id => cat.id,
 						:name => cat.resource.property.title,
-						:type => 'Page',
+						:type => 'page',
 						:message => 'New page'
 					}
 				end
@@ -130,7 +130,7 @@ protected
 					:list => @section.assets.select {|s| s.resource_type == 'Category' && s.parent_id == @page.parent.parent_id}.sort{|a, b| a.position <=> b.position},
 					:parent_id => @page.parent.parent_id,
 					:name => 'Categories',
-					:type => 'Category',
+					:type => 'category',
 					:message => 'New category'
 				}
 			]
