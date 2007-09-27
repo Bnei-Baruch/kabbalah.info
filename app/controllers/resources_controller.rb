@@ -19,7 +19,9 @@ class ResourcesController < ApplicationController
 			resource = options[:resource]
 			resource_type = resource.class.to_s.downcase
 			@property = Property.new(options[:property])
-			@image_storage = ImageStorage.new(options[:image_storage])
+			if options[:image_storage] && (not options[:image_storage][:uploaded_data].blank?)
+				@image_storage = ImageStorage.new(options[:image_storage])
+			end
 			@property.image_storage = @image_storage
 			resource.property = @property
 
