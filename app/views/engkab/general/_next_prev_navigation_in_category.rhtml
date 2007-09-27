@@ -1,0 +1,13 @@
+<%
+	return if not (@category && (list = Asset.get_pages_by_parent(@category, (not logged_in?))) && list.size > 1)
+
+	index = list.index(@page)	
+-%>
+<div id="pagination">
+	<% if not (list[0].eql?(@page)) -%>
+		<%= link_to "<< Previous Page", site_page_url(list[index-1]), :class => "prev_page" -%>
+	<%end -%>
+	<% if not (list[-1].eql?(@page)) -%>
+		<%= link_to "Next Page >>", site_page_url(list[index+1]), :class => "next_page" -%>
+	<%end -%>
+</div>

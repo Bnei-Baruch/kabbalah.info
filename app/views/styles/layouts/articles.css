@@ -158,3 +158,18 @@ h3.title{
 .events .right-img{
 	float:left;
 }
+#pagination{
+	margin:30px 0 10px;
+}
+.next_page{
+	float:right;
+}
+.prev_page{
+	float:left;
+}
+a.next_page, a.next_page:visited, a.prev_page, a.prev_page:visited{
+	color:#0698BC;
+	font-size:77%;
+	font-weight:bold;
+	text-decoration:none;
+}

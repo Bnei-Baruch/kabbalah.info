@@ -17,15 +17,17 @@ class EngkabController < ApplicationController
 
   	if params[:id]
     	@page = Page.find_by_permalink(params[:id], :include => :asset)
-			if @page
+    	if @page && (@page.asset.published_page? || logged_in?)
 				@page = @page.asset
+			else
+  			@page ? redirect_302(section_homepage_url(@section)) : status_404
+		    return
 			end
 			@is_homepage = false
 		else
   		@page = Asset.find_by_section_id_and_resource_type(@section.id, 'Homepage')
   		unless @page
-	  		url = section_homepage_url(@section)
-  			redirect_301(url)
+  			redirect_301(section_homepage_url(@section))
 		    return
 			end
   		@is_homepage = true
@@ -43,10 +45,18 @@ class EngkabController < ApplicationController
 		eval "#{@section.hrid}"
 	end
   
-  def method_missing(m)
-		m =~ /status_(\d+)/
-		status = $1 || 404
-		render :file => "public/#{status}.html", :status => status.to_i
+  def redirect_301(url)
+		headers["Status"] = '301 Moved Permanently'
+		redirect_to url
+  end
+  
+  def redirect_302(url)
+		headers["Status"] = '302 Moved Temporarily'
+		redirect_to url
+  end
+  
+  def status_404
+		render :file => "public/404.html", :status => status.to_i
   end
   
 protected
@@ -180,10 +190,6 @@ protected
 	      format.html { render  :action => action, :layout => layout }
 	      format.xml  { render :xml => @page.to_xml }
 	    end
-	end
-	def redirect_301(url)
-    headers["Status"] = "301 Moved Permanently"
-    redirect_to url
 	end
   
 end
