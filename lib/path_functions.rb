@@ -6,9 +6,9 @@ module PathFunctions
 		if homepage
 			if section.eql?(Section.homepage)
 				mainpage_url
-				return
+			else
+				site_page0_url(:section => section)
 			end
-			site_page0_url(:section => section)
 		else
 			categories = Asset.find(:all, :conditions => "section_id = #{section.id}  and resource_type = 'Category'", :order => 'position ASC')
 			#in case the page is in category - like in vod
