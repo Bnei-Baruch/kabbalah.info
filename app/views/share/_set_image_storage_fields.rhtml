@@ -1,17 +1,22 @@
-<h2>Image Input:</h2>
-<div id="image_storage">
-	<% if @image_storage.filename -%>
-		<%= image_tag(@image_storage.public_filename(:preview), :alt => @image_storage.alt, :title => @image_storage.alt ) -%>
-		<%= display_field(:remove_image, "remove_image") {
-					check_box_tag :remove_image
-				}
-		%>
-	<% end -%>
-	<% fields_for :image_storage, @image_storage do |image_storage| -%>
-		<%= image_storage.file_field :uploaded_data%>
-		<%= display_field(:alt, "image_storage_alt") {
-					image_storage.text_field :alt, :class => "text"
-				}
-		%>
-	<% end -%>
-</div>
+<% if setup_config(:image) -%>
+	<h2>Image Input:</h2>
+	<div id="image_storage">
+		<% if @image_storage.filename -%>
+			<%= image_tag(@image_storage.public_filename(:preview), :alt => @image_storage.alt, :title => @image_storage.alt ) -%>
+			<%= display_field(:remove_image, "remove_image") {
+						check_box_tag :remove_image
+					}
+			%>
+		<% end -%>
+		<% fields_for :image_storage, @image_storage do |image_storage| -%>
+			<%= display_field(:upladed_data, "image_storage_upladed_data") {
+						image_storage.file_field :upladed_data
+					}
+			%>
+			<%= display_field(:alt, "image_storage_alt") {
+						image_storage.text_field :alt, :class => "text"
+					}
+			%>
+		<% end -%>
+	</div>
+<% end -%>

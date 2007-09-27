@@ -8,5 +8,9 @@
 			   :locals => { :container => section.homepage_preview(length), :display => 'preview', :secondary_display => "_#{section.layout}"  } %>
 	<%= render :partial => "admin/admin_pannel", 
 						 :locals => { :edit_asset => asset,
-						 							:delete_asset => asset	} %>
+						 							:delete_asset => asset,
+													:classes => YAML.dump({
+														:section_preview => :section_preview
+													})
+												} %>
 </div>

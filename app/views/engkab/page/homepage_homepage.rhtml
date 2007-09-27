@@ -12,7 +12,11 @@
 						 :locals => { :new_asset => { :parent_id => @page.id, 
 						 															:placeholder_id => @left_placeholder.id, 
 						 															:type => @left_placeholder.permitted_assets(@section), 
-						 															:message => "New Asset"
+						 															:message => "New Asset",
+						 															:classes => YAML.dump({
+						 																:section_preview => :section_preview,
+						 																:rss_feeder => :rss_feeder
+						 															})
 						 														},
 						 							:nobreak => true
 						 						} %>
@@ -27,7 +31,11 @@
 						 :locals => { :new_asset => { :parent_id => @page.id, 
 						 															:placeholder_id => @right_placeholder.id, 
 						 															:type => @right_placeholder.permitted_assets(@section), 
-						 															:message => "New Asset"
+						 															:message => "New Asset",
+						 															:classes => YAML.dump({
+						 																:section_preview => :section_preview,
+						 																:rss_feeder => :rss_feeder
+						 															})
 						 														},
 						 							:nobreak => true
 						 						} %>

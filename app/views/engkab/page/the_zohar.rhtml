@@ -16,7 +16,13 @@
 					 :locals => { :new_asset => { :parent_id => @page.id, 
 					 															:placeholder_id => @main_placeholder.id, 
 					 															:type => @main_placeholder.permitted_assets(@section), 
-					 															:message => "New Asset"
+					 															:message => "New Asset",
+					 															:classes => YAML.dump({
+					 																:video => :video_asset,
+					 																:video_gallery => :video_gallery,
+					 																:picture_gallery => :picture_gallery,
+					 																:article => :article
+					 															})
 					 														},
 					 							:nobreak => true
 					 						} %>

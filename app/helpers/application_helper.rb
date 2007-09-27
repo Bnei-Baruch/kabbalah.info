@@ -12,15 +12,27 @@ module ApplicationHelper
 		Section.environments_with_no_homepage.collect{|section| [section.title, section.id.to_s] }.sort
 	end
 	
-#Check field name and comment according to @fields_setup
-	def display_field(field, field_for = '', &block)
+# Load proper configuration according to my_class -- type of an asset resource
+# Check field name (if supplied) to present
+	def setup_config(field_to_test = nil)
 		id = params[:my_class]
 		if id && Config::ASSET.has_key?(id.to_sym)
 			fields_setup = Config::ASSET[id.to_sym]
 		else
 			fields_setup = Config::ASSET[:default]
 		end
+		
+		if field_to_test
+			fields_setup.has_key?(field_to_test.to_sym) ? (fields_setup[field_to_test.to_sym] != nil) : nil
+		else
+			fields_setup
+		end
+	end
+	
+#Check field name and comment according to setup
+	def display_field(field, field_for = '', &block)
 
+		fields_setup = setup_config()
 		if fields_setup.has_key?(field.to_sym)
 			field = fields_setup[field]
 			return if not (field and field.is_a?(Array))

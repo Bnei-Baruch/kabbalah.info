@@ -5,5 +5,9 @@
 	</div>
 	<%= render :partial => "admin/admin_pannel", 
 						 :locals => { :edit_asset => asset,
-						 							:delete_asset => asset	} %>
+						 							:delete_asset => asset,
+													:classes => YAML.dump({
+														:rss_feeder => :rss_feeder
+													})
+												} %>
 </div>

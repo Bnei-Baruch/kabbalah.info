@@ -28,6 +28,9 @@
 	<%= render :partial => "admin/admin_pannel",
 					 :locals => { :edit_asset => asset,
 					 							:delete_asset => asset,
+												:classes => YAML.dump({
+													:page => :web_page
+												}),
 					 							:nobreak => true
 					 						} %>
 	<div class="clear">&nbsp;</div>

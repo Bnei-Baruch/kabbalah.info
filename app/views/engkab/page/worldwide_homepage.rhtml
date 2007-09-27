@@ -24,6 +24,9 @@
 	<% end %>
 	<%= render :partial => "admin/admin_pannel",
 					 :locals => { :edit_asset => @top_video,
+												:classes => YAML.dump({
+													:video => :video_in_worldwide_homepage
+												}),
 					 							:nobreak => true
 					 						} %>
 <% end # top_video %>
@@ -37,7 +40,10 @@
 <% content_for(:events) do %>
 	<%= render :partial => "admin/admin_pannel",
 			   :locals => { :new_asset => { :parent_id => @events_category.id, 
-											:type => 'page', 
+											:type => 'page',
+											:classes => YAML.dump({
+												:page => :web_page
+											}),
 											:message => "New Event"
 										  }
 						  } %>
@@ -50,7 +56,10 @@
 <% content_for(:media) do %>
 	<%= render :partial => "admin/admin_pannel",
 			   :locals => { :new_asset => { :parent_id => @media_category.id, 
-						 					:type => 'page', 
+						 					:type => 'page',
+											:classes => YAML.dump({
+												:page => :web_page
+											}),
 						 					:message => "New Media"
 						 				   }
 						  } %>

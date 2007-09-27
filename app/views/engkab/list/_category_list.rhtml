@@ -29,9 +29,20 @@
 			<p class="new_category"><%= title %></p>
 		<% end # category_has_page %>
 		<%= render :partial => "admin/admin_pannel", 
-				 :locals => { :new_asset => { :parent_id => asset, :type => "page", :message => "New page" },
+				 :locals => { :new_asset => { 
+				 								:parent_id => asset, 
+				 								:type => "page", 
+				 								:message => "New page",
+				 								:classes => YAML.dump({
+				 								:page => :web_page
+				 								})
+				 							},
 				 							:edit_asset => asset,
-				 							:delete_asset => asset	} %>
+				 							:delete_asset => asset,
+			 								:classes => YAML.dump({
+			 								:category => :category
+			 								})
+		 								} %>
 		<div class="divider">&nbsp;</div>
 	</li>
 <% end #logged_in? %>

@@ -184,17 +184,18 @@ module	Config
 		},
 		:article => {
 			:title => ['Title', ''],
-			:short_description => ['SubTitle', 'Used for META "Description" and subtitle of the page. Also used for short description of the page'],
+			:short_description => ['SubTitle', ''],
 			:description => nil,
 			:image => ['Thumbnail', 'Preview image for the page'],
 			:body => ['Content', 'The content of the article'],
 		},
 		:article_box => {
+			:asset_name => ['Box',''],
 			:title => ['Title', ''],
 			:short_description => nil,
 			:description => nil,
 			:image => nil,
-			:body => ['Content', 'The content of the article'],
+			:body => ['Content', 'The content of the box'],
 		},
 		:category => {
 			:title => ['Title', ''],
@@ -270,6 +271,16 @@ module	Config
 			:transcript => nil,
 			:duration => ['Duration', 'hh:mm:ss'],
 			:size => ['Size', 'i.e. 10.2MB, 1.4KB etc.'],
+		},
+		:video_in_worldwide_homepage => {
+			:title => nil,
+			:short_description => nil,
+			:description => ['Description'],
+			:image => nil,
+			:video_link => ['URL', 'Link to the video source'],
+			:transcript => nil,
+			:duration => nil,
+			:size => nil,
 		},
 	}
 

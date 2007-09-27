@@ -28,7 +28,7 @@ class ResourcesController < ApplicationController
 
       respond_to do |format|
 	      if resource.valid? && @property.valid? &&
-	      	(params[:image_storage][:uploaded_data].blank? ? true : @image_storage.valid?)
+	      	(params[:image_storage] ? (params[:image_storage][:uploaded_data].blank? ? true : @image_storage.valid?) : true)
 
 	      	@asset.save!
 	        flash[:notice] = "#{resource_type} was successfully created."
@@ -45,7 +45,7 @@ class ResourcesController < ApplicationController
 
 	def update_objects(resource, resource_params)
 		@property = resource.property
-    if (@property.image_storage == nil) && (not params[:image_storage][:uploaded_data].blank?)
+    if (@property.image_storage == nil) && (params[:image_storage] && (not params[:image_storage][:uploaded_data].blank?))
     	@image_storage = ImageStorage.new(params[:image_storage])
 			@property.image_storage = @image_storage
       if resource.valid? && @property.valid? && @image_storage.valid?
@@ -65,7 +65,7 @@ class ResourcesController < ApplicationController
     respond_to do |format|
       if resource.update_attributes(resource_params) &&
       	 @property.update_attributes(params[:property]) &&
-      	 (params[:image_storage][:uploaded_data].blank? ? true : @image_storage.update_attributes(params[:image_storage]))
+      	 (params[:image_storage] ? (params[:image_storage][:uploaded_data].blank? ? true : @image_storage.valid?) : true)
 
         flash[:notice] = "#{resource.class.to_s} was successfully updated."
         format.html { redirect_to session[:referer] }
