@@ -33,9 +33,14 @@ class Asset < ActiveRecord::Base
 	def children_by_placeholder(placeholder)
 		Asset.find(:all, :conditions => "parent_id = #{id} AND placeholder_id = #{placeholder.id}", :order => "position ASC")
 	end
-	def self.get_pages_by_parent(my_parent)
+	def self.get_pages_by_parent(my_parent, only_published = false)
+
 		if my_parent.is_a?(Asset)
-			my_parent.children.select{|x| x.resource_type == 'Page'}
+			if only_published
+				my_parent.children.select{|x| x.published_page?}
+			else
+				my_parent.children.select{|x| x.resource_type == 'Page'}
+			end
 		end
 	end
 	def is_page?

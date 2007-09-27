@@ -1,0 +1,34 @@
+<%# create pages list -%>
+<% if @category -%>
+	<%
+		only_published = (not logged_in?)
+	%>
+	<div class="r-box">
+				<%= render :partial => "admin/admin_pannel", 
+				 :locals => { :new_asset => { 
+				 								:parent_id => @category, 
+				 								:type => "page", 
+				 								:message => "New Page",
+				 								:classes => YAML.dump({
+				 									:page => :web_page
+				 								})
+			 								}
+		 								} %>
+		<h2>Pages</h2>
+		<div class="r-box-inner">
+			<ul>
+				<% for page in Asset.get_pages_by_parent(@category, only_published) -%>
+						<li><%= link_to page.resource.property.title, site_page_url(page)%>
+							<%= render :partial => "admin/admin_pannel",
+											:locals => { :edit_asset => page,
+					 							:delete_asset => page,
+												:classes => YAML.dump({
+													:page => :web_page
+												})
+					 						} %>
+						</li>
+				<% end -%>
+			</ul>
+		</div>
+	</div>
+<% end -%>

@@ -1,7 +1,7 @@
 <% if setup_config(:image) -%>
 	<h2>Image Input:</h2>
 	<div id="image_storage">
-		<% if @image_storage.filename -%>
+		<% if @image_storage && @image_storage.filename -%>
 			<%= image_tag(@image_storage.public_filename(:preview), :alt => @image_storage.alt, :title => @image_storage.alt ) -%>
 			<%= display_field(:remove_image, "remove_image") {
 						check_box_tag :remove_image

@@ -83,6 +83,7 @@ protected
 		@content_menues = calculate_content_menu(:pages)
 		calculate_main_assets
 		calculate_sidebar
+		calculate_categories( true )
 		respond
   end
   def the_zohar
@@ -119,7 +120,7 @@ protected
 						:parent_id => cat.id,
 						:name => cat.resource.property.title,
 						:type => 'page',
-						:message => 'New page'
+						:message => 'New Page'
 					}
 				end
 			end
@@ -131,17 +132,19 @@ protected
 					:parent_id => @page.parent.parent_id,
 					:name => 'Categories',
 					:type => 'category',
-					:message => 'New category'
+					:message => 'New Category'
 				}
 			]
 		when :pages									# like new to kabbalah
 			[
 				{
-					:list => @section.assets.select {|s| s.resource_type == 'Page' && s.parent_id == @page.parent_id}.sort{|a, b| a.position <=> b.position},
+					:list => @section.assets.select {|s| ['Page', 'Category'].include?(s.resource_type) && 
+																								s.parent_id == 0
+																					}.sort{|a, b| a.position <=> b.position},
 					:parent_id => @page.parent_id,
 					:name => 'Categories',
-					:type => 'page',
-					:message => 'New page'
+					:type => %w{ page category },
+					:message => 'New Asset'
 				}
 			]
 		end
@@ -159,14 +162,15 @@ protected
 		@right_placeholder = Placeholder.homepage_right
 		@right_assets = @page.children_by_placeholder(@right_placeholder)
 	end
-	def calculate_categories
+	def calculate_categories( simple_mode = false )
 		if @page.parent && @page.parent.resource_type == "Category"
     	@category = @page.parent
+    	return if simple_mode
     	@category_children = @category.children.select {|i| i.resource_type == "Page"}
     	@categories = Asset.find(:all, :conditions => "parent_id = #{@category.parent_id} and section_id = #{@section.id} and resource_type = 'Category' ", :order => "position ASC")
-  		else
-  			@category = @category_children = @categories = nil
-  		end
+		else
+			@category = @category_children = @categories = nil
+		end
 	end
 
 	def respond
