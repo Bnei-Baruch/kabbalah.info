@@ -1,7 +1,7 @@
 <% #Displaying a a single category in a list of categories -%>
 <%
 	title = asset.resource.property.title
-	children = Asset.get_pages_by_parent(asset, not logged_in?)
+	children = Asset.get_pages_by_parent(asset, (not logged_in?))
 	selected = asset.eql?(@category) ? " class= \"selected\"" : ""
 -%>
 <% if (not logged_in?) -%>
