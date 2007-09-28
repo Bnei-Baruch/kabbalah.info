@@ -56,7 +56,7 @@ class EngkabController < ApplicationController
   end
   
   def status_404
-		render :file => "public/404.html", :status => status.to_i
+		render :partial => "engkab/global/status_404", :status => 404, :layout => false
   end
   
 protected

@@ -1,11 +1,8 @@
-<%
-#Displaying a single page in a list of pages
-%>
+<%#Displaying a single page in a list of pages -%>
 <% 
-	blank_page = asset.children[0] ? false : true
 	selected = asset.eql?(@page) ? " class= \"selected\"" : ""
-%>
-<% if !blank_page || (blank_page && logged_in? && has_right?(:create)) %>
+-%>
+<% if asset.published_page? || logged_in? -%>
 	<li>
 		<a href="<%= site_page_url(asset) %>"<%= selected%>><%= asset.resource.property.title %></a>
 		<div class="divider">&nbsp;</div>
@@ -17,4 +14,4 @@
 	 										})
 									} %>
 	</li>
-<% end %>
+<% end -%>

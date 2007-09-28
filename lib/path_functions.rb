@@ -4,10 +4,10 @@ module PathFunctions
 	def section_homepage_url(section)
 		homepage = Asset.find_by_section_id_and_resource_type(section.id,'Homepage')
 		if homepage
-			if section.eql?(Section.homepage)
+			if section.eql?(Section.homepage) # Homepage of the site?
 				mainpage_url
 			else
-				site_page0_url(:section => section)
+				site_page0_url(:section => section, :id => nil)
 			end
 		else
 			categories = Asset.find(:all, :conditions => "section_id = #{section.id}  and resource_type = 'Category'", :order => 'position ASC')
