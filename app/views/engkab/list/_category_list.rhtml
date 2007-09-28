@@ -5,7 +5,7 @@
 	selected = asset.eql?(@category) ? " class= \"selected\"" : ""
 -%>
 <% if (not logged_in?) -%>
-	<% if children -%>
+<% if children.size > 0 -%>
 		<li>
 			<a href="<%= site_page_url(children.first) %>"<%= selected%>><%= title %></a>
 			<div class="divider">&nbsp;</div>
@@ -13,7 +13,7 @@
 	<% end -%>
 <% else #logged_in? -%>
 	<li>
-		<% if children -%>
+			<% if children.size > 0 -%>
 			<a href="<%= site_page_url(children.first) %>"<%= selected%>><%= title %></a>
 		<% else # category_has_page -%>
 			<p class="new_category"><%= title %></p>
