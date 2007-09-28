@@ -54,7 +54,11 @@
 				<% end #image%>
 					<%= render :partial => "admin/admin_pannel",
 										:locals => { :edit_asset => video,
-																:delete_asset => video } %>
+																:delete_asset => video,
+																:classes => YAML.dump({
+																	:video => :video_in_gallery
+																	})
+															 } %>
 			</div>
 			<% unless duration.blank? %>
 				<div class="right-time">Time: <span><%= duration%></span></div>
@@ -83,8 +87,15 @@
 						 :locals => { :new_asset => { 
 														:parent_id => asset,
 														:type => "video",
-														:message => "New Video"
+														:message => "New Video",
+														:classes => YAML.dump({
+															:video => :video_in_gallery
+															})
 													},
 													:edit_asset => asset,
-													:delete_asset => asset } %>
+													:delete_asset => asset,
+													:classes => YAML.dump({
+														:video_gallery => :video_gallery
+													}) 
+												} %>
 </div>

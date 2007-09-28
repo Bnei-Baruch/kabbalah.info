@@ -219,7 +219,7 @@ module	Config
 			:title => ['Title', ''],
 			:short_description => ['Description', 'Used as description of the picture.'],
 			:description => nil,
-			:image => ['Picture', 'Image itself'],
+			:image => nil
 		},
 		:rss_feeder => {
 			:title => ['Title', ''],
@@ -239,8 +239,8 @@ module	Config
 		:video_gallery => {
 			:title => ['Title', ''],
 			:short_description => ['SubTitle', 'Used as subtitle of the gallery.'],
-			:description => nil,
-			:image => ['Thumbnail', 'Preview image for the video'],
+			:description => ['Description', 'Used as description of the  Vioeo Gallery.'],
+			:image => nil
 		},
 		:video_asset => {
 			:title => ['Title', ''],
@@ -257,7 +257,7 @@ module	Config
 			:short_description => nil,
 			:description => ['Description', 'Used as description of the  VOD.'],
 			:image => nil,
-			:video_link => ['URL', 'Link to the video source'],
+			:video_link => ['Video Link', 'Link to the video source'],
 			:transcript => ['Transcript', 'Transcript of a lesson'],
 			:duration => ['Duration', 'hh:mm:ss'],
 			:size => ['Size', 'i.e. 10.2MB, 1.4KB etc.'],
@@ -267,7 +267,7 @@ module	Config
 			:short_description => nil,
 			:description => nil,
 			:image => ['Thumbnail', 'Preview image for the video'],
-			:video_link => ['URL', 'Link to the video source'],
+			:video_link => ['Video Link', 'Link to the video source'],
 			:transcript => nil,
 			:duration => ['Duration', 'hh:mm:ss'],
 			:size => ['Size', 'i.e. 10.2MB, 1.4KB etc.'],
@@ -277,7 +277,7 @@ module	Config
 			:short_description => nil,
 			:description => ['Description'],
 			:image => nil,
-			:video_link => ['URL', 'Link to the video source'],
+			:video_link => ['Video Link', 'Link to the video source'],
 			:transcript => nil,
 			:duration => nil,
 			:size => nil,
