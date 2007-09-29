@@ -8,15 +8,17 @@
 .article h2{
 	margin:0;
 	padding:10px 0 0;
-	color:#51515B;
-	font-size:197%;
+	color:#4e4e4e;
+	font-size:146.5%;
 	font-weight:normal;
+	font-family:arial;
 }
 .article h3{
-	margin:0 0 20px;
-	font-size:131%;
-	color:#8E8F91;
+	margin:0 0 12px;
+	font-size:100%;
+	color:#888888;
 	font-weight:normal;
+	font-family:arial;
 }
 .has_image h2{
 	margin:0;
@@ -37,4 +39,9 @@
 	color:#8E8F91;
 	font-weight:normal;
 	border:0 none;
+}
+.article , .article div{
+	font-family:arial;
+	font-size:100%;
+	margin:0 0 2ex;
 }

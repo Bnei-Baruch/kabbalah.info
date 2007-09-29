@@ -8,10 +8,29 @@ h2.hd-middle {
 	border-bottom:1px solid <%=@palette[:bottom_line]%>;
 	height:20px;
 	line-height:20px;
-	padding:0 8px;
+	padding:0 10px;
 	margin:0 0 1px;
 	text-transform:uppercase;
+	font-family:arial;
+	font-weight:bold;
 	font-size:<%=@palette[:h2_font_size]%>;
+	position:relative;
+}
+h2.hd-middle span.slash{
+	color:#acadad;
+	font-size:100%;
+	padding:0 5px;
+}
+h2.hd-middle span#bread{
+	position:absolute;
+	right:10px;
+}
+h2.hd-middle span#bread a, h2.hd-middle span#bread a:visited{
+	color:#acadad;
+	font-family:verdana;
+	font-size:85%;
+	text-decoration:none;
+	text-transform:capitalize;
 }
 .hd-border{
 	background-color:<%=@palette[:wide_line]%>;
@@ -20,7 +39,7 @@ h2.hd-middle {
 	font-size:4px;
 }
 div.hd-content{
-	padding:20px;
+	padding:15px 20px 10px;
 	border:1px solid <%=@palette[:general_border]%>;
 	border-top:0 none;
 }
@@ -33,21 +52,25 @@ div.hd-hr-padding{
 	padding:0 20px;
 }
 div.hd-hr{
-	border-top:2px solid #77797c;
-	height:2px;
-	line-height:2px;
-	font-size:2px;
+	border-top:1px solid #c2c3c6;
+	height:1px;
+	line-height:1px;
+	font-size:1px;
 }
 div.video_descr{
-	border:1px solid #CDD1D4;
-	background-color:#f7f7f7;
-	padding:20px 10px;
-	height:214px;
+	height:230px;
+	padding:10px 15px 15px;
+	border:1px solid #e8e8ea;
+	background:white url('/files/layouts/<%=@layout%>/player_grad.gif') repeat-x top left;
+	font-family:arial;
+	font-size:93%;
+	color:#72777b;
+	line-height:16px;
 }
 h1.title{
-	margin:-10px 0 15px;
-	font-family:"Helvetica Light",Helvetica,Arial,Trebuchet,sans-serif;
-	font-size:300%;
+	margin:-10px 0 3px;
+	font-family:Arial,Trebuchet,sans-serif;
+	font-size:197%;
 	font-weight:normal;
 	color:#A6A7AB;
 }
@@ -64,33 +87,35 @@ h3.title{
 	margin:0;
 }
 #assets div.hr{
-	border-top:2px solid #77797c;
-	margin:20px 0 30px;
-	height:2px;
-	line-height:2px;
-	font-size:2px;
+	border-top:1px solid #c2c3c6;
+	margin:20px 0 18px;
+	height:1px;
+	line-height:1px;
+	font-size:1px;
 }
 <%# Related boxes (right column) %>
 .r-box{
 	margin:0 0 10px;
-	background-color:<%=@palette[:related_bg]%>;
 }
 .r-no-bg{
 	background-color:transparent !important;
 }
 .r-box h2{
-	background: <%=@palette[:category_active]%> url('/files/layouts/<%=@palette_name%>/hd-gradient.gif') repeat-x top left;
+	background:<%=@palette[:category_active]%> url('/files/layouts/<%=@palette_name%>/hd-gradient.gif') repeat-x top left;
+	border:1px solid <%=@palette[:rbox_border]%>;
 	color:<%=@palette[:middle_hd_bg]%>;
-	height:20px;
-	line-height:20px;
+	height:18px;
+	line-height:18px;
 	margin:0;
 	padding:0 8px;
 	text-transform:capitalize;
 	font-size:<%=@palette[:h2_font_size]%>;
+	border-left:1px solid <%=@palette[:category_active]%>;
+	border-right:1px solid <%=@palette[:category_active]%>;
 }
 .r-box-inner{
 	border:1px solid <%=@palette[:general_border]%>;
-	padding:15px 20px;
+	padding:8px;
 	border-top:0 none;
 }
 .r-box-inner ul{
@@ -99,19 +124,20 @@ h3.title{
 .r-box-inner ul li{
 	list-style:none;
 	display:block;
-	padding:4px 3px;
+	padding:3px;
 	margin:0;
 }
 .r-box-inner ul li a{
-	color:<%=@palette[:category_fg]%>;
+	color:#008bb3;
 	display:block;
 	width:auto;
 	padding:0 0 0 2px;
 	margin:0;
 	text-decoration:none;
-	font-size:100%;
+	font-size:77%;
 }
 .r-box-inner ul li a:link, .r-box-inner ul li a:visited {
+	color:#008bb3;
 }
 .r-box-inner ul li a.selected, .r-box-inner ul li a:hover {
 	background-color:<%=@palette[:category_active]%>;
@@ -125,7 +151,7 @@ h3.title{
 }
 .media h3{
 	color:#1999BC;
-	font-size:77%;
+	font-size:85%;
 	margin:5px 0 5px;
 }
 .media h3 a, .media h3 a:visited{
@@ -169,7 +195,7 @@ h3.title{
 }
 a.next_page, a.next_page:visited, a.prev_page, a.prev_page:visited{
 	color:#0698BC;
-	font-size:77%;
+	font-size:85%;
 	font-weight:bold;
 	text-decoration:none;
 }

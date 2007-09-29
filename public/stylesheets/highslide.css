@@ -2,42 +2,27 @@
 	cursor: url(/files/images/highslide/zoomin.cur), pointer;
     outline: none;
 }
-.highslide img {
-	border: 2px solid gray;
-}
-.highslide:hover img {
-	border: 2px solid white;
-}
-
 .highslide-image {
 	border: 10px solid white;
 }
-.highslide-image-blur {
-}
 .highslide-caption {
-    display: none;
-    border: 5px solid white;
-    border-top: none;
-    padding: 5px;
-    background-color: white;
+  display: none;
+  border: 5px solid white;
+  border-top: none;
+  padding: 5px;
+  background-color: white;
 }
 .highslide-loading {
-    display: block;
+  display: block;
 	color: white;
 	font-size: 9px;
 	font-weight: bold;
 	text-transform: uppercase;
-    text-decoration: none;
+  text-decoration: none;
 	padding: 3px;
 	border-top: 1px solid white;
 	border-bottom: 1px solid white;
-    background-color: black;
-    /*
-    padding-left: 22px;
-    background-image: url(/files/images/highslide/loader.gif);
-    background-repeat: no-repeat;
-    background-position: 3px 1px;
-    */
+  background-color: black;
 }
 a.highslide-credits,
 a.highslide-credits i {
@@ -51,7 +36,6 @@ a.highslide-credits:hover i {
     color: white;
     background-color: gray;
 }
-
 .highslide-display-block {
     display: block;
 }

@@ -7,7 +7,9 @@
 	padding:0;
 	margin:0;
 	color:#B7B9BA;
-	font-size:108%;
+	font-size:93%;
+	letter-spacing:0.9px;
+	font-family:arial;
 	background-color:#e5e6e8;
 	width:100%;
 	text-align:center;
@@ -57,7 +59,7 @@
 	right:0;
 }
 #header #top-menu ul{
-	padding:0 5px;
+	padding:0pt 5px 4px;
 	margin:0;
 	border:1px solid #d4d5d7;
 	background-color:#f5f5f5;
@@ -67,8 +69,9 @@
 }
 #header #top-menu li a{
 	text-decoration:none;
-	font-size:93%;
+	font-size:73%;
 	color:#64676a;
+	font-weight:bold;
 }
 #top-menu li.pipe{
 	border-left:1px solid #d4d5d7;

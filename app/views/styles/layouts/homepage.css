@@ -17,7 +17,25 @@ h2.hd-middle {
 	padding:0 8px;
 	margin:0 0 1px;
 	text-transform:uppercase;
+	font-family:arial;
+	font-weight:bold;
 	font-size:<%=@palette[:h2_font_size]%>;
+}
+h2.hd-middle span.slash{
+	color:#acadad;
+	font-size:100%;
+	padding:0 5px;
+}
+h2.hd-middle span#bread{
+	position:absolute;
+	right:10px;
+}
+h2.hd-middle span#bread a, h2.hd-middle span#bread a:visited{
+	color:#acadad;
+	font-family:verdana;
+	font-size:85%;
+	text-decoration:none;
+	text-transform:capitalize;
 }
 .hd-border{
 	background-color:<%=@palette[:wide_line]%>;
@@ -26,7 +44,7 @@ h2.hd-middle {
 	font-size:4px;
 }
 div.hd-content{
-	padding:20px 15px;
+	padding:15px 20px 30px;
 	border:1px solid <%=@palette[:general_border]%>;
 	border-top:0 none;
 }
