@@ -1,6 +1,9 @@
 body{
 	font-family:verdana,arial,helvetica,clean,sans-serif;
 }
+a, a:visited{
+	color:#1999BC;
+}
 <%# Middle part %>
 h2.hd-middle {
 	background-color:<%=@palette[:middle_hd_bg]%>;
@@ -15,22 +18,6 @@ h2.hd-middle {
 	font-weight:bold;
 	font-size:<%=@palette[:h2_font_size]%>;
 	position:relative;
-}
-h2.hd-middle span.slash{
-	color:#acadad;
-	font-size:100%;
-	padding:0 5px;
-}
-h2.hd-middle span#bread{
-	position:absolute;
-	right:10px;
-}
-h2.hd-middle span#bread a, h2.hd-middle span#bread a:visited{
-	color:#acadad;
-	font-family:verdana;
-	font-size:85%;
-	text-decoration:none;
-	text-transform:capitalize;
 }
 .hd-border{
 	background-color:<%=@palette[:wide_line]%>;
@@ -68,7 +55,7 @@ div.video_descr{
 	line-height:16px;
 }
 h1.title{
-	margin:-10px 0 3px;
+	margin:-3px 0 3px;
 	font-family:Arial,Trebuchet,sans-serif;
 	font-size:197%;
 	font-weight:normal;
@@ -84,9 +71,9 @@ h3.title{
 	margin:0;
 }
 #assets h2{
-	margin:0;
+	margin:0 0 7px;
 }
-#assets div.hr{
+div.hr{
 	border-top:1px solid #c2c3c6;
 	margin:20px 0 18px;
 	height:1px;
@@ -128,7 +115,7 @@ h3.title{
 	margin:0;
 }
 .r-box-inner ul li a{
-	color:#008bb3;
+	color:#1999BC;
 	display:block;
 	width:auto;
 	padding:0 0 0 2px;
@@ -137,7 +124,7 @@ h3.title{
 	font-size:77%;
 }
 .r-box-inner ul li a:link, .r-box-inner ul li a:visited {
-	color:#008bb3;
+	color:#1999BC;
 }
 .r-box-inner ul li a.selected, .r-box-inner ul li a:hover {
 	background-color:<%=@palette[:category_active]%>;
@@ -186,6 +173,10 @@ h3.title{
 }
 #pagination{
 	margin:30px 0 10px;
+	padding:0 0 5px;
+}
+#pagination span{
+	font-size:70%;
 }
 .next_page{
 	float:right;

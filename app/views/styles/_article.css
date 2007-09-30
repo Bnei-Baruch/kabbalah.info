@@ -41,7 +41,7 @@
 	border:0 none;
 }
 .article , .article div{
-	font-family:arial;
 	font-size:100%;
+	line-height:131%;
 	margin:0 0 2ex;
 }

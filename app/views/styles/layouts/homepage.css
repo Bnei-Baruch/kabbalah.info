@@ -1,6 +1,9 @@
 body{
 	font-family:verdana,arial,helvetica,clean,sans-serif;
 }
+a, a:visited{
+	color:#1999BC;
+}
 .graylinks div.hd-content a, .graylinks div.hd-content a:visited{
 	color:<%=@palette[:category_fg]%> !important;
 }

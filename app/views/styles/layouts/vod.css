@@ -2,6 +2,9 @@
 body{
 	font-family:verdana,arial,helvetica,clean,sans-serif;
 }
+a, a:visited{
+	color:#1999BC;
+}
 #vod {
 	height:100%;
 	border:1px solid #c2c3c6;

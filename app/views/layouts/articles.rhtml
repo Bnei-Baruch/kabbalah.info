@@ -10,10 +10,11 @@
 			<div class="yui-b">
 				<div class="yui-u yui-ge"><%# Content part %>
 					<div class="yui-u first">
-						<h2 class="hd-middle"><%= @section.title%>
-							<%= render :partial => 'engkab/general/bread_crumbs' %></h2>
+						<h2 class="hd-middle"><%= @section.title%></h2>
 						<div class="hd-border">&nbsp;</div>
 						<div class="hd-content">
+							<%= render :partial => 'engkab/general/bread_crumbs' %>
+							<div class="hr">&nbsp;</div>
 							<h1 class="title"><%= @page.resource.property.title %></h1>
 							<% unless @page.resource.property.short_description.empty? %><h3 class="title"><%=@page.resource.property.short_description%></h3><% end %>
 							<%= yield %>

@@ -60,23 +60,24 @@
 }
 <%# Environment -%>
 .env{
-	background-color:<%=@palette[:category_bg]%>;
 	margin-bottom:15px;
+	background-color:#F5F5F5;
 }
 .env h2{
-	background-color:<%=@palette[:category_hd_bg]%>;
-	color:<%=@palette[:category_hd_fg]%>;
 	height:20px;
 	line-height:20px;
 	padding:0 10px;
-	margin:0 0 1px;
 	text-transform:uppercase;
 	font-size:<%=@palette[:h2_font_size]%>;
+	background-color:#CECFD2;
+	color:#87898C;
+	margin:0;
+}
 }
 .env .hd-content{
 	margin:0;
 	padding:10px;
-	border:1px solid <%=@palette[:general_border]%>;
+	border:1px solid #CECFD2;
 	border-top:0 none;
 }
 .env ul{
@@ -92,10 +93,11 @@
 .env ul li a{
 	color:<%=@palette[:category_fg]%>;
 	width:auto;
-	padding:6px 3px;
-	margin:0;
 	text-decoration:none;
-	font-size:93%;
+	font-size:77%;
+	margin:0 0 2px;
+	padding:0;
+	display:block;
 }
 .env ul li a.last{
 	border:0 none;
@@ -110,23 +112,6 @@
 }
 .env .divider{
 	display:none;
-}
-.env{
-	background-color:#F5F5F5;
-}
-.env h2{
-	background-color:#CECFD2;
-	color:#87898C;
-	margin:0;
-}
-.env .hd-content{
-	border:1px solid #CECFD2;
-}
-.env ul li a{
-	font-size:77%;
-	margin:0 0 2px;
-	padding:0;
-	display:block;
 }
 .env .hd-border{
 	display:none;
@@ -221,4 +206,22 @@
 }
 .service form p{
 	display:inline;
+}
+<%# Bread crumbs -%>
+div#bread{
+	margin:-14px 0pt -17px;
+}
+div#bread a, div#bread a:visited{
+	color:#acadad;
+	font-family:verdana;
+	font-size:77%;
+	font-weight:bold;
+	text-decoration:none;
+	text-transform:capitalize;
+}
+span.slash{
+	color:#666666;
+	font-size:60%;
+	font-weight:bold;
+	padding:0 5px;
 }
