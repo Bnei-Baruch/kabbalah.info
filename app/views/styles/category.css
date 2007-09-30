@@ -32,7 +32,7 @@
 	margin:0;
 	padding:0;
 }
-.category ul li a{
+.category ul li a, .category ul li a:visited{
 	color:<%=@palette[:category_fg]%>;
 	display:block;
 	width:auto;
@@ -91,7 +91,7 @@
 	padding:0;
 	height:100%;
 }
-.env ul li a{
+.env ul li a, .env ul li a:visited{
 	color:<%=@palette[:category_fg]%>;
 	width:auto;
 	text-decoration:none;
