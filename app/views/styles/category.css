@@ -89,6 +89,7 @@
 	display:block;
 	margin:0;
 	padding:0;
+	height:100%;
 }
 .env ul li a{
 	color:<%=@palette[:category_fg]%>;
