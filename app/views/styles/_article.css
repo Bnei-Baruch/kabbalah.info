@@ -3,7 +3,7 @@
 	width:60px;
 	height:60px;
 	display:block;
-	margin:0 15px 0 0;
+	margin:0 10px 0 0;
 }
 .article h2{
 	margin:0;
@@ -14,7 +14,7 @@
 	font-family:arial;
 }
 .article h3{
-	margin:0 0 12px;
+	margin:0;
 	font-size:100%;
 	color:#888888;
 	font-weight:normal;
@@ -40,8 +40,8 @@
 	font-weight:normal;
 	border:0 none;
 }
-.article , .article div{
+.article , .article div, .article p{
 	font-size:100%;
 	line-height:131%;
-	margin:0 0 2ex;
+	margin:8px 0 2ex;
 }

@@ -1,10 +1,3 @@
-/* VOD */
-body{
-	font-family:verdana,arial,helvetica,clean,sans-serif;
-}
-a, a:visited{
-	color:#1999BC;
-}
 #vod {
 	height:100%;
 	border:1px solid #c2c3c6;
@@ -25,6 +18,11 @@ h2.vod-hd {
 	font-family:arial;
 	font-weight:bold;
 	font-size:<%=@palette[:h2_font_size]%>;
+}
+div.hd-content{
+	padding:15px 20px 20px;
+	border:1px solid <%=@palette[:general_border]%>;
+	border-top:0 none;
 }
 #assets{
 	height:100%;

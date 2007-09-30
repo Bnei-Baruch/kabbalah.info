@@ -1,0 +1,49 @@
+<%# Related boxes (right column) %>
+.r-box{
+	margin:0 0 10px;
+}
+.r-no-bg{
+	background-color:transparent !important;
+}
+.r-box h2{
+	background:<%=@palette[:category_active]%> url('/files/layouts/<%=@palette_name%>/hd-gradient.gif') repeat-x top left;
+	border:1px solid <%=@palette[:rbox_border]%>;
+	color:<%=@palette[:middle_hd_bg]%>;
+	height:18px;
+	line-height:18px;
+	margin:0;
+	padding:0 8px;
+	text-transform:capitalize;
+	font-size:<%=@palette[:h2_font_size]%>;
+	border-left:1px solid <%=@palette[:category_active]%>;
+	border-right:1px solid <%=@palette[:category_active]%>;
+}
+.r-box-inner{
+	border:1px solid <%=@palette[:general_border]%>;
+	padding:8px;
+	border-top:0 none;
+}
+.r-box-inner ul{
+	margin:0;
+}
+.r-box-inner ul li{
+	list-style:none;
+	display:block;
+	padding:3px;
+	margin:0;
+}
+.r-box-inner ul li a{
+	color:#1999BC;
+	display:block;
+	width:auto;
+	padding:0 0 0 2px;
+	margin:0;
+	text-decoration:none;
+	font-size:77%;
+}
+.r-box-inner ul li a:link, .r-box-inner ul li a:visited {
+	color:#1999BC;
+}
+.r-box-inner ul li a.selected, .r-box-inner ul li a:hover {
+	background-color:<%=@palette[:category_active]%>;
+}

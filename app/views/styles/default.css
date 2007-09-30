@@ -3,6 +3,7 @@
 <%= render :file => 'styles/common.css' %>
 <%= render :file => 'styles/category.css' %>
 <%= render :file => 'styles/header.css' %>
+<%= render :file => 'styles/r_box.css' %>
 
 <%= render :file => "styles/layouts/#{@layout}.css" %>
 

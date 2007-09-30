@@ -106,3 +106,9 @@
 	margin:0 3px 0 6px;
 	float:left;
 }
+<%# Footer -%>
+#ft{
+	text-align:center;
+	font-size:77%;
+	margin:15px 195px;
+}

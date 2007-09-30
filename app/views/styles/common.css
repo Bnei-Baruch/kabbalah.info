@@ -15,5 +15,9 @@ cite{
 	font:bold normal 110% Times;
 }
 body {
-   text-align:left;
+	text-align:left;
+	font-family:verdana,arial,helvetica,clean,sans-serif;
+}
+a, a:visited{
+	color:#1999BC;
 }
