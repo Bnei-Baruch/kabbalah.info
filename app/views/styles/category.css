@@ -6,19 +6,19 @@
 .category h2{
 	background-color:<%=@palette[:category_hd_bg]%>;
 	color:<%=@palette[:category_hd_fg]%>;
-	height:19px;
-	line-height:19px;
+	height:20px;
+	line-height:22px;
 	padding:0 10px;
 	margin:0 0 1px;
 	text-transform:uppercase;
 	font-family:arial;
 	font-weight:bold;
 	font-size:<%=@palette[:h2_font_size]%>;
-	border-bottom:1px solid #72777b;
+	border-bottom:1px solid <%=@palette[:bottom_line]%>;
 }
 .category .hd-content{
 	margin:0;
-	padding:0 10px 10px;
+	padding:2px 10px 10px;
 	border:1px solid <%=@palette[:general_border]%>;
 	border-top:0 none;
 }
@@ -200,8 +200,8 @@
 }
 .service form input{
 	background-color:#edf5f9;
-	border:1px solid #77797c;
-	color:#77797c;
+	border:1px solid #c2c3c6;
+	color:#4e4e4e;
 }
 .service form input#email{
 	height:12px;
@@ -210,9 +210,14 @@
 }
 .service form input.subscribe{
 	width:48px;
-	height:18px;
-	margin:0 0 0 4px;
+	height:17px;
+	margin:0 0 2px;
+	*margin:0 4px;
+	padding:0 0 3px;
 	cursor:pointer;
+	font-size:100%;
+	*font-size:85%;
+	font-family:verdana;
 }
 .service form p{
 	display:inline;

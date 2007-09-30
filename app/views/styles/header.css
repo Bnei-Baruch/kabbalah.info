@@ -1,7 +1,7 @@
 <%# Header for pages %>
 #header{
 	position:relative;
-	height:145px;
+	height:130px;
 }
 #header h1{
 	padding:0;
@@ -17,62 +17,92 @@
 }
 #header #logo{
 	position:absolute;
-	top:50px;
+	top:40px;
 	left:0;
 }
 #header #choose-lang{
 	position:absolute;
-	top:30px;
+	top:64px;
 	right:165px;
 	font-size:77%;
 }
-#header #choose-lang option{
-	color:#0698BC;
+#header #choose-lang select{
+	background-color:#F5F5F5;
+	border:1px solid #76797D;
+	color:#64676A;
 }
-#header #choose-lang a, #header #choose-lang a:visited{
+#header #choose-lang option{
+	color:#64676A;
+}
+#header #links a, #header #links a:visited,#header #choose-lang a, #header #choose-lang a:visited{
 	font-size:100%;
-	display:block;
 	color:#0698BC;
 	padding:0 0 2px;
+	text-decoration:none;
+}
+#header #links{
+	color:#0698BC;
+	position:absolute;
+	top:22px;
+	right:0;
+	font-size:77%;
 }
 #header #search{
 	position:absolute;
-	top:71px;
+	top:56px;
 	right:0;
 	width:151px;
-	font-size:85%;
+	font-size:77%;
+	font-family:verdana;
 }
-#header #search{
+#header #search form{
+	margin: 8px 0 0;
+}
+#header #search form input{
+	background-color:#edf5f9;
+	border:1px solid #c2c3c6 !important;
+	color:#4e4e4e;
+}
+#header #search form input#SearchString{
+	width:90px;
+	height:11px;
+}
+#header #search form input#B1{
+	width:48px;
+	height:17px;
+	margin:0 0 1px;
+	*margin:2px 0 0;
+	padding:0 0 2px;
+	cursor:pointer;
+	font-size:100%;
+	*font-size:85%;
+	font-family:verdana;
+}
+#header #search form p{
 	display:inline;
 }
-#header #search #SearchString{
-	width:90px;
-	height:15px;
-}
 #header #search #B1{
-	width:48px;
-	margin:0 0 0 3px;
 }
 #header #top-menu{
 	position:absolute;
-	top:110px;
+	top:95px;
 	right:0;
-}
-#header #top-menu ul{
-	padding:0pt 5px 4px;
+	padding:0 5px 0;
 	margin:0;
+	line-height:15px;
 	border:1px solid #d4d5d7;
 	background-color:#f5f5f5;
 }
-#header #top-menu ul li{
-	display:inline;
-}
-#header #top-menu li a{
+#header #top-menu a{
 	text-decoration:none;
 	font-size:73%;
 	color:#64676a;
 	font-weight:bold;
+	display:block;
+	float:left;
 }
-#top-menu li.pipe{
+#top-menu .pipe{
 	border-left:1px solid #d4d5d7;
+	margin:0 3px 0 6px;
+	float:left;
 }

@@ -27,34 +27,37 @@ h2.vod-hd {
 	height:100%;
 }
 #assets h1 {
-	margin:0 0 0 14px;
+	margin:0 0 5px 9px;
 	height:25px;
-	color:#888;
-	font-size:107%;
+	color:#4E4E4E;
+	font-size:146.5%;
+	font-family:arial;
+	font-weight:normal;
 }
 #assets #media {
 	width:400px;
 	height:305px;
 }
 .player{
-	width:380px;
+	width:393px;
 	height:320px;
 	margin:0 auto 10px;
-	border:1px solid silver;
-	padding:10px 34px;
-	background:#F9F9FA url('/files/layouts/<%=@layout%>/player_grad.gif') repeat-x top left;
+	border:1px solid #E8E8EA;
+	padding:10px 25px 10px 42px;
+	background:white url('/files/layouts/<%=@layout%>/player_grad.gif') repeat-x top left;
 }
 .media-description{
 	margin:0 auto;
-	padding:5px 10px 10px;
+	padding:10px 15px 15px;
 	border:1px solid #E4E4E5;
-	background:#F9F9FA url('/files/layouts/<%=@layout%>/player_grad.gif') repeat-x top left;
+	background:white url('/files/layouts/<%=@layout%>/player_grad.gif') repeat-x top left;
 	width:430px;
+	color:#72777B;
 }
 .media-description h4{
-	color: #525352;
+	color: #4e4e4e;
 	font-size:100%;
-	margin:10px 0;
+	margin:10px 0 5px 0;
 }
 .media-description p{
 	padding:0 0 10px;
@@ -69,25 +72,29 @@ h2.vod-hd {
 	background: transparent url('/files/layouts/<%=@palette_name%>/hd-gradient.gif') repeat-x top left;
 	margin:0;
 	padding:0 0 0 8px;
-	line-height:25px;
-	height:25px;
-	color:#707078;
-	font-size:100%;
+	line-height:18px;
+	height:18px;
+	color:#4e4e4e;
+	font-size:85%;
+	font-family:arial;
+	border:1px solid #D8EAB8;
 }
 #right-list{
 	border:1px solid #dcdfdf;
+	border-top:0 none;
 	background-color:#f8fbfa;
-	padding:15px 5px 15px;
+	padding:10px 12px 15px;
 }
 .right-item{
 	margin:0 0 12px 0;
 }
 .right-item h3 {
-	margin:0 0 10px;
-	font-size:77%;
+	margin:0 0 5px;
+	font-size:85%;
+	font-family:arial;
 }
 .right-item h3 a, .right-item h3 a:visited{
-	color:#1999BC;
+	color:#008BB3;
 	text-decoration:none;
 }
 .right-item p {
@@ -95,7 +102,7 @@ h2.vod-hd {
 	font-size:77%;
 }
 .right-description{
-	margin:0 0 0 118px;
+	margin:0 0 0 115px;
 }
 .right-img {
 	float:left;
@@ -104,16 +111,16 @@ h2.vod-hd {
 }
 .right-i{
 	float:left;
-	background-color:#cecfd1;
-	padding:5px 6px 4px;
+	background-color:#cccdcf;
+	padding:4px 4px 1px;
 }
 .right-time {
-	font-size:88%;
-	color:#888;
+	font-size:73%;
+	color:#888888;
 	margin:3px 0 0;
-}}
+}
 .right-time span {
-	font-size:93%;
+	font-size:89%;
 	color:black;
 	font-weight:bold;
 }
@@ -128,6 +135,8 @@ h2.hd-middle {
 	margin:0 0 1px;
 	text-transform:uppercase;
 	font-size:<%=@palette[:h2_font_size]%>;
+	font-family:arial;
+	font-weight:bold;
 }
 h2.hd-middle span.slash{
 	color:#acadad;

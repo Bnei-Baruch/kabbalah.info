@@ -5,7 +5,7 @@ body{
 	color:<%=@palette[:category_fg]%> !important;
 }
 .flash{
-	margin:0 0 15px;
+	margin:0 0 10px;
 }
 <%# Middle part %>
 h2.hd-middle {
@@ -56,13 +56,15 @@ div.hd-content a, div.hd-content a:visited{
 }
 .r-box h2{
 	background: <%=@palette[:category_active]%> url('/files/layouts/<%=@palette_name%>/hd-gradient.gif') repeat-x top left;
-	color:<%=@palette[:middle_hd_fg]%>;
-	height:20px;
-	line-height:20px;
+	color:#4e4e4e;
+	height:18px;
+	line-height:18px;
 	margin:0;
 	padding:0 8px;
 	text-transform:capitalize;
-	font-size:<%=@palette[:h2_font_size]%>;
+	font-size:85%;
+	border:1px solid #dbdcdd;
+	font-family:arial;
 }
 .vod{
 	padding:0 0 20px;
@@ -72,25 +74,30 @@ div.hd-content a, div.hd-content a:visited{
 }
 .right-item h3{
 	margin:0 0 2px 120px;
-	color:#1999BC;
-	font-size:77%;
+	color:#008BB3;
+	font-size:85%;
+	font-family:arial;
+}
+.vod h3{
+	margin:0 0 2px 117px;
 }
 .right-item h3 a{
 	text-decoration:none;
 }
 .articles h3{
-	margin:0 0 0 80px;
+	margin:0 10px 0 68px;
 }
 .right-item p{
 	margin:0;
 	font-size:77%;
+	padding:0 10px 0 0;
 }
 .blog .right-item p{
-	margin:0 0 5px;
-	font-size:89%;
+	margin:0 0 10px;
+	font-size:85%;
 }
 .articles .right-description{
-	margin:0 0 0 80px;
+	margin:0pt 10px 0pt 69px;
 }
 .vod .right-description{
 	margin:0 0 0 118px;
@@ -100,11 +107,9 @@ div.hd-content a, div.hd-content a:visited{
 	margin:-1em 0 0;
 	width:112px;
 }
-.right-i{
-	background-color:#cecfd1;
-	padding:5px 6px 4px;
-}
 .vod .right-i{
+	background-color:#CCCDCF;
+	padding:4px;
 	width:100px;
 	height:60px;
 }
@@ -121,13 +126,11 @@ div.hd-content a, div.hd-content a:visited{
 	height:60px;
 }
 .right-time {
-	float:right;
-	font-size:88%;
-	color:#888;
-	margin:3px 0 0;
+	font-size:73%;
+	color:#888888;
 }
 .right-time span {
-	font-size:93%;
+	font-size:89%;
 	color:black;
 	font-weight:bold;
 }

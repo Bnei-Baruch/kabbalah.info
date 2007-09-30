@@ -12,7 +12,7 @@ module	Config
 			# Current (active) category background
 			# Thick line beneath header
 			# Default color for right boxes
-			:category_active => "#ffab90",
+			:category_active => "#ff7152",
 			# Border around boxes
 			:general_border => "#c2c3c6",
 			:rbox_border => "#fabca5",
@@ -39,7 +39,7 @@ module	Config
 			# Current (active) category background
 			# Thick line beneath header
 			# Default color for right boxes
-			:category_active => "#f9f5b0",
+			:category_active => "#f4ed4e",
 			# Border around boxes
 			:general_border => "#c2c3c6",
 			:rbox_border => "#f4ed4e",
@@ -66,7 +66,7 @@ module	Config
 			# Current (active) category background
 			# Thick line beneath header
 			# Default color for right boxes
-			:category_active => "#c2bf8c",
+			:category_active => "#b8b67b",
 			# Border around boxes
 			:general_border => "#c2c3c6",
 			:rbox_border => "#b3b293",
@@ -91,7 +91,7 @@ module	Config
 			:wide_line => "#aedee0",							# Wide line under header
 			:h2_font_size => "85%",							# Size of font
 			# Current (active) category background
-			:category_active => "#afdedf",
+			:category_active => "#aedee0",
 			# Border around boxes
 			:general_border => "#c2c3c6",
 			:rbox_border => "#B1D9DB",
@@ -112,17 +112,17 @@ module	Config
 			:middle_hd_bg => "#4E4E4E",
 			:middle_hd_fg => "#CCCDCF",
 			:bottom_line => "#73787b",
-			:wide_line => "#bfdb89",							# Wide line under header
+			:wide_line => "#bfdc8a",							# Wide line under header
 			:h2_font_size => "85%",
-			:category_active => "#bfdb89",
+			:category_active => "#bfdc8a",
 			:general_border => "#c2c3c6",
 			:rbox_border => "#fabca5",
 			:related_bg => "#f7f7f8",
 			:category_fg => "#77797c",
-			:category_bg => "#f1f7e7",
+			:category_bg => "#f1f8e8",
 			:category_hd_bg => "#909295",
 			:category_hd_fg => "#CCCDCF",
-			:category_divider => "#c9e8ea", # line between items
+			:category_divider => "#d3e6ae", # line between items
 			:services_hd_bg => "#b3d2e6",
 			:services_hd_fg => "#0698bc",
 			:services_bottom_line => "#8dbdd4",
@@ -133,7 +133,7 @@ module	Config
 			:bottom_line => "#73787b",
 			:wide_line => "#f69068",							# Wide line under header
 			:h2_font_size => "85%",
-			:category_active => "#ff9e7c",
+			:category_active => "#f69068",
 			:general_border => "#c2c3c6",
 			:rbox_border => "#fabca5",
 			:related_bg => "#f7f7f8",
@@ -149,18 +149,18 @@ module	Config
 		:grey => {
 			:middle_hd_bg => "#4E4E4E",
 			:middle_hd_fg => "#CCCDCF",
-			:bottom_line => "#cecfd1",
-			:wide_line => "#c2c3c6",							# Wide line under header
+			:bottom_line => "#b3b4b7",
+			:wide_line => "#b9bbbd",							# Wide line under header
 			:h2_font_size => "85%",
-			:category_active => "#cecfd1",
+			:category_active => "#b9bbbd",
 			:general_border => "#c2c3c6",
 			:rbox_border => "#fabca5",
 			:related_bg => "#f7f7f8",
 			:category_fg => "#77797c",
-			:category_bg => "#f4f5f5",
+			:category_bg => "#f7f7f7",
 			:category_hd_bg => "#cecfd1",
-			:category_hd_fg => "#CCCDCF",
-			:category_divider => "#c9e8ea", # line between items
+			:category_hd_fg => "#78797b",
+			:category_divider => "#eaeaea", # line between items
 			:services_hd_bg => "#b3d2e6",
 			:services_hd_fg => "#0698bc",
 			:services_bottom_line => "#8dbdd4",
