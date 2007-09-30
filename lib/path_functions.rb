@@ -7,24 +7,32 @@ module PathFunctions
 			if section.eql?(Section.homepage) # Homepage of the site?
 				mainpage_url
 			else
-				site_page0_url(:section => section, :id => nil)
+				site_page_url(section)
 			end
 		else
-			categories = Asset.find(:all, :conditions => "section_id = #{section.id}  and resource_type = 'Category'", :order => 'position ASC')
-			#in case the page is in category - like in vod
-			if categories 
-				first_category = categories.select{|cat| cat.category_has_published_page?}.first
-			else
-				first_category = nil
+			assets = Asset.find_all_by_section_id_and_resource_type_and_parent_id(section.id,['Category','Page'],0, :order => 'position ASC')
+			first_page = assets.detect {|asset|asset.category_has_published_page? || asset.published_page?}
+			return nil if (not first_page)
+			if first_page.resource_type ==  'Category'
+				first_page = first_page.children.first
 			end
-			if first_category
-				first_page = first_category.children.select{|asset| asset.is_page? && asset.published_page?}.sort{|a, b| a.position <=> b.position}.first
-			#in case the section doesn't have categories - like in new to kabbalah
-			else
-				first_page = section.assets.select{|page| page.is_page? && page.parent_id == 0 && page.published_page?}.sort{|a, b| a.position <=> b.position}.first
-			end 
-			site_page0_url(:section => section, :id => first_page.resource)
+			site_page_url(first_page)
 		end
+	end
+
+	def site_page_url(my_object)
+		# in case that the URL is for the section homepage when there is homepage
+		if my_object.is_a?(Section)
+			section = my_object
+			id = nil
+			# regular page URL
+		elsif my_object.is_a?(Asset)
+			section = my_object.section
+			id = my_object.resource
+		else
+			return nil
+		end
+		site_page0_url(:section => section, :id => id )
 	end
 
 end
