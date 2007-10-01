@@ -17,22 +17,32 @@ class Section < ActiveRecord::Base
 	def self.homepage
 		Section.find_by_hrid('homepage')
 	end
+
 	def self.worldwide
 		Section.find_by_hrid('worldwide')
 	end
+
 	def permitted_assets
 		read_attribute("permitted_assets" ) ? read_attribute("permitted_assets" ).split(' ') : ""
 	end
 	
-	def self.environments
-		Section.find(:all, :order => 'position ASC').select{|section| section.is_environment? && section.active_environment?}
+	def self.environments(show_homepage = true, show_links = false )
+		environments = Section.find(:all, :order => 'position ASC')
+		if show_links
+			environments = environments.select{|section| section.is_environment? && section.active_environment?}
+		else
+			environments = Section.find(:all, :order => 'position ASC').select{|section| section.is_environment? && section.active_environment?}
+		end
+		if show_homepage
+			environments = environments.reject{|section| section.eql?(Section.homepage)}
+		end
+		return environments
 	end
-	def self.environments_with_no_homepage
-		Section.environments.reject{|section| section.eql?(Section.homepage)}
-	end
+	
 	def is_environment?
-		!self.layout.blank?
+	!self.layout.blank? && self.external_link.blank?
 	end
+
 	def active_environment?
 		if has_homepage?
 			true
@@ -41,9 +51,13 @@ class Section < ActiveRecord::Base
 			pages && pages.any?{|page| page.published_page?}
 		end
 	end
+
 	def has_homepage?
 		Asset.find(:all, :conditions => "section_id = #{self.id} and resource_type = 'Homepage'") != []
 	end
+
+	# Preview of the section's most recent pages or custom selected by editor
+	# for the homepage
 	def homepage_preview(length)
 		return nil unless self.active_environment?
 		#initialize default length

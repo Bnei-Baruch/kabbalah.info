@@ -9,7 +9,7 @@ module ApplicationHelper
 	end
 #This helper is used in the section preview new and edit. returns a list of sections ready for select tag
 	def get_sections
-		Section.environments_with_no_homepage.collect{|section| [section.title, section.id.to_s] }.sort
+		Section.environments(false).collect{|section| [section.title, section.id.to_s] }.sort
 	end
 	
 # Load proper configuration according to my_class -- type of an asset resource

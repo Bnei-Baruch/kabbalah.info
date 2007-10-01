@@ -4,6 +4,7 @@
 <% form_for(:section, :url => path, :html => {:method => method}) do |f| %>
 
 <label for="section_title">Title:</label><%= f.text_field :title, :class => "text"  %>
+<label for="section_external_link">External Link: (acts as a external section)</label><%= f.text_field :external_link, :class => "text"  %>
 <label for="section_permalink">Permalink:</label><%= f.text_field :permalink, :class => "text" %>
 <label for="section_description">Description:</label><%= f.text_area :description, :rows => "3" %>
 <label for="section_hrid">HRID:</label><%= f.text_field :hrid, :class => "text"  %>

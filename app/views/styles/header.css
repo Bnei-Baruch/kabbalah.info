@@ -23,7 +23,7 @@
 #header #choose-lang{
 	position:absolute;
 	top:64px;
-	right:165px;
+	right:182px;
 	font-size:77%;
 }
 #header #choose-lang select{
@@ -51,7 +51,7 @@
 	position:absolute;
 	top:56px;
 	right:0;
-	width:151px;
+	width:170px;
 	font-size:77%;
 	font-family:verdana;
 }
@@ -64,7 +64,7 @@
 	color:#4e4e4e;
 }
 #header #search form input#SearchString{
-	width:90px;
+	width:112px;
 	height:11px;
 }
 #header #search form input#B1{

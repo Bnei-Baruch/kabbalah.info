@@ -57,10 +57,12 @@ class Asset < ActiveRecord::Base
 	def published_page?
 		self.resource_type == 'Page' && self.resource.is_published &&	self.children && self.page_has_active_assets?
 	end
+	
 #checking that the category has published pages	
 	def category_has_published_page?
 		self.resource_type == 'Category' && self.children && self.children.any? {|page| page.published_page?}
 	end
+	
 	def self.events_category(section)
 		categories = Asset.find_all_by_section_id_and_resource_type(section.id, 'Category')
 		categories.select{|x| x.resource.property.title.downcase.include? 'events'}.first

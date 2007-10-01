@@ -11,7 +11,8 @@ module PathFunctions
 			end
 		else
 			assets = Asset.find_all_by_section_id_and_resource_type_and_parent_id(section.id,['Category','Page'],0, :order => 'position ASC')
-			first_page = assets.detect {|asset|asset.category_has_published_page? || asset.published_page?}
+			
+			first_page = assets.detect{|asset| asset.published_page? || asset.category_has_published_page?}
 			return nil if (not first_page)
 			if first_page.resource_type ==  'Category'
 				first_page = first_page.children.first
@@ -32,7 +33,6 @@ module PathFunctions
 		else
 			return nil
 		end
-		
 		s = section.permalink.to_sym
 		i = id ? id.permalink.to_sym : :nil
 		if REVERSE_REDIRECIONS.has_key?(s) && REVERSE_REDIRECIONS[s].has_key?(i)
