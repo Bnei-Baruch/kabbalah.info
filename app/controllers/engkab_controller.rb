@@ -146,18 +146,21 @@ protected
 		@content_menues = calculate_content_menu(:pages)
 		calculate_main_assets
 		calculate_sidebar
+		calculate_categories( true )
 		respond
   end
   def kabbalah_music
 		@content_menues = calculate_content_menu(:pages)
 		calculate_main_assets
 		calculate_sidebar
+		calculate_categories( true )
 		respond
   end
   def learning_center
 		@content_menues = calculate_content_menu(:pages)
 		calculate_main_assets
 		calculate_sidebar
+		calculate_categories( true )
 		respond
   end
 	def calculate_sidebar
