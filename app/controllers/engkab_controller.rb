@@ -22,6 +22,13 @@ class EngkabController < ApplicationController
 				status_404 if (not @path) # i.e. directly from routing and not from show
 				return false
 			end
+		else
+			s = @section.to_sym
+			i = @id ? @id.to_sym : :nil
+			if REVERSE_REDIRECIONS.has_key?(s) && REVERSE_REDIRECIONS[s].has_key?(i)
+				redirect_301(REVERSE_REDIRECIONS[s][i])
+				return true
+			end
 		end
 		# 404
 		status_404 if (not @path) # i.e. directly from routing and not from show
@@ -39,9 +46,11 @@ class EngkabController < ApplicationController
   
   def show
   	@path = build_url(request.env)
+  	@section = params[:section]
+  	@id = params[:id]
 		return if unrecognized?
 		
-  	real_show(params[:section], params[:id])
+  	real_show(@section, @id)
 	end
 
 protected
