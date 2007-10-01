@@ -34,7 +34,7 @@ class Section < ActiveRecord::Base
 		else
 			environments = Section.find(:all, :order => 'position ASC').select{|section| section.is_environment? && section.active_environment?}
 		end
-		if show_homepage
+		if (not show_homepage)
 			environments = environments.reject{|section| section.eql?(Section.homepage)}
 		end
 		return environments
