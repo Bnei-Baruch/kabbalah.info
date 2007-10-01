@@ -71,8 +71,7 @@ protected
   end
 
   def redirect_305(url)
-		headers["Status"] = '305 Use Proxy'
-		redirect_to url
+		render :text => "Redirected back to the reverse proxy to show old site page.\r\n", :status => 410
   end
 
   def status_404
