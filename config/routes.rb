@@ -59,6 +59,7 @@ ActionController::Routing::Routes.draw do |map|
   # map.connect ':controller/:section/:id', :action => 'show'
   # map.connect ':controller/:section/:category1/:id', :action => 'show'
 
-
+	# Path for all unrecognized paths
+	map.connect '/engkab/*path' , :controller => 'engkab' , :action => 'unrecognized?'
 
 end

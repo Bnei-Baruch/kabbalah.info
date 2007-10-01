@@ -1,0 +1,18 @@
+#################################################################################
+# 301 -- Moved Permanently
+# 305 -- Use Proxy
+# 303 -- See Other
+#################################################################################
+http://localhost:3000/engkab/what_is_kabbalah/what_is_kabbalah.htm: {
+	:action: 301, # Permanent redirect
+	:url: http://localhost:3000/engkab/new-to-kabbalah/page1
+}
+http://localhost:3000/engkab/what_is_kabbalah/what_is_reality.htm: {
+	:action: 305, # To old site via reverse proxy
+	:url: http://new.kabbalah.info/engkab/new-to-kabbalah/page1
+}
+http://localhost:3000/engkab/video/video1: {
+	:action: 303, # Just render this page from ourselves w/o any redirect
+	:section: kabbalah-video-clips,
+	:id: who-are-all-the-people-around-me11
+}

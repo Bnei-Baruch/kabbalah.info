@@ -70,3 +70,33 @@ if ENV['RAILS_ENV'] == 'development'
   SCRIPT_LINES__ = {}
   Debugger.start
 end
+
+# load the redirection config file
+path = "#{RAILS_ROOT}/config/redirection.yml"
+if File.exists?(path)
+	REDIRECIONS = YAML.load_file(path)
+	REVERSE_REDIRECIONS = {}
+	REDIRECIONS.reject {|k,v| v[:action] != 303}.each_pair do |k,v|
+		section = v[:section].to_sym
+		id = v[:id].to_sym
+		REVERSE_REDIRECIONS[section] = {}
+		REVERSE_REDIRECIONS[section][id] = k
+	end
+else
+	REDIRECIONS = {}
+end
+
+# load the base application config file
+path = "#{RAILS_ROOT}/config/environment.yml"
+if File.exists?(path)
+	APP_CONFIG = YAML.load_file(path)
+else
+	APP_CONFIG = {}
+end
+
+# load and merge in the environment-specific application config info
+# if present, overriding base config parameters as specified
+path = "#{RAILS_ROOT}/config/environments/#{ENV['RAILS_ENV']}.yml"
+if File.exists?(path) && (env_config = YAML.load_file(path))
+	APP_CONFIG.merge!(env_config)
+end

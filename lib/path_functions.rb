@@ -32,7 +32,14 @@ module PathFunctions
 		else
 			return nil
 		end
-		site_page0_url(:section => section, :id => id )
+		
+		s = section.permalink.to_sym
+		i = id ? id.permalink.to_sym : nil
+		if REVERSE_REDIRECIONS.has_key?(s) && REVERSE_REDIRECIONS[s].has_key?(i)
+			REVERSE_REDIRECIONS[s][i]
+		else
+			site_page0_url(:section => section, :id => id )
+		end
 	end
 
 end

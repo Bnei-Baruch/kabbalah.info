@@ -1,4 +1,33 @@
 class EngkabController < ApplicationController
+
+	# This action will be called for all unrecognized urls
+	# Will check for 301/305/404 statuses
+	def unrecognized?
+		path = @path || build_url(request.env)
+		if REDIRECIONS.has_key?(path)
+			action = REDIRECIONS[path][:action]
+			url_path = REDIRECIONS[path][:url]
+			case action
+			when 301 # Permanent redirect
+				redirect_301(url_path)
+				return true
+			when 305 # To old site via reverse proxy
+				redirect_305(url_path)
+				return true
+			when 303 # (See other) Just render this page from ourself w/o any redirect
+				real_show(REDIRECIONS[path][:section], REDIRECIONS[path][:id])
+				return true
+			else
+				# Unknown action
+				status_404 if (not @path) # i.e. directly from routing and not from show
+				return false
+			end
+		end
+		# 404
+		status_404 if (not @path) # i.e. directly from routing and not from show
+		return false
+	end
+
   # GET /engkab/1
   # GET /engkab/1.xml
   def main_homepage
@@ -9,14 +38,46 @@ class EngkabController < ApplicationController
   end
   
   def show
-    @section = Section.find_by_permalink(params[:section])
- 		if @section == nil
-			status_404
+  	@path = build_url(request.env)
+		return if unrecognized?
+		
+  	real_show(params[:section], params[:id])
+	end
+
+protected
+  def build_url(env)
+		env["SERVER_PROTOCOL"] .split(/\//)[0].downcase + "://" +
+		env["HTTP_HOST"] +
+		env["REQUEST_URI"]
+  end
+
+  def redirect_301(url)
+		headers["Status"] = '301 Moved Permanently'
+		redirect_to url
+  end
+  
+  def redirect_302(url)
+		headers["Status"] = '302 Moved Temporarily'
+		redirect_to url
+  end
+  
+  def redirect_305(url)
+		headers["Status"] = '305 Use Proxy'
+		redirect_to url
+  end
+
+  def status_404
+		render :partial => "engkab/global/status_404", :status => 404, :layout => false
+  end
+	
+	def real_show(section = nil, id = nil)
+    if section == nil || (@section = Section.find_by_permalink(section)) == nil
+ 			status_404
 			return
 		end
 
-  	if params[:id]
-    	@page = Page.find_by_permalink(params[:id], :include => :asset)
+  	if id
+    	@page = Page.find_by_permalink(id, :include => :asset)
     	if @page && (@page.asset.published_page? || logged_in?)
 				@page = @page.asset
 			else
@@ -34,7 +95,7 @@ class EngkabController < ApplicationController
 		end
 
  		if @page == nil
-			status_404
+ 			status_404
 			return
 		end
 
@@ -44,22 +105,7 @@ class EngkabController < ApplicationController
 
 		eval "#{@section.hrid}"
 	end
-  
-  def redirect_301(url)
-		headers["Status"] = '301 Moved Permanently'
-		redirect_to url
-  end
-  
-  def redirect_302(url)
-		headers["Status"] = '302 Moved Temporarily'
-		redirect_to url
-  end
-  
-  def status_404
-		render :partial => "engkab/global/status_404", :status => 404, :layout => false
-  end
-  
-protected
+
   def homepage
 		calculate_homepage
 		unless @main_homepage
