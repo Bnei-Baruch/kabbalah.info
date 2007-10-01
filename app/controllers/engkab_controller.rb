@@ -103,7 +103,8 @@ protected
 		@permitted_assets = @section.permitted_assets
 		store_location
 
-		eval "#{@section.hrid}"
+		#eval "#{@section.hrid}"
+		homepage
 	end
 
   def homepage
@@ -235,10 +236,12 @@ protected
 	def respond
 		action = @is_homepage ? "page/#{@section.hrid}_homepage" : "page/" + @section.hrid
 		layout = @is_homepage ? @section.layout  + '_homepage' : @section.layout
-	    respond_to do |format|
-	      format.html { render  :action => action, :layout => layout }
-	      format.xml  { render :xml => @page.to_xml }
-	    end
+    
+    respond_to do |format|
+      format.html { render :action => action, :layout => layout }
+      format.htm  { render :action => action, :layout => layout }
+      format.xml  { render :xml => @page.to_xml }
+    end
 	end
   
 end

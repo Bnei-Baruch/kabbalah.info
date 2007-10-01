@@ -63,6 +63,7 @@ end
 # Mime::Type.register "text/richtext", :rtf
 # Mime::Type.register "application/x-mobile", :mobile
 Mime::Type.register "text/css", :css
+Mime::Type.register "text/html", :htm
 # Include your application configuration below
 
 if ENV['RAILS_ENV'] == 'development'
