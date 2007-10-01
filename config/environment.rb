@@ -84,6 +84,7 @@ if File.exists?(path)
 	end
 else
 	REDIRECIONS = {}
+	REVERSE_REDIRECIONS = {}
 end
 
 # load the base application config file
