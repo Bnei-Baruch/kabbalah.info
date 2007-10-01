@@ -64,12 +64,12 @@ protected
 		headers["Status"] = '301 Moved Permanently'
 		redirect_to url
   end
-  
+
   def redirect_302(url)
 		headers["Status"] = '302 Moved Temporarily'
 		redirect_to url
   end
-  
+
   def redirect_305(url)
 		headers["Status"] = '305 Use Proxy'
 		redirect_to url
@@ -78,7 +78,7 @@ protected
   def status_404
 		render :partial => "engkab/global/status_404", :status => 404, :layout => false
   end
-	
+
 	def real_show(section = nil, id = nil)
     if section == nil || (@section = Section.find_by_permalink(section)) == nil
  			status_404
