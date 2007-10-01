@@ -78,7 +78,7 @@ if File.exists?(path)
 	REVERSE_REDIRECIONS = {}
 	REDIRECIONS.reject {|k,v| v[:action] != 303}.each_pair do |k,v|
 		section = v[:section].to_sym
-		id = v[:id].to_sym
+		id = v[:id] ? v[:id].to_sym : nil
 		REVERSE_REDIRECIONS[section] = {}
 		REVERSE_REDIRECIONS[section][id] = k
 	end

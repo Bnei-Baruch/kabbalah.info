@@ -6,13 +6,13 @@ class EngkabController < ApplicationController
 		path = @path || build_url(request.env)
 		if REDIRECIONS.has_key?(path)
 			action = REDIRECIONS[path][:action]
-			url_path = REDIRECIONS[path][:url]
 			case action
 			when 301 # Permanent redirect
+				url_path = REDIRECIONS[path][:url]
 				redirect_301(url_path)
 				return true
 			when 305 # To old site via reverse proxy
-				redirect_305(url_path)
+				redirect_305(path)
 				return true
 			when 303 # (See other) Just render this page from ourself w/o any redirect
 				real_show(REDIRECIONS[path][:section], REDIRECIONS[path][:id])

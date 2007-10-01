@@ -34,7 +34,7 @@ module PathFunctions
 		end
 		
 		s = section.permalink.to_sym
-		i = id ? id.permalink.to_sym : nil
+		i = id ? id.permalink.to_sym : :nil
 		if REVERSE_REDIRECIONS.has_key?(s) && REVERSE_REDIRECIONS[s].has_key?(i)
 			REVERSE_REDIRECIONS[s][i]
 		else
