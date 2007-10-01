@@ -6,7 +6,7 @@
 	<div class="hd-content">
 			<%# List of pages (###_list.rhtml)%>
 			<ul>
-				<%= render :partial => "engkab/list/section_list", :collection => Section.environments %>
+				<%= render :partial => "engkab/list/section_list", :collection => Section.environments(true,true) %>
 			</ul>
 	</div>
 </div>

@@ -2,8 +2,13 @@
 <% 
 	section = section_list #section_list is the default name of the variable - the same as the partial name
 	selected = section.eql?(@section) ? " class= \"selected\"" : ""
+	if section.is_external_link?
+		url = section.external_link
+	else
+		url = section_homepage_url(section)
+	end
 -%>
 	<li>
-		<a href="<%= section_homepage_url(section) %>"<%= selected%>><%= section.title %></a>
+		<a href="<%= url %>"<%= selected%>><%= section.title %></a>
 		<div class="divider">&nbsp;</div>
 	</li>

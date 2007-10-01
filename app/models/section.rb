@@ -26,10 +26,11 @@ class Section < ActiveRecord::Base
 		read_attribute("permitted_assets" ) ? read_attribute("permitted_assets" ).split(' ') : ""
 	end
 	
+	# List of sections. Option to show external links. Option to exclude homepage section.
 	def self.environments(show_homepage = true, show_links = false )
 		environments = Section.find(:all, :order => 'position ASC')
 		if show_links
-			environments = environments.select{|section| section.is_environment? && section.active_environment?}
+			environments = environments.select{|section| section.is_environment? && section.active_environment? || section.is_external_link?}
 		else
 			environments = Section.find(:all, :order => 'position ASC').select{|section| section.is_environment? && section.active_environment?}
 		end
@@ -41,6 +42,10 @@ class Section < ActiveRecord::Base
 	
 	def is_environment?
 	!self.layout.blank? && self.external_link.blank?
+	end
+
+	def is_external_link?
+	!self.external_link.blank?
 	end
 
 	def active_environment?
