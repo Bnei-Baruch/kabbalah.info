@@ -7,15 +7,15 @@
 	image = property.image_storage
 
 %>
-<div class="">
+<div class="external">
 	<h2><%= main_title %></h2>
 	<% if image %>
 		<%= link_to image_tag( image.public_filename,
 									 :alt => image.alt,
 									 :title => image.alt,
-									 :class => "article-img" ), link, :target => '_blank' %>
+									 :class => "external-img" ), link, :rel => 'external', :class => "external-a" %>
 	<% end %>
-	<%= link_to inner_title, link, :target => '_blank' %>
+	<h3><%= link_to inner_title, link, :rel => 'external' %></h3>
 	<%= content %>
 	<%= render :partial => "admin/admin_pannel", 
 						 :locals => { :edit_asset => asset,
