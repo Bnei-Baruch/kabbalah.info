@@ -38,7 +38,10 @@
 	</div>
 <% else %>
 	<div class="video asset">
-		<a name="<%= property.title_for_anchor %>"></a><h2><%= property.title %></h2>
+		<% if property.title_for_anchor %>
+			<a name="<%= property.title_for_anchor %>" id="<%= property.title_for_anchor %>"></a>
+		<% end %>
+		<h2><%= property.title %></h2>
 		<% unless property.short_description.blank? %>
 			<h3><%= property.short_description %></h3>
 		<% end %>

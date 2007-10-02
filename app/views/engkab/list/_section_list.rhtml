@@ -1,11 +1,11 @@
 <%#Displaying a single section in a list of sections -%>
 <% 
 	section = section_list #section_list is the default name of the variable - the same as the partial name
-	selected = section.eql?(@section) ? " class=\"selected\"" : ""
+	selected = section.eql?(@section) ? ' class="selected"' : ''
 	target = ""
 	if section.is_external_link?
 		url = section.external_link
-		target = " target=\"_blank\""
+		target = ' rel="external"'
 	else
 		url = section_homepage_url(section)
 	end

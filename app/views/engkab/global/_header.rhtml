@@ -36,8 +36,8 @@
 		<a href="http://files.kab.co.il/files/eng_o_norav_2007-10-01_bnei-baruch-media-kit.pdf">Media Kit</a>
 	</div>
 	<div id="choose-lang">
-		<form id="jump" name="jump" action="">
-			<select name="lang" onchange="value=document.jump.lang.options[document.jump.lang.selectedIndex].value; if (value != 0) top.location=value;">
+		<form id="jump" action="">
+			<p><select id="lang" onchange="value=this.options[this.selectedIndex].value; if (value != 0) top.location=value;">
 				<option>Choose Language</option>
 				<option value="http://www.kabbalah.info">Kabbalah — English</option>
 				<option value="http://www.kabbalah.info/rus">Каббала — Русский</option>
@@ -66,7 +66,7 @@
 				<option value="http://www.kabbalah.info/amharickab/index_amharic.htm"> — Amharic</option>
 				<option value="http://www.kabbalah.info/swedish/index.htm">Kabbalah — Swedish</option>
 				<option value="http://www.kabbalah.info/romkab/index.htm">Cabala — Romanian</option>
-			</select>
+			</select></p>
 		</form>
 	</div>
 	<div id="search">

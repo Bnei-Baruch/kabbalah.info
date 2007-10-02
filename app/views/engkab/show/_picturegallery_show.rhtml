@@ -3,7 +3,9 @@
 	pictures = asset.children
  %>
 <div class="picture_gallery asset">
-	<a name="<%= property.title_for_anchor %>"></a>
+ 	<% if property.title_for_anchor %>
+		<a name="<%= property.title_for_anchor %>" id="<%= property.title_for_anchor %>"></a>
+	<% end %>
 	<% unless property.title.blank? %>
 		<h2><%= property.title %></h2>
 	<% end %>
