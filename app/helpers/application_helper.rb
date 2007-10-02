@@ -7,10 +7,6 @@ module ApplicationHelper
 	def has_title?(collection)
 		collection ? collection.any?{|asset| !asset.resource.property.title.empty? } : false
 	end
-#This helper is used in the section preview new and edit. returns a list of sections ready for select tag
-	def get_sections
-		Section.environments(false).collect{|section| [section.title, section.id.to_s] }.sort
-	end
 	
 # Load proper configuration according to my_class -- type of an asset resource
 # Check field name (if supplied) to present

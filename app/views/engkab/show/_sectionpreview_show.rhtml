@@ -1,9 +1,10 @@
 <% 
 	section = asset.resource.section 
 	length = asset.resource.number_of_items
+	title = asset.resource.property.title.blank? ? section.title : asset.resource.property.title
 %>
 <div class="<%=section.layout%>">
-	<h2><%=section.title%></h2>
+	<h2><%= title %></h2>
 	<%= render :partial => "show_assets_in_loop",
 			   :locals => { :container => section.homepage_preview(length), :display => 'preview', :secondary_display => "_#{section.layout}"  } %>
 	<%= render :partial => "admin/admin_pannel", 
