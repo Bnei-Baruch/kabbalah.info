@@ -287,7 +287,7 @@ module	Config
 			:size => ['Size', 'i.e. 10.2MB, 1.4KB etc.'],
 		},
 		:video_in_worldwide_homepage => {
-			:title => nil,
+			:title => ['Title', ''],
 			:short_description => nil,
 			:description => ['Description'],
 			:image => nil,
@@ -295,6 +295,13 @@ module	Config
 			:transcript => nil,
 			:duration => nil,
 			:size => nil,
+		},
+		:link => {
+			:title => ['Title', ''],
+			:external_link => ['Link', 'Type any link [for example: http://www.kabbalah.info]'],
+			:short_description => nil,
+			:description => nil,
+			:image => nil,
 		},
 	}
 

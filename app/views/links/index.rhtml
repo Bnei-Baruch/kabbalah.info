@@ -1,0 +1,24 @@
+<h1>Listing links</h1>
+
+<table>
+  <tr>
+    <th>Link</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+  </tr>
+  
+<% for link in @links %>
+  <tr>
+    <td><%=h link.link %></td>
+    <td><%=h link.created_at %></td>
+    <td><%=h link.updated_at %></td>
+    <td><%= link_to 'Show', link_path(link) %></td>
+    <td><%= link_to 'Edit', edit_link_path(link) %></td>
+    <td><%= link_to 'Destroy', link_path(link), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New link', new_link_path %>

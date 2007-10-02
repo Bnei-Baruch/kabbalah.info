@@ -19,7 +19,8 @@ class Asset < ActiveRecord::Base
 		 ["Picture", "picture"],
 		 ["Category", "category"],
 		 ["RSS Feeder", "rss_feeder"],
-		 ["Section Preview", "section_preview"]
+		 ["Section Preview", "section_preview"],
+		 ["Link", "link"]
 		].sort
 	end
 

@@ -144,28 +144,28 @@ protected
   end
 
   def new_to_kabbalah
-		@content_menues = calculate_content_menu(:pages)
+		@content_menues = calculate_content_menu(:pages_categories_links)
 		calculate_main_assets
 		calculate_sidebar
 		calculate_categories( true )
 		respond
   end
   def the_zohar
-		@content_menues = calculate_content_menu(:pages)
+		@content_menues = calculate_content_menu(:pages_categories_links)
 		calculate_main_assets
 		calculate_sidebar
 		calculate_categories( true )
 		respond
   end
   def kabbalah_music
-		@content_menues = calculate_content_menu(:pages)
+		@content_menues = calculate_content_menu(:pages_categories_links)
 		calculate_main_assets
 		calculate_sidebar
 		calculate_categories( true )
 		respond
   end
   def learning_center
-		@content_menues = calculate_content_menu(:pages)
+		@content_menues = calculate_content_menu(:pages_categories_links)
 		calculate_main_assets
 		calculate_sidebar
 		calculate_categories( true )
@@ -202,15 +202,15 @@ protected
 					:message => 'New Category'
 				}
 			]
-		when :pages									# like new to kabbalah
+		when :pages_categories_links									# like new to kabbalah
 			[
 				{
-					:list => @section.assets.select {|s| ['Page', 'Category'].include?(s.resource_type) && 
+					:list => @section.assets.select {|s| ['Page', 'Category', 'Link'].include?(s.resource_type) && 
 																								s.parent_id == 0
 																					}.sort{|a, b| a.position <=> b.position},
-					:parent_id => @page.parent_id,
+					:parent_id => 0,
 					:name => 'Categories',
-					:type => %w{ page category },
+					:type => %w{ page category link },
 					:message => 'New Asset'
 				}
 			]

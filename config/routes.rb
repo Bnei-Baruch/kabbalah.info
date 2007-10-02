@@ -1,5 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
 
+
 	#homepage route
   map.mainpage '/', :controller => 'engkab', :action => 'main_homepage'
 
@@ -35,6 +36,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :pictures, :path_prefix => '/admin'
   map.resources :section_previews, :path_prefix => '/admin'
 	map.resources :rss_feeders, :path_prefix => '/admin'
+  map.resources :links, :path_prefix => '/admin'
   
   # The priority is based upon order of creation: first created -> highest priority.
 
