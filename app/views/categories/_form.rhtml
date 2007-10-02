@@ -5,6 +5,11 @@
 
 <%= render :partial => 'share/set_property_fields' %>
 
+<%= display_field(:box_title, "category_box_title") {
+			f.text_field :box_title, :class => "text"
+		}
+%>
+
 <%= render :partial => 'share/set_asset_fields' %>
 
 <div id="submit">

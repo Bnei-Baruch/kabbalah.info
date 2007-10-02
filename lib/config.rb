@@ -213,6 +213,14 @@ module	Config
 		},
 		:category => {
 			:title => ['Title', ''],
+			:box_title => ['Box Title', 'This is the title for the pages Table of contents'],
+			:short_description => nil,
+			:description => nil,
+			:image => nil,
+		},
+		:category_box => {
+			:title => nil,
+			:box_title => ['Box Title', 'This is the title for the pages Table of contents'],
 			:short_description => nil,
 			:description => nil,
 			:image => nil,

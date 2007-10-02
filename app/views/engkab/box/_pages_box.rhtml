@@ -2,6 +2,7 @@
 <% if @category -%>
 	<%
 		only_published = (not logged_in?)
+		box_title = @category.resource.box_title.empty? ? 'Pages' : @category.resource.box_title
 	%>
 	<div class="r-box">
 				<%= render :partial => "admin/admin_pannel", 
@@ -14,7 +15,7 @@
 				 								})
 			 								}
 		 								} %>
-		<h2>Pages</h2>
+		<h2><%= box_title %></h2>
 		<div class="r-box-inner">
 			<ul>
 				<% for page in Asset.get_pages_by_parent(@category, only_published) -%>

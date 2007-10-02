@@ -5,9 +5,9 @@
 -%>
 <div id="pagination">
 	<% if not (list[0].eql?(@page)) -%>
-		<%= link_to "<span>&lt;&lt;</span> Previous Page", site_page_url(list[index-1]), :class => "prev_page" -%>
+		<%= link_to "<span>&lt;&lt;</span> Previous", site_page_url(list[index-1]), :class => "prev_page" -%>
 	<%end -%>
 	<% if not (list[-1].eql?(@page)) -%>
-		<%= link_to "Next Page <span>&gt;&gt;</span>", site_page_url(list[index+1]), :class => "next_page" -%>
+		<%= link_to "Next <span>&gt;&gt;</span>", site_page_url(list[index+1]), :class => "next_page" -%>
 	<%end -%>
 </div>
