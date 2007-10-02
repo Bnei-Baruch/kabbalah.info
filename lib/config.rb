@@ -252,11 +252,19 @@ module	Config
 			:number_of_items => ['Number of items', 'Max number of items to display'],
 		},
 		:section_preview => {
-			:title => ['Title', ''],
+			:title => ['Title', 'The main title of the preview item on the homepage'],
 			:short_description => nil,
 			:description => nil,
 			:image => nil,
 			:section_id => ['Section', 'The section to show preview for'],
+		},
+		:custom_preview => {
+			:title => ['Title', 'The main title of the preview item on the homepage'],
+			:inner_title => ['Inner Title', 'inner title of the asset'],
+			:short_description => nil,
+			:description => ['Content', 'The content of the asset'],
+			:link => ['Link', 'The link to the target'],
+			:image => ['Image', 'The image of the asset'],
 		},
 		:video_gallery => {
 			:title => ['Title', ''],

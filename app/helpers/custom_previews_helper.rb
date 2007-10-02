@@ -1,0 +1,2 @@
+module CustomPreviewsHelper
+end
