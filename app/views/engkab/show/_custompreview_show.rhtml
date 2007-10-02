@@ -10,7 +10,7 @@
 <div class="external">
 	<h2><%= main_title %></h2>
 	<% if image %>
-		<%= link_to image_tag( image.public_filename,
+		<%= link_to image_tag( image.public_filename(:preview),
 									 :alt => image.alt,
 									 :title => image.alt,
 									 :class => "external-img" ), link, :rel => 'external', :class => "external-a" %>
