@@ -39,14 +39,16 @@ div.hd-hr{
 	font-size:1px;
 }
 div.video_descr{
-	height:230px;
-	padding:10px 15px 15px;
+	height:235px;
+	padding:10px 15px;
 	border:1px solid #e8e8ea;
 	background:white url('/files/layouts/<%=@layout%>/player_grad.gif') repeat-x top left;
-	font-family:arial;
-	font-size:93%;
+	font-size:85%;
 	color:#72777b;
-	line-height:16px;
+	line-height:14px;
+}
+div.video_descr p{
+	margin:0 0 3px;
 }
 h1.title{
 	margin:-3px 0 3px;
