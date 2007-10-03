@@ -1,6 +1,7 @@
 class Section < ActiveRecord::Base
 	has_many :assets
 	has_many :section_previews
+	has_and_belongs_to_many :banners
 	acts_as_list
 
 	validates_presence_of :permalink

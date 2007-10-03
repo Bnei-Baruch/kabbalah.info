@@ -319,6 +319,32 @@ module	Config
 			:description => nil,
 			:image => nil,
 		},
+		:section_banner => {
+			:title => ['Title', 'Title of the banner [Not published anywhere]'],
+			:short_description => nil,
+			:description => nil,
+			:image => nil,
+			:flash_url => ['Banner Source URL', 'To use for flash banner'],
+			:image_url => ['Image Source URL', 'To use for image banner [GIF/JPEG]'],
+			:target_link => ['Link on the Image', 'The link on the image banner'],
+			:published_date => ['Published Date', 'When the banner will be published'],
+			:unpublished_date => ['Unpublished Date', 'When the banner will be unpublished'],
+			:published => ['Published?', 'Is the banner published on the site'],
+			:section => ['Show Banner In', 'List of sections to show banner in']
+		},
+		:homepage_banner => {
+			:title => ['Title', 'Title of the banner [Not published anywhere]'],
+			:short_description => nil,
+			:description => nil,
+			:image => nil,
+			:flash_url => ['Banner Source URL', 'To use for flash banner'],
+			:image_url => ['Image Source URL', 'To use for image banner [GIF/JPEG]'],
+			:target_link => ['Link on the Image', 'The link on the image banner'],
+			:published_date => ['Published Date', 'When the banner will be published'],
+			:unpublished_date => ['Unpublished Date', 'When the banner will be unpublished'],
+			:published => ['Published?', 'Is the banner published on the site'],
+			:section => nil
+		},
 	}
 
 end

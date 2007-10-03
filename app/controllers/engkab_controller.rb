@@ -40,7 +40,7 @@ class EngkabController < ApplicationController
   # GET /engkab/1.xml
   def main_homepage
 			@section  = Section.homepage
-			@page = Asset.find_by_section_id_and_resource_type(@section.id, 'Homepage')
+			@main_homepage = @page = Asset.find_by_section_id_and_resource_type(@section.id, 'Homepage')
 			@is_homepage = true
 			homepage
   end

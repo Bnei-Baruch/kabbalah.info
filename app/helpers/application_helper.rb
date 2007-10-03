@@ -26,6 +26,7 @@ module ApplicationHelper
 	end
 	
 #Check field name and comment according to setup
+#Field is index to Config::ASSET (lib/config.rb)
 	def display_field(field, field_for = '', &block)
 
 		fields_setup = setup_config()

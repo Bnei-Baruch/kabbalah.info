@@ -21,7 +21,8 @@ class Asset < ActiveRecord::Base
 		 ["RSS Feeder", "rss_feeder"],
 		 ["Section Preview", "section_preview"],
 		 ["Custom Preview", "custom_preview"],
-		 ["Link", "link"]
+		 ["Link", "link"],
+		 ["Banner", "banner"]
 		].sort
 	end
 

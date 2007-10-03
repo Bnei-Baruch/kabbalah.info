@@ -1,0 +1,10 @@
+<h1>Editing Banner</h1>
+
+<%= render :partial => 'form',
+  :locals => {
+    :path => banner_path(@banner),
+    :method => :put,
+    :button_text => 'Update'
+  } %>
+
+<%= link_to 'Cancel', session[:referer] %>

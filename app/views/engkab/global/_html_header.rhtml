@@ -17,7 +17,12 @@
 	    hs.graphicsDir = '/files/images/highslide/';
 		</script>
 	<% end -%>
-	<% unless @main_homepage -%>
+	<% if @main_homepage -%>
+		<script type="text/javascript">
+			AC_FL_RunContent = 0;
+		</script>
+		<%= javascript_include_tag '/files/main_flash/ver1/AC_RunActiveContent' %>
+	<% else -%>
 		<%= javascript_include_tag 'embed' %> 
  		<%= javascript_include_tag 'prototype' -%>
  	<% end -%>
