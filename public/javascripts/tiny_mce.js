@@ -16,6 +16,7 @@ function blockElementAlignClean(type, value) {
             // Do custom cleanup code here
             var paragraphs = $A(value.getElementsByTagName('p'));
             var divs = $A(value.getElementsByTagName('div'));
+            var links = $A(value.getElementsByTagName('a'));
             paragraphs.each(function (paragraph) {
                 if(paragraph.align) {
                     paragraph.style.textAlign = paragraph.align;
@@ -28,6 +29,12 @@ function blockElementAlignClean(type, value) {
                     div.align = '';
                 }
             });
+            links.each(function (a) {
+                if(a.target == '_blank') {
+                    a.rel = 'external';
+                    a.target = '';
+                }
+            });
             break;
 
         case "insert_to_editor_dom": //convert back into align, to allow for changes to be made though the text align buttons
@@ -35,6 +42,7 @@ function blockElementAlignClean(type, value) {
             // Do custom cleanup code here
             var paragraphs = $A(value.getElementsByTagName('p'));
             var divs = $A(value.getElementsByTagName('div'));
+            var links = $A(value.getElementsByTagName('a'));
             paragraphs.each(function (paragraph) {
                 if(paragraph.style.textAlign) {
                     paragraph.align = paragraph.style.textAlign;
@@ -47,7 +55,13 @@ function blockElementAlignClean(type, value) {
                     div.style.textAlign = '';
                 }
             });
+            links.each(function (a) {
+                if(a.rel == 'external') {
+                    a.target = '_blank';
+                }
+            });
             break;
     }
     return value;
 }
+

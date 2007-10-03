@@ -35,6 +35,7 @@ class Asset < ActiveRecord::Base
 	def children_by_placeholder(placeholder)
 		Asset.find(:all, :conditions => "parent_id = #{id} AND placeholder_id = #{placeholder.id}", :order => "position ASC")
 	end
+	
 	def self.get_pages_by_parent(my_parent, only_published = false)
 
 		if my_parent.is_a?(Asset)
@@ -45,9 +46,11 @@ class Asset < ActiveRecord::Base
 			end
 		end
 	end
+	
 	def is_page?
 		self.resource_type == 'Page'
 	end
+	
 	def page_has_active_assets?
  		self.resource_type == 'Page' &&
  		self.children.any? do |asset| 

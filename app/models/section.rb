@@ -32,7 +32,7 @@ class Section < ActiveRecord::Base
 		if show_links
 			environments = environments.select{|section| section.is_environment? && section.active_environment? || section.is_external_link?}
 		else
-			environments = Section.find(:all, :order => 'position ASC').select{|section| section.is_environment? && section.active_environment?}
+			environments = environments.select{|section| section.is_environment? && section.active_environment?}
 		end
 		if (not show_homepage)
 			environments = environments.reject{|section| section.eql?(Section.homepage)}

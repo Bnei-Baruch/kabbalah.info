@@ -10,7 +10,7 @@
 			setTimeout("go_now()",5000);
 		}
 		function go_now () {
-    	window.location.href = "<%= section_homepage_url(Section.homepage) %>";
+    	window.location.href = "<%= section_first_page_url(Section.homepage) %>";
 		}
 	//-->
   </script>
@@ -34,7 +34,7 @@
     <h1>We are sorry for the inconvenience.</h1>
     <p>You may have mistyped the address or the page may have moved.</p>
     <p>You will be redirected to homepage in 5 seconds.</p>
-		<p><%= link_to "Otherwise please click this link", section_homepage_url(Section.homepage) %></p>
+		<p><%= link_to "Otherwise please click this link", section_first_page_url(Section.homepage) %></p>
   </div>
 </body>
 </html>

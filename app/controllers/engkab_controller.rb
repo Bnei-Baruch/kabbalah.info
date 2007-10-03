@@ -23,6 +23,7 @@ class EngkabController < ApplicationController
 				return false
 			end
 		else
+			return false if (not @section)
 			s = @section.to_sym
 			i = @id ? @id.to_sym : :nil
 			if REVERSE_REDIRECIONS.has_key?(s) && REVERSE_REDIRECIONS[s].has_key?(i)
@@ -51,6 +52,25 @@ class EngkabController < ApplicationController
 		return if unrecognized?
 		
   	real_show(@section, @id)
+	end
+
+  # GET /engkab;google_sitemap
+  # GET /engkab.xml;google_sitemap
+	def google_sitemap
+		@urls = []
+		# 1. 305 - Redirected back to the reverse proxy to show old site page.
+		REDIRECIONS.select {|k,v| v[:action] == 305}.each {|r| @urls.push(r[0])}
+		# 2. All Homepage's (including mainpage)
+		Section.environments().each do |section|
+			home = section_homepage_url(section)
+			@urls << home if home
+		end
+		# 3. All Pages
+		Asset.find_all_by_resource_type('Page').select {|p| p.published_page?}.each {|p| @urls << site_page_url(p)}
+
+    respond_to do |format|
+      format.xml
+    end
 	end
 
 protected
@@ -89,14 +109,14 @@ protected
     	if @page && (@page.asset.published_page? || logged_in?)
 				@page = @page.asset
 			else
-  			@page ? redirect_302(section_homepage_url(@section)) : status_404
+  			@page ? redirect_302(section_first_page_url(@section)) : status_404
 		    return
 			end
 			@is_homepage = false
 		else
   		@page = Asset.find_by_section_id_and_resource_type(@section.id, 'Homepage')
   		unless @page
-  			redirect_301(section_homepage_url(@section))
+  			redirect_301(section_first_page_url(@section))
 		    return
 			end
   		@is_homepage = true

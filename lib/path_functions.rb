@@ -10,6 +10,17 @@ module PathFunctions
 				site_page_url(section)
 			end
 		else
+			false
+		end
+	end
+
+	# Find the first page of a section to display
+	# It will be or homepage or a first published page
+	def section_first_page_url(section)
+		homepage = section_homepage_url(section)
+		if homepage
+			homepage
+		else
 			assets = Asset.find_all_by_section_id_and_resource_type_and_parent_id(section.id,['Category','Page'],0, :order => 'position ASC')
 			
 			first_page = assets.detect{|asset| asset.published_page? || asset.category_has_published_page?}

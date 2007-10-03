@@ -20,7 +20,8 @@ ActionController::Routing::Routes.draw do |map|
   # map.section2 ':controller/:section/:category0/:category1/:id', :action => 'show'
 
   map.resources :engkab, :controller => 'engkab',
-  											 :singular => 'engkab_page'
+  											 :singular => 'engkab_page',
+  											 :collection => {:google_sitemap => :get}
 
 
   

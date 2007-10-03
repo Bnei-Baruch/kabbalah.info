@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   # Pick a unique cookie name to distinguish our session data from others
   session :session_key => '_engkab_session_id'
-  helper_method(:section_homepage_url, :site_page_url)
+  helper_method(:section_first_page_url, :site_page_url)
 
   uses_tiny_mce(:options => {:theme => 'advanced',
 	                       :browsers => %w{msie gecko},
@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
 	                       :theme_advanced_resizing => true,
 	                       :theme_advanced_resize_horizontal => true,
 	                       :paste_auto_cleanup_on_paste => true,
-	                       :extended_valid_elements => "a[name|href|target|title|onclick]",
+	                       :extended_valid_elements => "a[name|rel|href|target|title|onclick]",
 	                       :theme_advanced_buttons1 => %w{ bold italic separator justifyleft justifycenter justifyright indent outdent separator ltr rtl separator bullist numlist },
 	                       :theme_advanced_buttons2 => %w{ code fullscreen separator undo redo separator search separator pastetext pasteword selectall separator anchor link unlink image media separator removeformat },
 	                       :theme_advanced_buttons3 => [],
