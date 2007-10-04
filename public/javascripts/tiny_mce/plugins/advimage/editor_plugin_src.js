@@ -58,6 +58,7 @@ var TinyMCE_AdvancedImagePlugin = {
 	cleanup : function(type, content) {
 		switch (type) {
 			case "insert_to_editor_dom":
+			alert("insert_to_editor_dom";
 				var imgs = content.getElementsByTagName("img"), src, i;
 				for (i=0; i<imgs.length; i++) {
 					var onmouseover = tinyMCE.cleanupEventStr(tinyMCE.getAttrib(imgs[i], 'onmouseover'));

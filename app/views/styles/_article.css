@@ -14,10 +14,9 @@
 	font-family:arial;
 }
 .article h3{
-	margin:0;
+	margin:0 0 20px;
 	font-size:100%;
-	color:#888888;
-	font-weight:normal;
+	color:#666666;
 	font-family:arial;
 }
 .has_image h2{
@@ -43,5 +42,5 @@
 .article , .article div, .article p{
 	font-size:100%;
 	line-height:131%;
-	margin:0 0 2ex;
+	margin:1.5ex 0 0;
 }

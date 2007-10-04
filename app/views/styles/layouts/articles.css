@@ -51,15 +51,15 @@ div.video_descr p{
 	margin:0 0 3px;
 }
 h1.title{
-	margin:-3px 0 3px;
+	margin:10px 0 3px;
 	font-family:Arial,Trebuchet,sans-serif;
 	font-size:197%;
 	font-weight:normal;
 	color:#A6A7AB;
 }
 h3.title{
-	margin:0 0 20px;
-	font-size:108%;
+	margin:0 0 15px;
+	font-size:116%;
 	color:#8E8F91;
 	font-weight:normal;
 	font-family:arial;
@@ -69,7 +69,7 @@ h3.title{
 }
 #assets h2{
 	margin:0 0 4px;
-	padding:20px 0 0;
+	padding:13px 0 0;
 }
 div.hr{
 	border-top:1px solid #c2c3c6;
