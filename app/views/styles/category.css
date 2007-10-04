@@ -1,4 +1,8 @@
 <%# Category -%>
+.tinyleft{
+	float:left;
+	margin: 0 5px 0 0;
+}
 .category{
 	background-color:<%=@palette[:category_bg]%>;
 	margin-bottom:10px;
