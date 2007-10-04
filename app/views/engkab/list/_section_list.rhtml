@@ -2,15 +2,18 @@
 <% 
 	section = section_list #section_list is the default name of the variable - the same as the partial name
 	selected = section.eql?(@section) ? ' class="selected"' : ''
-	target = ""
 	if section.is_external_link?
 		url = section.external_link
 		target = ' rel="external"'
+		host = URI.parse(url).host
+		onclick = " onclick=\"javascript:urchinTracker('/outgoing/#{host}');\""
 	else
 		url = section_first_page_url(section)
+		target = ''
+		onclick = ''
 	end
 -%>
 	<li>
-		<a href="<%= url %>"<%= target + selected%>><%= section.title %></a>
+		<a href="<%= url %>"<%= target + selected + onclick %>><%= section.title %></a>
 		<div class="divider">&nbsp;</div>
 	</li>
