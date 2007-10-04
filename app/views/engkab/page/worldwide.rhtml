@@ -1,6 +1,7 @@
 <%#This part will be created for sidebar in articles %>
 
 <% content_for(:sidebar) do %>
+	<%= render :partial => "engkab/box/pages_box" %><%# partial for list of pages in the category%> 
 	<%= render :partial => "engkab/box/toc_box" %><% # partial for TOC in sidebar%>
 	<%= render :partial => "engkab/box/right_box" %><%# partial for related materials and other stuff for the sidebar%> 
 <% end # sidebar %>

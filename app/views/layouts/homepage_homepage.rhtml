@@ -10,7 +10,11 @@
 			<div class="yui-b">
 				<div class="yui-g flash"><%# Flash %>
 					<!--<img src="/files/layouts/flash.jpg" width="757" height="240" alt="temp flash" />-->
-					<%= render :partial => "engkab/general/main_flash" %>
+					<%= render :partial => "engkab/general/flash",
+										 :locals => {:path => '/files/main_flash/ver1/',
+										 						 :name => 'flashbox',
+																 :width => '755',
+																 :height => '240'} %>
 				</div>
 				<div class="yui-g"><%# Content (top) part %>
 					<h2 class="hd-middle">What's New - Updates and Featured Content</h2>

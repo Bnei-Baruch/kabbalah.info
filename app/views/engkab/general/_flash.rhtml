@@ -1,0 +1,37 @@
+<script language="javascript">
+	if (AC_FL_RunContent == 0) {
+		alert("This page requires AC_RunActiveContent.js.");
+	} else {
+		AC_FL_RunContent(
+			'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0',
+			'width', '<%= width %>',
+			'height', '<%= height %>',
+			'src', '<%= path + name %>',
+			'quality', 'high',
+			'pluginspage', 'http://www.macromedia.com/go/getflashplayer',
+			'FlashVars', 'path=%2ffiles%2fmain_flash%2fver1%2f',
+			'align', 'middle',
+			'play', 'true',
+			'loop', 'true',
+			'scale', 'showall',
+			'wmode', 'window',
+			'devicefont', 'false',          
+			'id', '<%= name %>',
+			'bgcolor', '#ffffff',
+			'name', '<%= name %>',
+			'menu', 'true',
+			'allowFullScreen', 'false',
+			'allowScriptAccess','sameDomain',
+			'movie', '<%= path + name %>',
+			'salign', ''
+			); //end AC code
+	}
+</script>
+<noscript>
+	<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="<%= width %>" height="<%= height %>" id="<%= name %>" align="middle">
+	<param name="allowScriptAccess" value="sameDomain" />
+	<param name="allowFullScreen" value="false" />
+	<param name="FlashVars" value="path=%2ffiles%2fmain_flash%2fver1%2f" />
+	<param name="movie" value="<%= path + name %>.swf" /><param name="quality" value="high" /><param name="bgcolor" value="#ffffff" />	<embed src="<%= path + name %>.swf" quality="high" bgcolor="#ffffff" width="755" height="240" name="<%= name %>" align="middle" allowScriptAccess="sameDomain" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+	</object>
+</noscript>

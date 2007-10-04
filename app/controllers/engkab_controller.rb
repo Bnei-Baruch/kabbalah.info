@@ -160,6 +160,7 @@ protected
 		end
 		calculate_main_assets
 		calculate_sidebar
+		calculate_categories( true )
 		respond
   end
 
@@ -203,11 +204,11 @@ protected
 			@section.assets.select {|s| s.resource_type == 'Category' && s.parent_id == 0}.sort{|a, b| a.position <=> b.position}.each do |cat|
 				if cat.children
 					result << {
-						:list => cat.children.select {|p| p.resource_type == 'Page'},
+						:list => cat.children.select {|p| ['Page', 'Category', 'Link'].include?(p.resource_type)},
 						:parent_id => cat.id,
 						:name => cat.resource.property.title,
-						:type => 'page',
-						:message => 'New Page'
+						:type => %w{ page category link },
+						:message => 'New Asset'
 					}
 				end
 			end
