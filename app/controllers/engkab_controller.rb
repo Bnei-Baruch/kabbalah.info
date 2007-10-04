@@ -151,16 +151,20 @@ protected
 
   def worldwide
 		@content_menues = calculate_content_menu(:categories_with_pages)
+		@media_category = Asset.media_category(@section)
+		@events_category = Asset.events_category(@section)
 		if @is_homepage
-			@media_category = Asset.media_category(@section)
-			@events_category = Asset.events_category(@section)
 			@media_pages = Asset.get_pages_by_parent(@media_category)
 			@events_pages = Asset.get_pages_by_parent(@events_category)
 			@top_video = @page.children[0] && @page.children[0].resource_type.eql?('Video') ? @page.children[0] : nil
 		end
 		calculate_main_assets
 		calculate_sidebar
-		calculate_categories( true )
+		if @page.parent &&
+			 @page.parent.resource_type == "Category" &&
+			 (not [@media_category, @events_category].include?(@page.parent))
+			@category = @page.parent
+		end
 		respond
   end
 
