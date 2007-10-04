@@ -7,13 +7,13 @@
 		target = ' rel="external"'
 		host = URI.parse(url).host
 		onclick = " onclick=\"javascript:urchinTracker('/outgoing/#{host}');\""
+		external = image_tag( "/files/layouts/external.png", :alt => '', :title => '', :class => 'external-link')
 	else
 		url = section_first_page_url(section)
-		target = ''
-		onclick = ''
+		target = onclick = external = ''
 	end
 -%>
 	<li>
-		<a href="<%= url %>"<%= target + selected + onclick %>><%= section.title %></a>
+		<a href="<%= url %>"<%= target + selected + onclick %>><%= external %><%= section.title %></a>
 		<div class="divider">&nbsp;</div>
 	</li>
