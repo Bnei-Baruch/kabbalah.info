@@ -68,8 +68,11 @@ div.hd-content{
 div.hd-content a, div.hd-content a:visited{
 	color:#0698bc;
 }
-.vod, .articles, .blog,.external{
-	padding: 0 0 20px;
+.vod, .articles, .external{
+	padding:0 0 20px;
+}
+.blog{
+	padding:0;
 }
 .r-box h2{
 	background: <%=@palette[:category_active]%> url('/files/layouts/<%=@palette_name%>/hd-gradient.gif') repeat-x top left;
@@ -87,11 +90,12 @@ div.hd-content a, div.hd-content a:visited{
 }
 .right-item{
 	padding:10px 8px 0;
+	font-size:85%;
 }
 .right-item h3{
 	margin:0 0 2px 120px;
 	color:#1999BC;
-	font-size:85%;
+	font-size:96%;
 	font-family:arial;
 }
 .vod h3{
@@ -101,19 +105,19 @@ div.hd-content a, div.hd-content a:visited{
 	text-decoration:none;
 }
 .articles h3{
-	margin:0 10px 0 68px;
+	margin:0 10px 0 79px;
 }
 .right-item p{
 	margin:0;
-	font-size:77%;
 	padding:0 10px 0 0;
 }
 .blog .right-item p{
 	margin:0 0 10px;
-	font-size:85%;
+	font-size:96%;
+	line-height:140%;
 }
 .articles .right-description{
-	margin:0pt 10px 0pt 69px;
+	margin:0pt 10px 0pt 79px;
 }
 .vod .right-description{
 	margin:0 0 0 118px;
@@ -152,19 +156,12 @@ div.hd-content a, div.hd-content a:visited{
 }
 .external .external-img{
 	float:left;
-	margin:10px 10px 5px 0;
+	margin:3px 10px 5px 0;
 	border:1px solid #CCCDCF;
 }
-.external h3 a{
-	text-decoration:none;
-}
 .external h3{
-	color:#1999BC;
-	font-size:85%;
-	font-family:arial;
 	margin:0;
 }
 .external p{
 	margin:0;
-	font-size:77%;
 }
