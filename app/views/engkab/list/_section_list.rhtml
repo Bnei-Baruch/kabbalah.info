@@ -2,11 +2,11 @@
 <% 
 	section = section_list #section_list is the default name of the variable - the same as the partial name
 	selected = section.eql?(@section) ? ' class="selected"' : ''
+	link_text = h(section.title)
 	if section.is_external_link?
 		url = section.external_link
 		target = ' rel="external"'
-		host = URI.parse(url).host
-		onclick = " onclick=\"javascript:urchinTracker('/outgoing/#{host}');\""
+		onclick = " onclick=\"javascript:urchinTracker('/outgoing/#{link_text}');\""
 		#external = image_tag( "/files/layouts/external.png", :alt => '', :title => '', :class => 'external-link')
 		external = ''
 	else
@@ -15,6 +15,6 @@
 	end
 -%>
 	<li>
-		<a href="<%= url %>"<%= target + selected + onclick %>><%= external %><%= section.title %></a>
+		<a href="<%= url %>"<%= target + selected + onclick %>><%= external %><%= link_text %></a>
 		<div class="divider">&nbsp;</div>
 	</li>
