@@ -3,6 +3,10 @@
 	float:left;
 	margin: 0 5px 0 0;
 }
+.tinyright{
+	float:right;
+	margin: 0 0 0 5px;
+}
 .category{
 	background-color:<%=@palette[:category_bg]%>;
 	margin:0 0 10px;

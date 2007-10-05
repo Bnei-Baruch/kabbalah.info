@@ -76,6 +76,13 @@ var TinyMCE_AdvancedImagePlugin = {
 
 						imgs[i].setAttribute('onmouseout', "this.src='" + src + "';");
 					}
+					if (getAttrib(imgs[i], 'class').indexOf('tinyleft') != -1) {
+						imgs[i].align = 'left';
+						imgs[i].setAttribute('class', "");
+					} else if (getAttrib(imgs[i], 'class').indexOf('tinyright') != -1) {
+						imgs[i].align = 'right';
+						imgs[i].setAttribute('class', "");
+					}
 				}
 				break;
 
@@ -97,6 +104,14 @@ var TinyMCE_AdvancedImagePlugin = {
 							src = eval(tinyMCE.settings['urlconverter_callback'] + "(src, null, true);");
 
 						imgs[i].setAttribute('onmouseout', "this.src='" + src + "';");
+					}
+					if (imgs[i].align == 'left') {
+						imgs[i].setAttribute('class', 'tinyleft');
+						imgs[i].align = '';
+					}
+					if (imgs[i].align == 'right') {
+						imgs[i].setAttribute('class', 'tinyright');
+						imgs[i].align = '';
 					}
 				}
 				break;
