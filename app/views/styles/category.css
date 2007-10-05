@@ -5,7 +5,7 @@
 }
 .category{
 	background-color:<%=@palette[:category_bg]%>;
-	margin:10px 0;
+	margin:0 0 10px;
 }
 .category h2{
 	background-color:<%=@palette[:category_hd_bg]%>;
@@ -127,7 +127,7 @@
 	height:21px;
 	line-height:20px;
 	padding:0 0 0 10px;
-	margin:0 0 4px;
+	margin:0 0 10px;
 }
 #top-env a, #top-env a:visited{
 	font-size:85%;
