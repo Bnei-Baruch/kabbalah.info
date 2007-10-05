@@ -5,7 +5,7 @@ class EngkabController < ApplicationController
 	def unrecognized?
 		path = @path || build_url(request.env)
 		if REDIRECTIONS.has_key?(path)
-			action = REDIRECIONS[path][:action]
+			action = REDIRECTIONS[path][:action]
 			case action
 			when 301 # Permanent redirect
 				url_path = REDIRECTIONS[path][:url]
