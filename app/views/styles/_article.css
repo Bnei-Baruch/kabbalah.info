@@ -1,7 +1,5 @@
 .article .article-img{
 	float:left;
-	width:70px;
-	height:70px;
 	display:block;
 	margin:0 10px 0 0;
 }
@@ -14,7 +12,7 @@
 	font-family:arial;
 }
 .article h3{
-	margin:0 0 20px;
+	margin:0;
 	font-size:100%;
 	color:#666666;
 	font-family:arial;
@@ -43,4 +41,9 @@
 	font-size:100%;
 	line-height:131%;
 	margin:1.5ex 0 0;
+}
+.article .clear{
+	height:1px;
+	font-size:1px;
+	line-height:1px;
 }

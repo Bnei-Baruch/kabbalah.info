@@ -28,7 +28,7 @@ div.hd-content{
 	height:100%;
 }
 #assets h1 {
-	margin:0 0 5px 9px;
+	margin:0 0 5px 35px;
 	height:25px;
 	color:#4E4E4E;
 	font-size:146.5%;
@@ -44,7 +44,7 @@ div.hd-content{
 	height:320px;
 	margin:0 auto 10px;
 	border:1px solid #E8E8EA;
-	padding:10px 25px 10px 42px;
+	padding:10px 0 10px 13px;
 	background:white url('/files/layouts/<%=@layout%>/player_grad.gif') repeat-x top left;
 }
 .media-description{

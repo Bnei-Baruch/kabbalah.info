@@ -33,29 +33,28 @@
 }
 .r-box-inner ul li a{
 	color:#1999BC;
-	display:block;
 	width:auto;
-	padding:0 0 0 2px;
+	padding:0;
 	margin:0;
 	text-decoration:none;
 	font-size:77%;
+	border-bottom:1px solid white;
 }
 .r-box-inner ul li a:link, .r-box-inner ul li a:visited {
 	color:#1999BC;
 }
 .r-box-inner ul li a.selected, .r-box-inner ul li a:hover {
-	background-color:<%=@palette[:category_active]%>;
+	border-bottom:1px solid #1999BC;
 }
 .r-box-inner a{
 	text-decoration:none;
 	font-size:77%;
-	display:block;
 	width:auto;
-	padding:0 5px 0 2px;
+	padding:0 5px 0 0;
 	margin:0;
 }
 .r-box-inner a:hover{
-	background-color:<%=@palette[:category_active]%>;
+	border-bottom:1px solid #1999BC;
 }
 .r-box-inner p {
 	margin:0;

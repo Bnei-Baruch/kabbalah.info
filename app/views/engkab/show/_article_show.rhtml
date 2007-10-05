@@ -18,6 +18,9 @@
 	<% unless property.short_description.blank? %>
 		<h3><%= property.short_description %></h3>
 	<% end %>
+	<% if image %>
+		<div class="clear">&nbsp;</div>
+	<% end %>
 	<% unless asset.resource.body.blank? %>
 		<%= asset.resource.body %>
 	<% end %>
