@@ -16,7 +16,7 @@
 										 :title => image.alt,
 										 :class => "external-img" ), link, :rel => 'external', :class => "external-a" %>
 		<% end %>
-		<h3><%= link_to inner_title, link, :rel => 'external' %></h3>
+		<h3><%= link_to h(inner_title), link, :rel => 'external' %></h3>
 		<%= content %>
 		<%= render :partial => "admin/admin_pannel", 
 							 :locals => { :edit_asset => asset,
