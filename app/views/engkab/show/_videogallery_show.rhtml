@@ -80,11 +80,11 @@
 			</script>
 		<% end -%>	
 	</div>
-	<div class="media-description">
-		<% unless asset.resource.property.description.blank? -%>
+	<% unless asset.resource.property.description.blank? -%>
+		<div class="media-description">	
 			<%= asset.resource.property.description %>
-		<% end -%>
-	</div>
+		</div>
+	<% end -%>
 	<div class="clear">&nbsp;</div>
 	<%= render :partial => "admin/admin_pannel",
 						 :locals => { :new_asset => { 
