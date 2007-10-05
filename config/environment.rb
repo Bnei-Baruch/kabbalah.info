@@ -75,17 +75,16 @@ end
 # load the redirection config file
 path = "#{RAILS_ROOT}/config/redirection.yml"
 if File.exists?(path)
-	REDIRECIONS = YAML.load_file(path)
-	REVERSE_REDIRECIONS = {}
-	REDIRECIONS.reject {|k,v| v[:action] != 303}.each_pair do |k,v|
+	REDIRECTIONS = YAML.load_file(path)
+	REVERSE_REDIRECTIONS = {}
+	REDIRECTIONS.reject {|k,v| v[:action] != 303}.each_pair do |k,v|
 		section = v[:section].to_sym
 		id = v[:id] ? v[:id].to_sym : nil
-		REVERSE_REDIRECIONS[section] = {}
-		REVERSE_REDIRECIONS[section][id] = k
+		REVERSE_REDIRECTIONS[[section, id]] = k
 	end
 else
-	REDIRECIONS = {}
-	REVERSE_REDIRECIONS = {}
+	REDIRECTIONS = {}
+	REVERSE_REDIRECTIONS = {}
 end
 
 # load the base application config file
