@@ -5,7 +5,7 @@
 }
 .category{
 	background-color:<%=@palette[:category_bg]%>;
-	margin-bottom:10px;
+	margin-bottom:10px 0;
 }
 .category h2{
 	background-color:<%=@palette[:category_hd_bg]%>;
@@ -123,15 +123,17 @@
 }
 #top-env{
 	position:relative;
-	background: #CED0D2 url(/files/layouts/vod/env.gif) 0 0 no-repeat;
+	background: #CECFD1 url(/files/layouts/vod/env.gif) 0 0 no-repeat;
 	height:20px;
 	line-height:19px;
 	padding:0 0 0 10px;
 	margin:0 0 4px;
 }
 #top-env a, #top-env a:visited{
-	font-size:77%;
-	color:#4e4e4e;
+	font-size:85%;
+	color:#78797B;
+	font-family:arial;
+	font-weight:bold;
 	text-decoration:none;
 }
 #top-env .env a, #top-env .env a:visited{
