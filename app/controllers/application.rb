@@ -16,7 +16,6 @@ class ApplicationController < ActionController::Base
 
   uses_tiny_mce(:options => {
 								  :theme => 'advanced',
-								  :mode => 'specific_textareas',
 	                       :browsers => %w{msie gecko},
 	                       :width => "450",
 	                       :inline_styles => true,
