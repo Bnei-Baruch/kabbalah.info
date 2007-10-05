@@ -5,7 +5,7 @@
 }
 .category{
 	background-color:<%=@palette[:category_bg]%>;
-	margin-bottom:10px 0;
+	margin:10px 0;
 }
 .category h2{
 	background-color:<%=@palette[:category_hd_bg]%>;
