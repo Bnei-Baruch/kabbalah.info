@@ -7,7 +7,8 @@
 		target = ' rel="external"'
 		host = URI.parse(url).host
 		onclick = " onclick=\"javascript:urchinTracker('/outgoing/#{host}');\""
-		external = image_tag( "/files/layouts/external.png", :alt => '', :title => '', :class => 'external-link')
+		#external = image_tag( "/files/layouts/external.png", :alt => '', :title => '', :class => 'external-link')
+		external = ''
 	else
 		url = section_first_page_url(section)
 		target = onclick = external = ''

@@ -153,7 +153,6 @@ h2.hd-middle span#bread a, h2.hd-middle span#bread a:visited{
 	font-family:verdana;
 	font-size:85%;
 	text-decoration:none;
-	text-transform:capitalize;
 }
 .hd-border{
 	background-color:<%=@palette[:category_active]%>;

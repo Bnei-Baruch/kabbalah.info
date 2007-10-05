@@ -12,7 +12,9 @@
 									 :title => image.alt,
 									 :class => "article-img" )%>
 	<% end %>
-	<h2><%= property.title %></h2>
+	<% unless property.title.blank? %>
+		<h2><%= property.title %></h2>
+	<% end %>
 	<% unless property.short_description.blank? %>
 		<h3><%= property.short_description %></h3>
 	<% end %>

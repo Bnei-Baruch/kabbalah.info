@@ -13,7 +13,6 @@
 	line-height:18px;
 	margin:0;
 	padding:0 8px;
-	text-transform:capitalize;
 	font-size:<%=@palette[:h2_font_size]%>;
 	border-left:1px solid <%=@palette[:category_active]%>;
 	border-right:1px solid <%=@palette[:category_active]%>;
@@ -52,8 +51,8 @@
 	font-size:77%;
 	display:block;
 	width:auto;
-	margin:0 0 5px 2px;
-	padding:0;
+	padding:0 5px 0 2px;
+	margin:0;
 }
 .r-box-inner a:hover{
 	background-color:<%=@palette[:category_active]%>;

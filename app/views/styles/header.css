@@ -22,8 +22,8 @@
 }
 #header #choose-lang{
 	position:absolute;
-	top:64px;
-	right:182px;
+	top:1px;
+	right:2px;
 	font-size:77%;
 }
 #header #choose-lang select{
@@ -36,16 +36,16 @@
 }
 #header #links a, #header #links a:visited,#header #choose-lang a, #header #choose-lang a:visited{
 	font-size:100%;
-	color:#0698BC;
+	color:#1999BC;
 	padding:0 0 2px;
 	text-decoration:none;
 }
 #header #links{
-	color:#0698BC;
+	color:#1999BC;
 	position:absolute;
 	top:22px;
 	right:0;
-	font-size:77%;
+	font-size:73%;
 }
 #header #search{
 	position:absolute;

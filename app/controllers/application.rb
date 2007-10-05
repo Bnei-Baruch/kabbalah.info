@@ -14,7 +14,9 @@ class ApplicationController < ActionController::Base
   session :session_key => '_engkab_session_id'
   helper_method(:section_first_page_url, :site_page_url)
 
-  uses_tiny_mce(:options => {:theme => 'advanced',
+  uses_tiny_mce(:options => {
+								  :theme => 'advanced',
+								  :mode => 'specific_textareas',
 	                       :browsers => %w{msie gecko},
 	                       :width => "450",
 	                       :inline_styles => true,
@@ -44,7 +46,7 @@ class ApplicationController < ActionController::Base
 	                       :theme_advanced_buttons3 => [],
 								  :media_use_script => "true",
 	                       :plugins => %w{contextmenu paste fullscreen inlinepopups directionality searchreplace media advimage}},
-								  :advimage_styles => 'left_aligned=tinyleft;',
+								  :advimage_styles => %w{left_aligned=tinyleft},
 								  :debug => true,
 	          :only => [:new, :edit, :show, :index])
 

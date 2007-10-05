@@ -222,7 +222,6 @@ div#bread a, div#bread a:visited{
 	font-size:77%;
 	font-weight:bold;
 	text-decoration:none;
-	text-transform:capitalize;
 }
 span.slash{
 	color:#666666;
