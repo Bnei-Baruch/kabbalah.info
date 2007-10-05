@@ -129,9 +129,10 @@ div.hd-content a, div.hd-content a:visited{
 }
 .vod .right-i{
 	background-color:#CCCDCF;
-	padding:4px;
 	width:100px;
 	height:60px;
+	padding:4px;
+	*padding:4px 4px 2px;
 }
 .vod .right-i img{
 	width:100px;

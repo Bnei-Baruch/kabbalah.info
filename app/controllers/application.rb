@@ -46,7 +46,7 @@ class ApplicationController < ActionController::Base
 	                       :theme_advanced_buttons3 => [],
 								  :media_use_script => "true",
 	                       :plugins => %w{contextmenu paste fullscreen inlinepopups directionality searchreplace media advimage}},
-								  :advimage_styles => %w{left_aligned=tinyleft},
+								  :advimage_styles => 'left_aligned=tinyleft',
 								  :debug => true,
 	          :only => [:new, :edit, :show, :index])
 
