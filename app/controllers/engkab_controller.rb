@@ -23,7 +23,6 @@ class EngkabController < ApplicationController
 				return false
 			end
 		else
-			return false if (not @section)
 			section = @section ? @section.to_sym : nil
 			id = @id ? @id.to_sym : nil
 			if REVERSE_REDIRECTIONS.has_key?([section, id])
