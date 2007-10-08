@@ -1,25 +1,5 @@
 <script type="text/javascript">
-	AC_FL_RunContent(
-		'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0',
-		'width', '<%= width %>',
-		'height', '<%= height %>',
-		'src', '<%= path + name %>',
-		'quality', 'high',
-		'pluginspage', 'http://www.macromedia.com/go/getflashplayer',
-		'FlashVars', 'path=%2ffiles%2fmain_flash%2fver1%2f',
-		'align', 'middle',
-		'play', 'true',
-		'loop', 'true',
-		'scale', 'showall',
-		'wmode', 'window',
-		'devicefont', 'false',          
-		'id', '<%= name %>',
-		'bgcolor', '#ffffff',
-		'name', '<%= name %>',
-		'menu', 'true',
-		'allowFullScreen', 'false',
-		'allowScriptAccess','sameDomain',
-		'movie', '<%= path + name %>',
-		'salign', ''
-		); //end AC code
+  var FO = { movie:"<%= path + name %>.swf", width:"100%", height:"100%",
+    majorversion:"6", build:"40" };
+  UFO.create(FO, "<%= name %>");
 </script>

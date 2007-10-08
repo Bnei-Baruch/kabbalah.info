@@ -8,8 +8,8 @@
 	<div id="bd"><%# Body%>
 		<div id="yui-main">
 			<div class="yui-b">
-				<div class="yui-g flash"><%# Flash %>
-					<!--<img src="/files/layouts/flash.jpg" width="757" height="240" alt="temp flash" />-->
+				<div class="yui-g" id="flash"><%# Flash %>
+					<div id='flashbox'>This is flash</div>
 					<%= render :partial => "engkab/general/flash",
 										 :locals => {:path => '/files/main_flash/',
 										 						 :name => 'flashbox',

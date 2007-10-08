@@ -1,9 +1,15 @@
 .graylinks div.hd-content a, .graylinks div.hd-content a:visited{
 	color:<%=@palette[:category_fg]%> !important;
 }
-.flash{
+<%# Flash %>
+#flash{
 	margin:0 0 10px;
 }
+#flashbox{
+	width:757px;
+	height:240px;
+}
+
 <%# Middle part %>
 h2.hd-middle {
 	background-color:<%=@palette[:middle_hd_bg]%>;
