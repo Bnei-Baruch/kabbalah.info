@@ -14,7 +14,7 @@
 .category h2{
 	background-color:<%=@palette[:category_hd_bg]%>;
 	color:<%=@palette[:category_hd_fg]%>;
-	height:20px;
+	min-height:20px;
 	line-height:22px;
 	padding:0 10px;
 	margin:0 0 1px;
@@ -62,7 +62,7 @@
 .category .divider{
 	background-color:white;
 	border-top:1px solid <%=@palette[:category_divider]%>;
-	height:2px;
+	min-height:2px;
 	line-height:2px;
 	font-size:1px;
 }
@@ -72,7 +72,7 @@
 	background-color:#F5F5F5;
 }
 .env h2{
-	height:20px;
+	min-height:20px;
 	line-height:20px;
 	padding:0 10px;
 	text-transform:uppercase;
@@ -115,7 +115,7 @@
 	background-color:#CECFD2;
 }
 .env .env-anchor{
-	height:1px;
+	min-height:1px;
 	line-height:1px;
 	font-size:1px;
 }
@@ -127,8 +127,9 @@
 }
 #top-env{
 	position:relative;
-	background: #CECFD1 url(/files/layouts/vod/env.gif) 0 0 no-repeat;
-	height:21px;
+	background: #d1d2d4 url(/files/layouts/env.gif) right top no-repeat;
+	*height:21px;
+	min-height:21px;
 	line-height:20px;
 	padding:0 0 0 10px;
 	margin:0 0 10px;
@@ -164,7 +165,7 @@
 	background-color:<%=@palette[:services_hd_bg]%>;
 	color:<%=@palette[:services_hd_fg]%>;
 	border-bottom:1px solid <%=@palette[:services_bottom_line]%>;
-	height:19px;
+	min-height:19px;
 	line-height:19px;
 	padding:0 10px;
 	margin:0 0 1px;
@@ -173,7 +174,7 @@
 }
 .s-border{
 	background-color:<%=@palette[:services_bottom_line]%>;
-	height:4px;
+	min-height:4px;
 	line-height:4px;
 	font-size:4px;
 }
@@ -201,13 +202,14 @@
 	color:#4e4e4e;
 }
 .service form input#email{
-	height:12px;
+	min-height:20px;
 	width:100px;
 	padding:3px 0 0;
 }
 .service form input.subscribe{
-	width:48px;
-	height:17px;
+	*width:48px;
+	min-width:48px;
+	min-height:17px;
 	margin:0 0 2px;
 	*margin:0 4px;
 	padding:0 0 3px;

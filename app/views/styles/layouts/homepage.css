@@ -15,7 +15,7 @@ h2.hd-middle {
 	background-color:<%=@palette[:middle_hd_bg]%>;
 	color:<%=@palette[:middle_hd_fg]%>;
 	border-bottom:1px solid <%=@palette[:bottom_line]%>;
-	height:20px;
+	min-height:20px;
 	line-height:20px;
 	padding:0 8px;
 	margin:0 0 1px;

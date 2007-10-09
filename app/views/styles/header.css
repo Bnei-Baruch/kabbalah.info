@@ -54,7 +54,6 @@
 	position:absolute;
 	top:56px;
 	right:0;
-	width:170px;
 	font-size:77%;
 	font-family:verdana;
 }
@@ -67,12 +66,15 @@
 	color:#4e4e4e;
 }
 #header #search form input#SearchString{
-	width:112px;
-	height:11px;
+	*width:112px;
+	*height:11px;
+	min-width:112px;
+	min-height:11px;
 }
 #header #search form input#B1{
-	width:48px;
-	height:17px;
+	min-width:48px;
+	*width:48px;
+	min-height:17px;
 	margin:0 0 1px;
 	*margin:2px 0 0;
 	padding:0 0 2px;

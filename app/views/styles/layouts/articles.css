@@ -3,7 +3,7 @@ h2.hd-middle {
 	background-color:<%=@palette[:middle_hd_bg]%>;
 	color:<%=@palette[:middle_hd_fg]%>;
 	border-bottom:1px solid <%=@palette[:bottom_line]%>;
-	height:20px;
+	min-height:20px;
 	line-height:20px;
 	padding:0 10px;
 	margin:0 0 1px;
@@ -15,7 +15,7 @@ h2.hd-middle {
 }
 .hd-border{
 	background-color:<%=@palette[:wide_line]%>;
-	height:4px;
+	min-height:4px;
 	line-height:4px;
 	font-size:4px;
 }
@@ -34,12 +34,12 @@ div.hd-hr-padding{
 }
 div.hd-hr{
 	border-top:1px solid #c2c3c6;
-	height:1px;
+	min-height:1px;
 	line-height:1px;
 	font-size:1px;
 }
 div.video_descr{
-	height:235px;
+	min-height:235px;
 	padding:10px 15px;
 	border:1px solid #e8e8ea;
 	background:white url('/files/layouts/<%=@layout%>/player_grad.gif') repeat-x top left;
@@ -74,7 +74,7 @@ h3.title{
 div.hr{
 	border-top:1px solid #c2c3c6;
 	margin:20px 0 0;
-	height:1px;
+	min-height:1px;
 	line-height:1px;
 	font-size:1px;
 }

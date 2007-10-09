@@ -10,7 +10,7 @@ h2.vod-hd {
 	background-color:<%=@palette[:middle_hd_bg]%>;
 	color:<%=@palette[:middle_hd_fg]%>;
 	border-bottom:1px solid <%=@palette[:bottom_line]%>;
-	height:20px;
+	min-height:20px;
 	line-height:20px;
 	padding:0 8px;
 	margin:0 0 1px;
@@ -29,7 +29,7 @@ div.hd-content{
 }
 #assets h1 {
 	margin:0 0 5px 35px;
-	height:25px;
+	min-height:25px;
 	color:#4E4E4E;
 	font-size:146.5%;
 	font-family:arial;
@@ -37,11 +37,11 @@ div.hd-content{
 }
 #assets #media {
 	width:400px;
-	height:305px;
+	min-height:305px;
 }
 .player{
 	width:393px;
-	height:320px;
+	min-height:320px;
 	margin:0 auto 10px;
 	border:1px solid #E8E8EA;
 	padding:10px 0 10px 13px;
@@ -74,7 +74,7 @@ div.hd-content{
 	margin:0;
 	padding:0 0 0 8px;
 	line-height:18px;
-	height:18px;
+	min-height:18px;
 	color:#4e4e4e;
 	font-size:85%;
 	font-family:arial;
@@ -130,7 +130,7 @@ h2.hd-middle {
 	background-color:<%=@palette[:middle_hd_bg]%>;
 	color:<%=@palette[:middle_hd_fg]%>;
 	border-bottom:1px solid <%=@palette[:bottom_line]%>;
-	height:20px;
+	min-height:20px;
 	line-height:20px;
 	padding:0 8px;
 	margin:0 0 1px;
@@ -156,7 +156,7 @@ h2.hd-middle span#bread a, h2.hd-middle span#bread a:visited{
 }
 .hd-border{
 	background-color:<%=@palette[:category_active]%>;
-	height:4px;
+	min-height:4px;
 	line-height:4px;
 	font-size:4px;
 }

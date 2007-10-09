@@ -6,10 +6,10 @@
 	background-color:transparent !important;
 }
 .r-box h2{
-	background:<%=@palette[:category_active]%> url('/files/layouts/<%=@palette_name%>/hd-gradient.gif') repeat-x top left;
+	background:<%=@palette[:category_active]%> url('/files/layouts/<%=@palette_name%>/hd-gradient.gif') repeat top left;
 	border:1px solid <%=@palette[:rbox_border]%>;
 	color:<%=@palette[:middle_hd_bg]%>;
-	height:18px;
+	min-height:18px;
 	line-height:18px;
 	margin:0;
 	padding:0 8px;
