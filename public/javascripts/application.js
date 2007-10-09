@@ -159,35 +159,79 @@ TextResizeDetector = function() {
  	}
 }();
 
+function getStyle(el, style)
+{
+  if(!document.getElementById) return;
+
+	var value = parseInt(el.style[toCamelCase(style)]);
+
+  if(isNaN(value) || value == 0) {
+		if(document.defaultView)
+			value = document.defaultView.getComputedStyle(el, "").getPropertyValue(style);
+		else if(el.currentStyle)
+			value = el.currentStyle[toCamelCase(style)];
+	}
+	value = parseInt(value);
+   if(isNaN(value)) {
+     if (style == 'width')
+       return el.offsetWidth;
+     else if (style == 'height')
+       return el.offsetHeight;
+   }
+
+	return value;
+}
+
+function setStyle(el, styl, value) {
+  el.style[styl] = value;
+}
+
+function toCamelCase( sInput ) {
+  var oStringList = sInput.split('-');
+
+  if(oStringList.length == 1)   
+    return oStringList[0];
+
+  var ret = sInput.indexOf("-") == 0 ?
+       oStringList[0].charAt(0).toUpperCase() + oStringList[0].substring(1) : oStringList[0];
+
+  for(var i = 1, len = oStringList.length; i < len; i++){
+    var s = oStringList[i];
+    ret += s.charAt(0).toUpperCase() + s.substring(1)
+  }
+
+  return ret;
+}
+
+var resizableswf = null;
+var baseSize;
+var origWidth;
+var origheight;
+TextResizeDetector.TARGET_ELEMENT_ID = 'resizer';
+TextResizeDetector.USER_INIT_FUNC = init;
+    
 function init(){
   var iBase = TextResizeDetector.addEventListener( onFontResize, null );
+  resizableswf = document.getElementById('flashbox');
+  origWidth  = parseFloat(getStyle(resizableswf, "width" ));
+  origHeight = parseFloat(getStyle(resizableswf, "height"));
   if (iBase != 16){
-    var resizableswf = $('flashbox');
-		var sizeDiff = $('flash').getWidth() / resizableswf.getWidth();
+		var sizeDiff = parseFloat(getStyle(document.getElementById(TextResizeDetector.TARGET_ELEMENT_ID), "width")) / parseFloat(origWidth);
   	fontResize(sizeDiff);
   }
 }
 
-TextResizeDetector.TARGET_ELEMENT_ID = 'flash';
-TextResizeDetector.USER_INIT_FUNC = init;
-    
-var lastSize = null;
 function onFontResize(e,args) {
-    lastSize = (lastSize == null)?args[0].iBase:lastSize;
-    var newSize = (args[0].iSize == 0)?1:args[0].iSize;
-    var sizeDiff = newSize/lastSize;
-    fontResize(sizeDiff);
-   
-    lastSize = newSize;
+  var sizeDiff = getStyle(document.getElementById(TextResizeDetector.TARGET_ELEMENT_ID), "width") / origWidth;
+  fontResize(sizeDiff);
 }
 function fontResize(sizeDiff)
 {
-    var resizableswf = $('flashbox');
     if(resizableswf){
-        var newWidth = (parseFloat(resizableswf.getWidth())*parseFloat(sizeDiff))+"px";
-        var newHeight = (parseFloat(resizableswf.getHeight())*parseFloat(sizeDiff))+"px";
-        resizableswf.style.width = newWidth;
-        resizableswf.style.height = newHeight;
+        var newWidth = (origWidth * parseFloat(sizeDiff))+"px";
+        var newHeight = (origHeight * parseFloat(sizeDiff))+"px";
+        setStyle(resizableswf, "width", newWidth);
+        setStyle(resizableswf, "height", newHeight);
     }
 }
 

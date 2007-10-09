@@ -8,15 +8,15 @@
 	<div id="bd"><%# Body%>
 		<div id="yui-main">
 			<div class="yui-b">
-				<div class="yui-g" id="flash"><%# Flash %>
-					<div id='flashbox'>This is flash</div>
+				<div id="flash" class="yui-g"><%# Flash %>
+					<div id='flashbox'></div>
 					<%= render :partial => "engkab/general/flash",
 										 :locals => {:path => '/files/main_flash/',
 										 						 :name => 'flashbox',
 																 :width => '757',
 																 :height => '240'} %>
 				</div>
-				<div class="yui-g"><%# Content (top) part %>
+				<div id="resizer" class="yui-g"><%# Content (top) part %>
 					<h2 class="hd-middle">What's New - Updates and Featured Content</h2>
 					<div class="hd-border">&nbsp;</div>
 				</div>
