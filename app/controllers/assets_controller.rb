@@ -1,4 +1,30 @@
 class AssetsController < ApplicationController
+
+  # POST /assets/1;sort
+  def sort
+    if !has_right?(:edit)
+      redirect_to :unauthorized
+      return
+    end
+
+    @page = Asset.find(params[:id])
+    resources = Asset.find_all_by_parent_id(@page.id)
+		list = params["assets-list#{params[:id]}"]
+    resources.each do |resource|
+    	resource.position = list.index(resource.id.to_s) + 1
+    	resource.save
+  	end
+		#render :nothing => true
+    render :update do |page|
+      page[:assets].replace_html :partial => "engkab/show_assets_in_loop",
+						 :locals => { :container => resources, :display => "show" }
+      #page[:assets].insert_html :bottom, 
+             #:partial => "engkab/general/next_prev_navigation_in_category"
+    end
+    return
+
+  end
+
   # GET /assets
   # GET /assets.xml
   def index

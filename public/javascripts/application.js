@@ -159,7 +159,7 @@ TextResizeDetector = function() {
  	}
 }();
 
-function getStyle(el, style)
+function _getStyle(el, style)
 {
   if(!document.getElementById) return;
 
@@ -182,7 +182,7 @@ function getStyle(el, style)
 	return value;
 }
 
-function setStyle(el, styl, value) {
+function _setStyle(el, styl, value) {
   el.style[styl] = value;
 }
 
@@ -213,16 +213,16 @@ TextResizeDetector.USER_INIT_FUNC = init;
 function init(){
   var iBase = TextResizeDetector.addEventListener( onFontResize, null );
   resizableswf = document.getElementById('flashbox');
-  origWidth  = parseFloat(getStyle(resizableswf, "width" ));
-  origHeight = parseFloat(getStyle(resizableswf, "height"));
+  origWidth  = parseFloat(_getStyle(resizableswf, "width" ));
+  origHeight = parseFloat(_getStyle(resizableswf, "height"));
   if (iBase != 16){
-		var sizeDiff = parseFloat(getStyle(document.getElementById(TextResizeDetector.TARGET_ELEMENT_ID), "width")) / parseFloat(origWidth);
+		var sizeDiff = parseFloat(_getStyle(document.getElementById(TextResizeDetector.TARGET_ELEMENT_ID), "width")) / parseFloat(origWidth);
   	fontResize(sizeDiff);
   }
 }
 
 function onFontResize(e,args) {
-  var sizeDiff = getStyle(document.getElementById(TextResizeDetector.TARGET_ELEMENT_ID), "width") / origWidth;
+  var sizeDiff = _getStyle(document.getElementById(TextResizeDetector.TARGET_ELEMENT_ID), "width") / origWidth;
   fontResize(sizeDiff);
 }
 function fontResize(sizeDiff)
@@ -230,8 +230,8 @@ function fontResize(sizeDiff)
     if(resizableswf){
         var newWidth = (origWidth * parseFloat(sizeDiff))+"px";
         var newHeight = (origHeight * parseFloat(sizeDiff))+"px";
-        setStyle(resizableswf, "width", newWidth);
-        setStyle(resizableswf, "height", newHeight);
+        _setStyle(resizableswf, "width", newWidth);
+        _setStyle(resizableswf, "height", newHeight);
     }
 }
 
