@@ -66,11 +66,6 @@ Mime::Type.register "text/css", :css
 Mime::Type.register "text/html", :htm
 # Include your application configuration below
 
-if ENV['RAILS_ENV'] == 'development'
-  require "ruby-debug"
-  Debugger.start
-end
-
 # load the redirection config file
 path = "#{RAILS_ROOT}/config/redirection.yml"
 if File.exists?(path)
