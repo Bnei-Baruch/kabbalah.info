@@ -8,18 +8,19 @@ class AssetsController < ApplicationController
     end
 
     @page = Asset.find(params[:id])
-    resources = Asset.find_all_by_parent_id(@page.id)
+    resources = Asset.find_all_by_parent_id(@page.id, :order => 'position ASC')
 		list = params["assets-list#{params[:id]}"]
     resources.each do |resource|
     	resource.position = list.index(resource.id.to_s) + 1
     	resource.save
   	end
-		#render :nothing => true
+    resources = Asset.find_all_by_parent_id(@page.id, :order => 'position ASC')
+		assets = render_to_string :partial => "engkab/show_assets_in_loop",
+					 :locals => { :container => resources, :display => "show" }
+		navigation = render_to_string :partial => "engkab/general/next_prev_navigation_in_category"
     render :update do |page|
-      page[:assets].replace_html :partial => "engkab/show_assets_in_loop",
-						 :locals => { :container => resources, :display => "show" }
-      #page[:assets].insert_html :bottom, 
-             #:partial => "engkab/general/next_prev_navigation_in_category"
+      page.replace_html 'assets', assets
+      page.insert_html :bottom, 'assets', navigation
     end
     return
 
