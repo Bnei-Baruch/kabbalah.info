@@ -68,7 +68,6 @@ Mime::Type.register "text/html", :htm
 
 if ENV['RAILS_ENV'] == 'development'
   require "ruby-debug"
-  SCRIPT_LINES__ = {}
   Debugger.start
 end
 
