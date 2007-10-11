@@ -58,7 +58,7 @@ class EngkabController < ApplicationController
 	def google_sitemap
 		@urls = []
 		# 1. 305 - Redirected back to the reverse proxy to show old site page.
-		REDIRECIONS.select {|k,v| v[:action] == 305}.each {|r| @urls.push(r[0])}
+		REDIRECTIONS.select {|k,v| v[:action] == 305}.each {|r| @urls.push(r[0])}
 		# 2. All Homepage's (including mainpage)
 		Section.environments().each do |section|
 			home = section_homepage_url(section)
