@@ -3,7 +3,7 @@
 	selected = asset.eql?(@page) ? " class= \"selected\"" : ""
 -%>
 <% if asset.published_page? || logged_in? -%>
-	<li>
+    <li id='category_<%= asset.id %>'>
 		<a href="<%= site_page_url(asset) %>"<%= selected%>><%= asset.resource.property.title %></a>
 		<div class="divider">&nbsp;</div>
 		<%= render :partial => "admin/admin_pannel", 

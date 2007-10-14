@@ -5,7 +5,7 @@
 	link_text = h(asset.resource.property.title)
 	onclick = " onclick=\"javascript:urchinTracker('/outgoing/#{link_text}');\""
 -%>
-	<li>
+	<li id='category_<%= asset.id %>'>
 		<a rel="external" <%= onclick %> href="<%= href %>"><%= link_text %></a>
 		<div class="divider">&nbsp;</div>
 		<%= render :partial => "admin/admin_pannel", 

@@ -3,7 +3,7 @@
 	image = property.image_storage
  %>
 <div class="article asset">
- 	<% if property.title_for_anchor %>
+ 	<% unless property.title_for_anchor.blank? %>
 		<a name="<%= property.title_for_anchor %>" id="<%= property.title_for_anchor %>"></a>
 	<% end %>
 	<% if image %>

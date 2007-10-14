@@ -1,14 +1,48 @@
 class AssetsController < ApplicationController
 
+  # POST /assets/0;sort_section
+  def sort_section
+    if !has_right?(:edit)
+      redirect_to :unauthorized and return
+    end
+    resources = Section.environments(false,true)
+		list = params["assets-list0"]
+    resources.each do |resource|
+    	resource.position = list.index(resource.id.to_s) + 1
+    	resource.save
+  	end
+    # We're not going to move something
+    render :nothing => true and return
+  end
+
+  # POST /assets/1;sort_category
+  def sort_category
+    if !has_right?(:edit)
+      redirect_to :unauthorized and return
+    end
+    section = Section.find(id = params[:id])
+    resources = section.assets.select {|s|
+      ['Page', 'Category', 'Link'].include?(s.resource_type) && 
+																								s.parent_id == 0
+		}
+		list = params["assets-list#{id}"]
+    resources.each do |resource|
+    	index = list.index(resource.id.to_s)
+    	resource.position = index ? index + 1 : 1
+    	resource.save
+  	end
+    # We're not going to move something
+    render :nothing => true and return
+  end
+
   # POST /assets/1;sort
   def sort
     if !has_right?(:edit)
-      redirect_to :unauthorized
-      return
+      redirect_to :unauthorized and return
     end
 
     @page = Asset.find(params[:id])
-    resources = Asset.find_all_by_parent_id(@page.id, :order => 'position ASC')
+    resources = Asset.find_all_by_parent_id(@page.id)
 		list = params["assets-list#{params[:id]}"]
     resources.each do |resource|
     	resource.position = list.index(resource.id.to_s) + 1
@@ -20,10 +54,8 @@ class AssetsController < ApplicationController
 		navigation = render_to_string :partial => "engkab/general/next_prev_navigation_in_category"
     render :update do |page|
       page.replace_html 'assets', assets
-      page.insert_html :bottom, 'assets', navigation
-    end
-    return
-
+      page.insert_html :bottom, 'assets', navigation if navigation != ""
+    end and return
   end
 
   # GET /assets

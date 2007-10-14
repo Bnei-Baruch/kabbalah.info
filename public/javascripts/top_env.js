@@ -18,7 +18,9 @@ var TopNav = {
 		newEnvDiv.addClassName('env');
 		newEnvDiv.addClassName('drop-down');
 		newEnvDiv.hide();
-		newEnvDiv.innerHTML = envDiv[0].innerHTML;
+		// copy everything excluding script (Sortable in admin mode)
+      // 'ul' and 'li' must be copied without id(s)
+      this.copyNode(envDiv[0], newEnvDiv);
 
 		$('top-env').appendChild(newEnvDiv);
 
@@ -26,6 +28,19 @@ var TopNav = {
 		this.topenva = $$('#top-env a')[0];
 		this.topenva.onclick = function() {return false}
 	},
+   copyNode: function(fromNode, toNode) {
+      $A(fromNode.childNodes).each(function(fromChild, index){
+          if ((fromChild.tagName == undefined) ||
+              (fromChild.tagName && fromChild.tagName != "SCRIPT")) {
+            clone = fromChild.cloneNode(false);
+            if (clone.id != "") {
+              clone.id += "x";
+            }
+            var toChild = toNode.appendChild(clone);
+            TopNav.copyNode(fromChild, toChild);
+          }
+      });
+   },
 	onmouse: function(event){
 		var dropdown = this.dropdown;
 		var target = Event.element(event);

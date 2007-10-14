@@ -29,7 +29,10 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :video_galleries, :path_prefix => '/admin'
   map.resources :assets, :path_prefix => '/admin',
-  								:member => { :sort => :post }
+  								:member => { :sort => :post,
+                               :sort_category => :post,
+                               :sort_section => :post,
+                             }
   map.resources :sections, :path_prefix => '/admin'
   map.resources :homepages, :path_prefix => '/admin'
   map.resources :pages, :path_prefix => '/admin'
