@@ -1,0 +1,10 @@
+<h1>Editing category</h1>
+
+<%= render :partial => 'form',
+  :locals => {
+    :path => category_path(@category),
+    :method => :put,
+    :button_text => 'Update'
+  } %>
+
+<%= link_to 'Cancel', session[:referer] %>

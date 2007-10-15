@@ -1,0 +1,11 @@
+<h1>Editing Section Preview</h1>
+
+<%= render :partial => 'form',
+  :locals => {
+    :path => section_preview_path(@section_preview),
+    :method => :put,
+    :button_text => 'Update'
+  } %>
+
+<%= link_to 'Cancel', session[:referer] %>
+

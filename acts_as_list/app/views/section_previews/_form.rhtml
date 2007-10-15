@@ -1,0 +1,19 @@
+<div id="input_form">
+<%= error_messages_for :section_preview, :property, :image_storage %>
+
+<% form_for(:section_preview, :url => path, :html => {:method => method, :multipart => true }) do |f| %>
+
+<%= render :partial => 'share/set_property_fields' %>
+
+<%= render :partial => 'share/set_asset_fields' %>
+
+<label for="section_preview_section_id">Section:</label><%= select_tag :section_id, options_from_collection_for_select(Section.environments(false), :id, :title, @section_preview.section.id.to_i), :name => 'section_preview[section_id]', :id => 'section_preview_section_id' %>
+
+<label for="section_preview_number_of_items">Number Of Items:</label><%= f.text_field :number_of_items%>
+<br />
+<br />
+<div id="submit">
+    <%= submit_tag button_text %>
+</div>
+<% end %>
+</div>

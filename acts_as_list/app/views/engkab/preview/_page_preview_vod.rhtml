@@ -1,0 +1,44 @@
+<%
+#Displaying a preview of a single page in a list of pages
+%>
+<% 
+	property = asset.resource.property
+	if asset.children.size > 0
+		video_child = (asset.children[0].resource_type == "Video") ? asset.children[0] : nil
+		duration = video_child ? video_child.resource.duration : ""
+	end
+%>
+<% if asset.published_page? || logged_in? && has_right?(:create)  %>
+<div class="right-item">
+	<h3><%= link_to property.title, site_page_url(asset) %></h3>
+	<div class="right-img">
+		<div class="right-i">
+			<% if property.image_storage -%>
+				<%= link_to image_tag( property.image_storage.public_filename(:preview),
+																:alt => property.image_storage.alt,
+																:title => property.image_storage.alt,
+																:size => "100x60" ),
+									   site_page_url(asset) -%>
+			<% else -%>
+				<a href="<%= site_page_url(asset) %>" title="<%= asset.resource.property.title%>" alt="<%= asset.resource.property.title%>"><img src="/files/layouts/vod/movie.jpg" width="100" height="60" alt="Movie" /></a>
+			<% end -%>
+		</div>
+		<% unless duration.blank? -%>
+			<div class="right-time">Time: <span><%= duration%></span></div>
+		<% end -%>
+	</div>
+	<div class="right-description">
+		<!--<h3><%#= link_to property.title, site_page_url(asset) %></h3>-->
+		<% unless property.short_description.blank? %><p><%= property.short_description%></p> <% end %>
+	</div>
+	<%= render :partial => "admin/admin_pannel",
+					 :locals => { :edit_asset => asset,
+					 							:delete_asset => asset,
+												:classes => YAML.dump({
+													:page => :web_page
+												}),
+					 							:nobreak => true
+					 						} %>
+	<div class="clear">&nbsp;</div>
+</div>
+<% end %>

@@ -1,0 +1,18 @@
+<% on_homepage ||= false%>
+<div class="<%= on_homepage ? "category graylinks" : "env"%>"><%# first menu %>
+	<a class="env-anchor" name="env"></a>
+	<h2>Navigation</h2>
+	<div class="hd-border">&nbsp;</div>
+	<div class="hd-content">
+			<%# List of pages (###_list.rhtml)%>
+			<ul id='assets-list0'>
+				<%= render :partial => "engkab/list/section_list", :collection => Section.environments(false,true) %>
+			</ul>
+      <%= if logged_in?
+             sortable_element 'assets-list0',
+               :url => sort_by_parent_id_asset_path(0),
+               :complete => visual_effect(:highlight, 'assets-list0', :startcolor=>'"#ffff99"', :endcolor=>'"#ffffff"')
+          end
+      %>
+	</div>
+</div>

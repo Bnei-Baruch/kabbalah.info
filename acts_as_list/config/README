@@ -1,0 +1,15 @@
+To change password run:
+
+ruby script/console production
+	
+And there use the following commands:
+
+include Admin
+secret_password_change_function('<username>', '<new-password>')
+
+That's it!
+
+Right now passwords are:
+
+admin -- super Kabbalist
+editor -- fellow Editor

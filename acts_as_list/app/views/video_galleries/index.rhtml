@@ -1,0 +1,22 @@
+<h1>Listing video_galleries</h1>
+
+<table>
+  <tr>
+    <th>Created at</th>
+    <th>Updated at</th>
+  </tr>
+  
+<% for video_gallery in @video_galleries %>
+  <tr>
+    <td><%=h video_gallery.created_at %></td>
+    <td><%=h video_gallery.updated_at %></td>
+    <td><%= link_to 'Show', video_gallery_path(video_gallery) %></td>
+    <td><%= link_to 'Edit', edit_video_gallery_path(video_gallery) %></td>
+    <td><%= link_to 'Destroy', video_gallery_path(video_gallery), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New video_gallery', new_video_gallery_path %>

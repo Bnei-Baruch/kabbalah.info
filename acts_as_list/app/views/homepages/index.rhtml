@@ -1,0 +1,22 @@
+<h1>Listing homepages</h1>
+
+<table>
+  <tr>
+    <th>Created at</th>
+    <th>Updated at</th>
+  </tr>
+  
+<% for homepage in @homepages %>
+  <tr>
+    <td><%=h homepage.created_at %></td>
+    <td><%=h homepage.updated_at %></td>
+    <td><%= link_to 'Show', homepage_path(homepage) %></td>
+    <td><%= link_to 'Edit', edit_homepage_path(homepage) %></td>
+    <td><%= link_to 'Destroy', homepage_path(homepage), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New homepage', new_homepage_path %>

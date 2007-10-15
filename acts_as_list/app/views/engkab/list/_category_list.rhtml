@@ -1,0 +1,38 @@
+<% #Displaying a a single category in a list of categories -%>
+<%
+	title = asset.resource.property.title
+	children = Asset.get_pages_by_parent(asset, (not logged_in?))
+	selected = asset.eql?(@category) ? " class= \"selected\"" : ""
+-%>
+<% if (not logged_in?) -%>
+  <% if children.size > 0 -%>
+    <li>
+      <a href="<%= site_page_url(children.first) %>"<%= selected%>><%= title %></a>
+			<div class="divider">&nbsp;</div>
+		</li>
+	<% end -%>
+<% else #logged_in? -%>
+	<li id='category_<%= asset.id %>'>
+    <% if children.size > 0 -%>
+			<a href="<%= site_page_url(children.first) %>"<%= selected%>><%= title %></a>
+		<% else # category_has_page -%>
+			<p class="new_category"><%= title %></p>
+		<% end # category_has_page -%>
+		<%= render :partial => "admin/admin_pannel", 
+				 :locals => { :new_asset => { 
+				 								:parent_id => asset, 
+				 								:type => "page", 
+				 								:message => "New Page",
+				 								:classes => YAML.dump({
+				 								:page => :web_page
+				 								})
+				 							},
+				 							:edit_asset => asset,
+				 							:delete_asset => asset,
+			 								:classes => YAML.dump({
+			 								:category => :category
+			 								})
+		 								} %>
+		<div class="divider">&nbsp;</div>
+	</li>
+<% end #logged_in? -%>

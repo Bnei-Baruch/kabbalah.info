@@ -1,0 +1,11 @@
+<h1>Editing placeholder</h1>
+
+<%= render :partial => 'form',
+  :locals => {
+    :path => placeholder_path(@placeholder),
+    :method => :put,
+    :button_text => 'Update'
+  } %>
+
+<%= link_to 'Show', placeholder_path(@placeholder) %> |
+<%= link_to 'Back', placeholders_path %>

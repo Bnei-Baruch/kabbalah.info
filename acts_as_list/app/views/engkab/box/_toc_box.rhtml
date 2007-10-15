@@ -1,0 +1,21 @@
+<%# create table of contents -%>
+<% if has_title?(@main_assets) -%>
+	<div class="r-box">
+		<h2>Contents</h2>
+		<div class="r-box-inner">
+			<ul id='assets-list<%= @page.id %>'>
+				<% for asset in @main_assets -%>
+					<%unless asset.resource.property.title.empty? -%>
+						<li id='asset_<%= asset.id %>'><a href="<%= site_page_url(@page) %>#<%= asset.resource.property.title_for_anchor%>"><%= asset.resource.property.title %></a></li>
+					<% end -%>
+				<% end -%>
+			</ul>
+		</div>
+	</div>
+   <%= if logged_in?
+         sortable_element "assets-list#{@page.id}",
+				:url => sort_asset_path(@page.id),
+        :complete => visual_effect(:highlight, 'assets-list0', :startcolor=>'"#ffff99"', :endcolor=>'"#ffffff"')
+       end
+	%>
+<% end -%>

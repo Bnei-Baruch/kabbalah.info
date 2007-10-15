@@ -1,0 +1,26 @@
+<div id="input_form">
+<%= error_messages_for :custom_preview, :property, :image_storage %>
+
+<% form_for(:custom_preview, :url => path, :html => {:method => method, :multipart => true }) do |f| %>
+
+<%= display_field(:inner_title, "custom_preview_inner_title") {
+			f.text_field :inner_title, :class => "text"
+		}
+%>
+
+<%= display_field(:link, "custom_preview_link") {
+			f.text_field :link, :class => "text"
+		}
+%>
+
+<%= render :partial => 'share/set_property_fields' %>
+
+<%= render :partial => 'share/set_asset_fields' %>
+
+<br />
+<br />
+<div id="submit">
+    <%= submit_tag button_text %>
+</div>
+<% end %>
+</div>

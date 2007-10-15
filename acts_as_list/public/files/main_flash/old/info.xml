@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<bb assets_path="assets/">
+	<content name="test">
+	
+		<module states="2" title="">
+			<video name="scene1"></video>
+			<copy>
+				<text font="TheSans" size="48" autoSize="left" wordWrap="false" color="0x0698BC">
+					<value><![CDATA[What is Kabbalah?]]></value>
+				</text>
+			</copy>
+			<copy>
+				<text font="TheSans" size="18" autoSize="left" wordWrap="true" color="0x0698BC">
+					<value><![CDATA[The wisdom of Kabbalah studies\n the laws and forces hidden\n from our five senses]]></value>
+				</text>
+			</copy>
+			
+		</module>
+		
+		<module states="2">
+			<video name="scene2"></video>
+			<copy>
+				<text font="TheSans" size="38" autoSize="left" wordWrap="true" color="0x96C93D">
+					<value><![CDATA[What is Not Kabbalah?]]></value>
+				</text>
+			</copy>
+			<copy>
+				<text font="TheSans" size="38" autoSize="left" wordWrap="true" 	color="0x96C93D">
+					<value><![CDATA[What is Not Kabbalah?]]></value>
+				</text>
+			</copy>
+			
+		</module>
+		
+		<module states="1">
+			<video name="scene3"></video>
+			<copy>
+				<text font="TheSans" size="28" autoSize="left" wordWrap="false" color="0xED1C26">
+					<value><![CDATA[What is the goal of Kabbalah?]]></value>
+				</text>
+			</copy>
+			<copy>
+			</copy>
+			
+		</module>
+		
+	</content>
+</bb>

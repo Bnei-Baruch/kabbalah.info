@@ -1,0 +1,69 @@
+<%#This part will be created for sidebar in articles %>
+
+<% content_for(:content_menu) do %>
+	<%= render :partial => "show_content_menu_in_loop" %><%# partial for Menu in Content menu%>
+	<%= render :partial => "engkab/box/services_box" %>
+	<%= render :partial => "engkab/box/sections_box" %><%# partial for Menu in Content menu%>
+<% end # content_menu %>
+
+<%	if @top_video
+		video = @top_video.resource
+	end
+%>
+<% content_for(:top_video) do %>
+	<% if @top_video and not video.video_link.blank? %>
+		<div class="player" id="<%= "x#{video.id}" %>">
+			<script type="text/javascript">
+			//<![CDATA[
+			     var fullScreenMessageErr = "Media Player must be playing...";
+			     var fullScreenMessageNote = "To return to browser please press ESC";
+			     CreateControl("<%= "x#{video.id}" %>","<%= video.video_link %>", 1, 340, 256);
+			//]]>
+			</script>
+		</div>
+	<% end %>
+	<%= render :partial => "admin/admin_pannel",
+					 :locals => { :edit_asset => @top_video,
+												:classes => YAML.dump({
+													:video => :video_in_worldwide_homepage
+												}),
+					 							:nobreak => true
+					 						} %>
+<% end # top_video %>
+
+<% content_for(:top_video_descr) do %>
+	<% if @top_video and not video.property.description.blank? %>
+		<p><%= video.property.description %></p>
+	<% end %>
+<% end # top_video_descr %>
+
+<% content_for(:events) do %>
+	<%= render :partial => "admin/admin_pannel",
+			   :locals => { :new_asset => { :parent_id => @events_category.id, 
+											:type => 'page',
+											:classes => YAML.dump({
+												:page => :web_page
+											}),
+											:message => "New Event"
+										  }
+						  } %>
+	
+	
+	<%= render :partial => "show_assets_in_loop",
+			   :locals => { :container => @events_pages, :display => 'preview', :secondary_display => '_articles'  } %>
+<% end # events %>
+
+<% content_for(:media) do %>
+	<%= render :partial => "admin/admin_pannel",
+			   :locals => { :new_asset => { :parent_id => @media_category.id, 
+						 					:type => 'page',
+											:classes => YAML.dump({
+												:page => :web_page
+											}),
+						 					:message => "New Media"
+						 				   }
+						  } %>
+	<%= render :partial => "show_assets_in_loop",
+			   :locals => { :container => @media_pages, :display => 'preview', :secondary_display => '_media'  } %>
+	
+<% end # media %>

@@ -1,0 +1,10 @@
+<h1>Editing video</h1>
+
+<%= render :partial => 'form',
+  :locals => {
+    :path => video_path(@video),
+    :method => :put,
+    :button_text => 'Update'
+  } %>
+
+<%= link_to 'Cancel', session[:referer] %>

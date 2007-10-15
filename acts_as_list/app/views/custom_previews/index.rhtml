@@ -1,0 +1,26 @@
+<h1>Listing custom_previews</h1>
+
+<table>
+  <tr>
+    <th>Inner title</th>
+    <th>Link</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+  </tr>
+  
+<% for custom_preview in @custom_previews %>
+  <tr>
+    <td><%=h custom_preview.inner_title %></td>
+    <td><%=h custom_preview.link %></td>
+    <td><%=h custom_preview.created_at %></td>
+    <td><%=h custom_preview.updated_at %></td>
+    <td><%= link_to 'Show', custom_preview_path(custom_preview) %></td>
+    <td><%= link_to 'Edit', edit_custom_preview_path(custom_preview) %></td>
+    <td><%= link_to 'Destroy', custom_preview_path(custom_preview), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New custom_preview', new_custom_preview_path %>

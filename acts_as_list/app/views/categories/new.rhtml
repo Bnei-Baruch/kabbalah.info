@@ -1,0 +1,10 @@
+<h1>New category</h1>
+
+<%= render :partial => 'form',
+  :locals => {
+    :path => categories_path,
+    :method => :post,
+    :button_text => 'Create'
+  } %>
+
+<%= link_to 'Cancel', session[:referer] %>

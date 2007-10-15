@@ -1,0 +1,13 @@
+<p>
+  <b>Created at:</b>
+  <%=h @picture_gallery.created_at %>
+</p>
+
+<p>
+  <b>Updated at:</b>
+  <%=h @picture_gallery.updated_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_picture_gallery_path(@picture_gallery) %> |
+<%= link_to 'Back', picture_galleries_path %>

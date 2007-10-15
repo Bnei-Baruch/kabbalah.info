@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+one:
+  id: 1
+  parent_id: 
+  position: 
+  section_id: 
+  resource_id: 
+  resource_type: 
+  created_at: 
+  updated_at: 2007-08-28 15:23:38
+two:
+  id: 2
+  parent_id: 
+  position: 
+  section_id: 
+  resource_id: 
+  resource_type: 
+  created_at: 
+  updated_at: 2007-08-28 15:23:38

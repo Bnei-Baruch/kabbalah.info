@@ -1,0 +1,10 @@
+<h1>New homepage</h1>
+
+<%= render :partial => 'form',
+  :locals => {
+    :path => homepages_path,
+    :method => :post,
+    :button_text => 'Create'
+  } %>
+
+<%= link_to 'Cancel', session[:referer] %>

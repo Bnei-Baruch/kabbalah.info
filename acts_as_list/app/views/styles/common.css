@@ -1,0 +1,23 @@
+<%# Common styles %>
+.clear, .clear_r, .clear_l{
+	clear:both;
+	height:1px;
+	line-height:1px;
+	font-size:1px;
+}
+.clear_r{
+	clear:right;
+}
+.clear_l{
+	clear:left;
+}
+cite{
+	font:bold normal 110% Times;
+}
+body {
+	text-align:left;
+	font-family:verdana,arial,helvetica,clean,sans-serif;
+}
+a, a:visited{
+	color:#1999BC;
+}

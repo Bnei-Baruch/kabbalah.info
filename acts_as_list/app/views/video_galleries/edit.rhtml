@@ -1,0 +1,11 @@
+<h1>Editing video_gallery</h1>
+
+<%= render :partial => 'form',
+  :locals => {
+    :path => video_gallery_path(@video_gallery),
+    :method => :put,
+    :button_text => 'Update'
+  } %>
+
+<%= link_to 'Cancel', session[:referer] %>
+

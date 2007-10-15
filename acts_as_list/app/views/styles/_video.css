@@ -1,0 +1,25 @@
+.video img.video-img{
+	position:relative;
+	top:-25px;
+}
+.video h2{
+	margin:0;
+	color:#51515B;
+	font-size:197%;
+	font-weight:normal;
+}
+.video h3{
+	margin:0;
+	padding:0;
+	font-size:131%;
+	color:#8E8F91;
+	font-weight:normal;
+}
+.video .media-description{
+	margin:10px 0 0;
+}
+.video .player{
+	width:300px;
+	margin:15px 20px 5px 0;
+	float:left;
+}

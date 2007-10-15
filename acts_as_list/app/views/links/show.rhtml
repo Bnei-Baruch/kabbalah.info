@@ -1,0 +1,18 @@
+<p>
+  <b>Link:</b>
+  <%=h @link.link %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%=h @link.created_at %>
+</p>
+
+<p>
+  <b>Updated at:</b>
+  <%=h @link.updated_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_link_path(@link) %> |
+<%= link_to 'Back', links_path %>

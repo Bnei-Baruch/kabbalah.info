@@ -1,0 +1,35 @@
+<h1>Listing sections</h1>
+
+<table border="1">
+  <thead>
+    <th>ID</th>
+    <th>Title</th>
+    <th>External Link</th>
+    <th>Description</th>
+    <th>HRID</th>
+    <th>Layout</th>
+    <th>Palette</th>
+    <th>Premitted Assets</th>
+    <th colspan="3">Actions</th>
+  </thead>
+  
+<% for section in @sections %>
+  <tr>
+    <td><%=h section.id %></td>
+    <td><%=h section.title %></td>
+    <td><%=h section.external_link %></td>
+    <td><%=h section.description %></td>
+    <td><%=h section.hrid %></td>
+    <td><%=h section.layout %></td>
+    <td><%=h section.palette %></td>
+    <td><%=h section.permitted_assets.to_s %></td>
+    <td><%= link_to 'Show', section_path(section) %></td>
+    <td><%= link_to 'Edit', edit_section_path(section) %></td>
+    <td><%= link_to 'Destroy', section_path(section), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New section', new_section_path %>

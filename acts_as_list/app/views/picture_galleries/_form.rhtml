@@ -1,0 +1,15 @@
+<div id="input_form">
+<%= error_messages_for :picture_gallery, :property, :image_storage %>
+
+<% form_for(:picture_gallery, :url => path, :html => {:method => method, :multipart => true }) do |f| %>
+
+<%= render :partial => 'share/set_property_fields' %>
+
+<%= render :partial => 'share/set_asset_fields' %>
+
+
+<div id="submit">
+    <%= submit_tag button_text %>
+</div>
+<% end %>
+</div>

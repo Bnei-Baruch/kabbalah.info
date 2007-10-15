@@ -1,0 +1,11 @@
+<h1>Editing picture_gallery</h1>
+
+<%= render :partial => 'form',
+  :locals => {
+    :path => picture_gallery_path(@picture_gallery),
+    :method => :put,
+    :button_text => 'Update'
+  } %>
+
+<%= link_to 'Cancel', session[:referer] %>
+

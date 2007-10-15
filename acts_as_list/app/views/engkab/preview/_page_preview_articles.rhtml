@@ -1,0 +1,38 @@
+<%
+#Displaying a preview of a single media page in a list of pages
+%>
+<% 
+	property = asset.resource.property
+%>
+<% if asset.published_page? || logged_in? && has_right?(:create)  %>
+<div class="right-item">
+	<div class="right-img">
+		<div class="right-i">
+			<%
+				if property.image_storage && File.exists?(RAILS_ROOT + "/public" + property.image_storage.public_filename(:preview))
+					src = property.image_storage.public_filename(:preview)
+					alt = property.image_storage.alt
+				else
+					src = "/files/layouts/default_picture.jpg"
+					alt = asset.resource.property.title
+				end
+			%>
+			<%= link_to image_tag( src, :alt => alt, :title => alt), site_page_url(asset) %>
+		</div>
+	</div>
+	<h3><%= link_to property.title, site_page_url(asset) %></h3>
+	<div class="right-description">
+		<!--<h3><%#= link_to property.title, site_page_url(asset) %></h3>-->
+		<% unless property.short_description.blank? %><p><%= property.short_description%></p> <% end %>
+	</div>
+	<%= render :partial => "admin/admin_pannel",
+					 :locals => { :edit_asset => asset,
+					 							:delete_asset => asset,
+												:classes => YAML.dump({
+													:page => :web_page
+												}),
+					 							:nobreak => true
+					 						} %>
+	<div class="clear">&nbsp;</div>
+</div>
+<% end %>

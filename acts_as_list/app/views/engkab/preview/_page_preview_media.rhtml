@@ -1,0 +1,33 @@
+<%
+#Displaying a preview of a single media page in a list of pages
+%>
+<% 
+	property = asset.resource.property
+	media_assets = asset.children_by_placeholder(@main_placeholder)
+%>
+<% if asset.published_page? || logged_in? && has_right?(:create)  %>
+<div class="right-item">
+	<div class="right-img">
+		<% if property.image_storage %>
+			<%= link_to image_tag( property.image_storage.public_filename(:preview),
+															:alt => property.image_storage.alt,
+															:title => property.image_storage.alt),
+								   site_page_url(asset) %>
+		<% end %>
+	</div>
+	<% for media in media_assets -%>
+		<%unless media.resource.property.title.empty? -%>
+			<h3><a href="<%= site_page_url(asset) %>#<%= media.resource.property.title_for_anchor%>"><%= media.resource.property.title %></a></h3>
+		<% end -%>
+	<% end -%>
+	<%= render :partial => "admin/admin_pannel",
+					 :locals => { :edit_asset => asset,
+					 							:delete_asset => asset,
+												:classes => YAML.dump({
+													:page => :web_page
+												}),
+					 							:nobreak => true
+					 						} %>
+	<div class="clear">&nbsp;</div>
+</div>
+<% end %>

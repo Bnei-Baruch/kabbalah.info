@@ -1,0 +1,17 @@
+#  < urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+#   < url>
+#    < loc>http://www.example.com/</loc>
+#    < lastmod>2005-01-01</lastmod>			-- optional
+#    < changefreq>monthly</changefreq>	-- optional
+#    < priority>0.8</priority>					-- optional
+#   </url>  
+#  </urlset>
+#
+xml.instruct! :xml, :version=>"1.0", :encoding=>"UTF-8"
+xml.urlset(:xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9") do
+	@urls.each do |url|
+		xml.url do
+			xml.loc(url)
+		end
+	end
+end

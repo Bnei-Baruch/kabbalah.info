@@ -1,0 +1,120 @@
+<%# Header for pages %>
+#header{
+	position:relative;
+	height:130px;
+}
+#header h1{
+	padding:0;
+	margin:0;
+	color:#B7B9BA;
+	font-size:93%;
+	letter-spacing:0.9px;
+	font-family:arial;
+	background-color:#e5e6e8;
+	width:100%;
+	text-align:center;
+	line-height:20px;
+}
+#header #logo{
+	position:absolute;
+	top:40px;
+	left:0;
+}
+#header #choose-lang{
+	position:absolute;
+	font-size:77%;
+	top:1px;
+	right:2px;
+	*top:0;
+	*right:0;
+}
+#header #choose-lang select{
+	background-color:#F5F5F5;
+	border:1px solid #76797D;
+	color:#64676A;
+	*font-size:110%;
+}
+#header #choose-lang option{
+	color:#64676A;
+}
+#header #links a, #header #links a:visited,#header #choose-lang a, #header #choose-lang a:visited{
+	font-size:100%;
+	color:#1999BC;
+	padding:0 0 2px;
+	text-decoration:none;
+}
+#header #links{
+	color:#1999BC;
+	position:absolute;
+	top:22px;
+	right:0;
+	font-size:73%;
+}
+#header #search{
+	position:absolute;
+	top:56px;
+	right:0;
+	font-size:77%;
+	font-family:verdana;
+}
+#header #search form{
+	margin: 8px 0 0;
+}
+#header #search form input{
+	background-color:#edf5f9;
+	border:1px solid #c2c3c6 !important;
+	color:#4e4e4e;
+}
+#header #search form input#SearchString{
+	*width:112px;
+	*height:11px;
+	min-width:112px;
+	min-height:11px;
+}
+#header #search form input#B1{
+	min-width:48px;
+	*width:48px;
+	min-height:17px;
+	margin:0 0 1px;
+	*margin:2px 0 0;
+	padding:0 0 2px;
+	cursor:pointer;
+	font-size:100%;
+	*font-size:85%;
+	font-family:verdana;
+}
+#header #search form p{
+	display:inline;
+}
+#header #search #B1{
+}
+#header #top-menu{
+	position:absolute;
+	top:95px;
+	right:0;
+	padding:0 5px 0;
+	margin:0;
+	line-height:15px;
+	border:1px solid #d4d5d7;
+	background-color:#f5f5f5;
+}
+#header #top-menu a{
+	text-decoration:none;
+	font-size:73%;
+	color:#64676a;
+	font-weight:bold;
+	display:block;
+	float:left;
+}
+#top-menu .pipe{
+	border-left:1px solid #d4d5d7;
+	margin:0 3px 0 6px;
+	float:left;
+}
+<%# Footer -%>
+#ft{
+	text-align:center;
+	font-size:77%;
+	margin:15px 195px;
+	color:#1999BC;
+}

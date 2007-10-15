@@ -1,0 +1,70 @@
+<% 
+	resource = asset.resource
+	property = asset.resource.property
+	id = "x#{resource.id}"
+%>
+<% if @layout == "vod" %>
+	<div class="asset">
+		<h1><%= property.title %></h1>
+		<% unless resource.video_link.blank? %>
+			<div class="player" id="<%=id%>">
+				<script type="text/javascript">
+				//<![CDATA[
+				     CreateControl("<%=id%>","<%= asset.resource.video_link %>", 1, 380, 320);
+				//]]>
+				</script>
+			</div>
+		<% end %>
+		<div class="media-description">
+			<% unless property.description.blank? %>
+				<h4>Description</h4>
+				<p><%= property.description %></p>
+			<% end %>
+			
+			<% unless resource.transcript.blank? %>
+				<h4>Transcript</h4>
+				<%= resource.transcript %>
+			<% end %>
+		</div>
+		<%= render :partial => "admin/admin_pannel", 
+							 :locals => { :edit_asset => asset,
+							 							:delete_asset => asset,
+														:classes => YAML.dump({
+															:video => :video_vod
+														})
+													} %>
+	</div>
+<% else %>
+	<div class="video asset">
+		<% if property.title_for_anchor %>
+			<a name="<%= property.title_for_anchor %>" id="<%= property.title_for_anchor %>"></a>
+		<% end %>
+		<h2><%= property.title %></h2>
+		<% unless property.short_description.blank? %>
+			<h3><%= property.short_description %></h3>
+		<% end %>
+		<% unless resource.video_link.blank? %>
+			<div class="player" id="<%=id%>">
+				<script type="text/javascript">
+				//<![CDATA[
+				     CreateControl("<%=id%>","<%= asset.resource.video_link %>", 0, 300, 225);
+				//]]>
+				</script>
+			</div>
+		<% end %>
+		<div class="media-description">
+			<% unless resource.property.description.blank? %>
+				<%= resource.property.description %>
+			<% end %>
+		</div>
+		<%= render :partial => "admin/admin_pannel", 
+						 :locals => { :edit_asset => asset,
+						 							:delete_asset => asset,
+													:classes => YAML.dump({
+															:video => :video_asset
+														})
+													} %>
+
+		<div class="clear">&nbsp;</div>
+	</div>
+<% end %>

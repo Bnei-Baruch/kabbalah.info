@@ -1,0 +1,14 @@
+<%= render :file => 'styles/reset-fonts-grids.css' %>
+<%= render :file => 'styles/base-min.css' %>
+<%= render :file => 'styles/common.css' %>
+<%= render :file => 'styles/category.css' %>
+<%= render :file => 'styles/header.css' %>
+<%= render :file => 'styles/r_box.css' %>
+
+<%= render :file => "styles/layouts/#{@layout}.css" %>
+
+<% for asset in @permitted_assets %>
+	<% if File.exists?("#{RAILS_ROOT}/app/views/styles/_#{asset}.css")%>	
+		<%= render :file => "styles/_#{asset}.css" %>
+	<% end %>
+<% end %>
