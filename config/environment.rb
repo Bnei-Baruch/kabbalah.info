@@ -30,6 +30,7 @@ config.action_mailer.default_charset = "utf-8"
   # Force all environments to use the same logger level
   # (by default production uses :info, the others :debug)
   # config.log_level = :debug
+	config.logger = Logger.new(config.log_path, 10, 5242880)
 
   # Use the database for sessions instead of the file system
   # (create the session table with 'rake db:sessions:create')
