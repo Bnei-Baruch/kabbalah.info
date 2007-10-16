@@ -9,6 +9,10 @@
 					f.text_field :video_link, :class => "text"
 				}
 		%>
+		<%= display_field(:flash, "video_flash") {
+					f.text_field :flash, :class => "text"
+				}
+		%>
 		<%= display_field(:duration, "video_duration") {
 					f.text_field :duration
 				}

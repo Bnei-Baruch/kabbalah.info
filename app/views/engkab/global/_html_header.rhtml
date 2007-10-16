@@ -22,9 +22,8 @@
 	    hs.graphicsDir = '/files/images/highslide/';
 		</script>
 	<% end -%>
-	<% if @main_homepage -%>
-		<%= javascript_include_tag 'ufo' -%>
-	<% else -%>
+	<%= javascript_include_tag 'ufo' -%>
+	<% unless @main_homepage -%>
 		<%= javascript_include_tag 'embed' %> 
  		<%= javascript_include_tag 'prototype' -%>
  	<% end -%>

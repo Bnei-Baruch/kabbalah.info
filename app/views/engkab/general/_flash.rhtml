@@ -1,5 +1,9 @@
+<%
+	flashvars ||= nil
+-%>
 <script type="text/javascript">
-  var FO = { movie:"<%= path + name %>.swf", width:"100%", height:"100%",
-    majorversion:"6", build:"40" };
-  UFO.create(FO, "<%= name %>");
+var FO = { movie:"<%= path + name %>.swf", width:"<%= width %>", height:"<%= height %>",
+		majorversion:"6", build:"40"<% if flashvars -%>, flashvars:"<%= flashvars %>"<% end -%> };
+
+  UFO.create(FO, "<%= id %>");
 </script>

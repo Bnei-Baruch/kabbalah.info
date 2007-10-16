@@ -288,6 +288,7 @@ module	Config
 			:description => ['Description', 'Used as description of the  VOD.'],
 			:image => nil,
 			:video_link => ['Video Link', 'Link to the video source'],
+			:flash => ['Flash Link', 'Link to the Flash source'],
 			:transcript => ['Transcript', 'Transcript of a lesson'],
 			:duration => ['Duration', 'hh:mm:ss'],
 			:size => ['Size', 'i.e. 10.2MB, 1.4KB etc.'],
