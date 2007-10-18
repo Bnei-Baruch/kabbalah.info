@@ -1,9 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :banners
 
-
-
-
 	#homepage route
   map.mainpage '/', :controller => 'engkab', :action => 'main_homepage'
 
@@ -24,14 +21,12 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :engkab, :controller => 'engkab',
   											 :singular => 'engkab_page',
   											 :collection => {:google_sitemap => :get}
-
-
   
   map.resources :video_galleries, :path_prefix => '/admin'
   map.resources :assets, :path_prefix => '/admin',
   								:member => { :sort => :post,
-                               :sort_category => :post,
-                               :sort_section => :post,
+                               :sort_by_parent_id => :post,
+                               :sort_sections => :post,
                              }
   map.resources :sections, :path_prefix => '/admin'
   map.resources :homepages, :path_prefix => '/admin'
