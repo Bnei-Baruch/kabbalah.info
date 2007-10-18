@@ -45,7 +45,7 @@
 	font-size:85%;
 	line-height:131%;
 }
-.video_gallery #right-list{
+.video_gallery .right-list-id{
 	float:right;
 	width:110px;
 }

@@ -12,12 +12,9 @@ class Placeholder < ActiveRecord::Base
 			read_attribute("permitted_assets" )
 		end
 	end
-	def premited_assets_for_select(section)
-		permitted_assets(section).map{|x| [x.camelize, x].sort}
-	end	
+
 	#array of placeholders for select dropdown
 	def self.placeholders
-
 		Placeholder.find(:all).map {|l| [l.name, l.id]}.sort	
 	end
 	

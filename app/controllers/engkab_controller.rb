@@ -130,7 +130,7 @@ protected
 		@permitted_assets = @section.permitted_assets
 		store_location
 
-		eval "#{@section.hrid}"
+		self.send "#{@section.hrid}"
 	end
 
   def homepage

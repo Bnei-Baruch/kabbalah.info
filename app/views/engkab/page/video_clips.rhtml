@@ -1,16 +1,27 @@
-<%#This part will be created for sidebar in articles %>
-
+<%#This part will be created for sidebar in articles -%>
+<%
+  # This is list of pages in Category, so 'placeholder.id' must be 0
+  id = sort_ul_id(@category.id, @section.id, 0)
+-%>
 <% content_for(:sidebar) do %>
 	<% if @category %>
 		<h2><%= @category.resource.property.title %></h2>
 	<% end %>
-	<div id="right-list">
+  <div id='<%= id %>' class='right-list-id'>
 		<%# List of pages (###_preview.rhtml)%>
 		<% if @category_children %>
 			<%= render :partial => "show_assets_in_loop",
 							 :locals => { :container => @category_children, :display => 'preview', :secondary_display => '_vod' } %>
 		<% end %>
 	</div>
+  <%= make_sortable(
+           :id => @category.id,
+           :section_id => @section.id,
+           :placeholder_id => 0,
+           :tag => 'div',
+           :only => 'right-item'
+      )
+  %>
 <% end # sidebar %>
 
 <% content_for(:content_menu) do %>

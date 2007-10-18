@@ -3,6 +3,8 @@
 	<%
 		only_published = (not logged_in?)
 		box_title = @category.resource.box_title.blank? ? 'Pages' : @category.resource.box_title
+    # This is list of pages in Category, so 'placeholder.id' must be 0
+    id = sort_ul_id(@category.id, @section.id, 0)
 	%>
 	<div class="r-box">
 				<%= render :partial => "admin/admin_pannel", 
@@ -17,7 +19,7 @@
 		 								} %>
 		<h2><%= box_title %></h2>
 		<div class="r-box-inner">
-			<ul id='assets-list<%= @category.id %>'>
+			<ul id='<%= id %>'>
 				<% for page in Asset.get_pages_by_parent(@category, only_published) -%>
           <li id='asset_<%= page.id %>'>
               <%= link_to page.resource.property.title, site_page_url(page)%>
@@ -31,11 +33,9 @@
 						</li>
 				<% end -%>
 			</ul>
-      <%= if logged_in?
-             sortable_element "assets-list#{@category.id}",
-            :url => sort_category_asset_path(@category.id),
-            :complete => visual_effect(:highlight, 'assets-list0', :startcolor=>'"#ffff99"', :endcolor=>'"#ffffff"')
-          end
+      <%= make_sortable :id => @category.id,
+                        :section_id => @section.id,
+                        :placeholder_id => 0
       %>
 		</div>
 	</div>

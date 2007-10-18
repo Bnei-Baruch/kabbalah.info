@@ -14,17 +14,18 @@
 			 									} %>
 	<div class="hd-border">&nbsp;</div>
 	<div class="hd-content">
-		<% if list %>
+    <% if list
+        # This is list of pages in Category, so 'placeholder.id' must be 0
+        id = sort_ul_id(parent_id, @section.id, 0)
+    -%>
 			<%# List of pages (###_list.rhtml)%>
-			<ul id='assets-list<%= @section.id %>'>
+			<ul id='<%= id %>'>
 				<%= render :partial => 'show_assets_in_loop',
 								 :locals => { :container => list, :display => 'list' } %>
 			</ul>
-      <%= if logged_in?
-             sortable_element "assets-list#{@section.id}",
-            :url => sort_category_asset_path(@section.id),
-            :complete => visual_effect(:highlight, 'assets-list0', :startcolor=>'"#ffff99"', :endcolor=>'"#ffffff"')
-          end
+      <%= make_sortable :id => parent_id,
+                        :section_id => @section.id,
+                        :placeholder_id => 0
       %>
 
 		<% end %>

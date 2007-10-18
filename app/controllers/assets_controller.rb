@@ -2,70 +2,63 @@ class AssetsController < ApplicationController
 
   # POST /assets/0;sort_section
   def sort_section
-    if !has_right?(:edit)
-      redirect_to :unauthorized and return
-    end
-    resources = Section.environments(false,true)
-		list = params["assets-list0"]
-    resources.each do |resource|
-    	resource.position = list.index(resource.id.to_s) + 1
-    	resource.save
-  	end
-    # We're not going to move something
+    (redirect_to :unauthorized and return) unless has_right?(:edit)
+
+    #should throw an exception if the following three attributes don't present
+    @parent_id = params[:id] || 0
+    @section_id = params[:section_id] || 0
+    @placeholder_id = params[:placeholder_id] || 0
+    resources = Asset.find_all_by_parent_id_and_section_id_and_placeholder_id(
+                        @parent_id,
+                        @section_id,
+                        @placeholder_id,
+                        :order => 'position ASC'
+                )
+		list = params[sort_ul_id(@parent_id, @section_id, @placeholder_id)]
+    reindex resources, list
+
     render :nothing => true and return
   end
 
-  # POST /assets/1;sort_category
-  def sort_category
-    if !has_right?(:edit)
-      redirect_to :unauthorized and return
-    end
-    section = Section.find(id = params[:id])
-    resources = section.assets.select {|s|
-      ['Page', 'Category', 'Link'].include?(s.resource_type) && 
-																								s.parent_id == 0
-		}
-		list = params["assets-list#{id}"]
-    resources.each do |resource|
-    	index = list.index(resource.id.to_s)
-    	resource.position = index ? index + 1 : 1
-    	resource.save
-  	end
-    # We're not going to move something
+  # POST /assets/1;sort_sections
+  def sort_sections
+    (redirect_to :unauthorized and return) unless has_right?(:edit)
+
+    resources = Section.environments(false,true)
+    list = params[sort_ul_id(0, 0, 0)]
+    reindex resources, list
+
     render :nothing => true and return
   end
 
   # POST /assets/1;sort
   def sort
-    if !has_right?(:edit)
-      redirect_to :unauthorized and return
-    end
+    (redirect_to :unauthorized and return) unless has_right?(:edit)
 
-    @page = Asset.find(params[:id])
-    resources = Asset.find_all_by_parent_id(@page.id)
-		list = params["assets-list#{params[:id]}"]
-    resources.each do |resource|
-    	resource.position = list.index(resource.id.to_s) + 1
-    	resource.save
-  	end
-    resources = Asset.find_all_by_parent_id(@page.id, :order => 'position ASC')
+    sort_by_parent_id(false)
+
+    # Re-render middle part
+    resources = Asset.find_all_by_parent_id_and_section_id_and_placeholder_id(
+                        @parent_id,
+                        @section_id,
+                        @placeholder_id,
+                        :order => 'position ASC')
+    @page = Asset.find(@parent_id)
+    @section = @page.section
 		assets = render_to_string :partial => "engkab/show_assets_in_loop",
 					 :locals => { :container => resources, :display => "show" }
 		navigation = render_to_string :partial => "engkab/general/next_prev_navigation_in_category"
     render :update do |page|
       page.replace_html 'assets', assets
-      page.insert_html :bottom, 'assets', navigation if navigation != ""
+      page.insert_html :bottom, 'assets', navigation unless navigation.blank?
     end and return
   end
 
   # GET /assets
   # GET /assets.xml
   def index
-  	@section_id = nil
+		@section_id = param_by_pattern('section_id')
   	@grand_parent_id = ''
-  	if params[:section_id]
-  		@section_id = params[:section_id]
-  	end
   	@section_id ||= Asset.sections(true)
   	@section_title = Section.get_title_by_id(@section_id) || "Unknown"
   	if params[:parent_id]
@@ -105,13 +98,17 @@ class AssetsController < ApplicationController
       redirect_to :unauthorized
       return
     end
-	type = params[:asset_type].downcase
-	my_class = params[:classes] ? YAML.load(params[:classes])[type.to_sym] : ''
+    type = param_by_pattern('asset_type')
+    classes = param_by_pattern('classes')
+    my_class = classes ? YAML.load(classes)[type.to_sym] : ''
+		section_id = param_by_pattern('section_id')
+		placeholder_id = param_by_pattern('placeholder_id')
+		parent_id = param_by_pattern('parent_id')
 
-	redirect_to :type => "new_#{type}_path",
-					:section_id => params[:section_id],
-					:placeholder_id => params[:placeholder_id].blank? ? 'nil' : params[:placeholder_id],
-					:parent_id => params[:parent_id].blank? ? 'nil' : params[:parent_id],
+    redirect_to :type => "new_#{type}_path",
+					:section_id => section_id,
+					:placeholder_id => placeholder_id,
+					:parent_id => parent_id,
 					:my_class => my_class
   end
 
@@ -188,4 +185,18 @@ class AssetsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  protected
+
+  def reindex(resources, list)
+    resources.each do |resource|
+      index = list.index(resource.id.to_s).to_i
+      index += 1
+      if resource.position != index
+        resource.position = index
+        resource.save
+      end
+    end
+  end
+
 end

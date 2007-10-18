@@ -18,4 +18,10 @@ protected
 			"#{exception.class} (#{exception.message})"
 	end
 
+  def param_by_pattern(pattern)
+		keys = params.keys.grep(/^#{pattern}/)
+    return nil if keys.blank?
+    params[keys[0]]
+  end
+
 end

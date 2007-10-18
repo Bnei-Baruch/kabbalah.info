@@ -6,10 +6,10 @@
 	if asset.children.size > 0
 		video_child = (asset.children[0].resource_type == "Video") ? asset.children[0] : nil
 		duration = video_child ? video_child.resource.duration : ""
-	end
+  end
 %>
 <% if asset.published_page? || logged_in? && has_right?(:create)  %>
-<div class="right-item">
+<div id='vod_<%= asset.id %>' class="right-item">
 	<h3><%= link_to property.title, site_page_url(asset) %></h3>
 	<div class="right-img">
 		<div class="right-i">

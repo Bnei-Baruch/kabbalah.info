@@ -12,9 +12,13 @@ class ResourcesController < ApplicationController
 		if options == nil
 			@property = Property.new
 			@image_storage = ImageStorage.new
-      @asset = Asset.new(:section_id => params[:section_id],
-  									 		 :placeholder_id => params[:placeholder_id],
-  									 		 :parent_id => params[:parent_id])
+   		section_id = param_by_pattern('section_id')
+      placeholder_id = param_by_pattern('placeholder_id')
+      parent_id = param_by_pattern('parent_id')
+
+      @asset = Asset.new(:section_id => section_id,
+  									 		 :placeholder_id => placeholder_id,
+  									 		 :parent_id => parent_id)
 		else
 			resource = options[:resource]
 			resource_type = resource.class.to_s.downcase

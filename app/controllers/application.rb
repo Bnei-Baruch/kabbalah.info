@@ -4,6 +4,8 @@
 class ApplicationController < ActionController::Base
   include AuthenticatedSystem
   include PathFunctions
+  include SortHelper
+  include Admin
 
   # To set :host for Mailer
   around_filter :retardase_inhibitor
@@ -13,6 +15,7 @@ class ApplicationController < ActionController::Base
   # Pick a unique cookie name to distinguish our session data from others
   session :session_key => '_engkab_session_id'
   helper_method(:section_first_page_url, :site_page_url)
+  helper_method(:sort_ul_id)
 
   uses_tiny_mce(:options => {
 								  :theme => 'advanced',

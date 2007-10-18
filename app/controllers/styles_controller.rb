@@ -8,7 +8,8 @@ class StylesController < ApplicationController
 
 	def show
 		cssfile = params[:id] + ".css"
-		section = Section.find_by_permalink(params[:section_id])
+		section_id = param_by_pattern('section_id')
+		section = Section.find_by_permalink(section_id)
 		@layout = section.layout
 		@palette_name = section.palette
 		@palette = Config::PALETTE[section.palette.to_sym] || Config::PALETTE[:blue]
