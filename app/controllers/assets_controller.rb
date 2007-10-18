@@ -1,7 +1,7 @@
 class AssetsController < ApplicationController
 
-  # POST /assets/0;sort_section
-  def sort_section
+  # POST /assets/1;sort_by_parent_id
+  def sort_by_parent_id(do_render = true)
     (redirect_to :unauthorized and return) unless has_right?(:edit)
 
     #should throw an exception if the following three attributes don't present
@@ -17,7 +17,7 @@ class AssetsController < ApplicationController
 		list = params[sort_ul_id(@parent_id, @section_id, @placeholder_id)]
     reindex resources, list
 
-    render :nothing => true and return
+    (render :nothing => true and return) if do_render
   end
 
   # POST /assets/1;sort_sections

@@ -3,7 +3,7 @@ class Asset < ActiveRecord::Base
 	belongs_to :placeholder
 	belongs_to :resource, :polymorphic => true
 
-	acts_as_list  :scope => :parent_id
+	acts_as_list  :scope => 'parent_id = assets.parent_id AND section_id = assets.section_id AND placeholder_id = assets.placeholder_id'
 	acts_as_tree  :order => "position", :counter_cache => true
 	
 	attr_accessor	:asset_type
