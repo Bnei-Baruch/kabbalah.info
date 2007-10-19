@@ -13,6 +13,7 @@
 	<% end -%>
 <% else #logged_in? -%>
 	<li id='category_<%= asset.id %>'>
+    <%= sort_handler %>
     <% if children.size > 0 -%>
 			<a href="<%= site_page_url(children.first) %>"<%= selected%>><%= title %></a>
 		<% else # category_has_page -%>

@@ -10,7 +10,7 @@
 %>
 <% if asset.published_page? || logged_in? && has_right?(:create)  %>
 <div id='vod_<%= asset.id %>' class="right-item">
-	<h3><%= link_to property.title, site_page_url(asset) %></h3>
+	<h3><%= sort_handler %><%= link_to property.title, site_page_url(asset) %></h3>
 	<div class="right-img">
 		<div class="right-i">
 			<% if property.image_storage -%>

@@ -15,6 +15,6 @@
 	end
 -%>
 	<li id='section_<%= section.id %>'>
-		<a href="<%= url %>"<%= target + selected + onclick %>><%= external %><%= link_text %></a>
+    <%= sort_handler(:force =>true) %><a href="<%= url %>"<%= target + selected + onclick %>><%= external %><%= link_text %></a>
 		<div class="divider">&nbsp;</div>
 	</li>

@@ -32,6 +32,15 @@ module EngkabHelper
                          id,
                          :startcolor=>'"#ffff99"',
                          :endcolor=>'"#ffffff"')
+    options[:handle] = 'handle'
+
     (sortable_element id, options).gsub!(/&amp;/,'&')
+  end
+
+  # Handle to designage/move sortable elements
+  def sort_handler(force = false)
+    return unless logged_in?
+    return if @is_homepage and (not force)
+    '<img class="handle" src="/files/layouts/arrow.gif" alt="" />'
   end
 end

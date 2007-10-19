@@ -15,6 +15,24 @@ class AssetsController < ApplicationController
                         :order => 'position ASC'
                 )
 		list = params[sort_ul_id(@parent_id, @section_id, @placeholder_id)]
+    
+    # On Homepage assets may be moved between placeholders
+    # Will take care only on addition to a target list, not on
+    # subtraction from a source one
+    if resources.size < list.size
+      # Find out a new asset and move it to this placeholder
+      # Then call sort_by_parent_id again
+
+      assets = resources.map{|r| r.id.to_s}
+      new_one = (list - assets)[0]
+      asset = Asset.find(new_one.to_i)
+      asset.placeholder_id = @placeholder_id
+      asset.save
+
+      sort_by_parent_id
+      return
+    end
+
     reindex resources, list
 
     (render :nothing => true and return) if do_render

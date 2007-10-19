@@ -4,6 +4,7 @@
 -%>
 <% if asset.published_page? || logged_in? -%>
     <li id='category_<%= asset.id %>'>
+    <%= sort_handler %>
 		<a href="<%= site_page_url(asset) %>"<%= selected%>><%= asset.resource.property.title %></a>
 		<div class="divider">&nbsp;</div>
 		<%= render :partial => "admin/admin_pannel", 

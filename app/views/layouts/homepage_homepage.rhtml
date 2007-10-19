@@ -22,12 +22,32 @@
 					<div class="hd-border">&nbsp;</div>
 				</div>
 				<div class="hd-content yui-g"><%# Content (bottom) part %>
-					<div id="homepage_left" class="r-box yui-u first"><%# Left 66% part %>
+          <% id_left = sort_ul_id(@page.id, @page.section.id, @left_placeholder.id) %>
+          <div id='<%= id_left %>' class="r-box yui-u first"><%# Left 66% part %>
 						<%= yield :homepage_left %>
 					</div>
-					<div id="homepage_right" class="r-box yui-u"><%# 33% right part %>
+          <% id_right = sort_ul_id(@page.id, @page.section.id, @right_placeholder.id) %>
+					<div id='<%= id_right %>' class="r-box yui-u"><%# 33% right part %>
 						<%= yield :homepage_right%>
 					</div>
+          <%=
+            make_sortable :id => @page.id,
+                  :section_id => @page.section.id,
+                  :placeholder_id => @left_placeholder.id,
+                  :tag => 'div',
+                  :only => 'movable',
+                  :containment => [id_left, id_right],
+                  :constraint => false
+          %>
+          <%=
+            make_sortable :id => @page.id,
+                  :section_id => @page.section.id,
+                  :placeholder_id => @right_placeholder.id,
+                  :tag => 'div',
+                  :only => 'movable',
+                  :containment => [id_left, id_right],
+                  :constraint => false
+          %>
 				</div>
 			</div>
 		</div>

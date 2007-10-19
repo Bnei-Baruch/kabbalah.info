@@ -1,5 +1,5 @@
-<div class="blog">
-	<h2><%=asset.resource.property.title%></h2>
+<div id='rss_<%= asset.id %>' class="blog movable">
+	<h2><%= sort_handler(true) %><%=asset.resource.property.title%></h2>
 	<div class="right-item">
 		<%= render :partial => "engkab/general/rss" %>
 	</div>

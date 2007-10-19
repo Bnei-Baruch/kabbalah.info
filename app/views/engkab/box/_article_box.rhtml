@@ -2,8 +2,8 @@
 	# this partial creates article box
  %>
 
-<div class="r-box">
-	<h2><%= asset.resource.property.title %></h2>
+<div class="r-box" id='asset_<%= asset.id %>'>
+	<h2><%= sort_handler %><%= asset.resource.property.title %></h2>
 	<div class="r-box-inner">
 	<% unless asset.resource.body.blank? %>
 		<%= asset.resource.body %>

@@ -66,6 +66,7 @@ class ArticlesController < ResourcesController
       return
     end
     @article = Article.find(params[:id])
+    #ZZZ debugger
     update_objects(@article, params[:article]) ### Add to all resources
   end
 

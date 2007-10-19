@@ -8,7 +8,7 @@
 			<ul id='<%= id %>'>
 				<% for asset in @main_assets -%>
 					<%unless asset.resource.property.title.empty? -%>
-						<li id='asset_<%= asset.id %>'><a href="<%= site_page_url(@page) %>#<%= asset.resource.property.title_for_anchor%>"><%= asset.resource.property.title %></a></li>
+            <li id='asset_<%= asset.id %>'><%= sort_handler %><a href="<%= site_page_url(@page) %>#<%= asset.resource.property.title_for_anchor%>"><%= asset.resource.property.title %></a></li>
 					<% end -%>
 				<% end -%>
 			</ul>

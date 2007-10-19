@@ -91,3 +91,14 @@ li .admin_panel a{
 .category .admin_panel{
 	top:15px;
 }
+.category ul li a, .env ul li a{
+  display:inline !important;
+}
+img.handle{
+  display:inline !important;
+  cursor:move;
+  width:13px;
+  height:17px;
+  padding:0 3px 0 0;
+  vertical-align:middle;
+}

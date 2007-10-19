@@ -31,6 +31,7 @@ var TopNav = {
    copyNode: function(fromNode, toNode) {
       $A(fromNode.childNodes).each(function(fromChild, index){
           if ((fromChild.tagName == undefined) ||
+              (fromChild.tagName && fromChild.tagName != "IMG") ||
               (fromChild.tagName && fromChild.tagName != "SCRIPT")) {
             clone = fromChild.cloneNode(false);
             if (clone.id != "") {
