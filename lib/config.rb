@@ -19,7 +19,7 @@ module	Config
 			# Background of related items & TOC
 			:related_bg => "white",
 			# Categories/pages list
-			:category_fg => "#77797c",		# Foreground
+			:category_fg => "black",		# Foreground
 			:category_bg => "#fff2ec",		# Background
 			:category_hd_bg => "#909295",	# Background of header
 			:category_hd_fg => "#CCCDCF",	# Foreground of header
@@ -46,7 +46,7 @@ module	Config
 			# Background of related items & TOC
 			:related_bg => "white",
 			# Categories/pages list
-			:category_fg => "#77797c",		# Foreground
+			:category_fg => "black",		# Foreground
 			:category_bg => "#fbfded",		# Background
 			:category_hd_bg => "#909295",	# Background of header
 			:category_hd_fg => "#CCCDCF",	# Foreground of header
@@ -73,7 +73,7 @@ module	Config
 			# Background of related items & TOC
 			:related_bg => "white",
 			# Categories/pages list
-			:category_fg => "#77797c",		# Foreground
+			:category_fg => "black",		# Foreground
 			:category_bg => "#f0f1e3",		# Background
 			:category_hd_bg => "#909295",	# Background of header
 			:category_hd_fg => "#CCCDCF",	# Foreground of header
@@ -98,7 +98,7 @@ module	Config
 			# Background of related items & TOC
 			:related_bg => "#f7f7f8",
 			# Categories/pages list
-			:category_fg => "#77797c",		# Foreground
+			:category_fg => "black",		# Foreground
 			:category_bg => "#f1f9fb",		# Background
 			:category_hd_bg => "#909295",	# Background of header
 			:category_hd_fg => "#CCCDCF",	# Foreground of header
@@ -118,7 +118,7 @@ module	Config
 			:general_border => "#c2c3c6",
 			:rbox_border => "#fabca5",
 			:related_bg => "#f7f7f8",
-			:category_fg => "#77797c",
+			:category_fg => "black",
 			:category_bg => "#f1f8e8",
 			:category_hd_bg => "#909295",
 			:category_hd_fg => "#CCCDCF",
@@ -137,7 +137,7 @@ module	Config
 			:general_border => "#c2c3c6",
 			:rbox_border => "#fabca5",
 			:related_bg => "#f7f7f8",
-			:category_fg => "#77797c",
+			:category_fg => "black",
 			:category_bg => "#feefe8",
 			:category_hd_bg => "#909295",
 			:category_hd_fg => "#CCCDCF",
@@ -156,7 +156,7 @@ module	Config
 			:general_border => "#c2c3c6",
 			:rbox_border => "#fabca5",
 			:related_bg => "#f7f7f8",
-			:category_fg => "#77797c",
+			:category_fg => "black",
 			:category_bg => "#f7f7f7",
 			:category_hd_bg => "#cecfd1",
 			:category_hd_fg => "#78797b",

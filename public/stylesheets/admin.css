@@ -5,6 +5,14 @@ div.asset, .right-item, .hd-content ul li, #hd-no-bottom, #homepage_left, #homep
 	border:1px dashed silver !important;
 	margin:5px 0;
 }
+/*ZZZ
+.r-box {
+  margin-top:15px !important;
+}
+.r-box .admin-panel{
+  top:-15px !important;
+}
+*/
 #homepage_left, #homepage_right{
 	padding-top: 25px;
 }

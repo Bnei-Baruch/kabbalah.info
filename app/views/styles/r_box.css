@@ -23,13 +23,12 @@
 	border-top:0 none;
 }
 .r-box-inner ul{
-	margin:0;
+	margin:0 0 0 15px;
 }
 .r-box-inner ul li{
-	list-style:none;
-	display:block;
-	padding:3px;
+	padding:3px 3px 3px 0;
 	margin:0;
+	list-style:square outside url(/files/layouts/bullet.gif);
 }
 .r-box-inner ul li a{
 	color:#1999BC;

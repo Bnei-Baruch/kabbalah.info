@@ -53,9 +53,6 @@
 .category ul li a.last{
 	border:0 none;
 }
-.category ul li a.selected, .category ul li a.selected{
-	font-weight:bold;
-}
 .category ul li a.selected, .category ul li a:hover{
 	background-color:<%=@palette[:category_active]%>;
 }
@@ -138,8 +135,11 @@
 	font-size:85%;
 	color:#78797B;
 	font-family:arial;
-	font-weight:bold;
+	font-weight:normal;
 	text-decoration:none;
+}
+#top-env a.title, #top-env a.title:visited{
+	font-weight:bold;
 }
 #top-env .env a, #top-env .env a:visited{
 	color:<%=@palette[:category_fg]%>;
