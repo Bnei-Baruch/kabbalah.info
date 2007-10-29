@@ -78,10 +78,9 @@
 	color:#87898C;
 	margin:0;
 }
-}
 .env .hd-content{
 	margin:0;
-	padding:10px;
+	padding:15px 10px 10px !important;
 	border:1px solid #CECFD2;
 	border-top:0 none;
 }
