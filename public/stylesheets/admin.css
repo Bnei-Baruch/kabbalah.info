@@ -5,6 +5,10 @@ div.asset, .right-item, .hd-content ul li, #hd-no-bottom, #homepage_left, #homep
 	border:1px dashed silver !important;
 	margin:5px 0;
 }
+.r-box {
+  padding:10px 0;
+  border:1px solid green;
+}
 /*ZZZ
 .r-box {
   margin-top:15px !important;

@@ -64,6 +64,28 @@ class ResourcesController < ApplicationController
     	end
 		elsif (@property.image_storage != nil) && params[:remove_image] == '1'
 			@property.image_storage.destroy()
+		elsif (@property.image_storage != nil) && (params[:image_storage] && (not params[:image_storage][:uploaded_data].blank?))
+			@property.image_storage.destroy()
+    	@image_storage = ImageStorage.new(params[:image_storage])
+			@property.image_storage = @image_storage
+      if resource.valid? && @property.valid? && @image_storage.valid?
+      	resource.save!
+    	else
+		    respond_to do |format|
+	        format.html { render :action => "edit" }
+	        format.xml  { render :xml => resource.errors.to_xml }
+	      end
+    	end
+    elsif (@property.image_storage != nil) && (params[:image_storage] && (not params[:image_storage][:alt].blank?))
+      @property.image_storage.alt = params[:image_storage][:alt]
+      if resource.valid? && @property.valid?
+      	resource.save!
+    	else
+		    respond_to do |format|
+	        format.html { render :action => "edit" }
+	        format.xml  { render :xml => resource.errors.to_xml }
+	      end
+    	end
 		else
 			@image_storage = @property.image_storage
 		end

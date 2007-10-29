@@ -37,7 +37,8 @@
                   :tag => 'div',
                   :only => 'movable',
                   :containment => [id_left, id_right],
-                  :constraint => false
+                  :constraint => false,
+                  :dropOnEmpty => true
           %>
           <%=
             make_sortable :id => @page.id,
@@ -46,7 +47,8 @@
                   :tag => 'div',
                   :only => 'movable',
                   :containment => [id_left, id_right],
-                  :constraint => false
+                  :constraint => false,
+                  :dropOnEmpty => true
           %>
 				</div>
 			</div>
