@@ -110,6 +110,9 @@ div.hd-content a, div.hd-content a:visited{
 .right-item h3 a{
 	text-decoration:none;
 }
+.right-item h3 a:hover{
+	text-decoration:underline;
+}
 .articles h3{
 	margin:0 10px 0 79px;
 }

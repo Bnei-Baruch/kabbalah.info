@@ -98,6 +98,9 @@ div.hd-content{
 	color:#008BB3;
 	text-decoration:none;
 }
+.right-item h3 a:hover{
+	text-decoration:underline;
+}
 .right-item p {
 	margin:0;
 	font-size:77%;
