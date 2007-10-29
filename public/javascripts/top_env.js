@@ -34,7 +34,7 @@ var TopNav = {
               (fromChild.tagName && fromChild.tagName != "IMG") ||
               (fromChild.tagName && fromChild.tagName != "SCRIPT")) {
             clone = fromChild.cloneNode(false);
-            if (clone.id != "") {
+            if ((clone.id != undefined) && (clone.id != "")) {
               clone.id += "x";
             }
             var toChild = toNode.appendChild(clone);
