@@ -1,12 +1,13 @@
 <%if container && container.length > 0%>
 	<%
 		secondary_display ||= ''
+    last_one = container.length - 1
 		container.each_with_index do |asset, index|
 	-%>
      <%	if (index != 0) && (display == "show") -%>
         <div class="hr">&nbsp;</div>
      <% end	%>
      <%= render :partial => "engkab/#{display}/#{asset.resource_type.downcase}_#{display}#{secondary_display}",
-        :locals => { :asset => asset } %>
+        :locals => { :asset => asset, :last_one => (index == last_one) } %>
 	<% end %>
 <% end %>

@@ -21,7 +21,8 @@
 			<%# List of pages (###_list.rhtml)%>
 			<ul id='<%= id %>'>
 				<%= render :partial => 'show_assets_in_loop',
-								 :locals => { :container => list, :display => 'list' } %>
+								 :locals => { :container => list, :display => 'list' }
+        %>
 			</ul>
       <%= make_sortable :id => parent_id,
                         :section_id => @section.id,

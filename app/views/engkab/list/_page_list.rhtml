@@ -6,7 +6,9 @@
     <li id='category_<%= asset.id %>'>
     <%= sort_handler %>
 		<a href="<%= site_page_url(asset) %>"<%= selected%>><%= asset.resource.property.title %></a>
-		<div class="divider">&nbsp;</div>
+    <% unless last_one %>
+      <div class="divider">&nbsp;</div>
+    <% end %>
 		<%= render :partial => "admin/admin_pannel", 
 			 :locals => { :edit_asset => asset,
 			 							:delete_asset => asset,
