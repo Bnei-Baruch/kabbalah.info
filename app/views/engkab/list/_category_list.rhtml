@@ -8,10 +8,10 @@
   <% if children.size > 0 -%>
     <li>
       <a href="<%= site_page_url(children.first) %>"<%= selected%>><%= title %></a>
+      <% unless last_one %>
+        <div class="divider">&nbsp;</div>
+      <% end %>
 		</li>
-    <% unless last_one %>
-      <div class="divider">&nbsp;</div>
-    <% end %>
 	<% end -%>
 <% else #logged_in? -%>
 	<li id='category_<%= asset.id %>'>
