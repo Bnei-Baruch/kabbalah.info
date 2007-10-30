@@ -9,7 +9,9 @@
     <li>
       <a href="<%= site_page_url(children.first) %>"<%= selected%>><%= title %></a>
 		</li>
-		<li class="divider">&nbsp;</li>
+    <% unless last_one %>
+      <div class="divider">&nbsp;</div>
+    <% end %>
 	<% end -%>
 <% else #logged_in? -%>
 	<li id='category_<%= asset.id %>'>
