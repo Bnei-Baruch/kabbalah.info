@@ -34,7 +34,7 @@
 		<div class="right-item">
 			<h3>
 				<%= link_to_function title,
-							"CreateControl(\"x#{resource.id}\",\"#{video.resource.video_link}\",1,380,320)"
+							"SetColor(this,'red','#CCCDCF');CreateControl(\"x#{resource.id}\",\"#{video.resource.video_link}\",1,380,320)"
 				%>
 			</h3>
 			<div class="right-img">
@@ -43,7 +43,7 @@
 																:alt => image.alt,
 																:title => title,
 																:size => "100x60" ),
-									  "CreateControl(\"x#{resource.id}\",\"#{video.resource.video_link}\", 1, 380, 320)",
+									  "SetColor(this,'red','#CCCDCF');CreateControl(\"x#{resource.id}\",\"#{video.resource.video_link}\", 1, 380, 320)",
 										:title => "<strong>#{prop.title}</strong><br/>#{prop.short_description}"
 					%>
 				<% else #image%>
@@ -51,7 +51,7 @@
 																:alt => title,
 																:title => title,
 																:size => "100x60" ),
-									  "CreateControl(\"x#{resource.id}\",\"#{video.resource.video_link}\", 1, 380, 320)",
+									  "SetColor(this,'red','#CCCDCF');CreateControl(\"x#{resource.id}\",\"#{video.resource.video_link}\", 1, 380, 320)",
 										:title => "<strong>#{prop.title}</strong><br/>#{prop.short_description}"
 					%>
 				<% end #image%>

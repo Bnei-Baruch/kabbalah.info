@@ -84,6 +84,29 @@ function writeEmbed(cls, cb, mt, p, c) {
 }
 
 // For our internal needs :)
+function SetColor(me, sel, out){// Set current player selected
+  // reset all
+  var div = me;
+  while (div.id != 'right-list'){
+      div = div.parentNode;
+  }
+  var divs = div.getElementsByTagName('div');
+  for (d in divs){
+    if (divs[d].className == 'right-img') divs[d].style.backgroundColor = out;
+  }
+  // color myself
+  div = me;
+  while (div.className != 'right-item'){
+      div = div.parentNode;
+  }
+  var divs = div.getElementsByTagName('div');
+  for (d in divs){
+    if (divs[d].className == 'right-img'){
+      divs[d].style.backgroundColor = sel;
+        return;
+    }
+  }
+}
 function CreateControl(DivID, url, autoStart, width, height, uimode){
   var d = document.getElementById(DivID);
   if (d == null) return;
