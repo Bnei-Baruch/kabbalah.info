@@ -173,7 +173,8 @@ var TinyMCE_PastePlugin = {
 			if ((cb = tinyMCE.getParam("paste_insert_word_content_callback", "")) != "")
 				content = eval(cb + "('before', content)");
 
-			var rl = tinyMCE.getParam("paste_replace_list", '\u2122,<sup>TM</sup>,\u2026,...,\u201c|\u201d,",\u2019,\',\u2013|\u2014|\u2015|\u2212,-').split(',');
+			//var rl = tinyMCE.getParam("paste_replace_list", '\u2122,<sup>TM</sup>,\u2026,...,\u201c|\u201d,",\u2019,\',\u2013|\u2014|\u2015|\u2212,-').split(',');
+			var rl = tinyMCE.getParam("paste_replace_list", '\u2122,<sup>TM</sup>,\u2026,...,\u2019,\',\u2013|\u2014|\u2015|\u2212,-').split(',');
 			for (var i=0; i<rl.length; i+=2)
 				content = content.replace(new RegExp(rl[i], 'gi'), rl[i+1]);
 
