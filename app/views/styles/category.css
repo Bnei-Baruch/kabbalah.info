@@ -10,7 +10,6 @@
 .category{
   background-color:<%=@palette[:category_bg]%>;
 	margin:0 0 10px;
-  position:relative;
   z-index:-1;
 }
 .category .hd-border{
