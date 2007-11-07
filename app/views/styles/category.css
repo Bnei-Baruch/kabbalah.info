@@ -69,7 +69,6 @@
 <%# Environment -%>
 .env{
 	margin:10px 0;
-  position:relative;
   z-index:-1;
 }
 .env h2{
@@ -159,14 +158,12 @@
 }
 <%# Services -%>
 .services{
-  position:relative;
   z-index:-1;
 }
 .service{
 	padding:10px;
 	margin:0;
 	font-size:77%;
-  z-index:-1;
 }
 .services h2{
 	background-color:<%=@palette[:services_hd_bg]%>;
