@@ -1,26 +1,18 @@
 <%# Related boxes (right column) %>
-.r-box{
-	margin:0 0 10px;
-}
 .r-no-bg{
 	background-color:transparent !important;
 }
 .r-box h2{
 	background:<%=@palette[:category_active]%> url('/files/layouts/<%=@palette_name%>/hd-gradient.gif') repeat top left;
-	border:1px solid <%=@palette[:rbox_border]%>;
 	color:<%=@palette[:middle_hd_bg]%>;
 	min-height:18px;
 	line-height:18px;
-	margin:0;
+	margin:0 4px;
 	padding:0 8px;
 	font-size:<%=@palette[:h2_font_size]%>;
-	border-left:1px solid <%=@palette[:category_active]%>;
-	border-right:1px solid <%=@palette[:category_active]%>;
 }
 .r-box-inner{
-	border:1px solid <%=@palette[:general_border]%>;
 	padding:8px;
-	border-top:0 none;
 }
 .r-box-inner ul{
 	margin:0 0 0 15px;

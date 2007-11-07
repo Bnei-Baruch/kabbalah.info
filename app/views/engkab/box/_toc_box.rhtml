@@ -3,16 +3,22 @@
     id = sort_ul_id(@page.id, @section.id, @main_placeholder.id)
 -%>
 	<div class="r-box">
-		<h2>Contents</h2>
-		<div class="r-box-inner">
-			<ul id='<%= id %>'>
-				<% for asset in @main_assets -%>
-					<%unless asset.resource.property.title.empty? -%>
-            <li id='asset_<%= asset.id %>'><%= sort_handler %><a href="<%= site_page_url(@page) %>#<%= asset.resource.property.title_for_anchor%>"><%= asset.resource.property.title %></a></li>
-					<% end -%>
-				<% end -%>
-			</ul>
-		</div>
+    <div class="bg-top-middle"><div class="bg-top-left">&nbsp;</div><div class="bg-top-right">&nbsp;</div></div>
+		<div class="bg-middle-left"><div class="bg-middle-right">
+      <h2>Contents</h2>
+    </div></div>
+		<div class="bg-middle-left"><div class="bg-middle-right">
+  		<div class="r-box-inner">
+        <ul id='<%= id %>'>
+          <% for asset in @main_assets -%>
+            <%unless asset.resource.property.title.empty? -%>
+              <li id='asset_<%= asset.id %>'><%= sort_handler %><a href="<%= site_page_url(@page) %>#<%= asset.resource.property.title_for_anchor%>"><%= asset.resource.property.title %></a></li>
+            <% end -%>
+          <% end -%>
+        </ul>
+  		</div>
+		</div></div>
+    <div class="bg-bottom-middle"><div class="bg-bottom-left">&nbsp;</div><div class="bg-bottom-right">&nbsp;</div></div>
 	</div>
   <%= make_sortable :id => @page.id,
                     :section_id => @section.id,

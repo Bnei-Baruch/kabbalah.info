@@ -25,3 +25,55 @@ strong em, em strong{
   font-style:italic;
   font-weight:bold;
 }
+<%# Shadows %>
+.bg-top-middle, .bg-top-middle, .bg-top-middle,
+.bg-bottom-middle, .bg-bottom-middle, .bg-bottom-middle{
+	background:transparent url(/files/layouts/shadows/top-mid.gif) repeat-x scroll 0 0;
+  height:4px;
+  line-height:4px;
+  font-size:4px;
+}
+.bg-bottom-middle, .bg-bottom-middle, .bg-bottom-middle{
+	background:transparent url(/files/layouts/shadows/bottom-mid.gif) repeat-x scroll 0 0;
+  margin:0 0 10px;
+}
+.bg-top-left,.bg-top-left, .bg-top-left,
+.bg-top-right, .bg-top-right, .bg-top-right,
+.bg-bottom-left,.bg-bottom-left, .bg-bottom-left,
+.bg-bottom-right, .bg-bottom-right, .bg-bottom-right
+{
+  height:4px;
+  width:4px;
+  line-height:4px;
+  font-size:4px;
+  z-index:10;
+}
+.bg-bottom-left,.bg-bottom-left, .bg-bottom-left,
+.bg-bottom-right, .bg-bottom-right, .bg-bottom-right
+{
+  height:5px;
+}
+.bg-middle-left, .bg-middle-left, .bg-middle-left
+{
+  background:transparent url(/files/layouts/shadows/middle-left.gif) repeat-y scroll left top;
+}
+.bg-middle-right, .bg-middle-right, .bg-middle-right
+{
+	background:transparent url(/files/layouts/shadows/middle-right.gif) repeat-y scroll right top;
+}
+.bg-top-left,.bg-top-left, .bg-top-left{
+	background:transparent url(/files/layouts/shadows/top-left.gif) no-repeat scroll 0 0;
+  float:left;
+}
+.bg-top-right, .bg-top-right, .bg-top-right{
+  float:right;
+	background:transparent url(/files/layouts/shadows/top-right.gif) no-repeat scroll 0 0;
+}
+.bg-bottom-left,.bg-bottom-left, .bg-bottom-left{
+	background:transparent url(/files/layouts/shadows/bottom-left.gif) no-repeat scroll 0 0;
+  float:left;
+}
+.bg-bottom-right, .bg-bottom-right, .bg-bottom-right{
+	background:transparent url(/files/layouts/shadows/bottom-right.gif) no-repeat scroll 0 0;
+  float:right;
+}

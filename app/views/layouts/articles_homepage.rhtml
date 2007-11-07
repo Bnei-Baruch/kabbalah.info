@@ -8,31 +8,41 @@
 	<div id="bd"><%# Body%>
 		<div id="yui-main">
 			<div class="yui-b">
-				<div class="yui-g"><%# Content (top) part %>
-					<h2 class="hd-middle"><%= @section.title%></h2>
-					<div class="hd-border">&nbsp;</div>
+        <div class="yui-g bg-top-middle"><div class="bg-top-left">&nbsp;</div><div class="bg-top-right">&nbsp;</div></div>
+				<div class="yui-g bg-middle-left"><%# Content (top) part %>
+          <div class="bg-middle-right">
+  					<h2 class="hd-middle"><%= @section.title%></h2>
+    				<div class="hd-border">&nbsp;</div>
+          </div>
 				</div>
-				<div id="hd-no-bottom" class="hd-content yui-g"><%# Content (top) part %>
-					<div class="yui-u first"><%# 50% left part %>
-						<%= yield :top_video %>
-					</div>
-					<div class="yui-u"><%# 50% right part %>
-						<div class="video_descr">
-							<%= yield :top_video_descr %>
-						</div>
-					</div>
+				<div class="yui-g bg-middle-left"><%# Content (bottom) part %>
+          <div class="bg-middle-right hd-content">
+            <div class="yui-u first"><%# 50% left part %>
+              <%= yield :top_video %>
+            </div>
+            <div class="yui-u"><%# 50% right part %>
+              <div class="video_descr">
+                <%= yield :top_video_descr %>
+              </div>
+            </div>
+            <div class="clear">&nbsp;</div>
+  				</div>
 				</div>
-				<div class="hd-content yui-gc"><%# Content (bottom) part %>
-					<div class="events r-box r-no-bg yui-u first"><%# Left 66% part %>
-						<h2>Events</h2>
-						<%= yield :events %>
-					</div>
-					<div class="media r-box r-no-bg yui-u"><%# 33% right part %>
-						<h2>Media</h2>
-						<%= yield :media%>
-					</div>
+				<div class="yui-gc bg-middle-left"><%# Content (bottom) part %>
+          <div class="bg-middle-right hd-content">
+            <div class="events r-box r-no-bg yui-u first"><%# Left 66% part %>
+              <h2>Events</h2>
+              <%= yield :events %>
+            </div>
+            <div class="media r-box r-no-bg yui-u"><%# 33% right part %>
+              <h2>Media</h2>
+              <%= yield :media%>
+            </div>
+            <div class="clear">&nbsp;</div>
+          </div>
 				</div>
-			</div>
+        <div class="yui-g bg-bottom-middle"><div class="bg-bottom-left">&nbsp;</div><div class="bg-bottom-right">&nbsp;</div></div>
+      </div>
 		</div>
 		<div class="yui-b"><%# Navigation %>
 			<div id="top-env">

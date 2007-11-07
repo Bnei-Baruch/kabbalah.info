@@ -1,14 +1,19 @@
 <%
 	# this partial creates article box
  %>
-
 <div class="r-box" id='asset_<%= asset.id %>'>
-	<h2><%= sort_handler %><%= asset.resource.property.title %></h2>
-	<div class="r-box-inner">
-	<% unless asset.resource.body.blank? %>
-		<%= asset.resource.body %>
-	<% end %>
-	</div>
+  <div class="bg-top-middle"><div class="bg-top-left">&nbsp;</div><div class="bg-top-right">&nbsp;</div></div>
+  <div class="bg-middle-left"><div class="bg-middle-right">
+    <h2><%= sort_handler %><%= asset.resource.property.title %></h2>
+  </div></div>
+  <div class="bg-middle-left"><div class="bg-middle-right">
+    <div class="r-box-inner">
+    <% unless asset.resource.body.blank? %>
+      <%= asset.resource.body %>
+    <% end %>
+    </div>
+  </div></div>
+  <div class="bg-bottom-middle"><div class="bg-bottom-left">&nbsp;</div><div class="bg-bottom-right">&nbsp;</div></div>
 
 	<%= render :partial => "admin/admin_pannel", 
 						 :locals => { :edit_asset => asset,
@@ -18,3 +23,4 @@
 													})
 												} %>
 </div>
+<div class="right-bottom">&nbsp;</div>

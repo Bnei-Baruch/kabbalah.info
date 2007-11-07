@@ -8,28 +8,42 @@
 	<div id="bd"><%# Body%>
 		<div id="yui-main">
 			<div class="yui-b">
-				<div id="flash" class="yui-g"><%# Flash %>
-					<div id='flashbox'></div>
-					<%= render :partial => "engkab/general/flash",
-										 :locals => {:path => '/files/main_flash/',
-										 						 :name => 'flashbox',
-										 						 :id => 'flashbox',
-																 :width => '100%',
-																 :height => '100%'} %>
+        <div class="bg-top-middle"><div class="bg-top-left">&nbsp;</div><div class="bg-top-right">&nbsp;</div></div>
+        <div class="bg-middle-left">
+        <div class="bg-middle-right">
+          <div id="flash" class="yui-g"><%# Flash %>
+            <div id='flashbox'></div>
+            <%= render :partial => "engkab/general/flash",
+                       :locals => {:path => '/files/main_flash/',
+                                   :name => 'flashbox',
+                                   :id => 'flashbox',
+                                   :width => '100%',
+                                   :height => '100%'} %>
+  				</div>
 				</div>
+				</div>
+        <div class="bg-bottom-middle"><div class="bg-bottom-left">&nbsp;</div><div class="bg-bottom-right">&nbsp;</div></div>
 				<div id="resizer" class="yui-g"><%# Content (top) part %>
-					<h2 class="hd-middle">What's New - Updates and Featured Content</h2>
-					<div class="hd-border">&nbsp;</div>
+          <div class="bg-top-middle"><div class="bg-top-left">&nbsp;</div><div class="bg-top-right">&nbsp;</div></div>
+          <div class="bg-middle-left">
+          <div class="bg-middle-right">
+            <h2 class="hd-middle">What's New - Updates and Featured Content</h2>
+            <div class="hd-border">&nbsp;</div>
+          </div>
+          </div>
 				</div>
-				<div class="hd-content yui-g"><%# Content (bottom) part %>
-          <% id_left = sort_ul_id(@page.id, @page.section.id, @left_placeholder.id) %>
-          <div id='<%= id_left %>' class="r-box yui-u first"><%# Left 66% part %>
-						<%= yield :homepage_left %>
-					</div>
-          <% id_right = sort_ul_id(@page.id, @page.section.id, @right_placeholder.id) %>
-					<div id='<%= id_right %>' class="r-box yui-u"><%# 33% right part %>
-						<%= yield :homepage_right%>
-					</div>
+				<div class="yui-g bg-middle-left"><%# Content (bottom) part %>
+          <div class="bg-middle-right hd-content">
+            <% id_left = sort_ul_id(@page.id, @page.section.id, @left_placeholder.id) %>
+            <div id='<%= id_left %>' class="r-box yui-u first"><%# Left 66% part %>
+              <%= yield :homepage_left %>
+            </div>
+            <% id_right = sort_ul_id(@page.id, @page.section.id, @right_placeholder.id) %>
+            <div id='<%= id_right %>' class="r-box yui-u"><%# 33% right part %>
+              <%= yield :homepage_right%>
+            </div>
+            <div class="clear">&nbsp;</div>
+          </div>
           <%=
             make_sortable :id => @page.id,
                   :section_id => @page.section.id,
@@ -51,7 +65,8 @@
                   :dropOnEmpty => true
           %>
 				</div>
-			</div>
+        <div class="bg-bottom-middle"><div class="bg-bottom-left">&nbsp;</div><div class="bg-bottom-right">&nbsp;</div></div>
+      </div>
 		</div>
 		<div class="yui-b"><%# Navigation %>
 			<%= yield :content_menu %>

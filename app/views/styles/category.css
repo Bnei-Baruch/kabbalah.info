@@ -8,8 +8,12 @@
 	margin: 0 0 0 10px;
 }
 .category{
-	background-color:<%=@palette[:category_bg]%>;
+  background-color:<%=@palette[:category_bg]%>;
 	margin:0 0 10px;
+  position:relative;
+}
+.category .hd-border{
+  margin:0 4px;
 }
 .category h2{
 	background-color:<%=@palette[:category_hd_bg]%>;
@@ -17,7 +21,7 @@
 	min-height:20px;
 	line-height:22px;
 	padding:0 10px;
-	margin:0 0 1px;
+	margin:0 4px 1px;
 	text-transform:uppercase;
 	font-family:arial;
 	font-weight:bold;
@@ -27,8 +31,7 @@
 .category .hd-content{
 	margin:0;
 	padding:2px 10px 10px;
-	border:1px solid <%=@palette[:general_border]%>;
-	border-top:0 none;
+  border:0 none;
 }
 .category ul{
 	margin:0;
@@ -39,6 +42,7 @@
 	display:block;
 	margin:0;
 	padding:0;
+	height:90%;
 }
 .category ul li a, .category ul li a:visited{
 	color:<%=@palette[:category_fg]%>;
@@ -48,7 +52,6 @@
 	margin:0;
 	text-decoration:none;
 	font-size:85%;
-	line-height:115%;
 }
 .category ul li a.last{
 	border:0 none;
@@ -65,8 +68,8 @@
 }
 <%# Environment -%>
 .env{
-	margin-bottom:15px;
-	background-color:#F5F5F5;
+	margin:10px 0;
+  position:relative;
 }
 .env h2{
 	min-height:20px;
@@ -76,13 +79,12 @@
 	font-size:<%=@palette[:h2_font_size]%>;
 	background-color:#CECFD2;
 	color:#87898C;
-	margin:0;
+	margin:0 4px;
 }
 .env .hd-content{
 	margin:0;
 	padding:15px 10px 10px !important;
-	border:1px solid #CECFD2;
-	border-top:0 none;
+	border:0 none;
 }
 .env ul{
 	margin:0;
@@ -151,13 +153,16 @@
 	width:168px;
 	border:1px solid #CFD0D2;
 	z-index:20;
+  background:#F5F5F5 none;
+  margin:0;
 }
 <%# Services -%>
+.services{
+ position:relative;
+}
 .service{
 	padding:10px;
-	border:1px solid #c2c3c6;
-	border-top:0 none;
-	margin:0 0 10px;
+	margin:0;
 	font-size:77%;
 }
 .services h2{
@@ -166,8 +171,8 @@
 	border-bottom:1px solid <%=@palette[:services_bottom_line]%>;
 	min-height:19px;
 	line-height:19px;
-	padding:0 10px;
-	margin:0 0 1px;
+	padding:0 8px;
+	margin:0 4px 1px;
 	text-transform:uppercase;
 	font-size:<%=@palette[:h2_font_size]%>;
 }
@@ -176,6 +181,7 @@
 	min-height:4px;
 	line-height:4px;
 	font-size:4px;
+  margin:0 4px;
 }
 .service h3{
 	margin:0;

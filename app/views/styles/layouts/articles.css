@@ -6,7 +6,7 @@ h2.hd-middle {
 	min-height:20px;
 	line-height:20px;
 	padding:0 10px;
-	margin:0 0 1px;
+	margin:0 4px 1px;
 	text-transform:uppercase;
 	font-family:arial;
 	font-weight:bold;
@@ -18,14 +18,11 @@ h2.hd-middle {
 	min-height:4px;
 	line-height:4px;
 	font-size:4px;
+  margin:0 4px;
 }
 div.hd-content{
 	padding:15px 20px 20px;
-	border:1px solid <%=@palette[:general_border]%>;
 	border-top:0 none;
-}
-div#hd-no-bottom{
-	border-bottom: 0 none;
 }
 div.hd-hr-padding{
 	border-left:1px solid <%=@palette[:general_border]%>;

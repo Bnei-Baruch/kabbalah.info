@@ -8,19 +8,27 @@
 	<div id="bd"><%# Body%>
 		<div id="yui-main"><%# Right Side %>
 			<div class="yui-b">
-				<div class="yui-g"><!--  -->
-					<h2 class="hd-middle"><%= @section.title%></h2>
-					<div class="hd-border">&nbsp;</div>
+        <div class="yui-g bg-top-middle"><div class="bg-top-left">&nbsp;</div><div class="bg-top-right">&nbsp;</div></div>
+				<div class="yui-g bg-middle-left"><%# Content (top) part %>
+          <div class="bg-middle-right">
+  					<h2 class="hd-middle"><%= @section.title%></h2>
+    				<div class="hd-border">&nbsp;</div>
+          </div>
 				</div>
-				<div id="vod" class="yui-u yui-gc"><!-- VOD part -->
-					<div class="yui-u first">
-					<div id="vod-body"><%# Middle 66% part %>
-							<%= yield %>
-					</div></div>
-					<div id="vod-right" class="yui-u"><%# 33% right part %>
-						<%= yield :sidebar %>
-					</div>
-				</div>
+				<div id="vod" class="yui-gc bg-middle-left"><!-- VOD part -->
+          <div class="bg-middle-right">
+            <div class="yui-u first">
+              <div id="vod-body"><%# Middle 66% part %>
+                 <%= yield %>
+              </div>
+            </div>
+            <div id="vod-right" class="yui-u"><%# 33% right part %>
+              <%= yield :sidebar %>
+            </div>
+            <div class="clear">&nbsp;</div>
+    			</div>
+  			</div>
+        <div class="yui-g bg-bottom-middle"><div class="bg-bottom-left">&nbsp;</div><div class="bg-bottom-right">&nbsp;</div></div>
 			</div>
 		</div>
 		<div class="yui-b"><!-- Environment + Left Side -->

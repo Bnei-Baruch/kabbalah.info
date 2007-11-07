@@ -1,7 +1,5 @@
-#vod {
+#vod{
 	height:100%;
-	border:1px solid #c2c3c6;
-	border-top: 0 none;
 }
 #vod-body{
 	padding:15px 10px;
@@ -13,7 +11,7 @@ h2.vod-hd {
 	min-height:20px;
 	line-height:20px;
 	padding:0 8px;
-	margin:0 0 1px;
+	margin:0 4px 1px;
 	text-transform:uppercase;
 	font-family:arial;
 	font-weight:bold;
@@ -136,7 +134,7 @@ h2.hd-middle {
 	min-height:20px;
 	line-height:20px;
 	padding:0 8px;
-	margin:0 0 1px;
+	margin:0 4px 1px;
 	text-transform:uppercase;
 	font-size:<%=@palette[:h2_font_size]%>;
 	font-family:arial;
@@ -162,4 +160,5 @@ h2.hd-middle span#bread a, h2.hd-middle span#bread a:visited{
 	min-height:4px;
 	line-height:4px;
 	font-size:4px;
+  margin:0 4px;
 }

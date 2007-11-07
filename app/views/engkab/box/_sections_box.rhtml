@@ -2,21 +2,27 @@
    id = sort_ul_id(0, 0, 0)
 -%>
 <div class="<%= on_homepage ? "category graylinks" : "env"%>"><%# first menu %>
-	<a class="env-anchor" name="env-anchor"></a>
-	<h2>Navigation</h2>
-	<div class="hd-border">&nbsp;</div>
-	<div class="hd-content">
-			<%# List of pages (###_list.rhtml)%>
-      <ul id='<%= id %>'>
-				<%= render :partial => "engkab/list/section_list",
-                   :collection => Section.environments(false,true),
-                   :spacer_template => 'share/menu_delimiter' %>
-		
-			</ul>
-      <%= make_sortable :id => 0,
-                        :section_id => 0,
-                        :placeholder_id => 0,
-                        :function => :sort_sections_asset_path
-      %>
-	</div>
+	<div class="bg-top-middle"><div class="bg-top-left">&nbsp;</div><div class="bg-top-right">&nbsp;</div></div>
+  <div class="bg-middle-left">
+  <div class="bg-middle-right">
+      <a class="env-anchor" name="env-anchor"></a>
+    <h2>Navigation</h2>
+    <div class="hd-border">&nbsp;</div>
+    <div class="hd-content">
+        <%# List of pages (###_list.rhtml)%>
+        <ul id='<%= id %>'>
+          <%= render :partial => "engkab/list/section_list",
+                     :collection => Section.environments(false,true),
+                     :spacer_template => 'share/menu_delimiter' %>
+
+        </ul>
+        <%= make_sortable :id => 0,
+                          :section_id => 0,
+                          :placeholder_id => 0,
+                          :function => :sort_sections_asset_path
+        %>
+    </div>
+  </div>
+  </div>
+	<div class="bg-bottom-middle"><div class="bg-bottom-left">&nbsp;</div><div class="bg-bottom-right">&nbsp;</div></div>
 </div>
