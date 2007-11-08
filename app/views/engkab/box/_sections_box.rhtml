@@ -11,10 +11,11 @@
     <div class="hd-content">
         <%# List of pages (###_list.rhtml)%>
         <ul id='<%= id %>'>
-          <%= render :partial => "engkab/list/section_list",
-                     :collection => Section.environments(false,true),
-                     :spacer_template => 'share/menu_delimiter' %>
-
+          <% sections = Section.environments(false,true)
+             sections.each_with_index { |e, idx| %>
+               <%= render :partial => "engkab/list/section_list",
+                      :locals => {:section => e, :not_last => idx != sections.size - 1}  %>
+          <% } %>
         </ul>
         <%= make_sortable :id => 0,
                           :section_id => 0,

@@ -4,7 +4,7 @@
 -%>
 <% if asset.published_page? || logged_in? -%>
     <li id='category_<%= asset.id %>'>
-    <%= sort_handler %>
+    <%= sort_handler true %>
 		<a href="<%= site_page_url(asset) %>"<%= selected%>><%= asset.resource.property.title %></a>
     <% unless last_one %>
       <div class="divider">&nbsp;</div>

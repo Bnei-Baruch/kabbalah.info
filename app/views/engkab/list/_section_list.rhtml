@@ -1,6 +1,5 @@
 <%#Displaying a single section in a list of sections -%>
 <% 
-	section = section_list #section_list is the default name of the variable - the same as the partial name
 	selected = section.eql?(@section) ? ' class="selected"' : ''
 	link_text = h(section.title)
 	if section.is_external_link?
@@ -16,4 +15,7 @@
 -%>
 	<li id='section_<%= section.id %>'>
     <%= sort_handler(:force =>true) %><a href="<%= url %>"<%= target + selected + onclick %>><%= external %><%= link_text %></a>
+    <% if not_last %>
+      <div class="divider">&nbsp;</div>
+    <% end %>
 	</li>

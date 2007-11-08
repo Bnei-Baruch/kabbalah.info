@@ -9,6 +9,7 @@ div.asset, .right-item, .hd-content ul li, #hd-no-bottom, #homepage_left, #homep
 .r-box{
   padding:25px 0;
   border:1px solid green;
+  margin:0 -2px;
 }
 .hr{
   height:1px;
