@@ -27,11 +27,13 @@
 #header #logo a{
   text-indent:-9999px;
   display:block;
+  height:100%;
+  width:100%;
 }
 #pfooter #choose-lang{
 	position:absolute;
 	font-size:77%;
-	top:40px;
+	top:1px;
 	right:0;
 }
 #pfooter #choose-lang select{
@@ -73,7 +75,7 @@
 }
 #pfooter #search form input#SearchString{
 	*width:112px;
-	*height:11px;
+	*height:13px;
 	min-width:112px;
 	min-height:11px;
 }

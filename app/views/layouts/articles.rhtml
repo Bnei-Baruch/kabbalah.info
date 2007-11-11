@@ -18,7 +18,7 @@
               <div class="hd-content">
                 <%= render :partial => 'engkab/general/bread_crumbs' %>
                 <div class="hr">&nbsp;</div>
-                <h1 class="title"><%= @page.resource.property.title %></h1>
+                <h2 class="title"><%= @page.resource.property.title %></h2>
                 <% unless @page.resource.property.short_description.empty? %><h3 class="title"><%=@page.resource.property.short_description%></h3><% end %>
                 <%= yield %>
               </div>
@@ -34,10 +34,16 @@
 			</div>
 		</div>
 		<div class="yui-b"><%# Navigation %>
-			<div id="top-env">
-				<a href="#env" class="title">NAVIGATION</a>
-			</div>
-			<%= yield :content_menu %>
+      <div class="bg-top-middle"><div class="bg-top-left">&nbsp;</div><div class="bg-top-right">&nbsp;</div></div>
+      <div class="bg-middle-left">
+        <div class="bg-middle-right">
+          <div id="top-env">
+            <a href="#env" class="title">NAVIGATION</a>
+          </div>
+        </div>
+      </div>
+      <div class="bg-bottom-middle"><div class="bg-bottom-left">&nbsp;</div><div class="bg-bottom-right">&nbsp;</div></div>
+      <%= yield :content_menu %>
 		</div>
 	</div>
 <%= render :partial => "engkab/global/pfooter" %> 

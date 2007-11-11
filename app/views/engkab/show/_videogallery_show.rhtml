@@ -19,9 +19,10 @@
 	<% if has_children %>
 		<div id="right-list">
 	<% end %>
-	<% videos.each do |video| %>
+	<% videos.each_with_index do |video, index| %>
 		<% next if video.resource.video_link.blank? %>
 		<%
+      border = (index == 0 && !video.resource.video_link.blank?) ? 'style="background:red"' : ''
 			prop = video.resource.property
 			image = prop.image_storage
 			duration = video.resource.duration || ""
@@ -37,7 +38,7 @@
 							"SetColor(this,'red','#CCCDCF');CreateControl(\"x#{resource.id}\",\"#{video.resource.video_link}\",1,380,320)"
 				%>
 			</h3>
-			<div class="right-img">
+			<div class="right-img" <%=border%>>
 				<% if image %>
 					<%= link_to_function image_tag( image.public_filename(:preview),
 																:alt => image.alt,

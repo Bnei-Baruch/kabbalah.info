@@ -37,7 +37,7 @@ h2.hd-middle span#bread a, h2.hd-middle span#bread a:visited{
 	font-size:85%;
 	text-decoration:none;
 }
-h1.title{
+h2.title{
 	margin:-3px 0 3px;
 	font-family:Arial,Trebuchet,sans-serif;
 	font-size:197%;
@@ -66,7 +66,7 @@ h3.title{
   margin:0 4px;
 }
 div.hd-content{
-	padding:15px 20px 20px;
+	padding:15px 20px 4px;
 }
 div.hd-content a, div.hd-content a:visited{
 	color:#0698bc;

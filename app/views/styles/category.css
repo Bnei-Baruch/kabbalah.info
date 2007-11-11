@@ -30,7 +30,7 @@
 }
 .category .hd-content{
 	margin:0;
-	padding:2px 10px 10px;
+	padding:2px 10px 4px;
   border:0 none;
 }
 .category ul{
@@ -83,7 +83,7 @@
 }
 .env .hd-content{
 	margin:0;
-	padding:15px 10px 10px !important;
+	padding:5px 10px 2px !important;
 	border:0 none;
 }
 .env ul{
@@ -130,7 +130,7 @@
 	min-height:21px;
 	line-height:20px;
 	padding:0 0 0 10px;
-	margin:0 0 10px;
+	margin:0 4px;
 }
 #top-env a, #top-env a:visited{
 	font-size:85%;
