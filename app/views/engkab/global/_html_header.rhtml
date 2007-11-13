@@ -7,9 +7,9 @@
 	<meta http-equiv="Content-language" content="utf8" /> 
 
 	<meta name="verify-v1" content="Gu/TIAqQui+rwYsq+F3TZYXJvm63KGGjFKCjWbZdzbg=" />
-	<meta name="description" content="<%= @page.resource.property.short_description %>" />
+	<meta name="description" content="<%= html_escape(@page.resource.property.short_description) %>" />
 	<% unless @is_homepage -%>
-		<meta name="keywords" content="<%= @page.resource.keywords %>" />
+		<meta name="keywords" content="<%= html_escape(@page.resource.keywords) %>" />
 	<% end -%>
 	<link rel="shortcut icon" href="http://www.kabbalah.info/files/layouts/favicon.ico" />
 	<%= javascript_include_tag :defaults if logged_in? -%>
