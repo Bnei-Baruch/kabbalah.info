@@ -44,10 +44,10 @@ class ApplicationController < ActionController::Base
 	                       :paste_auto_cleanup_on_paste => true,
 	                       :extended_valid_elements => "a[name|rel|href|target|title|onclick|style],img[rel|alt|class|dir<ltr?rtl|height|id|longdesc|onclick|ondblclick|onkeydown|onkeypress|onkeyup|onmousedown|onmousemove|onmouseout|onmouseover|onmouseup|src|style|title|width]",
 	                       :theme_advanced_buttons1 => %w{ bold italic separator justifyleft justifycenter justifyright indent outdent separator ltr rtl separator bullist numlist },
-	                       :theme_advanced_buttons2 => %w{ code fullscreen separator undo redo separator search separator pastetext pasteword selectall separator anchor link unlink image media separator removeformat },
+	                       :theme_advanced_buttons2 => %w{ code fullscreen separator undo redo separator search separator pastetext pasteword selectall separator anchor link unlink image media table separator removeformat },
 	                       :theme_advanced_buttons3 => [],
 								  :media_use_script => "true",
-	                       :plugins => %w{contextmenu paste fullscreen inlinepopups directionality searchreplace media advimage}},
+	                       :plugins => %w{contextmenu paste fullscreen inlinepopups directionality searchreplace media advimage table}},
 								  :advimage_styles => 'left_aligned=tinyleft',
 								  :debug => true,
 	          :only => [:new, :edit, :show, :index])
