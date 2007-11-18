@@ -1,0 +1,9 @@
+table.clean, table.clean td, table.clean tr{
+border:none;    
+}
+table.gray, table.gray td, table.gray tr{
+border:1px solid #C2C3C6;
+}
+table.center{
+margin:0 auto;    
+}
