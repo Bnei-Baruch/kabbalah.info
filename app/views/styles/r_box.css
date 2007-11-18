@@ -23,13 +23,15 @@
   *height:20px;
 	list-style:square outside url(/files/layouts/bullet.gif);
 }
+.r-box-inner{
+	font-size:77% !important;
+}
 .r-box-inner ul li a{
 	color:#1999BC;
 	width:auto;
 	padding:0;
 	margin:0;
 	text-decoration:none;
-	font-size:77%;
 	border-bottom:1px solid white;
 }
 .r-box-inner ul li a:link, .r-box-inner ul li a:visited {
@@ -48,6 +50,5 @@
 	border-bottom:1px solid #1999BC;
 }
 .r-box-inner p {
-	font-size:77%;
   margin:0px 4px;
 }
