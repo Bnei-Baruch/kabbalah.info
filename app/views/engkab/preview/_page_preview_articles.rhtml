@@ -22,7 +22,6 @@
 	</div>
 	<h3><%= link_to property.title, site_page_url(asset) %></h3>
 	<div class="right-description">
-		<!--<h3><%#= link_to property.title, site_page_url(asset) %></h3>-->
 		<% unless property.short_description.blank? %><p><%= property.short_description%></p> <% end %>
 	</div>
 	<%= render :partial => "admin/admin_pannel",

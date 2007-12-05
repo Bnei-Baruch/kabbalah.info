@@ -8,4 +8,14 @@ class Property < ActiveRecord::Base
 			'-' + $1.unpack('H2' * $1.size).join('-').upcase
 		end.tr(' ', '-').downcase
 	end
+
+# Escaping the plain text 
+	def short_description
+		ERB::Util::h read_attribute('short_description')
+	end
+
+	def title
+		ERB::Util::h read_attribute('title')
+	end
+
 end
