@@ -76,6 +76,7 @@ class AssetsController < ApplicationController
   # GET /assets.xml
   def index
 		@section_id = param_by_pattern('section_id')
+		@section = Section.find(@section_id)
   	@grand_parent_id = ''
   	@section_id ||= Asset.sections(true)
   	@section_title = Section.get_title_by_id(@section_id) || "Unknown"
