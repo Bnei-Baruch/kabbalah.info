@@ -3,16 +3,22 @@ class EngkabController < ApplicationController
 	# This action will be called for all unrecognized urls
 	# Will check for 301/305/404 statuses
 	def unrecognized?
+    # Take only part BEFORE parameters
 		path = @path || build_url(request.env)
+    args = ''
+    if m = path.match(/\?/)
+      path = m.pre_match
+      args = '?' + m.post_match
+    end
 		if REDIRECTIONS.has_key?(path)
 			action = REDIRECTIONS[path][:action]
 			case action
 			when 301 # Permanent redirect
 				url_path = REDIRECTIONS[path][:url]
-				redirect_301(url_path)
+				redirect_301(url_path + args)
 				return true
 			when 305 # To old site via reverse proxy
-				redirect_305(path)
+				redirect_305(path + args)
 				return true
 			when 303 # (See other) Just render this page from ourself w/o any redirect
 				real_show(REDIRECTIONS[path][:section], REDIRECTIONS[path][:id])
