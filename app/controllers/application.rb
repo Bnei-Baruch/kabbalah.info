@@ -25,6 +25,7 @@ class ApplicationController < ActionController::Base
 	                       :paste_use_dialog => false,
 												 :paste_auto_cleanup_on_paste => true,
 												 :convert_fonts_to_spans => true,
+                         :convert_urls => false,
 												 :apply_source_formatting => true,
 												 :paste_convert_headers_to_strong => false,
 												 :paste_strip_class_attributes => "all",
@@ -51,7 +52,7 @@ class ApplicationController < ActionController::Base
 	                       :plugins => %w{contextmenu paste fullscreen inlinepopups directionality searchreplace media advimage table}},
 								  :advimage_styles => 'left_aligned=tinyleft',
 								  :debug => true,
-	          :only => [:new, :edit, :show, :index])
+	          :only => [:new, :edit, :show, :index, :update])
 
     alias_method :orig_redirect_to, :redirect_to
 	def redirect_to(options = {}, *parameters_for_method_reference)
