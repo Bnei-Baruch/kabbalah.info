@@ -223,9 +223,10 @@ protected
 			end
 			result
 		when :categories						# like in Video clips
+      list = @section.assets.select {|s| s.resource_type == 'Category' && s.parent_id == @page.parent.parent_id}.sort{|a, b| a.position <=> b.position}
 			[
 				{
-					:list => @section.assets.select {|s| s.resource_type == 'Category' && s.parent_id == @page.parent.parent_id}.sort{|a, b| a.position <=> b.position},
+					:list => list,
 					:parent_id => @page.parent.parent_id,
 					:name => 'Categories',
 					:type => 'category',
@@ -233,11 +234,12 @@ protected
 				}
 			]
 		when :pages_categories_links									# like new to kabbalah
+      list = @section.assets.select {|s| ['Page', 'Category', 'Link'].include?(s.resource_type) && 
+																								s.parent_id == 0
+																					}.sort{|a, b| a.position <=> b.position}
 			[
 				{
-					:list => @section.assets.select {|s| ['Page', 'Category', 'Link'].include?(s.resource_type) && 
-																								s.parent_id == 0
-																					}.sort{|a, b| a.position <=> b.position},
+					:list => list,
 					:parent_id => 0,
 					:name => 'Categories',
 					:type => %w{ page category link },
