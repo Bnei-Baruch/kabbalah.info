@@ -1,4 +1,4 @@
-SCRIPT_LINES__ = {} if ENV['RAILS_ENV'] == 'development'
+SCRIPT_LINES__ = {} if ENV['RAILS_ENV'] == 'development' and not SCRIPT_LINES__
 
 # Be sure to restart your web server when you modify this file.
 
