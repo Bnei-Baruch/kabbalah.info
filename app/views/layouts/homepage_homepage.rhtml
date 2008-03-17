@@ -1,84 +1,79 @@
 <%= render :partial => "engkab/global/html_header" %>
 <body>
-<div id="doc2" class="yui-t2"><%# 950px Menu 180px on left %>
-	<div id="hd"><%# Header%>
-		<%= render :partial => "engkab/global/header" %>
-	</div>
+  <%
+  # 950px Menu 180px on left
+ 
+  yui_doc(:id => "doc2", :template => "yui-t2") {
+    # Header
+    yui_render(:id => "hd", :partials => ["engkab/global/header"]) {}
 
-	<div id="bd"><%# Body%>
-		<div id="yui-main">
-			<div class="yui-b">
-        <div class="bg-top-middle"><div class="bg-top-left">&nbsp;</div><div class="bg-top-right">&nbsp;</div></div>
-        <div class="bg-middle-left">
-        <div class="bg-middle-right">
-          <div id="flash" class="yui-g"><%# Flash %>
-            <div id='flashbox'></div>
-            <%= render :partial => "engkab/general/flash",
-                       :locals => {:path => '/files/main_flash/',
-                                   :name => 'flashbox',
-                                   :id => 'flashbox',
-                                   :width => '100%',
-                                   :height => '100%'} %>
-  				</div>
-				</div>
-				</div>
-        <div class="bg-bottom-middle"><div class="bg-bottom-left">&nbsp;</div><div class="bg-bottom-right">&nbsp;</div></div>
-				<div id="resizer" class="yui-g"><%# Content (top) part %>
-          <div class="bg-top-middle"><div class="bg-top-left">&nbsp;</div><div class="bg-top-right">&nbsp;</div></div>
-          <div class="bg-middle-left">
-          <div class="bg-middle-right">
-            <h2 class="hd-middle">What's New - Updates and Featured Content</h2>
-            <div class="hd-border">&nbsp;</div>
-          </div>
-          </div>
-				</div>
-				<div class="yui-g bg-middle-left"><%# Content (bottom) part %>
-          <div class="bg-middle-right hd-content">
-            <% id_left = sort_ul_id(@page.id, @page.section.id, @left_placeholder.id) %>
-            <div id='<%= id_left %>' class="r-box yui-u first"><%# Left 66% part %>
-              <%= yield :homepage_left %>
-            </div>
-            <% id_right = sort_ul_id(@page.id, @page.section.id, @right_placeholder.id) %>
-            <div id='<%= id_right %>' class="r-box yui-u"><%# 33% right part %>
-              <%= yield :homepage_right%>
-            </div>
-            <div class="clear">&nbsp;</div>
-          </div>
-          <%=
-            make_sortable :id => @page.id,
-                  :section_id => @page.section.id,
-                  :placeholder_id => @left_placeholder.id,
-                  :tag => 'div',
-                  :only => 'movable',
-                  :containment => [id_left, id_right],
-                  :constraint => false,
-                  :dropOnEmpty => true
-          %>
-          <%=
-            make_sortable :id => @page.id,
-                  :section_id => @page.section.id,
-                  :placeholder_id => @right_placeholder.id,
-                  :tag => 'div',
-                  :only => 'movable',
-                  :containment => [id_left, id_right],
-                  :constraint => false,
-                  :dropOnEmpty => true
-          %>
-				</div>
-        <div class="bg-bottom-middle"><div class="bg-bottom-left">&nbsp;</div><div class="bg-bottom-right">&nbsp;</div></div>
-      </div>
-		</div>
-		<div class="yui-b"><%# Navigation %>
-			<%= yield :content_menu %>
-		</div>
-	</div>
-		<%= render :partial => "engkab/global/pfooter" %>
+    # Body
+    yui_render {
+      yui_block(:primary => true) {
+        box_with_shadow(false) {
+         # Flash
+         yui_grid(:id => "flash") {
+           yui_render(:partials => ["engkab/general/flash"],
+                      :locals => {:path => '/files/main_flash/',
+                                  :name => 'flashbox',
+                                  :id => 'flashbox',
+                                  :width => '100%',
+                                  :height => '100%'
+                      }
+                     ) {}
+           }
+         }
+         # Content (top) part
+         yui_grid(:id => "resizer") {
+           box_with_shadow() { %>
+             <h2 class="hd-middle">What's New - Updates and Featured Content</h2>
+            <%
+           }
+         }
+         # Content (bottom) part
+         yui_grid(:grid => "g bg-middle-left") { %>
+           <div class="bg-middle-right hd-content">
+           <%
+             id_left = sort_ul_id(@page.id, @page.section.id, @left_placeholder.id)
+             id_right = sort_ul_id(@page.id, @page.section.id, @right_placeholder.id)
+             # Left 66% part
+             yui_unit(:unit => "u first r-box", :id => id_left, :yield => :homepage_left) {}
+             yui_unit(:unit => "u r-box", :id => id_right, :yield => :homepage_right) {}
+           %>
+             <div class="clear">&nbsp;</div>
+           </div>
+           <%=
+              make_sortable :id => @page.id,
+                    :section_id => @page.section.id,
+                    :placeholder_id => @left_placeholder.id,
+                    :tag => 'div',
+                    :only => 'movable',
+                    :containment => [id_left, id_right],
+                    :constraint => false,
+                    :dropOnEmpty => true
+           %>
+           <%=
+              make_sortable :id => @page.id,
+                    :section_id => @page.section.id,
+                    :placeholder_id => @right_placeholder.id,
+                    :tag => 'div',
+                    :only => 'movable',
+                    :containment => [id_left, id_right],
+                    :constraint => false,
+                    :dropOnEmpty => true
+           %>
+         <% } %>
+           <div class="bg-bottom-middle"><div class="bg-bottom-left">&nbsp;</div><div class="bg-bottom-right">&nbsp;</div></div>
+      <% }
+      # Navigation
+      yui_block(:yield =>:content_menu) {}
+    }
+    
+    yui_render(:partials => ["engkab/global/pfooter"]) {}
 
-	<div id="ft"><%# Footer %>
-		<%= render :partial => "engkab/global/footer" %>
-		<%= render :partial => "engkab/global/google_analytics" %>
-	</div>
+    # Footer
+    yui_render(:id => "ft", :partials => ["engkab/global/footer", "engkab/global/google_analytics"]) {}
 
-</div>
+  } %>
 </body>
 </html>

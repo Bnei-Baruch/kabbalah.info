@@ -1,9 +1,10 @@
-<%
-	flashvars ||= nil
--%>
-<script type="text/javascript">
-var FO = { movie:"<%= path + name %>.swf", width:"<%= width %>", height:"<%= height %>",
-		majorversion:"6", build:"40"<% if flashvars -%>, flashvars:"<%= flashvars %>"<% end -%> };
+<div id='flashbox'></div>
+<%=
+  content = "var FO = {movie:'#{path + name}.swf',width:'#{width}',height:'#{height}',majorversion:'6', build:'4'"
+  if flashvars ||= nil
+    content += ", flashvars:'#{flashvars}'"
+  end
+  content += "};UFO.create(FO, '#{id}');"
 
-  UFO.create(FO, "<%= id %>");
-</script>
+  javascript_tag(content)
+-%>
