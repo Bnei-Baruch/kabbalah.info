@@ -14,14 +14,14 @@ ActionController::Routing::Routes.draw do |map|
   map.logout '/admin/logout', :controller => 'sessions', :action => 'destroy'
   map.login_home '/admin/login', :controller => 'sessions', :action => 'new'
 
-  map.resources :engkab, :controller => 'engkab',
-			 :singular => 'engkab_page',
-			 :collection => {:google_sitemap => :get}
-
   map.site_page0 ':controller/:section/:id', :action => 'show', :section => nil, :id => nil
   # map.section1 ':controller/:section/:category0/:id', :action => 'show'
   # map.section2 ':controller/:section/:category0/:category1/:id', :action => 'show'
   
+  map.resources :engkab, :controller => 'engkab',
+			 :singular => 'engkab_page',
+			 :collection => {:google_sitemap => :get}
+
   map.resources :video_galleries, :path_prefix => '/admin'
   map.resources :assets, :path_prefix => '/admin',
   								:member => { :sort => :post,
