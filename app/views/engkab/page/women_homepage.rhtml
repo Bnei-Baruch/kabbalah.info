@@ -27,31 +27,6 @@
 <% end%>
 
 
-<% content_for(:top_video) do %>
-	<% if @top_video and not video.video_link.blank? %>
-		<div class="player" id="<%= "x#{video.id}" %>">
-			<script type="text/javascript">
-			//<![CDATA[
-			     CreateControl("<%= "x#{video.id}" %>","<%= video.video_link %>", 1, 340, 256);
-			//]]>
-			</script>
-		</div>
-	<% end %>
-	<%= render :partial => "admin/admin_pannel",
-					 :locals => { :edit_asset => @top_video,
-												:classes => YAML.dump({
-													:video => :video_in_worldwide_homepage
-												}),
-					 							:nobreak => true
-					 						} %>
-<% end # top_video %>
-
-<% content_for(:top_video_descr) do %>
-	<% if @top_video and not video.property.description.blank? %>
-		<p><%= video.property.description %></p>
-	<% end %>
-<% end # top_video_descr %>
-
 <% content_for(:homepage_left) do %>
 	<%= render :partial => "admin/admin_pannel",
 						 :locals => { :new_asset => { :parent_id => @page.id, 
