@@ -2,6 +2,7 @@
 	return if not (@category && (list = Asset.get_pages_by_parent(@category, (not logged_in?))) && list.size > 1)
 
 	index = list.index(@page)	
+	debugger
 -%>
 <div id="pagination">
 	<% if not (list[0].eql?(@page)) -%>

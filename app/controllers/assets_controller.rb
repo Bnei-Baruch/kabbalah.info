@@ -15,6 +15,7 @@ class AssetsController < ApplicationController
                         :order => 'position ASC'
                 )
 		list = params[sort_ul_id(@parent_id, @section_id, @placeholder_id)]
+		order = params[:order] || "ASC"
     
     # On Homepage assets may be moved between placeholders
     # Will take care only on addition to a target list, not on
@@ -32,8 +33,8 @@ class AssetsController < ApplicationController
       sort_by_parent_id
       return
     end
-
-    reindex resources, list
+		#debugger
+    reindex resources, list, order
 
     (render :nothing => true and return) if do_render
   end
@@ -52,7 +53,7 @@ class AssetsController < ApplicationController
   # POST /assets/1;sort
   def sort
     (redirect_to :unauthorized and return) unless has_right?(:edit)
-
+    	
     sort_by_parent_id(false)
 
     # Re-render middle part
@@ -63,8 +64,11 @@ class AssetsController < ApplicationController
                         :order => 'position ASC')
     @page = Asset.find(@parent_id)
     @section = @page.section
+    order = params[:order] || "ASC"	
+    
 		assets = render_to_string :partial => "engkab/show_assets_in_loop",
-					 :locals => { :container => resources, :display => "show" }
+					 :locals => { :container => resources, :display => "show", :order => order }
+					 
 		navigation = render_to_string :partial => "engkab/general/next_prev_navigation_in_category"
     render :update do |page|
       page.replace_html 'assets', assets
@@ -94,10 +98,10 @@ class AssetsController < ApplicationController
 
 	 store_location
 
-    respond_to do |format|
-      format.html # index.rhtml
-      format.xml  { render :xml => @assets.to_xml }
-    end
+#    respond_to do |format|
+#      format.html # index.rhtml
+#      format.xml  { render :xml => @assets.to_xml }
+#    end
   end
 
   # GET /assets/1
@@ -139,7 +143,7 @@ class AssetsController < ApplicationController
     end
     @asset = Asset.find(params[:id])
     type = @asset.resource_type.tableize.singularize
-		my_class = params[:classes] ? YAML.load(params[:classes])[type.to_sym] : ''
+	my_class = params[:classes] ? YAML.load(params[:classes])[type.to_sym] : ''
     resource = @asset.resource
 
 		redirect_to :type => "edit_#{type}_path".downcase,
@@ -207,7 +211,10 @@ class AssetsController < ApplicationController
 
   protected
 
-  def reindex(resources, list)
+  def reindex(resources, list, order = 'ASC')  
+  	if order == 'DESC'
+  		list.reverse!
+  	end
     resources.each do |resource|
       index = list.index(resource.id.to_s).to_i
       index += 1

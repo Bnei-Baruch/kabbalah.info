@@ -17,6 +17,7 @@ module EngkabHelper
     parent = options.delete(:id) || 0
     section = options.delete(:section_id) || 0
     placeholder = options.delete(:placeholder_id) || 0
+    order = options.delete(:order) || "ASC"
 
     function = options.delete(:function) || "sort_by_parent_id_asset_path"
 
@@ -25,7 +26,8 @@ module EngkabHelper
     url = self.send(function,
                      :id => parent,
                      :section_id => section,
-                     :placeholder_id => placeholder
+                     :placeholder_id => placeholder,
+                     :order => order
           ).gsub!(/&amp;/,'&')
     options[:url] = url
     options[:complete] = visual_effect(:highlight,

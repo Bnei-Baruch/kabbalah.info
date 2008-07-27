@@ -77,6 +77,10 @@ class Asset < ActiveRecord::Base
 		categories = Asset.find_all_by_section_id_and_resource_type(section.id, 'Category')
 		categories.select{|x| x.resource.property.title.downcase.include? 'media'}.first
 	end
+	def self.women_header(section)
+		categories = Asset.find_all_by_section_id_and_resource_type(section.id, 'Article')
+		categories.select{|x| x.resource.property.title.downcase.include? 'women header do not modify title'}.first
+	end
 protected
 	
 	def after_destroy

@@ -1,0 +1,38 @@
+<%if container && container.length > 0%>
+	<%  
+		secondary_display ||= ''
+    last_one = container.length - 1
+    index = -1
+		container.each do |asset|
+			index = index + 1
+	if @pagenum && display == 'show'
+		pgnum = @pagenum.to_i
+		pgnum = pgnum - 1
+		step_s = (pgnum * 5) -1
+		step_e = 5 + (pgnum * 5)
+	else
+		pgnum = 0
+		step_s = -1
+		step_e = 10000
+	end
+	
+	-%>
+	<% if (index > step_s ) && (index < step_e ) -%>
+	
+     <%	if (index != 0) && (display == "show") -%>
+        <div class="hr">&nbsp;</div>
+     <% end	%>
+     <%= render :partial => "engkab/#{display}/#{asset.resource_type.downcase}_#{display}#{secondary_display}",
+        :locals => { :asset => asset, :last_one => (index == last_one) } %>
+	<% end %>
+	<% end %>
+<% end %>
+
+
+
+
+
+
+
+
+

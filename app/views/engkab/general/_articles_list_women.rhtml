@@ -1,0 +1,12 @@
+<% 
+has_next = ( 15 < @page.assets_count)
+if defined?(@list_all) && @list_all == "true"
+	has_next = false
+end	
+%>
+
+	<% if has_next %>
+	<div id="pagination">
+		<%= link_to "More<span>&gt;&gt;</span>", site_page_url(@page, :list_all => "true"), :class => "next_page" -%>
+		</div>
+	<% end %>

@@ -11,8 +11,10 @@ module ApplicationHelper
   # Load proper configuration according to my_class -- type of an asset resource
   # Check field name (if supplied) to present
 	def setup_config(field_to_test = nil)
+		
+		#debugger
 		id = params[:my_class]
-		if id && Config::ASSET.has_key?(id.to_sym)
+		if id && id.is_a?(String) && !id.empty? && Config::ASSET.has_key?(id.to_sym)
 			fields_setup = Config::ASSET[id.to_sym]
 		else
 			fields_setup = Config::ASSET[:default]

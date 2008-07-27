@@ -38,7 +38,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :picture_galleries, :path_prefix => '/admin'
   map.resources :pictures, :path_prefix => '/admin'
   map.resources :section_previews, :path_prefix => '/admin'
-	map.resources :rss_feeders, :path_prefix => '/admin'
+  map.resources :rss_feeders, :path_prefix => '/admin'
   map.resources :links, :path_prefix => '/admin'
   map.resources :custom_previews, :path_prefix => '/admin'
   

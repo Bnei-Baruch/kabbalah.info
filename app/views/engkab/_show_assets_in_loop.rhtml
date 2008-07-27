@@ -1,13 +1,53 @@
-<%if container && container.length > 0%>
-	<%
+<% 
+if container && container.length > 0
+	if defined?(order) && order == "DESC"
 		secondary_display ||= ''
-    last_one = container.length - 1
-		container.each_with_index do |asset, index|
-	-%>
-     <%	if (index != 0) && (display == "show") -%>
-        <div class="hr">&nbsp;</div>
-     <% end	%>
-     <%= render :partial => "engkab/#{display}/#{asset.resource_type.downcase}_#{display}#{secondary_display}",
-        :locals => { :asset => asset, :last_one => (index == last_one) } %>
-	<% end %>
-<% end %>
+	  last_one = container.length - 1
+	  index = - 1
+		container.reverse_each do |asset|	
+			index = index + 1
+			if display == 'show'
+				if defined? @pagenum
+					pgnum = @pagenum.to_i
+					pgnum = pgnum - 1
+					step_s = (pgnum * 5) -1
+					step_e = 5 + (pgnum * 5)
+				else #@pagenum not defined - it happens when you move the ajax menu of the side
+					pgnum = 0
+					step_s = (pgnum * 5) -1
+					step_e = 5 + (pgnum * 5)
+				end
+			else 
+			# not display = show - usually happen for side element such as menu or other usuless kinda piece of page
+				pgnum = 0
+				step_s = -1
+				step_e = 10000
+			end
+			
+			-%>
+			
+			<% if (index > step_s ) && (index < step_e ) -%>
+			
+		     <%	if (index != 0) && (display == "show") -%>
+		        <div class="hr">&nbsp;</div>
+		     <% end	%>
+		     <%= render :partial => "engkab/#{display}/#{asset.resource_type.downcase}_#{display}#{secondary_display}",
+		        :locals => { :asset => asset, :last_one => (index == last_one) } %>
+			<% end %> <%#end of if index%>
+		<% end %> <%#end of do loop%>
+
+	<% else %> <%#if no order by%>
+
+		<%
+			secondary_display ||= ''
+	    last_one = container.length - 1
+			container.each_with_index do |asset, index|
+		-%>
+	     <%	if (index != 0) && (display == "show") -%>
+	        <div class="hr">&nbsp;</div>
+	     <% end	%>
+	     <%= render :partial => "engkab/#{display}/#{asset.resource_type.downcase}_#{display}#{secondary_display}",
+	        :locals => { :asset => asset, :last_one => (index == last_one) } %>
+		<% end %>
+	<% end %> <%#end of if order by%>
+<%end%> <%#end of the first if %>

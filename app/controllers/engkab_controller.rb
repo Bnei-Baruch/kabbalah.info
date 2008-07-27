@@ -161,7 +161,40 @@ protected
 		if @is_homepage
 			@media_pages = Asset.get_pages_by_parent(@media_category)
 			@events_pages = Asset.get_pages_by_parent(@events_category)
+			@top_article = @page.children[0] && @page.children[0].resource_type.eql?('Article') ? @page.children[0] : nil
+		end
+		calculate_main_assets
+		calculate_sidebar
+		if @page.parent &&
+			 @page.parent.resource_type == "Category" &&
+			 (not [@media_category, @events_category].include?(@page.parent))
+			@category = @page.parent
+		end
+		respond
+  end
+  
+  def women
+  	    calculate_homepage
+		@content_menues = calculate_content_menu(:categories_with_pages)
+		@media_category = Asset.media_category(@section)
+		@events_category = Asset.events_category(@section)
+	  if params[:p_options]
+	  	@pagenum = params[:p_options]
+	  else
+	  	@pagenum = 1
+  	end
+  
+  	if params[:list_all]
+  		@list_all = params[:list_all]
+		else
+			@list_all = "false"
+		end
+		
+		if @is_homepage
+			@media_pages = Asset.get_pages_by_parent(@media_category)
+			@events_pages = Asset.get_pages_by_parent(@events_category)
 			@top_video = @page.children[0] && @page.children[0].resource_type.eql?('Video') ? @page.children[0] : nil
+			@top_article = Asset.women_header(@section)
 		end
 		calculate_main_assets
 		calculate_sidebar
@@ -254,6 +287,7 @@ protected
 		@main_placeholder = Placeholder.main_placeholder
 		@main_assets = @page.children_by_placeholder(@main_placeholder)
 	end
+	
 	def calculate_homepage
 		@left_placeholder = Placeholder.homepage_left
 		@left_assets = @page.children_by_placeholder(@left_placeholder)
@@ -261,6 +295,8 @@ protected
 		@right_placeholder = Placeholder.homepage_right
 		@right_assets = @page.children_by_placeholder(@right_placeholder)
 	end
+	
+	
 	def calculate_categories( simple_mode = false )
 		if @page.parent && @page.parent.resource_type == "Category"
     	@category = @page.parent

@@ -1,0 +1,2 @@
+ @category_children = @category.children.select {|i| i.resource_type == "Page"}
+ 

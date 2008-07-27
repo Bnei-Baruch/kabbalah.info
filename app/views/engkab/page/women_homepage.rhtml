@@ -1,0 +1,90 @@
+<%#This part will be created for sidebar in articles %>
+
+<% content_for(:content_menu) do %>
+	<%= render :partial => "show_content_menu_in_loop" %><%# partial for Menu in Content menu%>
+	<%= render :partial => "engkab/box/services_box" %>
+	<%= render :partial => "engkab/box/sections_box" %><%# partial for Menu in Content menu%>
+<% end # content_menu %>
+
+
+<%	if @top_article
+		article = @top_article.resource
+	  end
+%>
+
+<% content_for(:top_article) do %>
+	<% if @top_article and not article.property.description.blank? %>
+		<div class="header-left"><%= article.property.description %></div>
+		<div class="header-right"><%= article.body %></div>
+		<% end %>
+		<%= render :partial => "admin/admin_pannel",
+					 :locals => { :edit_asset => @top_article,
+												:classes => YAML.dump({
+													:article => :article_women_header
+												}),
+					 							:nobreak => true
+					 						} %>
+<% end%>
+
+
+<% content_for(:top_video) do %>
+	<% if @top_video and not video.video_link.blank? %>
+		<div class="player" id="<%= "x#{video.id}" %>">
+			<script type="text/javascript">
+			//<![CDATA[
+			     CreateControl("<%= "x#{video.id}" %>","<%= video.video_link %>", 1, 340, 256);
+			//]]>
+			</script>
+		</div>
+	<% end %>
+	<%= render :partial => "admin/admin_pannel",
+					 :locals => { :edit_asset => @top_video,
+												:classes => YAML.dump({
+													:video => :video_in_worldwide_homepage
+												}),
+					 							:nobreak => true
+					 						} %>
+<% end # top_video %>
+
+<% content_for(:top_video_descr) do %>
+	<% if @top_video and not video.property.description.blank? %>
+		<p><%= video.property.description %></p>
+	<% end %>
+<% end # top_video_descr %>
+
+<% content_for(:homepage_left) do %>
+	<%= render :partial => "admin/admin_pannel",
+						 :locals => { :new_asset => { :parent_id => @page.id, 
+						 															:placeholder_id => @left_placeholder.id, 
+						 															:type => "custom_preview", 
+						 															:message => "New Asset",
+						 															:classes => YAML.dump({
+																						:custom_preview => :custom_preview
+						 															})
+						 														},
+						 							:nobreak => true
+						 						} %>
+	<% section = Section.find(1) %>
+	<%= render :partial => "show_assets_in_loop",
+						 :locals => { :container => @left_assets, :display => "show"  } %>
+
+<% end # homepage_left%>
+
+
+<% content_for(:homepage_right) do %>
+	<%= render :partial => "admin/admin_pannel",
+						 :locals => { :new_asset => { :parent_id => @page.id, 
+						 															:placeholder_id => @right_placeholder.id, 
+						 															:type => "custom_preview", 
+						 															:message => "New Asset",
+						 															:classes => YAML.dump({
+																						:custom_preview => :custom_preview
+						 															})
+						 														},
+						 							:nobreak => true
+						 						} %>
+
+	<%= render :partial => "show_assets_in_loop",
+						 :locals => { :container => @right_assets, :display => "show"  } %>
+
+<% end # homepage_right%>

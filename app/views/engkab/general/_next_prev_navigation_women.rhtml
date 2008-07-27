@@ -1,0 +1,27 @@
+<% 
+totalpage = @page.assets_count
+pn = @pagenum.to_i
+if pn < 2
+	
+	next_num = 2
+	has_prev = false
+	next_num = pn + 1
+	has_next = ((pn*5) < totalpage)
+else
+	
+	has_prev = true
+	prev_num = pn - 1
+	next_num = pn + 1
+	has_next = ((pn*5) < totalpage)
+	
+end
+%>
+
+<div id="pagination">
+	<% if has_prev%>
+		<%= link_to "<span>&lt;&lt;</span> Previous", site_page_url(@page, :p_options => prev_num), :class => "prev_page" -%>
+	<% end %>
+	<% if has_next %>
+		<%= link_to "Next <span>&gt;&gt;</span>", site_page_url(@page, :p_options => next_num), :class => "next_page" -%>
+	<% end %>
+</div>

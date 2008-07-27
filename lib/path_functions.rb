@@ -32,7 +32,7 @@ module PathFunctions
 		end
 	end
 
-	def site_page_url(my_object)
+	def site_page_url(my_object, p_options = nil)
 		# in case that the URL is for the section homepage when there is homepage
 		if my_object.is_a?(Section)
 			section = my_object
@@ -49,7 +49,9 @@ module PathFunctions
 		if REVERSE_REDIRECTIONS.has_key?([s, i])
 			REVERSE_REDIRECTIONS[[s, i]]
 		else
-			site_page0_url(:section => section, :id => id )
+			args = {:section => section, :id => id}
+			args.merge!(p_options) if p_options
+			site_page0_url(args)	
 		end
 	end
 

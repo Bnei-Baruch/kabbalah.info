@@ -165,6 +165,27 @@ module	Config
 			:services_hd_fg => "#0698bc",
 			:services_bottom_line => "#8dbdd4",
 		},
+		
+		:women => {
+			:middle_hd_bg => "#4E4E4E",
+			:middle_hd_fg => "#CCCDCF",
+			:bottom_line => "#b3b4b7",
+			:wide_line => "#b9bbbd",							# Wide line under header
+			:h2_font_size => "85%",
+			:category_active => "#b9bbbd",
+			:general_border => "#c2c3c6",
+			:rbox_border => "#fabca5",
+			:related_bg => "#f7f7f8",
+			:category_fg => "#4E4E4E",
+			:category_bg => "#f7f7f7",
+			:category_hd_bg => "#cecfd1",
+			:category_hd_fg => "#78797b",
+			:category_divider => "#eaeaea", # line between items
+			:services_hd_bg => "#b3d2e6",
+			:services_hd_fg => "#0698bc",
+			:services_bottom_line => "#8dbdd4",
+		},
+		
 	}
 
 	ASSET = 
@@ -211,6 +232,14 @@ module	Config
 			:image => nil,
 			:body => ['Content', 'The content of the box'],
 		},
+		:article_women_header => {
+			:title => nil,
+			:short_description => nil,
+			:description => ['Media Object', 'Video or image'],
+			:image => nil,
+			:body => ['Content', 'Side text of the header'],
+		},
+
 		:category => {
 			:title => ['Title', ''],
 			:box_title => ['Box Title', 'This is the title for the pages Table of contents'],
