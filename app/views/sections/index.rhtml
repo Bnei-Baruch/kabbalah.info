@@ -3,6 +3,7 @@
 <table border="1">
   <thead>
     <th>ID</th>
+    <th>Hide</th>
     <th>Title</th>
     <th>External Link</th>
     <th>Description</th>
@@ -16,6 +17,7 @@
 <% for section in @sections %>
   <tr>
     <td><%=h section.id %></td>
+    <td><%=h section.hide_section %></td>
     <td><%=h section.title %></td>
     <td><%=h section.external_link %></td>
     <td><%=h section.description %></td>
