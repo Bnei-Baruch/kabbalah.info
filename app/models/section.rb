@@ -51,14 +51,16 @@ class Section < ActiveRecord::Base
 	end
 
 	def active_environment?
-		unless hide_section
 			if has_homepage?
 				true
 			else
 				pages = Asset.find(:all, :conditions => "section_id = #{self.id} and resource_type = 'Page'")
 				pages && pages.any?{|page| page.published_page?}
 			end
-		end
+	end
+	
+	def is_hidden?
+		hide_section	
 	end
 
 	def has_homepage?

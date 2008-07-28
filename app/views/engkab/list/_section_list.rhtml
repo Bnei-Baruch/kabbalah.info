@@ -1,5 +1,6 @@
 <%#Displaying a single section in a list of sections -%>
-<% 
+<% if logged_in? || !section.is_hidden? %>
+<%
 	selected = section.eql?(@section) ? ' class="selected"' : ''
 	link_text = h(section.title)
 	if section.is_external_link?
@@ -12,6 +13,7 @@
 		url = section_first_page_url(section)
 		target = onclick = external = ''
 	end
+	
 -%>
 	<li id='section_<%= section.id %>'>
     <%= sort_handler(:force =>true) %><a href="<%= url %>"<%= target + selected + onclick %>><%= external %><%= link_text %></a>
@@ -19,3 +21,4 @@
       <div class="divider">&nbsp;</div>
     <% end %>
 	</li>
+<%end%>
