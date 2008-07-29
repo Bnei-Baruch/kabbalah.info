@@ -29,7 +29,7 @@
 				<div class="yui-g bg-middle-left"><%# Content (bottom) part %>
 					
           <div class="bg-middle-right hd-content">
-        
+					<div  class="custom_preview">
             <%
              id_left = sort_ul_id(@page.id, @page.section.id, @left_placeholder.id)
              id_right = sort_ul_id(@page.id, @page.section.id, @right_placeholder.id)
@@ -37,6 +37,7 @@
              yui_unit(:unit => "u first r-box", :id => id_left, :yield => :homepage_left) {}
              yui_unit(:unit => "u r-box", :id => id_right, :yield => :homepage_right) {}
            %>
+           </div>
         
             <div class="clear">&nbsp;</div>
 	         </div>

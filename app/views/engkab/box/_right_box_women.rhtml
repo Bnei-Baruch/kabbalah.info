@@ -1,0 +1,31 @@
+<%# loop over all assets that are boxes and show them as box%>
+<% if @right_box_assets %>
+  <% id = sort_ul_id(@page.id, @section.id, @right_box_placeholder.id) -%>
+  <div id='<%= id %>'>
+    <%= render :partial => "show_assets_in_loop",
+               :locals => { :container => @right_box_assets, :display => "box"  } %>
+  </div>
+  <%= make_sortable(
+           :id => @page.id,
+           :section_id => @section.id,
+           :placeholder_id => @right_box_placeholder.id,
+           :tag => 'div',
+           :only => 'r-box'
+      )
+  %>
+<% end %>
+<% if logged_in? %>
+<div class="r-box">
+	<%= render :partial => "admin/admin_pannel",
+						 :locals => { :new_asset =>
+						 								{ :parent_id => @page.id, 
+						 									:placeholder_id => @right_box_placeholder.id, 
+						 									:type => "article", 
+						 									:message => "New Box",
+ 															:classes => YAML.dump({
+ 																:article => :article_box
+ 															})
+						 								}
+						 						} %>
+</div>
+<% end %>

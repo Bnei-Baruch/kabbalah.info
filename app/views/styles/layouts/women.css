@@ -175,3 +175,8 @@ a.next_page, a.next_page:visited, a.prev_page, a.prev_page:visited{
 	font-weight:bold;
 	text-decoration:none;
 }
+
+.custom_preview li{
+	list-style-position: inside;
+}
+
