@@ -161,7 +161,7 @@ protected
 		if @is_homepage
 			@media_pages = Asset.get_pages_by_parent(@media_category)
 			@events_pages = Asset.get_pages_by_parent(@events_category)
-			@top_article = @page.children[0] && @page.children[0].resource_type.eql?('Article') ? @page.children[0] : nil
+			@top_video = @page.children[0] && @page.children[0].resource_type.eql?('Video') ? @page.children[0] : nil
 		end
 		calculate_main_assets
 		calculate_sidebar
