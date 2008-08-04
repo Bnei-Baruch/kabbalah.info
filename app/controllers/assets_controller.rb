@@ -80,7 +80,7 @@ class AssetsController < ApplicationController
   # GET /assets.xml
   def index
   	if !has_right?(:create)
-      redirect_to :unauthorized
+      access_denied
       return
     end
 		@section_id = param_by_pattern('section_id')

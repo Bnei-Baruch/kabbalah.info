@@ -3,7 +3,7 @@ class SectionsController < ApplicationController
   # GET /sections.xml
   def index
   	if !has_right?(:create)
-      redirect_to :unauthorized
+      access_denied
       return
     end
     @sections = Section.find(:all)
@@ -18,7 +18,7 @@ class SectionsController < ApplicationController
   # GET /sections/1.xml
   def show
   	if !has_right?(:create)
-      redirect_to :unauthorized
+      access_denied
       return
     end
     
@@ -33,7 +33,7 @@ class SectionsController < ApplicationController
   # GET /sections/new
   def new
     if !has_right?(:create)
-      redirect_to :unauthorized
+      access_denied
       return
     end
     @section = Section.new
@@ -42,7 +42,7 @@ class SectionsController < ApplicationController
   # GET /sections/1;edit
   def edit
     if !has_right?(:edit)
-      redirect_to :unauthorized
+      access_denied
       return
     end
     @section = Section.find_by_permalink(params[:id])
@@ -52,7 +52,7 @@ class SectionsController < ApplicationController
   # POST /sections.xml
   def create
     if !has_right?(:create)
-      redirect_to :unauthorized
+      access_denied
       return
     end
     @section = Section.new(params[:section])
