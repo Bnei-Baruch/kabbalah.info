@@ -2,6 +2,10 @@ class SectionsController < ApplicationController
   # GET /sections
   # GET /sections.xml
   def index
+  	if !has_right?(:create)
+      redirect_to :unauthorized
+      return
+    end
     @sections = Section.find(:all)
 
     respond_to do |format|
@@ -13,6 +17,11 @@ class SectionsController < ApplicationController
   # GET /sections/1
   # GET /sections/1.xml
   def show
+  	if !has_right?(:create)
+      redirect_to :unauthorized
+      return
+    end
+    
     @section = Section.find_by_permalink(params[:id])
 
     respond_to do |format|

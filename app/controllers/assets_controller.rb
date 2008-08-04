@@ -79,6 +79,10 @@ class AssetsController < ApplicationController
   # GET /assets
   # GET /assets.xml
   def index
+  	if !has_right?(:create)
+      redirect_to :unauthorized
+      return
+    end
 		@section_id = param_by_pattern('section_id')
 		@section = Section.find(@section_id)
   	@grand_parent_id = ''
@@ -107,6 +111,10 @@ class AssetsController < ApplicationController
   # GET /assets/1
   # GET /assets/1.xml
   def show
+  	if !has_right?(:create)
+      redirect_to :unauthorized
+      return
+    end
     @asset = Asset.find(params[:id])
 
     respond_to do |format|
