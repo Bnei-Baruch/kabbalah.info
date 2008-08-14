@@ -22,7 +22,7 @@ h2.hd-middle {
 	min-height:4px;
 	line-height:4px;
 	font-size:4px;
-  	margin:0 4px;
+  margin:0 4px;
 }
 div.hd-content{
 	/* padding:15px 20px 20px;*/
@@ -33,6 +33,7 @@ div.hd-hr-padding{
 	border-right:1px solid <%=@palette[:general_border]%>;
 	padding:0 20px;
 }
+
 div.hd-hr{
 	border-top:1px solid #c2c3c6;
 	min-height:1px;
@@ -51,9 +52,6 @@ div.video_descr{
 
 div.top_women{
 	min-height: 230px;
-	padding:10px 15px;
-	border:1px solid #e8e8ea;
-	background:white url('/files/layouts/<%=@layout%>/player_grad.gif') repeat-x top left;
 	font-size:85%;
 	color:#72777b;
 	line-height:14px;
@@ -64,12 +62,14 @@ div.top_women{
 }
 .top_women .header-left {
 	float: left;
-	padding-top: 3px;
+	padding-top: 0px;
 }
 .top_women .header-right {
-	border-width: 0px;
+  padding:10px;
+	border:1px solid #e8e8ea;
 	width: 50%;
 	float: right;
+  min-height:220px;
 }
 
 .top_women embed, .top_women object{
@@ -103,9 +103,9 @@ h3.title{
 	padding:13px 0 0;
 }
 div.hr{
-	border-top:1px solid #c2c3c6;
-	margin:20px 0 10px;
-	min-height:1px;
+  border-top: 0px solid #c2c3c6;
+	margin: 0px 0pt 7px;
+	min-height:0px;
 	line-height:1px;
 	font-size:1px;
 }
@@ -180,3 +180,6 @@ a.next_page, a.next_page:visited, a.prev_page, a.prev_page:visited{
 	list-style-position: inside;
 }
 
+.r-box h2{
+  margin:0 4px;
+ }
