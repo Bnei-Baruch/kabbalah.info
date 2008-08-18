@@ -102,13 +102,23 @@ h3.title{
 	margin:0 0 4px;
 	padding:13px 0 0;
 }
+
 div.hr{
+  border-top: 1px solid #c2c3c6;
+	margin: 20px 0pt 8px;
+	min-height:0px;
+	line-height:1px;
+	font-size:1px;
+}
+
+.custom_preview .hr{
   border-top: 0px solid #c2c3c6;
 	margin: 0px 0pt 7px;
 	min-height:0px;
 	line-height:1px;
 	font-size:1px;
 }
+
 <%# For worldwide homepage %>
 .media .right-item{
 	margin:0 0 10px;
