@@ -31,7 +31,7 @@ class RssFeeder < ActiveRecord::Base
 	
 	# 0 1,4,7,10,13,16,19,22 * * * (cd /sites/prod/en_main; ruby script/runner -e production RssFeeder.load_and_store_rss_objects)
 	def self.load_and_store_rss_objects
-		feeders = RssFeeder.find_all
+		feeders = RssFeeder.find:all
 		return if feeders == nil
 		feeders.each { |feeder|
 			begin
