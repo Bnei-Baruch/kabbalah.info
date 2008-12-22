@@ -129,7 +129,8 @@ class AssetsController < ApplicationController
       redirect_to :unauthorized
       return
     end
-    type = param_by_pattern('asset_type')
+    
+    type = param_by_pattern('asset_type').to_s
     classes = param_by_pattern('classes')
     my_class = classes ? YAML.load(classes)[type.to_sym] : ''
 		section_id = param_by_pattern('section_id')
