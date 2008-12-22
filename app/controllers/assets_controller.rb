@@ -1,5 +1,5 @@
 class AssetsController < ApplicationController
-
+#
   # POST /assets/1;sort_by_parent_id
   def sort_by_parent_id(do_render = true)
     (redirect_to :unauthorized and return) unless has_right?(:edit)
