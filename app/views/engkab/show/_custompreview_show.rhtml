@@ -13,7 +13,7 @@
 			<%= link_to image_tag( image.public_filename(:preview),
 										 :alt => image.alt,
 										 :title => image.alt,
-										 :class => "external-img" ), link, :rel => 'external', :class => "external-a" %>
+										 :class => "external-img" ), link, :rel => 'external nofollow', :class => "external-a" %>
 		<% end %>
 		<h3><%= link_to h(inner_title), link, :rel => 'external' %></h3>
 		<%= content %>
