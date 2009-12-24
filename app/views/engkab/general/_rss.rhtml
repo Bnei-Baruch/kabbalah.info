@@ -2,7 +2,7 @@
 #Displaying a single section in a list of sections
 %>
 <% 
-	items = RssFeeder.find(:first).items
+	items = RssFeeder.find(:first).items rescue []
 %>
 <% items.each do |item| %>
 				<p><%= link_to item[:title], item[:url], :rel => :external %></p>
