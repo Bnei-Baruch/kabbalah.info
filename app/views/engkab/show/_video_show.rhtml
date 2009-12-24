@@ -7,14 +7,18 @@
 	<div class="asset">
 		<h1><%= property.title %></h1>
 		<% if (not resource.flash.blank?) -%>
-			<div id='flashplayer<%= resource.id %>'></div>
-				<%= render :partial => "engkab/general/flash",
+		  <% if resource.flash =~ /object/ -%>
+			  <div id='flashplayer<%= resource.id %>' style='text-align:center'><%= resource.flash%></div>
+		  <% else %>
+			  <div id='flashplayer<%= resource.id %>'></div>
+				  <%= render :partial => "engkab/general/flash",
 						:locals => {:path => '/files/flash/player/',
 												:name => 'flvplayer',
 												:id => "flashplayer#{resource.id}",
 												:width => '320',
 												:height => '240',
 												:flashvars => "path=#{resource.flash}&width=320&height=240&skin=/files/flash/player/skin.swf"} %>
+		  <% end -%>
 		<% elsif (not resource.video_link.blank?) -%>
 			<div class="player" id="<%=id%>">
 				<script type="text/javascript">
@@ -27,7 +31,7 @@
 		<div class="media-description">
 			<% unless property.description.blank? -%>
 				<h4>Description</h4>
-				<p><%= property.description %></p>
+				<%= property.description %>
 			<% end -%>
 			
 			<% unless resource.transcript.blank? -%>
