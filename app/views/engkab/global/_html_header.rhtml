@@ -7,7 +7,7 @@
 	<meta http-equiv="Content-language" content="utf8" /> 
 
 	<meta name="verify-v1" content="Gu/TIAqQui+rwYsq+F3TZYXJvm63KGGjFKCjWbZdzbg=" />
-	<meta name="description" content="<%= @page.resource.property.short_description %>" />
+	<meta name="description" content="<%= h @page.resource.property.short_description %>" />
 	<% unless @is_homepage -%>
 		<meta name="keywords" content="<%= html_escape(@page.resource.keywords) %>" />
 	<% end -%>

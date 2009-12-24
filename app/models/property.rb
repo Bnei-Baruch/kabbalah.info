@@ -10,9 +10,9 @@ class Property < ActiveRecord::Base
 	end
 
 # Escaping the plain text 
-	def short_description
-		ERB::Util::h read_attribute('short_description')
-	end
+	#def short_description
+		#ERB::Util::h read_attribute('short_description')
+	#end
 
 	def title
 		ERB::Util::h read_attribute('title')

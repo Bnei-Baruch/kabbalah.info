@@ -25,7 +25,6 @@
       <div class="r-box-inner">
         <ul id='<%= id %>'>
           <% for page in Asset.get_pages_by_parent(@category, only_published) -%>
-          <%debugger%>
             <li id='asset_<%= page.id %>'>
                 <%= sort_handler %>
                 <%= link_to page.resource.property.title, site_page_url(page)%>
