@@ -55,12 +55,22 @@ h2.title{
 	font-weight:normal;
 	color:#A6A7AB;
 }
+h2.title a, h2.title a:visited, h2.title a:hover, h2.title a:focus{
+	color:#A6A7AB;
+	text-decoration:none;
+	cursor:text;
+}
 h3.title{
 	margin:0 0 15px;
 	font-size:116%;
 	color:#8E8F91;
 	font-weight:normal;
 	font-family:arial;
+}
+h3.title a, h3.title a:visited, h3.title a:hover, h3.title a:focus{
+	color:#A6A7AB;
+	text-decoration:none;
+	cursor:text;
 }
 #assets{
 	margin:0;
