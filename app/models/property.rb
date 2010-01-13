@@ -14,8 +14,8 @@ class Property < ActiveRecord::Base
 		#ERB::Util::h read_attribute('short_description')
 	#end
 
-	#def title
-		#ERB::Util::h read_attribute('title')
-	#end
+	def meta_title
+		read_attribute('title').gsub(/<\/?[^>]*>/, "")
+	end
 
 end
