@@ -13,6 +13,11 @@
 		}
 %>
 
+<%= display_field(:is_internal, "custom_preview_is_internal") {
+			f.check_box :is_internal
+		}
+%>
+
 <%= render :partial => 'share/set_property_fields' %>
 
 <%= render :partial => 'share/set_asset_fields' %>

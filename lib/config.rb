@@ -293,6 +293,7 @@ module	Config
 			:short_description => nil,
 			:description => ['Content', 'The content of the asset'],
 			:link => ['Link', 'The link to the target'],
+			:is_internal => ['Target', 'Is target internal?'],
 			:image => ['Image', 'The image of the asset'],
 		},
 		:video_gallery => {
