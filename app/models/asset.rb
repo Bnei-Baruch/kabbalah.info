@@ -41,11 +41,18 @@ class Asset < ActiveRecord::Base
 
 		if my_parent.is_a?(Asset)
 			if only_published
-				my_parent.children.select{|x| x.published_page?}
+				list = my_parent.children.select{|x| x.published_page?}
 			else
-				my_parent.children.select{|x| x.resource_type == 'Page'}
+				list = my_parent.children.select{|x| x.resource_type == 'Page'}
 			end
 		end
+		list.sort{ |a, b|
+			if (a.position == b.position)
+				b.created_at <=> a.created_at
+			else
+				a.position <=> b.position
+			end
+		}
 	end
 	
 	def is_page?
