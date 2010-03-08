@@ -52,7 +52,7 @@ class Asset < ActiveRecord::Base
 			else
 				a.position <=> b.position
 			end
-		}
+		} if list.respond_to?(:sort)
 	end
 	
 	def is_page?
