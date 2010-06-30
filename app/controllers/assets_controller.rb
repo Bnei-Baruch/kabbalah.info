@@ -1,5 +1,5 @@
 class AssetsController < ApplicationController
-#
+  #
   # POST /assets/1;sort_by_parent_id
   def sort_by_parent_id(do_render = true)
     (redirect_to :unauthorized and return) unless has_right?(:edit)
@@ -9,11 +9,11 @@ class AssetsController < ApplicationController
     @section_id = params[:section_id] || 0
     @placeholder_id = params[:placeholder_id] || 0
     resources = Asset.find_all_by_parent_id_and_section_id_and_placeholder_id(
-                        @parent_id,
-                        @section_id,
-                        @placeholder_id,
-                        :order => 'position ASC'
-                )
+      @parent_id,
+      @section_id,
+      @placeholder_id,
+      :order => 'position ASC'
+    )
 		list = params[sort_ul_id(@parent_id, @section_id, @placeholder_id)]
 		order = params[:order] || "ASC"
     
@@ -58,16 +58,18 @@ class AssetsController < ApplicationController
 
     # Re-render middle part
     resources = Asset.find_all_by_parent_id_and_section_id_and_placeholder_id(
-                        @parent_id,
-                        @section_id,
-                        @placeholder_id,
-                        :order => 'position ASC')
+      @parent_id,
+      @section_id,
+      @placeholder_id,
+      :order => 'position ASC')
     @page = Asset.find(@parent_id)
     @section = @page.section
     order = params[:order] || "ASC"	
     
 		assets = render_to_string :partial => "engkab/show_assets_in_loop",
-					 :locals => { :container => resources, :display => "show", :order => order }
+      :locals => { :container => resources, :display => "show", :order => order }
+
+    assets = ajax_safe assets
 					 
 		navigation = render_to_string :partial => "engkab/general/next_prev_navigation_in_category"
     render :update do |page|
@@ -97,15 +99,15 @@ class AssetsController < ApplicationController
   	end
 
 		@assets = Asset.find(:all,
-    	 									 :conditions => ["section_id = ? AND parent_id = ?",
-    	 									 								 @section_id, @parent_id], :order => "position ASC")
+      :conditions => ["section_id = ? AND parent_id = ?",
+        @section_id, @parent_id], :order => "position ASC")
 
-	 store_location
+    store_location
 
-#    respond_to do |format|
-#      format.html # index.rhtml
-#      format.xml  { render :xml => @assets.to_xml }
-#    end
+    #    respond_to do |format|
+    #      format.html # index.rhtml
+    #      format.xml  { render :xml => @assets.to_xml }
+    #    end
   end
 
   # GET /assets/1
@@ -138,10 +140,10 @@ class AssetsController < ApplicationController
 		parent_id = param_by_pattern('parent_id')
 
     redirect_to :type => "new_#{type}_path",
-					:section_id => section_id,
-					:placeholder_id => placeholder_id,
-					:parent_id => parent_id,
-					:my_class => my_class
+      :section_id => section_id,
+      :placeholder_id => placeholder_id,
+      :parent_id => parent_id,
+      :my_class => my_class
   end
 
   # GET /assets/1;edit
@@ -152,12 +154,12 @@ class AssetsController < ApplicationController
     end
     @asset = Asset.find(params[:id])
     type = @asset.resource_type.tableize.singularize
-	my_class = params[:classes] ? YAML.load(params[:classes])[type.to_sym] : ''
+    my_class = params[:classes] ? YAML.load(params[:classes])[type.to_sym] : ''
     resource = @asset.resource
 
 		redirect_to :type => "edit_#{type}_path".downcase,
-								:id => resource,
-								:my_class => my_class
+      :id => resource,
+      :my_class => my_class
   end
 
   # POST /assets
@@ -234,4 +236,43 @@ class AssetsController < ApplicationController
     end
   end
 
+  def ajax_safe(str)
+    #    <script type="text/javascript">writeFlash({
+    #    "allowFullScreen":"true",
+    #    "allowscriptaccess":"always",
+    #    "src":"http://www.youtube.com/v/XXToG-2VWTo&hl=en&fs=1",
+    #    "width":"522",
+    #    "height":"322"
+    #    });</script>
+
+    regex = /<script type="text\/javascript">writeFlash\({.+}\);<\/script>/
+    while str =~ regex
+      result = $`
+      ending = $'
+
+      s1 = $~
+      a = s1.to_s.scan(/"(.+?)":"(.+?)"/).flatten
+      h = Hash[*a]
+
+      result += "<object width='#{h['width']}' height='#{h['height']}' type='application/x-shockwave-flash'" +
+        ' codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"' +
+        ' classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000">'
+      result += "<param value='#{h['allowFullScreen']}' name='allowFullScreen'>"
+      result += "<param value='#{h['allowscriptaccess']}' name='allowscriptaccess'>"
+      result += "<param value='#{h['src']}' name='src'>"
+      result += "<param value='#{h['width']}' name='width'>"
+      result += "<param value='#{h['height']}' name='height'>"
+      result += "<embed width='#{h['width']}' height='#{h['height']}'"
+      result += "  src='#{h['src']}'"
+      result += "  allowscriptaccess='#{h['allowscriptaccess']}'"
+      result += "  allowfullscreen='#{h['allowfullscreen']}'"
+      result += "  type='application/x-shockwave-flash' />"
+      result += "</object>"
+      result += ending
+
+      str = result
+    end
+
+    str
+  end
 end
