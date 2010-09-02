@@ -1,0 +1,10 @@
+<%=
+  
+    link_to image_tag( "#{path + name}.jpg",
+        :alt => "",
+        :style=> "position:relative; top:1.8px; border:none;", #to fix the shadow background
+        :height => "#{height}",
+        :width => "#{width}"
+      ) , "#{url}"
+
+-%>

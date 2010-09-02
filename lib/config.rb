@@ -378,4 +378,20 @@ module	Config
 		},
 	}
 
+  BANNER_TYPE =
+	{
+#		:partial => 'engkab/general/image',
+#    :path => '/files/main_flash/',
+#    :name => 'homepage_img',
+#    :link => 'http://www.kabbalahlearningcenter.info/?utm_source=kabbalahinfo-hometop&utm_medium=link&utm_campaign=lc-fall-2010',
+#    :width => '756px',
+#    :height => '242px'
+
+    :partial => 'engkab/general/flash',
+    :path => '/files/main_flash/',
+    :name => 'flashbox',
+    :link => '',
+    :width => '100%',
+    :height => '100%',
+ }
 end

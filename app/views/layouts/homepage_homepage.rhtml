@@ -18,17 +18,18 @@ var WRInitTime=(new Date()).getTime();
         box_with_shadow(false) {
          # Flash
          yui_grid(:id => "flash") {
-           yui_render(:partials => ["engkab/general/flash"],
-                      :locals => {:path => '/files/main_flash/',
-                                  :name => 'flashbox',
-                                  #:name => 'Zohar2010%20NY%20756x242',
-                                  :id => 'flashbox',
-                                  :width => '100%',
-                                  :height => '100%'
+            
+             yui_render(:partials => [Config::BANNER_TYPE[:partial]],
+                          :locals => {:path => Config::BANNER_TYPE[:path],
+                                      :name => Config::BANNER_TYPE[:name],
+                                      :id => 'flashbox',
+                                      :width => Config::BANNER_TYPE[:width],
+                                      :height => Config::BANNER_TYPE[:height],
+                                      :url => Config::BANNER_TYPE[:link]
 
-                      }
-                    ) {}
-           }
+                          }
+                        ) {}
+         }
          }
          # Content (top) part
          yui_grid(:id => "resizer") {
