@@ -383,7 +383,7 @@ module	Config
 		:partial => 'engkab/general/image',
     :path => '/files/main_flash/',
     :name => 'homepage_img',
-    :link => 'http://www.kabbalahlearningcenter.info/web/promo/?utm_source=kabbalahinfo-hometop&utm_medium=link&utm_campaign=lc-fall-2010',
+    :link => 'http://www.kabbalahlearningcenter.info/web/promo/lc?utm_source=kabbalahinfo-hometop&utm_medium=link&utm_campaign=lc-fall-2010',
     :width => '756px',
     :height => '242px'
 
