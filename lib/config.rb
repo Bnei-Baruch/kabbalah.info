@@ -384,8 +384,8 @@ module	Config
     :path => '/files/main_flash/',
     :name => 'homepage_img',
     :link => 'http://www.kabbalahlearningcenter.info/web/promo/lc?utm_source=kabbalahinfo-hometop&utm_medium=link&utm_campaign=lc-fall-2010',
-    :width => '756px',
-    :height => '242px'
+    :width => '744px',
+    :height => '240px'
 
 #    :partial => 'engkab/general/flash',
 #    :path => '/files/main_flash/',
