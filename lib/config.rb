@@ -380,10 +380,10 @@ module	Config
 
   BANNER_TYPE =
 	{
-		:partial => 'engkab/general/image',
+	:partial => 'engkab/general/image',
     :path => '/files/main_flash/',
     :name => 'homepage_img',
-    :link => 'http://www.kabbalahlearningcenter.info/web/promo/lc?utm_source=kabbalahinfo-hometop&utm_medium=link&utm_campaign=lc-fall-2010',
+    :link => 'http://www.kabbalahlearningcenter.info/lp/free?utm_source=kabbalahinfo-hometop&utm_medium=link&utm_campaign=lc-fall-2010',
     :width => '744px',
     :height => '240px'
 
