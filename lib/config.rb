@@ -390,7 +390,7 @@ module	Config
     :partial => 'engkab/general/flash',
     :path => '/files/main_flash/',
     :name => 'flashbox',
-    :link => 'http://www.kabbalah.info/convention/world-kabbalah-convention-2010?utm_source=kabbalahinfo-hometop&utm_medium=link&utm_campaign=lc-fall-2010',
+    :link => 'http://www.kabbalahlearningcenter.info/lp/freevid?utm_source=kabbalahinfo-hometop&utm_medium=link&utm_campaign=lc-fall-2010',
     :width => '745px;',
     :height => '100%'
  }
