@@ -1,10 +1,55 @@
-<div id='flashbox' style="position:relative; top:1px; left:2px; width: 745px; height:240px;"></div>
-<%=
-  content = "var FO = {movie:'#{path + name}.swf',width:'#{width}',height:'#{height}',majorversion:'6', build:'4'"
-  if flashvars ||= nil
-    content += ", flashvars:'#{flashvars}'"
-  end
-  content += "};UFO.create(FO, '#{id}');"
+<script type='text/javascript' src='http://partner.googleadservices.com/gampad/google_service.js'>
+</script>
+<script type='text/javascript'>
+GS_googleAddAdSenseService("ca-pub-9068547212525872");
+GS_googleEnableAllServices();
+</script>
+<script type='text/javascript'>
+GA_googleAddSlot("ca-pub-9068547212525872", "Kabbalahinfo_homepage");
+GA_googleAddSlot("ca-pub-9068547212525872", "kabbalahinfo_homepage_id-2");
+</script>
+<script type='text/javascript'>
+GA_googleFetchAds();
+</script>
 
-  javascript_tag(content)
+<%= javascript_include_tag 'jquery-1.4.2.js'-%>
+<%= javascript_include_tag 'jquery.cycle.all.2.72'-%>
+<%= javascript_include_tag 'init-cycler'-%>
+<%=
+   content = "jQuery.noConflict()(function(){"
+   content += "jQuery('body').addClass('js');"
+   content += "$slideshow.init();"
+   content += "jQuery('#slide-1').click(function() {"
+   content += "jQuery('div.slides > ul').cycle('pause');"
+   content += "});"
+   content += "});"
+
+   javascript_tag(content)
 -%>
+
+	  <div id="slideshow">
+            <div class="slides" style="position: relative; top: 0; left: 2px; width: 745px; height: 240px; visibility: visible;" >
+               <ul>
+                	    <li id="slide-1">
+                                      <object lassid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" width="756" height="242">
+                                      <param name="movie" value="/files/main_flash/flashbox.swf">
+                                      <embed src="/files/main_flash/flashbox.swf" wmode="transparent"  width="756" height="242" type="application/x-shockwave-flash" pluginspace="http://get.adobe.com/flashplayer/"></embed></object>
+                            </li>
+
+                	    <li id="slide-2" style="display:none;"><script type='text/javascript'>GA_googleFillSlot("Kabbalahinfo_homepage");</script></li>
+
+                	    <li id="slide-3" style="display:none;"><script type='text/javascript'>GA_googleFillSlot("kabbalahinfo_homepage_id-2");</script></li>
+		</ul>
+            </div>
+            <ul class="slides-nav clearfix">
+                <li class="on">
+                      <a  title="First" href="#slide-1"><img src="/files/layouts/cycler/shape_square.png" alt="" class="fr" /></a>
+                </li>
+                <li >
+                      <a  title="Second" href="#slide-2"><img src="/files/layouts/cycler/shape_square.png" alt="" class="fr" /></a>
+                </li>
+                <li >
+                      <a  title="Third" href="#slide-3"><img src="/files/layouts/cycler/shape_square.png" alt="" class="fr" /></a>
+                </li>
+            </ul>
+          </div>
