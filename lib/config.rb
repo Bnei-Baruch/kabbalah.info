@@ -390,8 +390,8 @@ module	Config
     :partial => 'engkab/general/flash',
     :path => '/files/main_flash/',
     :name => 'flashbox',
-    :link => 'http://www.kabbalahlearningcenter.info/lp/freevid?utm_source=kabbalahinfo-hometop&utm_medium=link&utm_campaign=lc-fall-2010',
-    :width => '745px;',
+    :link => '',
+    :width => '100%',
     :height => '100%'
  }
 end
