@@ -6,6 +6,7 @@
 <%= render :file => 'styles/r_box.css' %>
 <%= render :file => 'styles/tables.css' %>
 <%= render :file => 'styles/slideshow.css' %>
+
 <%= render :file => "styles/layouts/#{@layout}.css" %>
 
 <% for asset in @permitted_assets %>
