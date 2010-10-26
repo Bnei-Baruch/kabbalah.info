@@ -34,7 +34,7 @@ $slideshow = {
             pagerAnchorBuilder: $slideshow.prepareTabs,
             before: $slideshow.activateTab,
             pauseOnPagerHover: false,
-            pause: true
+            pause: false
         });            
     },
     
