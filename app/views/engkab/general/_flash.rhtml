@@ -22,6 +22,10 @@ GA_googleFetchAds();
    content += "jQuery('#slide-1').click(function() {"
    content += "jQuery('div.slides > ul').cycle('stop');"
    content += "});"
+
+   content += "jQuery('slides-nav > li').click(function() {"
+   content += "jQuery('div.slides > ul').cycle('resume');"
+   content += "});"
    content += "});"
 
    javascript_tag(content)
