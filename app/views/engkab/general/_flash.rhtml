@@ -20,11 +20,11 @@ GA_googleFetchAds();
    content += "jQuery('body').addClass('js');"
    content += "$slideshow.init();"
    content += "jQuery('#slide-1').click(function() {"
-   content += "jQuery('div.slides > ul').cycle('stop');"
+   content += "jQuery('div.slides > ul').cycle('pause');"
    content += "});"
 
-   content += "jQuery('slides-nav > li').click(function() {"
-   content += "alert('a'); jQuery('div.slides > ul').cycle('resume');"
+   content += "jQuery('.slides-nav > li').click(function() {"
+   content += "jQuery('div.slides > ul').cycle('resume');"
    content += "});"
    content += "});"
 
