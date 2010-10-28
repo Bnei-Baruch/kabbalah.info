@@ -387,7 +387,7 @@ module	Config
 #    :width => '744px',
 #    :height => '240px'
 
-    :partial => 'engkab/general/flash',
+    :partial => 'engkab/general/flash'
 #    :path => '/files/main_flash/',
 #    :name => 'flashbox',
 #    :link => '',
