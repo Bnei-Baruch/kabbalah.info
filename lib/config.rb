@@ -388,10 +388,10 @@ module	Config
 #    :height => '240px'
 
     :partial => 'engkab/general/flash',
-    :path => '/files/main_flash/',
-    :name => 'flashbox',
-    :link => '',
-    :width => '100%',
-    :height => '100%'
+#    :path => '/files/main_flash/',
+#    :name => 'flashbox',
+#    :link => '',
+#    :width => '100%',
+#    :height => '100%'
  }
 end
